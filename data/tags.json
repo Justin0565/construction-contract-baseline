@@ -1,0 +1,3 @@
+[
+  {"id":"condition-precedent","name":"Condition Precedent"},{"id":"time-bar","name":"Time Bar"},{"id":"claim","name":"Claim"},{"id":"counterclaim","name":"Counterclaim / Countercharge"},{"id":"determination","name":"Determination"},{"id":"breach-default","name":"Breach / Default"},{"id":"remedy","name":"Remedy"},{"id":"indemnity","name":"Indemnity"},{"id":"deduction-setoff","name":"Deduction / Set-off"},{"id":"termination-trigger","name":"Termination Trigger"},{"id":"deemed-approval","name":"Deemed Approval"},{"id":"deemed-rejection","name":"Deemed Rejection"},{"id":"back-to-back","name":"Back-to-back"},{"id":"waiver-discharge","name":"Waiver / Discharge"}
+]
