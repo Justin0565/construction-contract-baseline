@@ -1,30 +1,14 @@
 # Construction Contract Baseline
 
-## Current pilot scope
+## What this prototype does
 
-This static legal-research prototype models **Scope & Works / 工程范围与工作内容** as a practical construction-performance system. It is not a FIDIC clause directory: performance categories, nodes and elements form the product model; FIDIC clauses are the source and verification layer.
+This is a static, browser-based model of the functional structure of the FIDIC 2017 Red Book and FIDIC 1999 Red Book. It helps a construction contract lawyer move from a high-level legal module to its sub-issues, elements, core legal effects, clause references and edition crosswalk.
 
-The current hierarchy is:
+The prototype is a structural research tool, not legal advice. It uses sample clause numbers, headings and short paraphrases only. It does not reproduce FIDIC clause wording.
 
-1. Main Contract System — `scope_and_works`
-2. Practice Category — four practical categories
-3. Performance Node — 27 performance subjects
-4. Clause Element — 69 atomic legal/operational elements
-5. Source Layer — 70 FIDIC 2017 Red clause records
-6. Mapping Layer — element-to-clause mappings
-7. Tag Layer — express legal-effect classifications
+## Opening the prototype
 
-Work on Time & Completion, Price & Payment, Risk & Protection, Default / Remedies / Termination and Claims / Disputes is outside this pilot except for cross-links and legal-effect tags.
-
-## Run locally
-
-Open a terminal in this project folder.
-
-Windows:
-
-```powershell
-py -m http.server 8000
-```
+For live editing of the JSON data, open a terminal in the `construction-contract-baseline` folder and start a local server.
 
 Mac/Linux:
 
@@ -32,40 +16,70 @@ Mac/Linux:
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000/`.
+Windows:
 
-No installation, build step, package manager, framework, database or external dependency is required. If JSON cannot be loaded, the interface shows compact fallback data rather than a blank page.
-
-## Data files
-
-- `data/modules.json` — Main Contract System record.
-- `data/practice_categories.json` — four Scope & Works practice categories.
-- `data/performance_nodes.json` — practical performance nodes linked by `practice_category_id`.
-- `data/clause_elements.json` — atomic elements linked by `performance_node_id`, with clause references, legal-effect tags and tag reasons.
-- `data/tags.json` — the controlled 17-tag vocabulary, including separate EOT, Deduction, Withholding and Set-off tags.
-- `data/fidic_2017_red_clauses.json` — FIDIC 2017 Red source-library records.
-- `data/node_clause_map.json` — primary element-to-clause mappings and review status.
-- `data/tag_clause_index.json` — denormalised index used for tag exploration.
-
-IDs are the joins between files. Do not change an ID without updating every file that refers to it.
-
-## Source-text status
-
-No licensed clause-source files were available under `/source` or `/data/source` when this pilot was built. Therefore every source-library record contains:
-
-```json
-"full_clause_text": "[SOURCE TEXT NOT YET LOADED]",
-"verification_status": "source_text_not_loaded"
+```powershell
+py -m http.server 8000
 ```
 
-Do not replace the placeholder with recalled, reconstructed or unlicensed wording. When an authorised source is added, copy or parse it accurately, record provenance, then complete lawyer verification.
+Then open:
 
-## Tagging discipline
+`http://localhost:8000`
 
-Tags apply only at Clause Element level. Every applied tag has an express `tag_reason` and remains `needs_lawyer_review` until source text is loaded and checked. Empty tag arrays are intentional where express legal effect has not been verified.
+Some browsers block separate JSON files when `index.html` is opened by double-clicking. The dashboard will still display its embedded fallback sample data, but changes made to the JSON files will only appear when the folder is served through a local server.
 
-Ordinary Variation adjustment under the Variation by Instruction route is intentionally **not** tagged `claim`: the model separates the ordinary Clause 13 adjustment route from a Sub-Clause 20.2 Claim.
+No installation, build step, framework, database or internet connection is required.
 
-## Product boundary
+## How the data files work
 
-This is a baseline-modelling prototype only. It does not parse Particular Conditions, review project contracts or draft amendments. Those remain future subsystems.
+All dashboard content is held in the `data` folder:
+
+- `modules.json` — the seven top-level functional modules.
+- `sub_issues.json` — legal sub-issues, linked to a module by `moduleId`.
+- `elements.json` — the legal/functional elements, linked by `subIssueId`; each element also lists its permitted `tagIds`.
+- `tags.json` — the controlled list of 14 Core Legal Effect Tags. Do not add tags without an express product decision.
+- `fidic_2017_red_map.json` — sample 2017 Red Book clause references linked by `elementId`.
+- `fidic_1999_red_map.json` — sample 1999 Red Book clause references linked by `elementId`.
+- `crosswalk_2017_1999.json` — short structural comparison notes linked by `elementId`.
+
+The IDs are the joins between files. For example, an element with `subIssueId: "time-delay"` appears under that sub-issue. A mapping row with the same `elementId` as the element appears in its clause table.
+
+## How a lawyer can update the JSON
+
+1. Make a backup copy of the file to be changed.
+2. Open the JSON file in a plain-text editor.
+3. Copy a nearby object (the content between `{` and `}`) as a pattern.
+4. Give a new record a short, unique `id`. IDs should use lowercase words separated by hyphens.
+5. Preserve commas between objects and keep all text inside double quotation marks.
+6. Use an existing module, sub-issue, element or tag ID when making a link.
+7. Refresh the browser to see the change.
+
+For classifications in Scope & Interface, Time, and Payment / Price, use only:
+
+- `Baseline` — the original contractual baseline, such as Works, Site, Time for Completion or Contract Price.
+- `Adjustment` — a mechanism that changes that baseline, such as a Variation, EOT, remeasurement or cost adjustment.
+- `Control Mechanism` — a procedural or legal control, such as notice, determination or certification.
+
+For legal effects, use only IDs already present in `tags.json`. Adding a tag to `tags.json` alone is not enough; add its ID to the relevant element's `tagIds` list.
+
+Use clause numbers, headings and concise original paraphrases. Do not copy clause wording from a FIDIC publication.
+
+## Why 2017 Red is the functional master reference
+
+The 2017 Red Book is used as the master structural reference because its contract administration, claims and dispute processes are more explicit and more systematically separated. This makes it a useful organising framework for a functional legal model. The choice does not imply that 2017 wording governs any individual project.
+
+## Why 1999 Red is the market baseline
+
+The 1999 Red Book remains a practical market baseline because it has been widely used, amended and incorporated into project contracts over a long period. Mapping 2017 functions back to 1999 supports recognition of familiar clause architecture and later comparison with market forms.
+
+## Product boundary and future modules
+
+This phase establishes structure, functional logic, labels, elements, legal effects and the 2017/1999 mapping. It deliberately does not interpret project-specific Particular Conditions.
+
+Planned future subsystems are:
+
+- Particular Conditions Amendment Parser
+- Contract Review Engine
+- Drafting Engine
+
+These should consume the baseline model later; they should not be mixed into this prototype.

@@ -1,617 +1,402 @@
-const contractSystems = [
-  {
-    id: "contract-mechanics",
-    number: "01",
-    title: "Contract Mechanics",
-    chineseTitle: "合同机制",
-    color: "#7566d8",
-    colorDeep: "#5e4fc4",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 4, side: "right" },
-    categories: [
-      "Definitions & Interpretation",
-      "Notices & Communications",
-      "Contract Administration",
-      "Document Hierarchy"
-    ]
-  },
-  {
-    id: "scope-works",
-    number: "02",
-    title: "Scope & Works",
-    chineseTitle: "空间 / 工程范围与工作内容",
-    color: "#20b7a7",
-    colorDeep: "#10988d",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 116, side: "right" },
-    approved: true,
-    categories: [
-      "Main Performance Obligations / 主要义务",
-      "Ancillary Management Obligations / 附带义务，即管理",
-      "Employer Enabling Obligations / 业主 / 对方使能义务",
-      "Scope Variables and Variations / 变量，即变更"
-    ]
-  },
-  {
-    id: "time-completion",
-    number: "03",
-    title: "Time & Completion",
-    chineseTitle: "时间与完工",
-    color: "#3b8fe5",
-    colorDeep: "#2376cc",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 228, side: "right" },
-    categories: ["Commencement", "Programme", "Progress Control", "EOT", "Completion"]
-  },
-  {
-    id: "price-payment",
-    number: "04",
-    title: "Price & Payment",
-    chineseTitle: "价格与付款",
-    color: "#f0b32f",
-    colorDeep: "#d59412",
-    textColor: "#3b2a07",
-    panel: { x: 940, y: 356, side: "right" },
-    categories: ["Price Basis", "Payment Process", "Certification", "Deductions and Final Account"]
-  },
-  {
-    id: "risk-protection",
-    number: "05",
-    title: "Risk & Protection",
-    chineseTitle: "风险与保障",
-    color: "#ec6a8b",
-    colorDeep: "#d95076",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 344, side: "left" },
-    categories: ["Risk Allocation", "Insurance", "Indemnities", "Securities"]
-  },
-  {
-    id: "default-remedies-termination",
-    number: "06",
-    title: "Default, Remedies & Termination",
-    chineseTitle: "违约、救济与终止",
-    color: "#ed7655",
-    colorDeep: "#d85c3a",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 184, side: "left" },
-    categories: ["Delay Consequences", "Defects Consequences", "Termination Rights", "Post-Termination Effects"]
-  },
-  {
-    id: "claims-determination-disputes",
-    number: "07",
-    title: "Claims, Determination & Disputes",
-    chineseTitle: "索赔、确定与争议",
-    color: "#79ad45",
-    colorDeep: "#60922f",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 24, side: "left" },
-    categories: ["Claims Procedure", "Determination", "Dispute Escalation", "Arbitration"]
-  }
-];
+/*
+ * Construction Contract Baseline
+ * Plain JavaScript only. The JSON files are the source of truth; this file
+ * joins them by their id fields and renders the dashboard.
+ */
 
-const fidicClauses = [
-  { number: 1, title: "General Provisions", color: "#8793a0" },
-  { number: 2, title: "The Employer", color: "#5da965" },
-  { number: 3, title: "The Engineer", color: "#519f67" },
-  { number: 4, title: "The Contractor", color: "#438d5c" },
-  { number: 5, title: "Subcontracting", color: "#81b980" },
-  { number: 6, title: "Staff and Labour", color: "#9caf8b" },
-  { number: 7, title: "Plant, Materials and Workmanship", color: "#a9b99c" },
-  { number: 8, title: "Commencement, Delays and Suspension", color: "#d88745" },
-  { number: 9, title: "Tests on Completion", color: "#d5a843" },
-  { number: 10, title: "Employer’s Taking Over", color: "#c99638" },
-  { number: 11, title: "Defects after Taking Over", color: "#b98a3a" },
-  { number: 12, title: "Measurement and Valuation", color: "#4f8fd8" },
-  { number: 13, title: "Variations and Adjustments", color: "#32a787" },
-  { number: 14, title: "Contract Price and Payment", color: "#38acc1" },
-  { number: 15, title: "Termination by Employer", color: "#cf5b5e" },
-  { number: 16, title: "Suspension and Termination by Contractor", color: "#b94d55" },
-  { number: 17, title: "Care of the Works and Indemnities", color: "#8468c4" },
-  { number: 18, title: "Exceptional Events", color: "#9a83c9" },
-  { number: 19, title: "Insurance", color: "#a75f9d" },
-  { number: 20, title: "Employer’s and Contractor’s Claims", color: "#c64f89" },
-  { number: 21, title: "Disputes and Arbitration", color: "#ad3e7b" }
-];
-
-const tagGroupsData = [
-  {
-    title: "Entitlement & Procedure",
-    chineseTitle: "权利主张与程序门槛",
-    tags: ["Claim", "Condition Precedent", "Counterclaim / Countercharge", "EOT", "Time Bar", "Waiver / Discharge"]
-  },
-  {
-    title: "Determination & Deemed Effects",
-    chineseTitle: "决定机制与拟制效果",
-    tags: ["Deemed Approval", "Deemed Rejection", "Determination"]
-  },
-  {
-    title: "Remedies, Risk & Payment Controls",
-    chineseTitle: "救济、风险与付款控制",
-    tags: ["Back-to-back", "Breach / Default", "Deduction", "Indemnity", "Remedy", "Set-off", "Termination Trigger", "Withholding"]
-  }
-];
-
-const tagClauseMappings = {
-  "Back-to-back": [],
-  "Breach / Default": [
-    ["4.1", "Contractor's General Obligations"],
-    ["8.8", "Delay Damages"],
-    ["11.4", "Failure to Remedy Defects"],
-    ["15.2", "Termination for Contractor's Default"]
-  ],
-  Claim: [
-    ["1.9", "Delayed Drawings or Instructions"],
-    ["1.13", "Compliance with Laws"],
-    ["2.1", "Right of Access to the Site"],
-    ["4.12", "Unforeseeable Physical Conditions"],
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  "Condition Precedent": [
-    ["4.2", "Performance Security"],
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["21.4", "Obtaining DAAB's Decision"]
-  ],
-  "Counterclaim / Countercharge": [
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  Deduction: [
-    ["8.8", "Delay Damages"],
-    ["11.4", "Failure to Remedy Defects"],
-    ["14.6", "Issue of IPC"],
-    ["14.15", "Currencies of Payment"]
-  ],
-  "Deemed Approval": [
-    ["3.7", "Agreement or Determination"],
-    ["13.3.1", "Variation by Instruction"]
-  ],
-  "Deemed Rejection": [
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["21.4", "Obtaining DAAB's Decision"]
-  ],
-  Determination: [
-    ["3.7", "Agreement or Determination"],
-    ["13.3.1", "Variation by Instruction"],
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  EOT: [
-    ["2.1", "Right of Access to the Site"],
-    ["8.5", "Extension of Time for Completion"],
-    ["8.6", "Delays Caused by Authorities"],
-    ["13.3.1", "Variation by Instruction"],
-    ["13.6", "Adjustments for Changes in Laws"]
-  ],
-  Indemnity: [
-    ["1.13", "Compliance with Laws"],
-    ["17.4", "Indemnities by the Contractor"],
-    ["17.5", "Indemnities by the Employer"]
-  ],
-  Remedy: [
-    ["7.5", "Defects and Rejection"],
-    ["7.6", "Remedial Work"],
-    ["11.1", "Completion of Outstanding Work and Remedying Defects"],
-    ["11.4", "Failure to Remedy Defects"]
-  ],
-  "Set-off": [
-    ["2.2", "Assistance"],
-    ["8.8", "Delay Damages"],
-    ["14.6", "Issue of IPC"]
-  ],
-  "Termination Trigger": [
-    ["15.2", "Termination for Contractor's Default"],
-    ["15.5", "Termination for Employer's Convenience"],
-    ["16.2", "Termination by Contractor"]
-  ],
-  "Time Bar": [
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  "Waiver / Discharge": [
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["14.12", "Discharge"]
-  ],
-  Withholding: [
-    ["14.6", "Issue of IPC"],
-    ["14.9", "Payment of Retention Money"],
-    ["15.4", "Payment after Termination for Contractor's Default"]
-  ]
+const DATA_FILES = {
+  modules: "./data/modules.json",
+  issues: "./data/sub_issues.json",
+  elements: "./data/elements.json",
+  tags: "./data/tags.json",
+  map2017: "./data/fidic_2017_red_map.json",
+  map1999: "./data/fidic_1999_red_map.json",
+  crosswalk: "./data/crosswalk_2017_1999.json"
 };
 
-const sampleTagDetails = {
-  "EOT::2.1": {
-    reason: "The clause provides that delayed access or possession may entitle the Contractor to EOT, subject to the claims procedure.",
-    path: "Scope & Works > Employer Enabling Obligations > Site access and possession",
-    elements: [
-      "Employer obligation to give access and possession",
-      "Timing of access",
-      "Non-exclusive access",
-      "Delayed access consequence",
-      "Contractor delay or error carve-out"
-    ]
-  },
-  "EOT::13.3.1": {
-    reason: "The Contractor's proposal may include adjustment to the Time for Completion where the instructed Variation affects time.",
-    path: "Scope & Works > Scope Variables and Variations > Variation instruction",
-    elements: [
-      "Engineer instruction",
-      "Contractor obligation to execute Variation",
-      "Contractor proposal",
-      "Time impact",
-      "Engineer agreement or determination"
-    ]
-  },
-  "Determination::3.7": {
-    reason: "This is the core Engineer agreement or determination mechanism.",
-    path: "Contract Mechanics > Contract Administration > Agreement or Determination",
-    elements: [
-      "Engineer consultation",
-      "Agreement process",
-      "Determination process",
-      "Notice of determination"
-    ]
-  }
+/*
+ * Embedded fallback data keeps the prototype useful when a browser blocks
+ * local JSON requests or the page is opened from a path without /data.
+ * The JSON files remain the editable source whenever they can be fetched.
+ */
+const FALLBACK_TAGS = [
+  ["condition-precedent", "Condition Precedent"], ["time-bar", "Time Bar"],
+  ["claim", "Claim"], ["counterclaim", "Counterclaim / Countercharge"],
+  ["determination", "Determination"], ["breach-default", "Breach / Default"],
+  ["remedy", "Remedy"], ["indemnity", "Indemnity"],
+  ["deduction-setoff", "Deduction / Set-off"], ["termination-trigger", "Termination Trigger"],
+  ["deemed-approval", "Deemed Approval"], ["deemed-rejection", "Deemed Rejection"],
+  ["back-to-back", "Back-to-back"], ["waiver-discharge", "Waiver / Discharge"]
+].map(([id, name]) => ({ id, name }));
+
+const FALLBACK_ELEMENTS = [
+  {id:"site-access",subIssueId:"scope-site",name:"Site access and possession",classification:"Baseline",description:"Allocates the obligation to provide access and possession needed for performance.",tagIds:["breach-default","claim","remedy"],mapping2017:{clause:"2.1",heading:"Right of Access to the Site",summary:"Employer access obligations within the contractual timing framework."},mapping1999:{clause:"2.1",heading:"Right of Access to the Site",summary:"Employer access obligations under the stated arrangements."},crosswalkNote:"The baseline allocation is substantially continuous across the editions.",pcParserNote:"Future parser: identify amendments to access dates, phased possession and consequences of delay."},
+  {id:"access-delay-notice",subIssueId:"scope-site",name:"Delayed access notice and entitlement",classification:"Control Mechanism",description:"Routes delayed access and resulting time or cost entitlement through the claims procedure.",tagIds:["condition-precedent","claim","time-bar"],mapping2017:{clause:"2.1 / 20.2",heading:"Access delay and claims procedure",summary:"Connects delayed access with notice and substantiation."},mapping1999:{clause:"2.1 / 20.1",heading:"Access delay and contractor claims",summary:"Connects delayed access with contractor notice and entitlement."},crosswalkNote:"2017 uses the common Clause 20 claims process; 1999 contractor entitlement routes through Sub-Clause 20.1.",pcParserNote:"Future parser: compare amended notice periods and access-related compensation rules."},
+  {id:"eot",subIssueId:"time-delay",name:"Extension of Time",classification:"Adjustment",description:"Adjusts the completion baseline for qualifying delay events, subject to the claims procedure.",tagIds:["claim","condition-precedent","time-bar","determination"],mapping2017:{clause:"8.5",heading:"Extension of Time for Completion",summary:"Lists principal grounds for adjusting completion time."},mapping1999:{clause:"8.4",heading:"Extension of Time for Completion",summary:"Provides grounds for extension through the contractor claims route."},crosswalkNote:"2017 moves EOT from 8.4 to 8.5 and integrates it with a more detailed common claims procedure.",pcParserNote:"Future parser: detect changes to EOT grounds, concurrency rules, notice periods and assessment powers."},
+  {id:"eot-assessment",subIssueId:"time-delay",name:"EOT assessment and determination",classification:"Control Mechanism",description:"Assesses causation, critical delay and the adjustment to the applicable Time for Completion.",tagIds:["claim","determination"],mapping2017:{clause:"8.5 / 3.7",heading:"EOT assessment and determination",summary:"Connects extension assessment with agreement or determination."},mapping1999:{clause:"8.4 / 3.5",heading:"EOT assessment and determination",summary:"Connects extension assessment with the Engineer's determination."},crosswalkNote:"The determination function moves from 3.5 to the more structured 3.7 process in 2017.",pcParserNote:"Future parser: flag changes to assessment criteria, programme evidence and Engineer discretion."},
+  {id:"payment-application",subIssueId:"payment-process",name:"Interim payment application",classification:"Control Mechanism",description:"Identifies the periodic statement and supporting records for amounts claimed as due.",tagIds:["claim","condition-precedent"],mapping2017:{clause:"14.3",heading:"Application for Interim Payment",summary:"Sets the application and supporting statement for interim assessment."},mapping1999:{clause:"14.3",heading:"Application for Interim Payment Certificates",summary:"Sets the contractor's statement and supporting documents."},crosswalkNote:"The application remains at 14.3; 2017 adds procedural detail.",pcParserNote:"Future parser: detect amended submission dates, supporting documents and minimum certificate thresholds."},
+  {id:"payment-cert",subIssueId:"payment-process",name:"Interim payment certification",classification:"Control Mechanism",description:"Controls assessment, certification and timing of interim amounts due.",tagIds:["determination","deduction-setoff","claim"],mapping2017:{clause:"14.3–14.7",heading:"Application, Certificate and Payment",summary:"Links application, Engineer certification and employer payment."},mapping1999:{clause:"14.3–14.7",heading:"Application, Certificate and Payment",summary:"Structures interim application, certification and payment."},crosswalkNote:"The principal sequence stays in 14.3–14.7, with more procedural detail in 2017.",pcParserNote:"Future parser: compare certification periods, withholding rights and payment deadlines."},
+  {id:"exceptional-events",subIssueId:"risk-external",name:"Exceptional Events / Force Majeure",description:"Defines relief where qualifying events beyond a party's control materially affect performance.",tagIds:["claim","condition-precedent","termination-trigger"],mapping2017:{clause:"18.1–18.6",heading:"Exceptional Events",summary:"Provides relief and possible termination for qualifying events."},mapping1999:{clause:"19.1–19.7",heading:"Force Majeure",summary:"Provides relief and termination rights for defined circumstances."},crosswalkNote:"2017 changes the label and moves the regime from Clause 19 to Clause 18.",pcParserNote:"Future parser: detect changes to event definitions, exclusions, relief and termination thresholds."},
+  {id:"exceptional-event-notice",subIssueId:"risk-external",name:"Event notice and mitigation",description:"Controls notice, continuing updates and reasonable steps to reduce the event's effects.",tagIds:["condition-precedent","claim","termination-trigger"],mapping2017:{clause:"18.2–18.3",heading:"Notice and duty to minimise delay",summary:"Controls event notice and reasonable mitigation."},mapping1999:{clause:"19.2–19.3",heading:"Notice and duty to minimise delay",summary:"Controls force majeure notice and mitigation."},crosswalkNote:"Comparable functions move from Clause 19 in 1999 to Clause 18 in 2017.",pcParserNote:"Future parser: compare notice timing, update duties and mitigation standards."},
+  {id:"liability-delay-damages",subIssueId:"liability-default",name:"Delay Damages",description:"Models the agreed remedy arising from failure to meet the completion baseline.",tagIds:["breach-default","remedy","deduction-setoff"],mapping2017:{clause:"8.8",heading:"Delay Damages",summary:"Provides the agreed monetary remedy for late completion."},mapping1999:{clause:"8.7",heading:"Delay Damages",summary:"Provides the agreed monetary remedy for late completion."},crosswalkNote:"The remedy remains comparable and is renumbered from 8.7 to 8.8.",pcParserNote:"Future parser: extract amended rates, caps, sectional application and exclusivity language."},
+  {id:"delay-damages-cap",subIssueId:"liability-default",name:"Delay damages cap and recovery",description:"Records the agreed ceiling and payment or deduction route for delay damages.",tagIds:["remedy","deduction-setoff"],mapping2017:{clause:"8.8",heading:"Delay Damages",summary:"Connects the amount with the maximum in the Contract Data."},mapping1999:{clause:"8.7",heading:"Delay Damages",summary:"Connects the amount with the maximum in the Appendix to Tender."},crosswalkNote:"The cap is project-specific; the location of project data differs between editions.",pcParserNote:"Future parser: identify cap changes and any new set-off or recovery mechanism."},
+  {id:"claims-notice",subIssueId:"claims-procedure",name:"Notice of Claim",description:"Starts the contractual claims process and preserves asserted entitlement, subject to timing rules.",tagIds:["claim","condition-precedent","time-bar","waiver-discharge"],mapping2017:{clause:"20.2.1",heading:"Notice of Claim",summary:"Introduces the common notice route for employer and contractor claims."},mapping1999:{clause:"20.1",heading:"Contractor's Claims",summary:"Sets notice and substantiation steps for contractor claims."},crosswalkNote:"2017 creates a common claims process; 1999 separates contractor and employer claim routes.",pcParserNote:"Future parser: detect amendments to time bars, notice content, deemed waiver and claim ownership."},
+  {id:"claims-records",subIssueId:"claims-procedure",name:"Contemporary records and detailed claim",description:"Supports the notified claim with records, particulars and continuing updates.",tagIds:["claim","condition-precedent","determination"],mapping2017:{clause:"20.2.3–20.2.4",heading:"Records and Fully Detailed Claim",summary:"Requires records and particulars for the notified claim."},mapping1999:{clause:"20.1",heading:"Contractor's Claims",summary:"Contains record and detailed-claim requirements in one sequence."},crosswalkNote:"2017 separates records and the detailed claim into express sub-steps.",pcParserNote:"Future parser: compare record access, submission deadlines and continuing-claim requirements."},
+  {id:"notices",subIssueId:"mechanics-notices",name:"Contractual notices",description:"Sets form, delivery and addressing requirements for communications with contractual effect.",tagIds:["condition-precedent","time-bar"],mapping2017:{clause:"1.3",heading:"Notices and Other Communications",summary:"Specifies communication form and delivery rules."},mapping1999:{clause:"1.3",heading:"Communications",summary:"Sets writing and delivery requirements."},crosswalkNote:"2017 distinguishes formal Notices from other communications more expressly.",pcParserNote:"Future parser: identify modified addresses, delivery methods, language and formality requirements."},
+  {id:"notice-delivery",subIssueId:"mechanics-notices",name:"Notice delivery and effectiveness",description:"Identifies the permitted delivery route, addressee and point at which a notice becomes effective.",tagIds:["condition-precedent","deemed-approval","deemed-rejection"],mapping2017:{clause:"1.3",heading:"Notices and Other Communications",summary:"Identifies delivery methods, addresses and effectiveness rules."},mapping1999:{clause:"1.3",heading:"Communications",summary:"Identifies approved delivery methods and contract addresses."},crosswalkNote:"The core clause number remains stable, with more express notice categorisation in 2017.",pcParserNote:"Future parser: detect deemed receipt rules and amendments to authorised communication platforms."}
+];
+
+const FALLBACK_DATA = {
+  modules: [
+    {id:"scope",name:"Scope & Interface",nameZh:"范围与界面",short:"Define deliverables, boundaries, access and responsibility interfaces.",description:"The physical, functional and responsibility boundaries of the Works.",accent:"#087e78",hasLogic:true},
+    {id:"time",name:"Time",nameZh:"工期",short:"Model the time baseline and the routes by which it may move.",description:"Completion, delay allocation and mechanisms for extending time.",accent:"#3177a8",hasLogic:true},
+    {id:"payment",name:"Payment / Price",nameZh:"付款与价格",short:"Connect the price baseline with valuation and payment machinery.",description:"The commercial baseline, assessment, certification and payment.",accent:"#b47420",hasLogic:true},
+    {id:"risk",name:"Risk Allocation",nameZh:"风险分配",short:"Locate responsibility for physical, legal and external risks.",description:"Allocation of defined project risks and exceptional events.",accent:"#7a63a8",hasLogic:false},
+    {id:"liability",name:"Liability & Remedies",nameZh:"责任与救济",short:"Trace default, responsibility and contractual responses.",description:"Consequences of non-performance and available remedies.",accent:"#b0535f",hasLogic:false},
+    {id:"claims",name:"Claims & Disputes",nameZh:"索赔与争议",short:"Follow entitlement from notice through determination and dispute.",description:"Procedural pathways for claims and dispute resolution.",accent:"#2e7f68",hasLogic:false},
+    {id:"mechanics",name:"Contract Mechanics",nameZh:"合同运行机制",short:"Understand the administrative rules that operate the contract.",description:"Notices, communications, roles and operating machinery.",accent:"#536c78",hasLogic:false}
+  ],
+  issues: [
+    {id:"scope-site",moduleId:"scope",name:"Site access and possession"},
+    {id:"time-delay",moduleId:"time",name:"Extension of Time"},
+    {id:"payment-process",moduleId:"payment",name:"Interim Payment"},
+    {id:"risk-external",moduleId:"risk",name:"Exceptional Events / Force Majeure"},
+    {id:"liability-default",moduleId:"liability",name:"Delay Damages"},
+    {id:"claims-procedure",moduleId:"claims",name:"Claims procedure"},
+    {id:"mechanics-notices",moduleId:"mechanics",name:"Notices"}
+  ],
+  elements: FALLBACK_ELEMENTS.map(({mapping2017, mapping1999, crosswalkNote, ...element}) => element),
+  tags: FALLBACK_TAGS,
+  map2017: FALLBACK_ELEMENTS.map(element => ({elementId:element.id, ...element.mapping2017})),
+  map1999: FALLBACK_ELEMENTS.map(element => ({elementId:element.id, ...element.mapping1999})),
+  crosswalk: FALLBACK_ELEMENTS.map(element => ({elementId:element.id, note:element.crosswalkNote}))
 };
 
-const RING_CENTER = { x: 610, y: 280 };
-const RING_RADIUS = 270;
-const PANEL_WIDTH = 270;
-const PANEL_LINK_Y = 43;
-const SEGMENT_STEP = 360 / contractSystems.length;
+const state = {
+  data: {},
+  activeModuleId: null,
+  activeIssueId: null,
+  activeElementId: null,
+  search: "",
+  moduleFilter: "all",
+  tagFilter: "all",
+  sourceFilter: "both"
+};
 
-const architecture = document.getElementById("architecture");
-const selectionCount = document.getElementById("selectionCount");
-const clearSelection = document.getElementById("clearSelection");
-const emptyHint = document.getElementById("emptyHint");
-const clauseSpine = document.getElementById("clauseSpine");
-const clauseDetail = document.getElementById("clauseDetail");
-const tagGroups = document.getElementById("tagGroups");
-const tagResultsPanel = document.getElementById("tagResultsPanel");
-const tagResultsTitle = document.getElementById("tag-results-title");
-const tagResultCount = document.getElementById("tagResultCount");
-const tagResults = document.getElementById("tagResults");
-const tagClauseDetail = document.getElementById("tagClauseDetail");
-const viewOptions = [...document.querySelectorAll("[data-view-target]")];
-const appViews = [...document.querySelectorAll(".app-view")];
-const selectedSystems = new Set();
-let selectedClauseNumber = null;
-let selectedTag = null;
-let selectedTagClause = null;
+const dom = {};
 
-function renderArchitecture() {
-  architecture.innerHTML = `
-    <div class="ring-track" aria-hidden="true"></div>
-    ${contractSystems.map((system, index) => renderSystem(system, index)).join("")}
-    <div class="central-core" aria-hidden="true">
-      <span class="core-orbit"></span>
-      <div><strong>FIDIC Red Book 2017</strong></div>
-    </div>
-  `;
+document.addEventListener("DOMContentLoaded", init);
 
-  architecture.querySelectorAll(".ring-segment").forEach((button) => {
-    button.addEventListener("click", () => toggleSystem(button.closest(".ring-system")));
+async function init() {
+  cacheDom();
+  bindControls();
+  applyData(FALLBACK_DATA);
+  try {
+    const entries = await Promise.all(
+      Object.entries(DATA_FILES).map(async ([key, url]) => {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Could not load ${url}`);
+        return [key, await response.json()];
+      })
+    );
+    const liveData = Object.fromEntries(entries);
+    validateLoadedData(liveData);
+    applyData(liveData);
+    dom.status.hidden = true;
+  } catch (error) {
+    dom.status.hidden = false;
+    dom.status.textContent = "Using sample fallback data. For live JSON editing, run this through a local server.";
+    console.info("Live JSON was unavailable; embedded fallback data is active.", error);
+  }
+}
+
+function validateLoadedData(data) {
+  const requiredArrays = ["modules", "issues", "elements", "tags", "map2017", "map1999", "crosswalk"];
+  const invalid = requiredArrays.filter(key => !Array.isArray(data[key]));
+  if (invalid.length) throw new Error(`Invalid or missing datasets: ${invalid.join(", ")}`);
+  if (!data.modules.length || !data.elements.length || data.tags.length !== 14) {
+    throw new Error("The live JSON dataset is empty or does not contain the approved 14-tag set.");
+  }
+}
+
+function applyData(data) {
+  state.data = data;
+  populateFilters();
+  dom.moduleCount.textContent = state.data.modules.length;
+  dom.elementCount.textContent = state.data.elements.length;
+  renderModules();
+  if (state.activeModuleId && byId(state.data.modules, state.activeModuleId)) {
+    selectModule(state.activeModuleId, false);
+  } else {
+    state.activeModuleId = state.activeIssueId = state.activeElementId = null;
+    dom.explorer.hidden = true;
+  }
+}
+
+function cacheDom() {
+  ["moduleGrid","explorer","explorerTitle","moduleDescription","logicLegend","issueList","issueTitle","elementList","detailPanel","resultCount","searchInput","moduleFilter","tagFilter","sourceFilter","clearFilters","backToModules","resetAllModules","statusMessage","moduleCount","elementCount"].forEach(id => {
+    const key = id === "statusMessage" ? "status" : id;
+    dom[key] = document.getElementById(id);
   });
 }
 
-function renderSystem(system, index) {
-  const rotation = SEGMENT_STEP * index;
-  const polarAngle = -90 + rotation;
-  const connector = getConnector(system, polarAngle);
-  const style = [
-    `--angle:${rotation}deg`,
-    `--counter-angle:${-rotation}deg`,
-    `--module:${system.color}`,
-    `--module-deep:${system.colorDeep}`,
-    `--segment-text:${system.textColor}`,
-    `--panel-x:${system.panel.x}px`,
-    `--panel-y:${system.panel.y}px`,
-    `--link-x:${connector.x}px`,
-    `--link-y:${connector.y}px`,
-    `--link-length:${connector.length}px`,
-    `--link-angle:${connector.angle}deg`
-  ].join(";");
-
-  return `
-    <article class="ring-system panel-${system.panel.side}" data-system-id="${system.id}" style="${style}">
-      <button
-        class="ring-segment"
-        type="button"
-        aria-expanded="false"
-        aria-controls="categories-${system.id}"
-        aria-label="${system.number} ${system.title} ${system.chineseTitle}"
-      >
-        <span class="segment-label">
-          <span class="segment-number">${system.number}</span>
-          <span class="segment-copy">
-            <strong>${system.title}</strong>
-            <span lang="zh-Hans">${system.chineseTitle}</span>
-          </span>
-        </span>
-      </button>
-      <i class="panel-link" aria-hidden="true"></i>
-      <section
-        id="categories-${system.id}"
-        class="category-panel"
-        aria-label="${system.title} practice categories"
-        aria-hidden="true"
-      >
-        <div class="panel-heading">
-          <span>Level 2 / Practice Categories</span>
-          <small>${system.approved ? "Approved" : "Temporary"}</small>
-        </div>
-        <ol>
-          ${system.categories.map((category, categoryIndex) => `
-            <li><span>${String(categoryIndex + 1).padStart(2, "0")}</span><b>${category}</b></li>
-          `).join("")}
-        </ol>
-      </section>
-    </article>
-  `;
-}
-
-function getConnector(system, angle) {
-  const radians = angle * (Math.PI / 180);
-  const x = RING_CENTER.x + (Math.cos(radians) * RING_RADIUS);
-  const y = RING_CENTER.y + (Math.sin(radians) * RING_RADIUS);
-  const endX = system.panel.side === "right" ? system.panel.x : system.panel.x + PANEL_WIDTH;
-  const endY = system.panel.y + PANEL_LINK_Y;
-  const deltaX = endX - x;
-  const deltaY = endY - y;
-
-  return {
-    x: Math.round(x * 100) / 100,
-    y: Math.round(y * 100) / 100,
-    length: Math.round(Math.hypot(deltaX, deltaY) * 100) / 100,
-    angle: Math.round((Math.atan2(deltaY, deltaX) * 180 / Math.PI) * 100) / 100
-  };
-}
-
-function toggleSystem(node) {
-  const id = node.dataset.systemId;
-  selectedSystems.has(id) ? selectedSystems.delete(id) : selectedSystems.add(id);
-  updateArchitecture();
-}
-
-function updateArchitecture() {
-  architecture.querySelectorAll(".ring-system").forEach((node) => {
-    const isSelected = selectedSystems.has(node.dataset.systemId);
-    node.classList.toggle("is-active", isSelected);
-    node.querySelector(".ring-segment").setAttribute("aria-expanded", String(isSelected));
-    node.querySelector(".category-panel").setAttribute("aria-hidden", String(!isSelected));
+function bindControls() {
+  dom.searchInput.addEventListener("input", event => {
+    state.search = event.target.value.trim().toLowerCase();
+    refreshView();
   });
-
-  const count = selectedSystems.size;
-  architecture.dataset.openCount = String(count);
-  architecture.classList.toggle("all-open", count === contractSystems.length);
-  emptyHint.classList.toggle("is-hidden", count > 0);
-  clearSelection.disabled = count === 0;
-  selectionCount.textContent = `${count} ${count === 1 ? "module" : "modules"} open`;
-}
-
-function renderClauseSpine() {
-  clauseSpine.innerHTML = fidicClauses.map((clause) => `
-    <div class="clause-row" style="--clause-color:${clause.color}">
-      <button
-        class="clause-module"
-        type="button"
-        data-clause-number="${clause.number}"
-        aria-pressed="false"
-      >
-        <span class="clause-number">${String(clause.number).padStart(2, "0")}</span>
-        <span class="clause-title">${clause.title}</span>
-        <span class="clause-action" aria-hidden="true">+</span>
-      </button>
-    </div>
-  `).join("");
-
-  clauseSpine.querySelectorAll(".clause-module").forEach((button) => {
-    button.addEventListener("click", () => selectClause(Number(button.dataset.clauseNumber)));
+  dom.moduleFilter.addEventListener("change", event => {
+    state.moduleFilter = event.target.value;
+    if (state.moduleFilter !== "all") selectModule(state.moduleFilter, false);
+    refreshView();
   });
+  dom.tagFilter.addEventListener("change", event => { state.tagFilter = event.target.value; refreshView(); });
+  dom.sourceFilter.addEventListener("change", event => { state.sourceFilter = event.target.value; refreshView(); });
+  dom.clearFilters.addEventListener("click", clearFilters);
+  dom.backToModules.addEventListener("click", resetToHome);
+  dom.resetAllModules.addEventListener("click", resetToHome);
 }
 
-function selectClause(number) {
-  selectedClauseNumber = number;
-  const clause = fidicClauses.find((item) => item.number === number);
-
-  clauseSpine.querySelectorAll(".clause-module").forEach((button) => {
-    const isSelected = Number(button.dataset.clauseNumber) === number;
-    button.classList.toggle("is-selected", isSelected);
-    button.setAttribute("aria-pressed", String(isSelected));
-  });
-
-  clauseDetail.classList.remove("is-populated");
-  clauseDetail.innerHTML = `
-    <span class="detail-state">Clause ${String(clause.number).padStart(2, "0")}</span>
-    <p class="detail-eyebrow">Top-level clause directory view</p>
-    <h3>${clause.title}</h3>
-    <p class="detail-note">Sub-clauses to be added in next stage.</p>
-  `;
-  requestAnimationFrame(() => clauseDetail.classList.add("is-populated"));
+function populateFilters() {
+  dom.moduleFilter.innerHTML = '<option value="all">All modules</option>';
+  dom.tagFilter.innerHTML = '<option value="all">All tags</option>';
+  state.data.modules.forEach(module => dom.moduleFilter.add(new Option(module.name, module.id)));
+  state.data.tags.forEach(tag => dom.tagFilter.add(new Option(tag.name, tag.id)));
 }
 
-function renderTagGroups() {
-  tagGroups.innerHTML = tagGroupsData.map((group, groupIndex) => `
-    <article class="tag-group-card">
-      <header class="tag-group-heading">
-        <span>${String(groupIndex + 1).padStart(2, "0")}</span>
-        <div>
-          <h4>${group.title}</h4>
-          <p lang="zh-Hans">${group.chineseTitle}</p>
-        </div>
-      </header>
-      <div class="tag-chip-list">
-        ${group.tags.map((tag) => `
-          <button class="tag-chip" type="button" data-tag-name="${tag}" aria-pressed="false">
-            <span>${tag}</span><i aria-hidden="true"></i>
-          </button>
-        `).join("")}
-      </div>
-    </article>
-  `).join("");
-
-  tagGroups.querySelectorAll(".tag-chip").forEach((button) => {
-    button.addEventListener("click", () => selectTag(button.dataset.tagName));
-  });
+function clearFilters() {
+  state.search = "";
+  state.moduleFilter = "all";
+  state.tagFilter = "all";
+  state.sourceFilter = "both";
+  dom.searchInput.value = "";
+  dom.moduleFilter.value = "all";
+  dom.tagFilter.value = "all";
+  dom.sourceFilter.value = "both";
+  refreshView();
 }
 
-function selectTag(tagName) {
-  selectedTag = tagName;
-  selectedTagClause = null;
-
-  tagGroups.querySelectorAll(".tag-chip").forEach((button) => {
-    const isSelected = button.dataset.tagName === tagName;
-    button.classList.toggle("is-selected", isSelected);
-    button.setAttribute("aria-pressed", String(isSelected));
-  });
-
-  tagClauseDetail.hidden = true;
-  tagClauseDetail.innerHTML = "";
-  renderTagResults();
-  scrollTagSectionIntoView(tagResultsPanel);
+function resetToHome() {
+  state.activeModuleId = state.activeIssueId = state.activeElementId = null;
+  state.search = "";
+  state.moduleFilter = "all";
+  state.tagFilter = "all";
+  state.sourceFilter = "both";
+  dom.searchInput.value = "";
+  dom.moduleFilter.value = "all";
+  dom.tagFilter.value = "all";
+  dom.sourceFilter.value = "both";
+  dom.explorer.hidden = true;
+  renderModules();
+  document.getElementById("modulesTitle").scrollIntoView({behavior: "smooth"});
 }
 
-function renderTagResults() {
-  const clauses = tagClauseMappings[selectedTag] || [];
-  tagResultsTitle.textContent = `Selected Tag: ${selectedTag}`;
-  tagResultCount.textContent = clauses.length === 1 ? "1 related clause" : `${clauses.length} related clauses`;
+function refreshView() {
+  renderModules();
+  if (state.activeModuleId) renderExplorer();
+}
 
-  if (clauses.length === 0) {
-    tagResults.innerHTML = `
-      <div class="tag-empty-state tag-empty-mapping">
-        <span aria-hidden="true">0</span>
-        <div>
-          <p>No mapped clauses loaded yet.</p>
-          <small>This tag will be populated in the next mapping stage.</small>
-        </div>
-      </div>
-    `;
+function renderModules() {
+  dom.moduleGrid.innerHTML = "";
+  if (!state.data.modules.length) {
+    dom.moduleGrid.innerHTML = '<p class="no-results"><strong>No modules were found.</strong><br>Add module records to <code>data/modules.json</code>.</p>';
     return;
   }
+  state.data.modules.forEach((module, index) => {
+    const matches = moduleMatchesFilters(module);
+    const issueCount = issuesForModule(module.id).length;
+    const elementCount = elementsForModule(module.id).length;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `module-card${module.id === state.activeModuleId ? " selected" : ""}${matches ? "" : " hidden"}`;
+    button.style.setProperty("--accent", module.accent);
+    button.setAttribute("aria-pressed", module.id === state.activeModuleId ? "true" : "false");
+    button.innerHTML = `<span class="number">MODULE ${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(module.name)}</h3><span class="name-zh" lang="zh">${escapeHtml(module.nameZh || "中文名称待补充")}</span><p class="module-description">${escapeHtml(module.short)}</p><div class="module-meta"><span><strong>${issueCount}</strong> sub-issues</span><span><strong>${elementCount}</strong> elements</span><span class="arrow">→</span></div>`;
+    button.addEventListener("click", () => selectModule(module.id));
+    dom.moduleGrid.appendChild(button);
+  });
+  if (![...dom.moduleGrid.children].some(card => !card.classList.contains("hidden"))) {
+    dom.moduleGrid.innerHTML = '<p class="no-results">No module matches the current search and filters.</p>';
+  }
+}
 
-  tagResults.innerHTML = `
-    <p class="tag-related-label">Related Clauses</p>
-    <div class="tag-clause-list">
-      ${clauses.map(([number, title]) => `
-        <button
-          class="tag-clause-result"
-          type="button"
-          data-clause-number="${number}"
-          aria-pressed="false"
-        >
-          <span class="tag-result-clause-no">${number}</span>
-          <span class="tag-result-copy">
-            <strong>${title}</strong>
-            <small>FIDIC Red Book 2017</small>
-          </span>
-          <span class="mapping-status">sample mapping only</span>
-          <span class="tag-result-arrow" aria-hidden="true">›</span>
-        </button>
-      `).join("")}
-    </div>
-  `;
+function moduleMatchesFilters(module) {
+  if (state.moduleFilter !== "all" && state.moduleFilter !== module.id) return false;
+  if (!state.search && state.tagFilter === "all") return true;
+  if (textMatches(`${module.name} ${module.nameZh || ""} ${module.short} ${module.description}`) && state.tagFilter === "all") return true;
+  return elementsForModule(module.id).some(elementMatchesFilters);
+}
 
-  tagResults.querySelectorAll(".tag-clause-result").forEach((button) => {
-    button.addEventListener("click", () => selectTagClause(button.dataset.clauseNumber));
+function selectModule(moduleId, scroll = true) {
+  state.activeModuleId = moduleId;
+  const validIssues = filteredIssues(moduleId);
+  state.activeIssueId = validIssues[0]?.id || issuesForModule(moduleId)[0]?.id || null;
+  state.activeElementId = firstElementId(state.activeIssueId);
+  dom.explorer.hidden = false;
+  renderModules();
+  renderExplorer();
+  if (scroll) dom.explorer.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+function renderExplorer() {
+  const module = byId(state.data.modules, state.activeModuleId);
+  if (!module) {
+    dom.explorer.hidden = false;
+    dom.explorerTitle.textContent = "Module not found";
+    dom.moduleDescription.textContent = "The selected module is missing from data/modules.json.";
+    dom.issueList.innerHTML = '<p class="no-results">No sub-issues can be shown.</p>';
+    dom.elementList.innerHTML = '<p class="no-results">No elements can be shown.</p>';
+    renderEmptyDetail("No element details", "Select a valid module or check the JSON links.");
+    return;
+  }
+  dom.explorerTitle.textContent = module.name;
+  dom.moduleDescription.textContent = module.description;
+  dom.logicLegend.innerHTML = module.hasLogic
+    ? '<span class="logic-chip">Baseline</span><span class="logic-chip adjustment">Adjustment</span><span class="logic-chip control">Control Mechanism</span>'
+    : "";
+  renderIssues(module.id);
+  renderElements();
+  if (state.activeElementId) renderDetail(state.activeElementId);
+  else renderEmptyDetail("No linked element", "Add an element linked to this sub-issue, or adjust the current filters.");
+}
+
+function renderIssues(moduleId) {
+  const issues = filteredIssues(moduleId);
+  if (!issues.some(issue => issue.id === state.activeIssueId)) state.activeIssueId = issues[0]?.id || null;
+  const availableElements = state.activeIssueId ? filteredElementsForIssue(state.activeIssueId) : [];
+  if (!availableElements.some(element => element.id === state.activeElementId)) {
+    state.activeElementId = availableElements[0]?.id || null;
+  }
+  dom.issueList.innerHTML = "";
+  issues.forEach(issue => {
+    const count = filteredElementsForIssue(issue.id).length;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `issue-button${issue.id === state.activeIssueId ? " active" : ""}`;
+    button.innerHTML = `<span>${escapeHtml(issue.name)}</span><span>${count}</span>`;
+    button.addEventListener("click", () => {
+      state.activeIssueId = issue.id;
+      state.activeElementId = firstElementId(issue.id);
+      renderExplorer();
+    });
+    dom.issueList.appendChild(button);
+  });
+  if (!issues.length) dom.issueList.innerHTML = '<p class="no-results"><strong>No sub-issues found.</strong><br>Add linked records to <code>data/sub_issues.json</code>, or reset the filters.</p>';
+}
+
+function renderElements() {
+  const issue = byId(state.data.issues, state.activeIssueId);
+  const elements = issue ? filteredElementsForIssue(issue.id) : [];
+  if (!elements.some(element => element.id === state.activeElementId)) state.activeElementId = elements[0]?.id || null;
+  dom.issueTitle.textContent = issue?.name || "No matching sub-issue";
+  dom.resultCount.textContent = `${elements.length} element${elements.length === 1 ? "" : "s"}`;
+  dom.elementList.innerHTML = "";
+  elements.forEach(element => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `element-card${element.id === state.activeElementId ? " active" : ""}`;
+    button.innerHTML = `<div class="element-top"><strong>${escapeHtml(element.name)}</strong>${classificationChip(element.classification)}</div><p>${escapeHtml(element.description)}</p>`;
+    button.addEventListener("click", () => {
+      state.activeElementId = element.id;
+      renderElements();
+      renderDetail(element.id);
+    });
+    dom.elementList.appendChild(button);
+  });
+  if (!elements.length) {
+    const message = issue
+      ? 'No elements are linked to this sub-issue under the current filters. Add a matching record to <code>data/elements.json</code> or reset the filters.'
+      : 'No sub-issue is available. Select another module or add linked sub-issue data.';
+    dom.elementList.innerHTML = `<p class="no-results"><strong>No elements found.</strong><br>${message}</p>`;
+  }
+}
+
+function renderDetail(elementId) {
+  const element = byId(state.data.elements, elementId);
+  if (!element) return renderEmptyDetail("Element not found", "The selected element is missing from data/elements.json.");
+  const tags = element.tagIds.map(id => byId(state.data.tags, id)).filter(Boolean);
+  const map2017 = state.data.map2017.filter(row => row.elementId === elementId);
+  const map1999 = state.data.map1999.filter(row => row.elementId === elementId);
+  const crosswalk = state.data.crosswalk.find(row => row.elementId === elementId);
+  const parserNote = element.pcParserNote || "Future parser: compare project-specific Particular Conditions against this baseline element, identify changed clause references and record the legal effect. Amendment parsing is not active in this prototype.";
+  const source = state.sourceFilter;
+  dom.detailPanel.innerHTML = `
+    <p class="eyebrow">SELECTED ELEMENT</p>
+    <h2>${escapeHtml(element.name)}</h2>
+    ${classificationChip(element.classification)}
+    <p>${escapeHtml(element.description)}</p>
+    <p class="detail-label">Core legal effects</p>
+    <div class="tag-row">${tags.length ? tags.map(tag => `<button class="tag" type="button" data-tag-id="${tag.id}">${escapeHtml(tag.name)}</button>`).join("") : '<span class="muted">No legal effect tags are linked to this element.</span>'}</div>
+    <p class="detail-label">Clause reference map</p>
+    <table class="clause-table"><thead><tr><th>Source</th><th>Clause</th><th>Heading & function</th></tr></thead><tbody>
+      ${source !== "1999" ? mappingRows("2017 Red", map2017) : ""}
+      ${source !== "2017" ? mappingRows("1999 Red", map1999) : ""}
+    </tbody></table>
+    <p class="detail-label">2017 ↔ 1999 crosswalk</p>
+    <div class="crosswalk">${escapeHtml(crosswalk?.note || "No sample crosswalk note has been added.")}</div>
+    <p class="detail-label">Future Particular Conditions parser note</p>
+    <div class="future-note"><strong>Future subsystem · not active</strong><br>${escapeHtml(parserNote)}</div>`;
+  dom.detailPanel.querySelectorAll("[data-tag-id]").forEach(button => {
+    button.addEventListener("click", () => {
+      state.tagFilter = button.dataset.tagId;
+      dom.tagFilter.value = state.tagFilter;
+      refreshView();
+    });
   });
 }
 
-function selectTagClause(clauseNumber) {
-  const clause = (tagClauseMappings[selectedTag] || []).find(([number]) => number === clauseNumber);
-  if (!clause) return;
+function mappingRows(label, rows) {
+  if (!rows.length) return `<tr><td>${label}</td><td colspan="2">No sample mapping.</td></tr>`;
+  return rows.map(row => `<tr><td>${label}</td><td class="clause-ref">${escapeHtml(row.clause)}</td><td><strong>${escapeHtml(row.heading)}</strong><br>${escapeHtml(row.summary)}</td></tr>`).join("");
+}
 
-  selectedTagClause = clauseNumber;
-  tagResults.querySelectorAll(".tag-clause-result").forEach((button) => {
-    const isSelected = button.dataset.clauseNumber === clauseNumber;
-    button.classList.toggle("is-selected", isSelected);
-    button.setAttribute("aria-pressed", String(isSelected));
+function renderEmptyDetail(title = "Select an element", message = "Clause mapping and crosswalk notes will appear here.") {
+  dom.detailPanel.innerHTML = `<div class="empty-state"><span>§</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(message)}</p></div>`;
+}
+
+function filteredIssues(moduleId) {
+  return issuesForModule(moduleId).filter(issue => {
+    if (textMatches(issue.name) && state.tagFilter === "all") return true;
+    return filteredElementsForIssue(issue.id).length > 0;
   });
-
-  renderTagClauseDetail(clause);
-  scrollTagSectionIntoView(tagClauseDetail);
 }
 
-function renderTagClauseDetail([number, title]) {
-  const detail = sampleTagDetails[`${selectedTag}::${number}`] || {
-    reason: "Detailed tag reason to be completed in the next mapping stage.",
-    path: "Functional path to be completed in the next mapping stage.",
-    elements: ["Related clause elements to be completed in the next mapping stage."]
-  };
-
-  tagClauseDetail.innerHTML = `
-    <div class="tag-section-heading tag-detail-heading">
-      <div>
-        <span class="tag-stage-number">03</span>
-        <div>
-          <p>Clause detail</p>
-          <h3 id="tag-detail-title">${number} ${title}</h3>
-        </div>
-      </div>
-      <span class="tag-detail-selected">Selected tag: ${selectedTag}</span>
-    </div>
-
-    <div class="tag-detail-grid">
-      <div class="tag-detail-main">
-        <section>
-          <span class="tag-detail-label">Why this clause is mapped to this tag</span>
-          <p>${detail.reason}</p>
-        </section>
-        <section>
-          <span class="tag-detail-label">Functional path</span>
-          <p class="functional-path">${detail.path}</p>
-        </section>
-      </div>
-
-      <aside class="tag-elements-card">
-        <span class="tag-detail-label">Related clause elements</span>
-        <ul>
-          ${detail.elements.map((element) => `<li>${element}</li>`).join("")}
-        </ul>
-      </aside>
-    </div>
-
-    <footer class="tag-verification">
-      <span>Verification status</span>
-      <div>
-        <b>sample mapping only</b>
-        <b>needs lawyer review</b>
-        <b>source text not yet loaded</b>
-      </div>
-    </footer>
-  `;
-  tagClauseDetail.hidden = false;
+function filteredElementsForIssue(issueId) {
+  return state.data.elements.filter(element => element.subIssueId === issueId && elementMatchesFilters(element));
 }
 
-function scrollTagSectionIntoView(section) {
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  requestAnimationFrame(() => section.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" }));
+function elementMatchesFilters(element) {
+  if (state.tagFilter !== "all" && !element.tagIds.includes(state.tagFilter)) return false;
+  const has2017 = state.data.map2017.some(row => row.elementId === element.id);
+  const has1999 = state.data.map1999.some(row => row.elementId === element.id);
+  if (state.sourceFilter === "2017" && !has2017) return false;
+  if (state.sourceFilter === "1999" && !has1999) return false;
+  if (state.sourceFilter === "both" && !(has2017 && has1999)) return false;
+  if (!state.search) return true;
+  const issue = byId(state.data.issues, element.subIssueId);
+  const module = issue && byId(state.data.modules, issue.moduleId);
+  const tags = element.tagIds.map(id => byId(state.data.tags, id)?.name || "").join(" ");
+  const clauses = [...state.data.map2017, ...state.data.map1999].filter(row => row.elementId === element.id).map(row => `${row.clause} ${row.heading} ${row.summary}`).join(" ");
+  const note = state.data.crosswalk.find(row => row.elementId === element.id)?.note || "";
+  return textMatches(`${element.name} ${element.description} ${element.classification || ""} ${issue?.name || ""} ${module?.name || ""} ${tags} ${clauses} ${note}`);
 }
 
-function switchView(targetId) {
-  appViews.forEach((view) => {
-    const isActive = view.id === targetId;
-    view.hidden = !isActive;
-    view.classList.toggle("is-active", isActive);
-  });
-
-  viewOptions.forEach((button) => {
-    const isSelected = button.dataset.viewTarget === targetId;
-    button.classList.toggle("is-selected", isSelected);
-    button.setAttribute("aria-selected", String(isSelected));
-  });
-
-  window.setTimeout(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, 0);
+function issuesForModule(moduleId) { return state.data.issues.filter(issue => issue.moduleId === moduleId); }
+function elementsForModule(moduleId) {
+  const ids = new Set(issuesForModule(moduleId).map(issue => issue.id));
+  return state.data.elements.filter(element => ids.has(element.subIssueId));
 }
-
-viewOptions.forEach((button) => {
-  button.addEventListener("click", () => switchView(button.dataset.viewTarget));
-});
-
-clearSelection.addEventListener("click", () => {
-  selectedSystems.clear();
-  updateArchitecture();
-});
-
-renderArchitecture();
-renderClauseSpine();
-renderTagGroups();
-updateArchitecture();
-switchView("functionalView");
+function firstElementId(issueId) {
+  if (!issueId) return null;
+  return filteredElementsForIssue(issueId)[0]?.id || null;
+}
+function textMatches(value) { return !state.search || String(value).toLowerCase().includes(state.search); }
+function byId(list, id) { return list.find(item => item.id === id); }
+function classificationChip(value) {
+  if (!value) return "";
+  const css = value === "Adjustment" ? " adjustment" : value === "Control Mechanism" ? " control" : "";
+  return `<span class="logic-chip${css}">${escapeHtml(value)}</span>`;
+}
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>'"]/g, character => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"})[character]);
+}
