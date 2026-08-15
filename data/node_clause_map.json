@@ -1,0 +1,623 @@
+[
+    {
+        "id":  "map_design_document_priority",
+        "performance_node_id":  "employer_design_basis",
+        "clause_element_id":  "design_document_priority",
+        "fidic_clause_id":  "fidic_2017_red_1_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Priority of Employer design documents. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_procurement_conformity",
+        "performance_node_id":  "procurement",
+        "clause_element_id":  "procurement_conformity",
+        "fidic_clause_id":  "fidic_2017_red_7_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Procurement conformity. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_execute_and_complete_works",
+        "performance_node_id":  "execution_of_works",
+        "clause_element_id":  "execute_and_complete_works",
+        "fidic_clause_id":  "fidic_2017_red_4_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Execute and complete the Works. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engagement_and_control_of_personnel",
+        "performance_node_id":  "personnel",
+        "clause_element_id":  "engagement_and_control_of_personnel",
+        "fidic_clause_id":  "fidic_2017_red_6_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engagement and control of personnel. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_document_care_supply_and_preparation",
+        "performance_node_id":  "documents",
+        "clause_element_id":  "document_care_supply_and_preparation",
+        "fidic_clause_id":  "fidic_2017_red_1_8",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Document care, supply and preparation. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_goods_inspection_testing_and_title",
+        "performance_node_id":  "goods",
+        "clause_element_id":  "goods_inspection_testing_and_title",
+        "fidic_clause_id":  "fidic_2017_red_7_3",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Goods inspection, testing and title. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_site_health_and_safety",
+        "performance_node_id":  "site_qhse",
+        "clause_element_id":  "site_health_and_safety",
+        "fidic_clause_id":  "fidic_2017_red_4_8",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Site health and safety. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_quality_management_system",
+        "performance_node_id":  "site_qhse",
+        "clause_element_id":  "quality_management_system",
+        "fidic_clause_id":  "fidic_2017_red_4_9",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Quality management and compliance verification. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_environmental_protection",
+        "performance_node_id":  "site_qhse",
+        "clause_element_id":  "environmental_protection",
+        "fidic_clause_id":  "fidic_2017_red_4_18",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Environmental protection. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_site_security_and_operations",
+        "performance_node_id":  "site_qhse",
+        "clause_element_id":  "site_security_and_operations",
+        "fidic_clause_id":  "fidic_2017_red_4_21",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Site security and operations. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_permits",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "employer_permits",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Employer permits. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_permits",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "contractor_permits",
+        "fidic_clause_id":  "fidic_2017_red_1_13",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor permits. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_assistance_for_employer_permits",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "contractor_assistance_for_employer_permits",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor assistance for Employer permits. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_compliance_with_employer_permits",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "contractor_compliance_with_employer_permits",
+        "fidic_clause_id":  "fidic_2017_red_1_13",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor compliance with Employer permits. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_delay_or_failure_consequence",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "employer_delay_or_failure_consequence",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Employer delay or failure consequence. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_failure_consequence",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "contractor_failure_consequence",
+        "fidic_clause_id":  "fidic_2017_red_1_13",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor failure consequence. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_indemnity_for_permit_failures",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "indemnity_for_permit_failures",
+        "fidic_clause_id":  "fidic_2017_red_1_13",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Indemnity for permit failures. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_eot_and_cost_plus_profit_for_employer_permit_delay",
+        "performance_node_id":  "permits_and_approvals",
+        "clause_element_id":  "eot_and_cost_plus_profit_for_employer_permit_delay",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for EOT and Cost Plus Profit for Employer permit delay. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_main_contractor_responsibility_for_subcontractors",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "main_contractor_responsibility_for_subcontractors",
+        "fidic_clause_id":  "fidic_2017_red_5_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Main Contractor responsibility for subcontractors. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_subcontractor_consent",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "subcontractor_consent",
+        "fidic_clause_id":  "fidic_2017_red_5_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Subcontractor consent. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_deemed_consent",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "deemed_consent",
+        "fidic_clause_id":  "fidic_2017_red_5_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Deemed consent. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_notice_before_subcontractor_commencement",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "notice_before_subcontractor_commencement",
+        "fidic_clause_id":  "fidic_2017_red_5_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Notice before subcontractor commencement. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_restriction_on_subcontracting",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "restriction_on_subcontracting",
+        "fidic_clause_id":  "fidic_2017_red_5_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Restriction on subcontracting. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_nominated_subcontractor_definition",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "nominated_subcontractor_definition",
+        "fidic_clause_id":  "fidic_2017_red_5_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Nominated Subcontractor definition. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_reasonable_objection_to_nomination",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "reasonable_objection_to_nomination",
+        "fidic_clause_id":  "fidic_2017_red_5_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Reasonable objection to nomination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_back_to_back_obligations",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "back_to_back_obligations",
+        "fidic_clause_id":  "fidic_2017_red_5_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Back-to-back obligations. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_direct_payment_to_nominated_subcontractor",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "direct_payment_to_nominated_subcontractor",
+        "fidic_clause_id":  "fidic_2017_red_5_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Direct payment to Nominated Subcontractor. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_deduction_after_direct_payment",
+        "performance_node_id":  "subcontracting",
+        "clause_element_id":  "deduction_after_direct_payment",
+        "fidic_clause_id":  "fidic_2017_red_5_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Deduction after direct payment. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_obligation_to_give_access",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "employer_obligation_to_give_access",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Employer obligation to give access. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_timing_of_access",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "timing_of_access",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Timing of access. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_non_exclusive_access",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "non_exclusive_access",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Non-exclusive access. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_withholding_access_until_performance_security",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "withholding_access_until_performance_security",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Access conditional on Performance Security. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_delayed_access_consequence",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "delayed_access_consequence",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Delayed access consequence. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_delay_or_error_carve_out",
+        "performance_node_id":  "site_access_and_possession",
+        "clause_element_id":  "contractor_delay_or_error_carve_out",
+        "fidic_clause_id":  "fidic_2017_red_2_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor delay or error carve-out. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_materials_equipment_provision",
+        "performance_node_id":  "employer_supplied_materials_and_equipment",
+        "clause_element_id":  "employer_materials_equipment_provision",
+        "fidic_clause_id":  "fidic_2017_red_2_6",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Provision of Employer materials and equipment. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engineer_authority_instruction_and_determination",
+        "performance_node_id":  "engineer_appointment_and_role",
+        "clause_element_id":  "engineer_authority_instruction_and_determination",
+        "fidic_clause_id":  "fidic_2017_red_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engineer authority, instruction and determination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_side_coordination",
+        "performance_node_id":  "employer_personnel_and_other_contractors",
+        "clause_element_id":  "employer_side_coordination",
+        "fidic_clause_id":  "fidic_2017_red_2_3",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Employer-side coordination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_employer_obtained_permissions",
+        "performance_node_id":  "employer_permits",
+        "clause_element_id":  "employer_obtained_permissions",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Employer-obtained permissions. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_assistance_with_contractor_applications",
+        "performance_node_id":  "employer_assistance",
+        "clause_element_id":  "assistance_with_contractor_applications",
+        "fidic_clause_id":  "fidic_2017_red_2_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Assistance with Contractor applications. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_site_data_and_reference_provision",
+        "performance_node_id":  "site_data_and_reference_items",
+        "clause_element_id":  "site_data_and_reference_provision",
+        "fidic_clause_id":  "fidic_2017_red_2_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Site data and reference provision. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_supply_and_use_of_employer_design_documents",
+        "performance_node_id":  "employer_design_documents",
+        "clause_element_id":  "supply_and_use_of_employer_design_documents",
+        "fidic_clause_id":  "fidic_2017_red_1_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Supply and use of Employer design documents. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_evidence_of_financial_arrangements",
+        "performance_node_id":  "employer_financial_arrangements",
+        "clause_element_id":  "evidence_of_financial_arrangements",
+        "fidic_clause_id":  "fidic_2017_red_2_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Evidence of financial arrangements. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_scope_of_variation_power",
+        "performance_node_id":  "variation_scope",
+        "clause_element_id":  "scope_of_variation_power",
+        "fidic_clause_id":  "fidic_2017_red_13_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Scope of the variation power. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_variation_status_agreement_or_determination",
+        "performance_node_id":  "variation_recognition_dispute",
+        "clause_element_id":  "variation_status_agreement_or_determination",
+        "fidic_clause_id":  "fidic_2017_red_3_7",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Variation status agreement or determination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engineer_instruction_required",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "engineer_instruction_required",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engineer instruction required. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_bound_to_execute_variation",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "contractor_bound_to_execute_variation",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor bound to execute Variation. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_notice_of_inability_or_hse_concern",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "contractor_notice_of_inability_or_hse_concern",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Notice of inability or HSE concern. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_submission_within_28_days",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "contractor_submission_within_28_days",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor submission within 28 days. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_programme_and_eot_impact",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "programme_and_eot_impact",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Programme and EOT impact. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_valuation_and_contract_price_adjustment",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "valuation_and_contract_price_adjustment",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Valuation and Contract Price adjustment. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engineer_agreement_or_determination",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "engineer_agreement_or_determination",
+        "fidic_clause_id":  "fidic_2017_red_3_7",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engineer agreement or determination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_no_20_2_claim_requirement_for_ordinary_variation",
+        "performance_node_id":  "variation_instruction",
+        "clause_element_id":  "no_20_2_claim_requirement_for_ordinary_variation",
+        "fidic_clause_id":  "fidic_2017_red_13_3_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for No Sub-Clause 20.2 Claim for ordinary Variation adjustment. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_request_for_proposal_process",
+        "performance_node_id":  "variation_proposal",
+        "clause_element_id":  "request_for_proposal_process",
+        "fidic_clause_id":  "fidic_2017_red_13_3_2",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Request for Proposal process. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_variation_time_and_price_adjustment",
+        "performance_node_id":  "variation_eot_and_cost",
+        "clause_element_id":  "variation_time_and_price_adjustment",
+        "fidic_clause_id":  "fidic_2017_red_13_3",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Variation time and price adjustment. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_limited_notice_based_refusal",
+        "performance_node_id":  "refusal_to_execute_variation",
+        "clause_element_id":  "limited_notice_based_refusal",
+        "fidic_clause_id":  "fidic_2017_red_13_1",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Limited notice-based refusal. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_daywork_schedule_condition",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "daywork_schedule_condition",
+        "fidic_clause_id":  "fidic_2017_red_13_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Daywork Schedule condition. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_minor_or_incidental_work",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "minor_or_incidental_work",
+        "fidic_clause_id":  "fidic_2017_red_13_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Minor or incidental work. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_quotations_for_goods",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "quotations_for_goods",
+        "fidic_clause_id":  "fidic_2017_red_13_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Quotations for Goods. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_daily_records",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "daily_records",
+        "fidic_clause_id":  "fidic_2017_red_13_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Daily records. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engineer_sign_off_or_determination",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "engineer_sign_off_or_determination",
+        "fidic_clause_id":  "fidic_2017_red_3_7",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engineer sign-off or determination. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_substantiation_by_invoices_vouchers_accounts",
+        "performance_node_id":  "daywork",
+        "clause_element_id":  "substantiation_by_invoices_vouchers_accounts",
+        "fidic_clause_id":  "fidic_2017_red_13_5",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Substantiation by invoices, vouchers and accounts. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_use_only_by_engineer_instruction",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "use_only_by_engineer_instruction",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Use only by Engineer instruction. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_executed_work_as_variation",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "contractor_executed_work_as_variation",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor-executed work as Variation. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_nominated_subcontractor_or_supplier_purchase",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "nominated_subcontractor_or_supplier_purchase",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Nominated subcontractor or supplier purchase. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_overhead_and_profit",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "overhead_and_profit",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Overhead and profit. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_quotation_comparison",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "quotation_comparison",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Quotation comparison. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_engineer_instruction_to_accept_quote",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "engineer_instruction_to_accept_quote",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Engineer instruction to accept quotation. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_contractor_discretion_if_no_response",
+        "performance_node_id":  "provisional_sum",
+        "clause_element_id":  "contractor_discretion_if_no_response",
+        "fidic_clause_id":  "fidic_2017_red_13_4",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Contractor discretion if no response. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    },
+    {
+        "id":  "map_change_in_laws_time_and_price_relief",
+        "performance_node_id":  "change_in_laws",
+        "clause_element_id":  "change_in_laws_time_and_price_relief",
+        "fidic_clause_id":  "fidic_2017_red_13_6",
+        "mapping_type":  "primary",
+        "mapping_status":  "needs_lawyer_review",
+        "verification_comment":  "Primary mapping for Change in Laws time and price relief. The clause title and structure identify the corresponding performance mechanism; full source text is not loaded, so lawyer review is required."
+    }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "scope_and_works",
+    "name": "Scope & Works",
+    "chinese_name": "工程范围与工作内容",
+    "description": "This module covers the practical performance system required to define, enable, manage, execute and change the Works.",
+    "status": "active_pilot"
+  }
+]

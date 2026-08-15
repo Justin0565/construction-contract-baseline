@@ -1,0 +1,9 @@
+[
+  {"id":"scope-site","moduleId":"scope","name":"Site access and possession"},{"id":"scope-works","moduleId":"scope","name":"Works & obligations"},{"id":"scope-design","moduleId":"scope","name":"Design & interfaces"},
+  {"id":"time-delay","moduleId":"time","name":"Extension of Time"},{"id":"time-baseline","moduleId":"time","name":"Time baseline"},{"id":"time-control","moduleId":"time","name":"Progress control"},
+  {"id":"payment-process","moduleId":"payment","name":"Interim Payment"},{"id":"payment-price","moduleId":"payment","name":"Price baseline"},{"id":"payment-valuation","moduleId":"payment","name":"Valuation & adjustment"},
+  {"id":"risk-external","moduleId":"risk","name":"Exceptional Events / Force Majeure"},{"id":"risk-physical","moduleId":"risk","name":"Physical & site risk"},{"id":"risk-insurance","moduleId":"risk","name":"Care & insurance"},
+  {"id":"liability-default","moduleId":"liability","name":"Delay Damages & default"},{"id":"liability-loss","moduleId":"liability","name":"Loss & indemnity"},{"id":"liability-exit","moduleId":"liability","name":"Suspension & termination"},
+  {"id":"claims-procedure","moduleId":"claims","name":"Claims procedure"},{"id":"claims-determination","moduleId":"claims","name":"Determination"},{"id":"claims-disputes","moduleId":"claims","name":"Dispute resolution"},
+  {"id":"mechanics-notices","moduleId":"mechanics","name":"Notices"},{"id":"mechanics-parties","moduleId":"mechanics","name":"Roles & authority"},{"id":"mechanics-general","moduleId":"mechanics","name":"General operation"}
+]

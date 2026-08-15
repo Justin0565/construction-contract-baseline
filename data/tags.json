@@ -1,0 +1,19 @@
+[
+  {"id":"condition_precedent","name":"Condition Precedent","chinese_name":"先决条件"},
+  {"id":"time_bar","name":"Time Bar","chinese_name":"时效失权"},
+  {"id":"claim","name":"Claim","chinese_name":"索赔"},
+  {"id":"eot","name":"EOT","chinese_name":"工期延长"},
+  {"id":"counterclaim_countercharge","name":"Counterclaim / Countercharge","chinese_name":"反索赔／反扣款"},
+  {"id":"determination","name":"Determination","chinese_name":"决定"},
+  {"id":"breach_default","name":"Breach / Default","chinese_name":"违约"},
+  {"id":"remedy","name":"Remedy","chinese_name":"救济"},
+  {"id":"indemnity","name":"Indemnity","chinese_name":"赔偿保证"},
+  {"id":"deduction","name":"Deduction","chinese_name":"扣减"},
+  {"id":"withholding","name":"Withholding","chinese_name":"暂扣"},
+  {"id":"set_off","name":"Set-off","chinese_name":"抵销"},
+  {"id":"termination_trigger","name":"Termination Trigger","chinese_name":"终止触发"},
+  {"id":"deemed_approval","name":"Deemed Approval","chinese_name":"视为批准"},
+  {"id":"deemed_rejection","name":"Deemed Rejection","chinese_name":"视为拒绝"},
+  {"id":"back_to_back","name":"Back-to-back","chinese_name":"背靠背"},
+  {"id":"waiver_discharge","name":"Waiver / Discharge","chinese_name":"放弃／解除"}
+]

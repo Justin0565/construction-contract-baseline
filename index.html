@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Construction contract intelligence dashboard with functional, clause-order and legal-effect interfaces.">
+  <title>Construction Contract Intelligence Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-lockup" aria-label="Construction Contract Intelligence Dashboard">
+        <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div>
+          <p class="system-label">Contract knowledge architecture</p>
+          <h1>Construction Contract Intelligence Dashboard</h1>
+          <p class="app-subtitle">FIDIC 2017 Red Pilot <span aria-hidden="true">/</span> Interface System</p>
+        </div>
+      </div>
+
+      <nav class="view-selector" role="tablist" aria-label="Dashboard views">
+        <button
+          id="viewFunctional"
+          class="view-option option-functional is-selected"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="functionalView"
+          data-view-target="functionalView"
+        >Functional Skeleton</button>
+        <button
+          id="viewClause"
+          class="view-option option-clause"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="clauseSpineView"
+          data-view-target="clauseSpineView"
+        >Clause Spine</button>
+        <button
+          id="viewTag"
+          class="view-option option-tag"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tagView"
+          data-view-target="tagView"
+        >Tag View</button>
+      </nav>
+    </header>
+
+    <main class="app-content">
+      <section
+        id="functionalView"
+        class="app-view functional-view is-active"
+        role="tabpanel"
+        aria-labelledby="viewFunctional"
+      >
+        <div class="view-toolbar">
+          <div>
+            <p class="system-label">Level 1 <span>/</span> Main Contract Systems</p>
+            <h2>Functional Skeleton</h2>
+          </div>
+          <p class="interaction-hint">Select one or more modules to reveal their Level 2 practice categories.</p>
+          <div class="selection-tools">
+            <span id="selectionCount" aria-live="polite">0 modules open</span>
+            <button id="clearSelection" type="button" disabled>Collapse all</button>
+          </div>
+        </div>
+
+        <div id="architectureViewport" class="architecture-viewport">
+          <div class="technical-grid" aria-hidden="true"></div>
+          <div id="architecture" class="architecture" aria-label="Seven connected main contract systems"></div>
+          <p id="emptyHint" class="empty-hint"><span aria-hidden="true">+</span> Click any ring segment to expand its practice categories</p>
+        </div>
+      </section>
+
+      <section
+        id="clauseSpineView"
+        class="app-view clause-view"
+        role="tabpanel"
+        aria-labelledby="viewClause"
+        hidden
+      >
+        <div class="view-toolbar clause-toolbar">
+          <div>
+            <p class="system-label red-label">Source order <span>/</span> Clauses 1–21</p>
+            <h2>Clause Spine</h2>
+          </div>
+          <p class="interaction-hint">Browse the FIDIC Red Book 2017 top-level clause directory in its original order.</p>
+          <span class="directory-count">21 top-level clauses</span>
+        </div>
+
+        <div class="clause-workspace">
+          <section class="clause-list-panel" aria-labelledby="clause-directory-title">
+            <header class="clause-list-heading">
+              <div>
+                <span>Original sequence</span>
+                <h3 id="clause-directory-title">Clause Directory Spine</h3>
+              </div>
+              <small>Scroll to explore</small>
+            </header>
+            <div id="clauseSpine" class="clause-spine" aria-label="FIDIC Red Book 2017 clauses 1 to 21"></div>
+          </section>
+
+          <aside class="clause-identity" aria-label="FIDIC Red Book 2017 clause identity and selected clause detail">
+            <div class="identity-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="identity-kicker">Source-layer directory</p>
+            <h2>FIDIC Red Book 2017</h2>
+            <p class="identity-subtitle">Clause Spine View</p>
+            <div class="identity-rule" aria-hidden="true"><span></span></div>
+            <div id="clauseDetail" class="clause-detail" aria-live="polite">
+              <span class="detail-state">Ready</span>
+              <h3>Select a clause module</h3>
+              <p>The top-level directory remains visible while the selected clause summary appears here.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        id="tagView"
+        class="app-view tag-view"
+        role="tabpanel"
+        aria-labelledby="viewTag"
+        hidden
+      >
+        <div class="tag-placeholder">
+          <div class="tag-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="system-label purple-label">Third interface <span>/</span> Coming next</p>
+          <h2>Tag View</h2>
+          <p class="tag-subtitle">Legal Effect Tags</p>
+          <p class="tag-note">This interface will display legal-effect tags and clause mappings in the next stage.</p>
+          <div class="sample-tags" aria-label="Inactive sample legal-effect tags">
+            <span>Claim</span>
+            <span>EOT</span>
+            <span>Indemnity</span>
+            <span>Determination</span>
+            <span>Deduction</span>
+            <span>Withholding</span>
+            <span>Set-off</span>
+          </div>
+          <div class="coming-next"><i></i> Placeholder interface</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

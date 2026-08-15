@@ -1,0 +1,6 @@
+[
+  {"id":"main_performance_obligations","module_id":"scope_and_works","name":"Main Performance Obligations","chinese_name":"主要义务","description":"The core design-basis, procurement and construction obligations that deliver the Works.","order":1},
+  {"id":"ancillary_management_obligations","module_id":"scope_and_works","name":"Ancillary Management Obligations","chinese_name":"附带义务，即管理","description":"The people, documents, goods, compliance and supply-chain controls that manage performance.","order":2},
+  {"id":"employer_enabling_obligations","module_id":"scope_and_works","name":"Employer Enabling Obligations","chinese_name":"业主 / 对方使能义务","description":"The access, information, resources, authority and assistance the Employer side must provide to enable performance.","order":3},
+  {"id":"scope_variables_and_variations","module_id":"scope_and_works","name":"Scope Variables and Variations","chinese_name":"变量，即变更","description":"The recognition, instruction, proposal, valuation and execution mechanisms that change the Works.","order":4}
+]
