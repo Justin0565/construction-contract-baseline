@@ -126,22 +126,51 @@
         aria-labelledby="viewTag"
         hidden
       >
-        <div class="tag-placeholder">
-          <div class="tag-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-          <p class="system-label purple-label">Third interface <span>/</span> Coming next</p>
-          <h2>Tag View</h2>
-          <p class="tag-subtitle">Legal Effect Tags</p>
-          <p class="tag-note">This interface will display legal-effect tags and clause mappings in the next stage.</p>
-          <div class="sample-tags" aria-label="Inactive sample legal-effect tags">
-            <span>Claim</span>
-            <span>EOT</span>
-            <span>Indemnity</span>
-            <span>Determination</span>
-            <span>Deduction</span>
-            <span>Withholding</span>
-            <span>Set-off</span>
-          </div>
-          <div class="coming-next"><i></i> Placeholder interface</div>
+        <div class="tag-dashboard">
+          <header class="tag-hero">
+            <div class="tag-hero-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div>
+              <p class="system-label purple-label">Legal-effect index <span>/</span> FIDIC Red Book 2017</p>
+              <h2>Legal Effect Tag Control Panel</h2>
+              <p class="tag-chinese-title" lang="zh-Hans">法律效果标签控制台</p>
+            </div>
+            <p class="tag-intro">Select a legal-effect tag to see where that effect appears across the FIDIC Red Book 2017 structure.</p>
+          </header>
+
+          <section class="tag-bank" aria-labelledby="tag-bank-title">
+            <div class="tag-section-heading">
+              <div>
+                <span class="tag-stage-number">01</span>
+                <div>
+                  <p>Effect selection</p>
+                  <h3 id="tag-bank-title">Choose a legal-effect tag</h3>
+                </div>
+              </div>
+              <span class="tag-layer-badge">Horizontal index layer</span>
+            </div>
+            <div id="tagGroups" class="tag-groups" aria-label="Legal-effect tag groups"></div>
+          </section>
+
+          <section id="tagResultsPanel" class="tag-results-panel" aria-labelledby="tag-results-title">
+            <div class="tag-section-heading tag-results-heading">
+              <div>
+                <span class="tag-stage-number">02</span>
+                <div>
+                  <p>Clause mapping</p>
+                  <h3 id="tag-results-title">Related Clauses</h3>
+                </div>
+              </div>
+              <span id="tagResultCount" class="tag-result-count">Awaiting tag selection</span>
+            </div>
+            <div id="tagResults" class="tag-results" aria-live="polite">
+              <div class="tag-empty-state">
+                <span aria-hidden="true">+</span>
+                <p>Select a tag to display related FIDIC clauses.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="tagClauseDetail" class="tag-clause-detail" aria-labelledby="tag-detail-title" hidden></section>
         </div>
       </section>
     </main>

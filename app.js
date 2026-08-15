@@ -113,6 +113,143 @@ const fidicClauses = [
   { number: 21, title: "Disputes and Arbitration", color: "#ad3e7b" }
 ];
 
+const tagGroupsData = [
+  {
+    title: "Entitlement & Procedure",
+    chineseTitle: "权利主张与程序门槛",
+    tags: ["Claim", "Condition Precedent", "Counterclaim / Countercharge", "EOT", "Time Bar", "Waiver / Discharge"]
+  },
+  {
+    title: "Determination & Deemed Effects",
+    chineseTitle: "决定机制与拟制效果",
+    tags: ["Deemed Approval", "Deemed Rejection", "Determination"]
+  },
+  {
+    title: "Remedies, Risk & Payment Controls",
+    chineseTitle: "救济、风险与付款控制",
+    tags: ["Back-to-back", "Breach / Default", "Deduction", "Indemnity", "Remedy", "Set-off", "Termination Trigger", "Withholding"]
+  }
+];
+
+const tagClauseMappings = {
+  "Back-to-back": [],
+  "Breach / Default": [
+    ["4.1", "Contractor's General Obligations"],
+    ["8.8", "Delay Damages"],
+    ["11.4", "Failure to Remedy Defects"],
+    ["15.2", "Termination for Contractor's Default"]
+  ],
+  Claim: [
+    ["1.9", "Delayed Drawings or Instructions"],
+    ["1.13", "Compliance with Laws"],
+    ["2.1", "Right of Access to the Site"],
+    ["4.12", "Unforeseeable Physical Conditions"],
+    ["20.2", "Claims For Payment and/or EOT"]
+  ],
+  "Condition Precedent": [
+    ["4.2", "Performance Security"],
+    ["20.2", "Claims For Payment and/or EOT"],
+    ["21.4", "Obtaining DAAB's Decision"]
+  ],
+  "Counterclaim / Countercharge": [
+    ["20.2", "Claims For Payment and/or EOT"]
+  ],
+  Deduction: [
+    ["8.8", "Delay Damages"],
+    ["11.4", "Failure to Remedy Defects"],
+    ["14.6", "Issue of IPC"],
+    ["14.15", "Currencies of Payment"]
+  ],
+  "Deemed Approval": [
+    ["3.7", "Agreement or Determination"],
+    ["13.3.1", "Variation by Instruction"]
+  ],
+  "Deemed Rejection": [
+    ["20.2", "Claims For Payment and/or EOT"],
+    ["21.4", "Obtaining DAAB's Decision"]
+  ],
+  Determination: [
+    ["3.7", "Agreement or Determination"],
+    ["13.3.1", "Variation by Instruction"],
+    ["20.2", "Claims For Payment and/or EOT"]
+  ],
+  EOT: [
+    ["2.1", "Right of Access to the Site"],
+    ["8.5", "Extension of Time for Completion"],
+    ["8.6", "Delays Caused by Authorities"],
+    ["13.3.1", "Variation by Instruction"],
+    ["13.6", "Adjustments for Changes in Laws"]
+  ],
+  Indemnity: [
+    ["1.13", "Compliance with Laws"],
+    ["17.4", "Indemnities by the Contractor"],
+    ["17.5", "Indemnities by the Employer"]
+  ],
+  Remedy: [
+    ["7.5", "Defects and Rejection"],
+    ["7.6", "Remedial Work"],
+    ["11.1", "Completion of Outstanding Work and Remedying Defects"],
+    ["11.4", "Failure to Remedy Defects"]
+  ],
+  "Set-off": [
+    ["2.2", "Assistance"],
+    ["8.8", "Delay Damages"],
+    ["14.6", "Issue of IPC"]
+  ],
+  "Termination Trigger": [
+    ["15.2", "Termination for Contractor's Default"],
+    ["15.5", "Termination for Employer's Convenience"],
+    ["16.2", "Termination by Contractor"]
+  ],
+  "Time Bar": [
+    ["20.2", "Claims For Payment and/or EOT"]
+  ],
+  "Waiver / Discharge": [
+    ["20.2", "Claims For Payment and/or EOT"],
+    ["14.12", "Discharge"]
+  ],
+  Withholding: [
+    ["14.6", "Issue of IPC"],
+    ["14.9", "Payment of Retention Money"],
+    ["15.4", "Payment after Termination for Contractor's Default"]
+  ]
+};
+
+const sampleTagDetails = {
+  "EOT::2.1": {
+    reason: "The clause provides that delayed access or possession may entitle the Contractor to EOT, subject to the claims procedure.",
+    path: "Scope & Works > Employer Enabling Obligations > Site access and possession",
+    elements: [
+      "Employer obligation to give access and possession",
+      "Timing of access",
+      "Non-exclusive access",
+      "Delayed access consequence",
+      "Contractor delay or error carve-out"
+    ]
+  },
+  "EOT::13.3.1": {
+    reason: "The Contractor's proposal may include adjustment to the Time for Completion where the instructed Variation affects time.",
+    path: "Scope & Works > Scope Variables and Variations > Variation instruction",
+    elements: [
+      "Engineer instruction",
+      "Contractor obligation to execute Variation",
+      "Contractor proposal",
+      "Time impact",
+      "Engineer agreement or determination"
+    ]
+  },
+  "Determination::3.7": {
+    reason: "This is the core Engineer agreement or determination mechanism.",
+    path: "Contract Mechanics > Contract Administration > Agreement or Determination",
+    elements: [
+      "Engineer consultation",
+      "Agreement process",
+      "Determination process",
+      "Notice of determination"
+    ]
+  }
+};
+
 const RING_CENTER = { x: 610, y: 280 };
 const RING_RADIUS = 270;
 const PANEL_WIDTH = 270;
@@ -125,10 +262,18 @@ const clearSelection = document.getElementById("clearSelection");
 const emptyHint = document.getElementById("emptyHint");
 const clauseSpine = document.getElementById("clauseSpine");
 const clauseDetail = document.getElementById("clauseDetail");
+const tagGroups = document.getElementById("tagGroups");
+const tagResultsPanel = document.getElementById("tagResultsPanel");
+const tagResultsTitle = document.getElementById("tag-results-title");
+const tagResultCount = document.getElementById("tagResultCount");
+const tagResults = document.getElementById("tagResults");
+const tagClauseDetail = document.getElementById("tagClauseDetail");
 const viewOptions = [...document.querySelectorAll("[data-view-target]")];
 const appViews = [...document.querySelectorAll(".app-view")];
 const selectedSystems = new Set();
 let selectedClauseNumber = null;
+let selectedTag = null;
+let selectedTagClause = null;
 
 function renderArchitecture() {
   architecture.innerHTML = `
@@ -281,6 +426,163 @@ function selectClause(number) {
   requestAnimationFrame(() => clauseDetail.classList.add("is-populated"));
 }
 
+function renderTagGroups() {
+  tagGroups.innerHTML = tagGroupsData.map((group, groupIndex) => `
+    <article class="tag-group-card">
+      <header class="tag-group-heading">
+        <span>${String(groupIndex + 1).padStart(2, "0")}</span>
+        <div>
+          <h4>${group.title}</h4>
+          <p lang="zh-Hans">${group.chineseTitle}</p>
+        </div>
+      </header>
+      <div class="tag-chip-list">
+        ${group.tags.map((tag) => `
+          <button class="tag-chip" type="button" data-tag-name="${tag}" aria-pressed="false">
+            <span>${tag}</span><i aria-hidden="true"></i>
+          </button>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
+
+  tagGroups.querySelectorAll(".tag-chip").forEach((button) => {
+    button.addEventListener("click", () => selectTag(button.dataset.tagName));
+  });
+}
+
+function selectTag(tagName) {
+  selectedTag = tagName;
+  selectedTagClause = null;
+
+  tagGroups.querySelectorAll(".tag-chip").forEach((button) => {
+    const isSelected = button.dataset.tagName === tagName;
+    button.classList.toggle("is-selected", isSelected);
+    button.setAttribute("aria-pressed", String(isSelected));
+  });
+
+  tagClauseDetail.hidden = true;
+  tagClauseDetail.innerHTML = "";
+  renderTagResults();
+  scrollTagSectionIntoView(tagResultsPanel);
+}
+
+function renderTagResults() {
+  const clauses = tagClauseMappings[selectedTag] || [];
+  tagResultsTitle.textContent = `Selected Tag: ${selectedTag}`;
+  tagResultCount.textContent = clauses.length === 1 ? "1 related clause" : `${clauses.length} related clauses`;
+
+  if (clauses.length === 0) {
+    tagResults.innerHTML = `
+      <div class="tag-empty-state tag-empty-mapping">
+        <span aria-hidden="true">0</span>
+        <div>
+          <p>No mapped clauses loaded yet.</p>
+          <small>This tag will be populated in the next mapping stage.</small>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  tagResults.innerHTML = `
+    <p class="tag-related-label">Related Clauses</p>
+    <div class="tag-clause-list">
+      ${clauses.map(([number, title]) => `
+        <button
+          class="tag-clause-result"
+          type="button"
+          data-clause-number="${number}"
+          aria-pressed="false"
+        >
+          <span class="tag-result-clause-no">${number}</span>
+          <span class="tag-result-copy">
+            <strong>${title}</strong>
+            <small>FIDIC Red Book 2017</small>
+          </span>
+          <span class="mapping-status">sample mapping only</span>
+          <span class="tag-result-arrow" aria-hidden="true">›</span>
+        </button>
+      `).join("")}
+    </div>
+  `;
+
+  tagResults.querySelectorAll(".tag-clause-result").forEach((button) => {
+    button.addEventListener("click", () => selectTagClause(button.dataset.clauseNumber));
+  });
+}
+
+function selectTagClause(clauseNumber) {
+  const clause = (tagClauseMappings[selectedTag] || []).find(([number]) => number === clauseNumber);
+  if (!clause) return;
+
+  selectedTagClause = clauseNumber;
+  tagResults.querySelectorAll(".tag-clause-result").forEach((button) => {
+    const isSelected = button.dataset.clauseNumber === clauseNumber;
+    button.classList.toggle("is-selected", isSelected);
+    button.setAttribute("aria-pressed", String(isSelected));
+  });
+
+  renderTagClauseDetail(clause);
+  scrollTagSectionIntoView(tagClauseDetail);
+}
+
+function renderTagClauseDetail([number, title]) {
+  const detail = sampleTagDetails[`${selectedTag}::${number}`] || {
+    reason: "Detailed tag reason to be completed in the next mapping stage.",
+    path: "Functional path to be completed in the next mapping stage.",
+    elements: ["Related clause elements to be completed in the next mapping stage."]
+  };
+
+  tagClauseDetail.innerHTML = `
+    <div class="tag-section-heading tag-detail-heading">
+      <div>
+        <span class="tag-stage-number">03</span>
+        <div>
+          <p>Clause detail</p>
+          <h3 id="tag-detail-title">${number} ${title}</h3>
+        </div>
+      </div>
+      <span class="tag-detail-selected">Selected tag: ${selectedTag}</span>
+    </div>
+
+    <div class="tag-detail-grid">
+      <div class="tag-detail-main">
+        <section>
+          <span class="tag-detail-label">Why this clause is mapped to this tag</span>
+          <p>${detail.reason}</p>
+        </section>
+        <section>
+          <span class="tag-detail-label">Functional path</span>
+          <p class="functional-path">${detail.path}</p>
+        </section>
+      </div>
+
+      <aside class="tag-elements-card">
+        <span class="tag-detail-label">Related clause elements</span>
+        <ul>
+          ${detail.elements.map((element) => `<li>${element}</li>`).join("")}
+        </ul>
+      </aside>
+    </div>
+
+    <footer class="tag-verification">
+      <span>Verification status</span>
+      <div>
+        <b>sample mapping only</b>
+        <b>needs lawyer review</b>
+        <b>source text not yet loaded</b>
+      </div>
+    </footer>
+  `;
+  tagClauseDetail.hidden = false;
+}
+
+function scrollTagSectionIntoView(section) {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  requestAnimationFrame(() => section.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" }));
+}
+
 function switchView(targetId) {
   appViews.forEach((view) => {
     const isActive = view.id === targetId;
@@ -293,6 +595,10 @@ function switchView(targetId) {
     button.classList.toggle("is-selected", isSelected);
     button.setAttribute("aria-selected", String(isSelected));
   });
+
+  window.setTimeout(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, 0);
 }
 
 viewOptions.forEach((button) => {
@@ -306,5 +612,6 @@ clearSelection.addEventListener("click", () => {
 
 renderArchitecture();
 renderClauseSpine();
+renderTagGroups();
 updateArchitecture();
 switchView("functionalView");

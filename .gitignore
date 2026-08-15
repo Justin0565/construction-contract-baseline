@@ -1,0 +1,6 @@
+# Local FIDIC source documents
+data/source/FIDIC_Red_2017/*.doc
+data/source/FIDIC_Red_2017/*.docx
+data/source/FIDIC_Red_2017/*.pdf
+data/source/FIDIC_Red_2017/*.xls
+data/source/FIDIC_Red_2017/*.xlsx
