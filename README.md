@@ -44,6 +44,28 @@ All dashboard content is held in the `data` folder:
 
 The IDs are the joins between files. For example, an element with `subIssueId: "time-delay"` appears under that sub-issue. A mapping row with the same `elementId` as the element appears in its clause table.
 
+## Local FIDIC 2017 source import
+
+The supplied legacy Word manual copy can be parsed into a local, structured source layer with:
+
+```powershell
+python scripts/import_fidic_word.py data/source/FIDIC_Red_2017/FIDIC_2017_Red_Book.doc `
+  --output data/processed/fidic_2017_red_clauses.json `
+  --report reports/FIDIC_2017_Red_Word_Import_Report.md
+```
+
+The generated full-text JSON is deliberately gitignored. Its records remain marked `needs_pdf_verification`; the importer does not use the PDF, add functional mappings, or alter source wording. The committed schema is at `data/processed/fidic_2017_red_clauses.schema.json`.
+
+Run the conservative PDF comparison separately:
+
+```powershell
+python scripts/verify_fidic_pdf.py data/processed/fidic_2017_red_clauses.json `
+  "data/source/FIDIC_Red_2017/Extracted GC-FIDI Red 2017.pdf" `
+  --apply --report reports/FIDIC_2017_Red_PDF_Comparison_Report.md
+```
+
+Only complete, unique matches receive `pdf_text_matched`. The comparison keeps the cleaner Word paragraph layout and never changes unmatched records.
+
 ## How a lawyer can update the JSON
 
 1. Make a backup copy of the file to be changed.

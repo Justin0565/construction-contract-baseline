@@ -1,0 +1,3734 @@
+{
+  "main_system": "Scope & Works",
+  "chinese_name": "空间 / 工程范围与工作内容",
+  "version": "v1",
+  "status": "approved_content_logic_needs_pdf_verification",
+  "source_status": "source_text_loaded",
+  "qc_status": "needs_pdf_verification",
+  "lawyer_review_status": "needs_lawyer_review",
+  "practice_categories": [
+    {
+      "id": "main_performance_obligations",
+      "name": "Main Performance Obligations",
+      "chinese_name": "主要义务",
+      "order": 1
+    },
+    {
+      "id": "ancillary_management_obligations",
+      "name": "Ancillary Management Obligations",
+      "chinese_name": "附带义务，即管理",
+      "order": 2
+    },
+    {
+      "id": "employer_enabling_obligations",
+      "name": "Employer Enabling Obligations",
+      "chinese_name": "业主 / 对方使能义务",
+      "order": 3
+    },
+    {
+      "id": "scope_variables_and_variations",
+      "name": "Scope Variables and Variations",
+      "chinese_name": "变量，即变更",
+      "order": 4
+    }
+  ],
+  "performance_nodes": [
+    {
+      "id": "employer_design_basis",
+      "practice_category_id": "main_performance_obligations",
+      "name": "Employer design basis / Contractor design portions",
+      "chinese_name": "业主设计基础 / 承包商设计部分",
+      "order": 1,
+      "logic": "Red Book is based on Employer-designed Works. Employer provides Specifications / Drawings as the basis of the Works. Where the Contract specifies Contractor design portions, Contractor must submit Contractor’s Documents and comply with the Contract.",
+      "primary_clauses": [
+        [
+          "1.5",
+          "Priority of Documents"
+        ],
+        [
+          "1.8",
+          "Care and Supply of Documents"
+        ],
+        [
+          "1.9",
+          "Delayed Drawings or Instructions"
+        ],
+        [
+          "1.10",
+          "Employer's Use of Contractor's Documents"
+        ],
+        [
+          "1.11",
+          "Contractor’s Use of Employer’s Documents"
+        ],
+        [
+          "4.1",
+          "Contractor's General Obligations"
+        ],
+        [
+          "4.4",
+          "Contractor’s Documents"
+        ]
+      ],
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ]
+    },
+    {
+      "id": "procurement",
+      "practice_category_id": "main_performance_obligations",
+      "name": "Procurement",
+      "chinese_name": "P采购",
+      "order": 2,
+      "logic": "Procurement is part of Contractor’s delivery obligation. Contractor must procure / provide Plant, Materials, Contractor’s Documents, Contractor’s Personnel, Goods, consumables and other things and services required to fulfil its obligations.",
+      "primary_clauses": [
+        [
+          "1.1.44",
+          "1.1.44 [Title to be verified]"
+        ],
+        [
+          "4.1",
+          "Contractor's General Obligations"
+        ],
+        [
+          "4.16",
+          "Transport of Goods"
+        ],
+        [
+          "4.17",
+          "Contractor’s Equipment"
+        ],
+        [
+          "7.1",
+          "Manner of Execution"
+        ],
+        [
+          "7.2",
+          "Samples"
+        ],
+        [
+          "7.3",
+          "Inspection"
+        ],
+        [
+          "7.4",
+          "Testing by the Contractor"
+        ],
+        [
+          "7.5",
+          "Defects and Rejection"
+        ],
+        [
+          "7.6",
+          "Remedial Work"
+        ],
+        [
+          "7.7",
+          "Ownership of Plant and Materials"
+        ],
+        [
+          "7.8",
+          "Royalties"
+        ]
+      ],
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ]
+    },
+    {
+      "id": "execution_of_works",
+      "practice_category_id": "main_performance_obligations",
+      "name": "Execution of Works",
+      "chinese_name": "C施工 / 实施工程",
+      "order": 3,
+      "logic": "Contractor’s core obligation is to execute and complete the Works and remedy defects in accordance with the Contract and Engineer’s instructions.",
+      "primary_clauses": [
+        [
+          "4.1",
+          "Contractor's General Obligations"
+        ],
+        [
+          "4.6",
+          "Co-operation"
+        ],
+        [
+          "4.7",
+          "Setting Out"
+        ],
+        [
+          "7.1",
+          "Manner of Execution"
+        ],
+        [
+          "7.3",
+          "Inspection"
+        ],
+        [
+          "7.4",
+          "Testing by the Contractor"
+        ],
+        [
+          "7.5",
+          "Defects and Rejection"
+        ],
+        [
+          "7.6",
+          "Remedial Work"
+        ]
+      ],
+      "primary_path": "Scope & Works > Main Performance Obligations > Execution of Works",
+      "secondary_paths": [
+        "Time & Completion > programme / completion",
+        "Quality / Defects",
+        "Claims, only where specific entitlement clause applies"
+      ],
+      "elements": [
+        "Execute and complete the Works",
+        "Remedy defects",
+        "Co-operate with Employer’s Personnel and other contractors",
+        "Setting out and reference items",
+        "Inspection and testing",
+        "Defects, rejection and remedial work"
+      ]
+    },
+    {
+      "id": "completed_works_compliance",
+      "practice_category_id": "main_performance_obligations",
+      "name": "Compliance of completed Works",
+      "chinese_name": "完工成果符合合同",
+      "order": 4,
+      "logic": "Scope is not only doing work. It is delivering completed Works that comply with the Contract, Specification, Drawings, quality, testing and defect-remedy requirements.",
+      "primary_clauses": [
+        [
+          "4.1",
+          "Contractor's General Obligations"
+        ],
+        [
+          "4.9",
+          "4.9 [Title to be verified]"
+        ],
+        [
+          "7.1",
+          "Manner of Execution"
+        ],
+        [
+          "7.2",
+          "Samples"
+        ],
+        [
+          "7.3",
+          "Inspection"
+        ],
+        [
+          "7.4",
+          "Testing by the Contractor"
+        ],
+        [
+          "7.5",
+          "Defects and Rejection"
+        ],
+        [
+          "7.6",
+          "Remedial Work"
+        ],
+        [
+          "7.7",
+          "Ownership of Plant and Materials"
+        ],
+        [
+          "7.8",
+          "Royalties"
+        ],
+        [
+          "10",
+          "10 [Title to be verified]"
+        ],
+        [
+          "11",
+          "11 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+      "secondary_paths": [
+        "Tests on Completion",
+        "Taking Over",
+        "Defects",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Quality management / compliance verification",
+        "Inspection and testing",
+        "Defects and rejection",
+        "Remedial work",
+        "Defect remedy after taking-over"
+      ]
+    },
+    {
+      "id": "personnel",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Personnel",
+      "chinese_name": "人员",
+      "order": 1,
+      "logic": "Contractor must organise Contractor’s Representative, staff and labour, and manage personnel capability, labour compliance, welfare, working hours, health and safety.",
+      "primary_clauses": [
+        [
+          "4.3",
+          "Contractor's Representative"
+        ],
+        [
+          "6.1",
+          "Engagement of Staff and Labour"
+        ],
+        [
+          "6.2",
+          "Rates of Wages and Conditions of Labour"
+        ],
+        [
+          "6.3",
+          "Recruitment of Persons"
+        ],
+        [
+          "6.4",
+          "Labour Laws"
+        ],
+        [
+          "6.5",
+          "Working Hours"
+        ],
+        [
+          "6.6",
+          "Facilities for Staff and Labour"
+        ],
+        [
+          "6.7",
+          "Health and Safety of Personnel"
+        ],
+        [
+          "6.8",
+          "Contractor's Superintendence"
+        ],
+        [
+          "6.9",
+          "Contractor's Personnel"
+        ],
+        [
+          "6.10",
+          "Contractor's Records"
+        ],
+        [
+          "6.11",
+          "Disorderly Conduct"
+        ],
+        [
+          "6.12",
+          "Key Personnel"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ]
+    },
+    {
+      "id": "documents",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Documents",
+      "chinese_name": "文件",
+      "order": 2,
+      "logic": "Documents are a management instrument for performance: contract documents, Contractor’s Documents, progress reports, records, as-built records, O&M manuals, and claim evidence.",
+      "primary_clauses": [
+        [
+          "1.8",
+          "Care and Supply of Documents"
+        ],
+        [
+          "4.4",
+          "Contractor’s Documents"
+        ],
+        [
+          "4.20",
+          "Progress Reports"
+        ],
+        [
+          "6.10",
+          "Contractor's Records"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Documents",
+      "secondary_paths": [
+        "Claims evidence",
+        "Payment support",
+        "Taking Over / O&M"
+      ],
+      "elements": [
+        "Care and supply of documents",
+        "Contractor’s Documents",
+        "Monthly progress reports",
+        "Records",
+        "As-built / O&M documents where applicable"
+      ]
+    },
+    {
+      "id": "goods",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Goods",
+      "chinese_name": "货物",
+      "order": 3,
+      "logic": "Goods include Contractor’s Equipment, Materials, Plant and Temporary Works. Goods are physical and logistical inputs for the Works.",
+      "primary_clauses": [
+        [
+          "1.1.44",
+          "1.1.44 [Title to be verified]"
+        ],
+        [
+          "4.16",
+          "Transport of Goods"
+        ],
+        [
+          "4.17",
+          "Contractor’s Equipment"
+        ],
+        [
+          "7.1",
+          "Manner of Execution"
+        ],
+        [
+          "7.2",
+          "Samples"
+        ],
+        [
+          "7.3",
+          "Inspection"
+        ],
+        [
+          "7.4",
+          "Testing by the Contractor"
+        ],
+        [
+          "7.5",
+          "Defects and Rejection"
+        ],
+        [
+          "7.6",
+          "Remedial Work"
+        ],
+        [
+          "7.7",
+          "Ownership of Plant and Materials"
+        ],
+        [
+          "7.8",
+          "Royalties"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Goods",
+      "secondary_paths": [
+        "Procurement",
+        "Risk",
+        "Insurance",
+        "Price & Payment if valuation issue arises"
+      ],
+      "elements": [
+        "Contractor’s Equipment",
+        "Materials",
+        "Plant",
+        "Temporary Works",
+        "Delivery / import / transport / storage",
+        "Testing / rejection / compliance"
+      ]
+    },
+    {
+      "id": "site_qhse",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Site including QHSE",
+      "chinese_name": "现场，包括 QHSE",
+      "order": 4,
+      "logic": "This covers how Contractor controls the physical Site and construction environment: access routes, obstruction, security, environmental protection, temporary utilities, site operations, archaeological / geological findings, and QHSE.",
+      "primary_clauses": [
+        [
+          "4.8",
+          "Health and Safety Obligations"
+        ],
+        [
+          "4.13",
+          "Rights of Way and Facilities"
+        ],
+        [
+          "4.14",
+          "Avoidance of Interference"
+        ],
+        [
+          "4.15",
+          "Access Route"
+        ],
+        [
+          "4.18",
+          "Protection of the Environment"
+        ],
+        [
+          "4.19",
+          "Temporary Utilities"
+        ],
+        [
+          "4.21",
+          "Security of the Site"
+        ],
+        [
+          "4.22",
+          "Contractor’s Operations on Site"
+        ],
+        [
+          "4.23",
+          "Archaeological and Geological Findings"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ]
+    },
+    {
+      "id": "permits_approvals",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Permits and approvals",
+      "chinese_name": "证照 / 批准",
+      "order": 5,
+      "logic": "Permits and approvals are split between Employer and Contractor. Employer obtains planning, zoning, building permits or other specified permits for the Permanent Works. Contractor obtains permits needed for its own performance, Goods delivery and import.",
+      "primary_clauses": [
+        [
+          "1.13",
+          "Compliance with Laws"
+        ],
+        [
+          "2.2",
+          "Assistance"
+        ],
+        [
+          "4.15",
+          "Access Route"
+        ],
+        [
+          "4.16",
+          "Transport of Goods"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Permits and approvals",
+      "secondary_paths": [
+        "Employer Enabling Obligations > Employer permits",
+        "Claims if express entitlement",
+        "Risk & Protection"
+      ],
+      "elements": [
+        "Employer-side permits",
+        "Contractor-side permits",
+        "Employer reasonable assistance",
+        "Goods import / transport permits",
+        "Failure / delay in permits where expressly addressed"
+      ]
+    },
+    {
+      "id": "subcontracting",
+      "practice_category_id": "ancillary_management_obligations",
+      "name": "Subcontracting",
+      "chinese_name": "分包",
+      "order": 6,
+      "logic": "Subcontracting is a Scope management mechanism. It controls how Contractor delegates performance while remaining responsible.",
+      "primary_clauses": [
+        [
+          "5.1",
+          "Subcontractors"
+        ],
+        [
+          "5.2",
+          "5.2 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Subcontracting",
+      "secondary_paths": [
+        "Payment",
+        "Risk",
+        "Back-to-back obligations",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Subcontracting percentage / prohibited parts",
+        "Engineer prior consent to proposed Subcontractor",
+        "Deemed consent if Engineer gives no objection within 14 days",
+        "28-day notice before Subcontractor starts work",
+        "Contractor responsibility for acts/defaults of Subcontractors",
+        "Reasonable objection to nominated Subcontractor",
+        "Employer indemnity to overcome objection",
+        "Back-to-back obligations / liabilities",
+        "Evidence of payment to nominated Subcontractor",
+        "Employer direct payment and deduction in next IPC"
+      ]
+    },
+    {
+      "id": "site_access_possession",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Site access and possession",
+      "chinese_name": "提供场地",
+      "order": 1,
+      "logic": "Employer must provide access and possession of the Site. If Employer fails to give access / possession within time and Contractor suffers delay and/or Cost, Contractor may be entitled subject to 20.2 to EOT and/or Cost Plus Profit, except where caused by Contractor’s own error or delay.",
+      "primary_clauses": [
+        [
+          "2.1",
+          "Right of Access to the Site"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site access and possession",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Claims, Determination & Disputes > Contractor claim for EOT / Cost"
+      ],
+      "elements": [
+        "Employer obligation to give access and possession",
+        "Timing of access / possession",
+        "Delayed access consequence",
+        "Contractor error / delay carve-out"
+      ]
+    },
+    {
+      "id": "employer_materials_equipment",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer-supplied materials and equipment",
+      "chinese_name": "提供设备或材料",
+      "order": 2,
+      "logic": "Where the Specification provides for Employer-Supplied Materials or Employer’s Equipment, Employer makes them available for Contractor’s use. Contractor then has use / management obligations.",
+      "primary_clauses": [
+        [
+          "2.6",
+          "Employer-Supplied Materials and Employer's Equipment"
+        ],
+        [
+          "4.19",
+          "Temporary Utilities"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer-supplied materials and equipment",
+      "secondary_paths": [
+        "Procurement",
+        "Site utilities",
+        "Price & Payment for utilities"
+      ],
+      "elements": [
+        "Employer-supplied materials",
+        "Employer’s equipment",
+        "Contractor use / management",
+        "Temporary utilities"
+      ]
+    },
+    {
+      "id": "employer_personnel_contractors",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer personnel and other contractors",
+      "chinese_name": "管理本方人员及其他承包商",
+      "order": 3,
+      "logic": "Employer must ensure Employer’s Personnel and other contractors cooperate with Contractor’s efforts and comply with relevant health / safety / environmental obligations. Contractor also has co-operation obligations under 4.6.",
+      "primary_clauses": [
+        [
+          "2.3",
+          "Employer's Personnel and Other Contractors"
+        ],
+        [
+          "4.6",
+          "Co-operation"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer personnel and other contractors",
+      "secondary_paths": [
+        "Site including QHSE",
+        "Claims if 4.6 entitlement applies",
+        "Time & Completion if express EOT entitlement applies"
+      ],
+      "elements": [
+        "Employer Personnel cooperation",
+        "Other contractors cooperation",
+        "Contractor co-operation obligations",
+        "Unforeseeable co-operation instruction causing delay / Cost"
+      ]
+    },
+    {
+      "id": "employer_permits",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer permits",
+      "chinese_name": "提供证照",
+      "order": 4,
+      "logic": "Employer-side permits are an enabling input. Employer obtains planning, zoning, building permits and other permits specified in the Specifications.",
+      "primary_clauses": [
+        [
+          "1.13",
+          "Compliance with Laws"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer permits",
+      "secondary_paths": [
+        "Ancillary Management Obligations > Permits and approvals",
+        "Claims",
+        "Risk"
+      ],
+      "elements": [
+        "Employer obtains required permits",
+        "Contractor obtains its permits",
+        "Failure / delay in Employer permits",
+        "Indemnity for failures where expressly stated"
+      ]
+    },
+    {
+      "id": "employer_assistance",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer assistance",
+      "chinese_name": "提供协助",
+      "order": 5,
+      "logic": "Employer must provide reasonable assistance to allow Contractor to obtain relevant Laws, permits, permissions, licences, approvals, customs clearance and export approvals.",
+      "primary_clauses": [
+        [
+          "2.2",
+          "Assistance"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer assistance",
+      "secondary_paths": [
+        "Permits and approvals",
+        "Goods transport",
+        "Contractor’s Equipment export"
+      ],
+      "elements": [
+        "Assistance to obtain Laws",
+        "Assistance for permits / approvals",
+        "Assistance for customs clearance",
+        "Assistance for export approvals"
+      ]
+    },
+    {
+      "id": "site_data_reference",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Site data and reference items",
+      "chinese_name": "提供现场数据 / 参考点",
+      "order": 6,
+      "logic": "Employer provides Site Data / Items of Reference. Contractor uses, interprets and verifies them. This node captures the interface between Employer-provided site information and Contractor’s setting out / physical condition risk.",
+      "primary_clauses": [
+        [
+          "2.5",
+          "Site Data and Items of Reference"
+        ],
+        [
+          "4.7",
+          "Setting Out"
+        ],
+        [
+          "4.7.3",
+          "Agreement or Determination of Rectification Measures, Delay and/or Cost"
+        ],
+        [
+          "4.10",
+          "Use of Site Data"
+        ],
+        [
+          "4.12",
+          "Unforeseeable Physical Conditions"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site data and reference items",
+      "secondary_paths": [
+        "Risk allocation",
+        "Claims",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Employer-provided site data / reference items",
+        "Contractor verification obligation",
+        "Contractor notice of error",
+        "Engineer agreement / determination of error and consequences",
+        "Unforeseeable physical conditions"
+      ]
+    },
+    {
+      "id": "employer_design_documents",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer design documents",
+      "chinese_name": "提供设计 / Specifications / Drawings",
+      "order": 7,
+      "logic": "Employer’s Specifications and Drawings define the Works. Delayed drawings or instructions are Employer enabling failures that may affect time and cost.",
+      "primary_clauses": [
+        [
+          "1.5",
+          "Priority of Documents"
+        ],
+        [
+          "1.8",
+          "Care and Supply of Documents"
+        ],
+        [
+          "1.9",
+          "Delayed Drawings or Instructions"
+        ],
+        [
+          "1.11",
+          "Contractor’s Use of Employer’s Documents"
+        ],
+        [
+          "4.1",
+          "Contractor's General Obligations"
+        ]
+      ],
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer design documents",
+      "secondary_paths": [
+        "Contract Mechanics > Documents",
+        "Time & Completion > EOT, only for 1.9 if express wording exists",
+        "Claims > Contractor claim for EOT / Cost, only for 1.9 if express wording exists"
+      ],
+      "elements": [
+        "Employer Specifications / Drawings define Works",
+        "Document priority",
+        "Delayed drawings / instructions",
+        "Contractor use of Employer documents"
+      ]
+    },
+    {
+      "id": "engineer_admin_interface",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Engineer administration interface",
+      "chinese_name": "监理管理接口",
+      "order": 8,
+      "scope_treatment": "secondary_cross_link_only",
+      "logic": "Engineer is not a Scope obligation as such, but Engineer’s instructions, review, no-objection, agreement/determination and administration materially affect Scope performance.",
+      "primary_clauses": [
+        [
+          "3.1",
+          "The Engineer"
+        ],
+        [
+          "3.2",
+          "Engineer's Duties and Authority"
+        ],
+        [
+          "3.3",
+          "The Engineer's Representative"
+        ],
+        [
+          "3.4",
+          "Delegation by the Engineer"
+        ],
+        [
+          "3.5",
+          "Engineer's Instructions"
+        ],
+        [
+          "3.6",
+          "Replacement of the Engineer"
+        ],
+        [
+          "3.7",
+          "Agreement or Determination"
+        ],
+        [
+          "3.8",
+          "Meetings"
+        ]
+      ],
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ]
+    },
+    {
+      "id": "employer_financial_arrangements",
+      "practice_category_id": "employer_enabling_obligations",
+      "name": "Employer financial arrangements",
+      "chinese_name": "提供资金安排",
+      "order": 9,
+      "scope_treatment": "secondary_cross_link_only",
+      "logic": "Employer financial arrangements are mainly a Price & Payment / financial enablement issue. They can affect Contractor’s ability to continue Works, but should not be treated as core Scope unless linked to instruction, suspension, payment default or continuing performance issue.",
+      "primary_clauses": [
+        [
+          "2.4",
+          "Employer's Financial Arrangements"
+        ]
+      ],
+      "primary_path": "Price & Payment > Employer financial arrangements",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Employer financial arrangements"
+      ],
+      "elements": [
+        "Employer financing arrangements",
+        "Evidence of ability to pay",
+        "Financial enablement of performance"
+      ]
+    },
+    {
+      "id": "variation_scope",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Variation scope",
+      "chinese_name": "变更范围",
+      "order": 1,
+      "logic": "Defines what can count as a Variation: quantity, quality, characteristics, levels, positions, dimensions, omission, additional work / Plant / Materials / services, and sequence / timing changes.",
+      "primary_clauses": [
+        [
+          "1.1",
+          "Definitions"
+        ],
+        [
+          "13.1",
+          "Right to Vary"
+        ],
+        [
+          "12.4",
+          "Omissions"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation scope",
+      "secondary_paths": [
+        "Price & Payment > Valuation",
+        "Time & Completion > sequence / timing"
+      ],
+      "elements": [
+        "Quantity changes",
+        "Quality / characteristics changes",
+        "Levels / positions / dimensions",
+        "Omissions",
+        "Additional work / Plant / Materials / services",
+        "Sequence / timing changes"
+      ]
+    },
+    {
+      "id": "variation_recognition",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Variation recognition dispute",
+      "chinese_name": "VO 认定争议",
+      "order": 2,
+      "logic": "This node captures disputes over whether an instruction, change, omission, quantity change, design clarification or Employer conduct legally constitutes a Variation.",
+      "primary_clauses": [
+        [
+          "3.5",
+          "Engineer's Instructions"
+        ],
+        [
+          "13.1",
+          "Right to Vary"
+        ],
+        [
+          "13.3",
+          "Variation Procedure"
+        ],
+        [
+          "13.3.1",
+          "13.3.1 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation recognition dispute",
+      "secondary_paths": [
+        "Claims, Determination & Disputes",
+        "Price & Payment"
+      ],
+      "elements": [
+        "Whether there is an Engineer instruction",
+        "Whether the instruction changes the Works",
+        "Whether it is already Contractor’s original scope",
+        "Whether it is a compensable Variation"
+      ]
+    },
+    {
+      "id": "variation_instruction",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Variation instruction",
+      "chinese_name": "Instruction",
+      "order": 3,
+      "logic": "Variation by Instruction is the core mechanism. Engineer’s Instruction describes required changes. Contractor must comply before compensation is fixed. Contractor submits work details, programme modification / EOT and cost proposal within 28 days. Ordinary Variation adjustment is not treated as a Clause 20 claim.",
+      "primary_clauses": [
+        [
+          "3.5",
+          "Engineer's Instructions"
+        ],
+        [
+          "13.3.1",
+          "13.3.1 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation instruction",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Price & Payment > Contract Price adjustment",
+        "Contract Mechanics > Engineer instruction / determination"
+      ],
+      "elements": [
+        "Engineer instruction required",
+        "Contractor must execute Variation",
+        "Contractor submission within 28 days",
+        "EOT, if any",
+        "Contract Price adjustment",
+        "Engineer agreement or determination under 3.7",
+        "No requirement to comply with 20.2 for ordinary Variation adjustment"
+      ]
+    },
+    {
+      "id": "variation_proposal",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Variation proposal",
+      "chinese_name": "Proposal",
+      "order": 4,
+      "logic": "Engineer may request a proposal before instructing a Variation. Contractor may submit a proposal or give reasons why it cannot comply. If Engineer does not consent and Contractor incurred Cost in submitting it, Contractor may be entitled subject to 20.2 to payment of such Cost.",
+      "primary_clauses": [
+        [
+          "13.2",
+          "Value Engineering"
+        ],
+        [
+          "13.3.2",
+          "13.3.2 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation proposal",
+      "secondary_paths": [
+        "Price & Payment",
+        "Claims if proposal cost entitlement arises"
+      ],
+      "elements": [
+        "Engineer request for proposal",
+        "Contractor proposal",
+        "Contractor reasons for non-compliance",
+        "Cost incurred in preparing proposal",
+        "Engineer consent / non-consent"
+      ]
+    },
+    {
+      "id": "variation_consequence",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Variation EOT / Contract Price consequence",
+      "chinese_name": "变更导致的工期 / 价款后果",
+      "order": 5,
+      "logic": "This is the consequence layer of Variation. Under 13.3.1, Engineer proceeds under 3.7 to agree/determine EOT and/or Contract Price adjustment. Contractor is entitled to such EOT / adjustment without 20.2.",
+      "primary_clauses": [
+        [
+          "13.3.1",
+          "13.3.1 [Title to be verified]"
+        ],
+        [
+          "12.3",
+          "Valuation of the Works"
+        ],
+        [
+          "14",
+          "14 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation EOT / Contract Price consequence",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Price & Payment > Valuation / payment"
+      ],
+      "elements": [
+        "EOT consequence",
+        "Contract Price adjustment",
+        "Engineer agreement / determination",
+        "Payment implementation"
+      ]
+    },
+    {
+      "id": "variation_refusal",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Refusal to execute variation",
+      "chinese_name": "拒绝履行 / 反对变更",
+      "order": 6,
+      "logic": "Contractor is generally bound to execute each instructed Variation with due expedition and without delay. Contractor may promptly give Notice if varied work was unforeseeable having regard to scope/nature of Works, Contractor cannot readily obtain required Goods, or it adversely affects health/safety/environmental compliance. Engineer then cancels, confirms or varies the instruction.",
+      "primary_clauses": [
+        [
+          "13.1",
+          "Right to Vary"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Refusal to execute variation",
+      "secondary_paths": [
+        "Risk",
+        "Default / Remedies",
+        "Disputes"
+      ],
+      "elements": [
+        "Contractor bound to execute Variation",
+        "Prompt Notice objection",
+        "Unforeseeable varied work",
+        "Inability to readily obtain Goods",
+        "Adverse H&S / environmental effect",
+        "Engineer cancels / confirms / varies instruction"
+      ]
+    },
+    {
+      "id": "daywork",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Daywork",
+      "chinese_name": "Daywork",
+      "order": 7,
+      "logic": "Daywork is a Variation measurement / record mechanism. Contractor submits daily statements. If Engineer disagrees, Engineer proceeds under 3.7 to agree / determine resources.",
+      "primary_clauses": [
+        [
+          "13.5",
+          "Daywork"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Daywork",
+      "secondary_paths": [
+        "Price & Payment > measurement / valuation"
+      ],
+      "elements": [
+        "Daywork instruction / valuation mechanism",
+        "Contractor daily statements",
+        "Engineer review",
+        "Engineer disagreement and 3.7 determination"
+      ]
+    },
+    {
+      "id": "provisional_sum",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Provisional Sum",
+      "chinese_name": "Provisional Sum / 暂定金额",
+      "order": 8,
+      "logic": "Provisional Sums are specified by Employer for execution of part of the Works or supply of Plant, Materials or services. They are used only in accordance with Engineer’s instructions, and Contract Price is adjusted accordingly. They may also connect to nominated subcontractors.",
+      "primary_clauses": [
+        [
+          "1.1.67",
+          "1.1.67 [Title to be verified]"
+        ],
+        [
+          "13.4",
+          "Provisional Sums"
+        ],
+        [
+          "5.2",
+          "5.2 [Title to be verified]"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Provisional Sum",
+      "secondary_paths": [
+        "Price & Payment",
+        "Subcontracting"
+      ],
+      "elements": [
+        "Employer-specified provisional amount",
+        "Work / Plant / Materials / services",
+        "Engineer instruction",
+        "Contract Price adjustment",
+        "Nominated subcontractor interface"
+      ]
+    },
+    {
+      "id": "change_in_laws",
+      "practice_category_id": "scope_variables_and_variations",
+      "name": "Change in Laws",
+      "chinese_name": "Change in Laws / 法律变化",
+      "order": 9,
+      "logic": "Change in Laws can change the performance environment and may lead to EOT / Cost entitlement or price adjustment. It belongs in Scope Variables because it changes the legal conditions under which the Works are performed, but it also cross-links to Risk, Claims and Payment.",
+      "primary_clauses": [
+        [
+          "13.6",
+          "Adjustments for Changes in Laws"
+        ],
+        [
+          "1.13",
+          "Compliance with Laws"
+        ]
+      ],
+      "primary_path": "Scope & Works > Scope Variables and Variations > Change in Laws",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Claims",
+        "Price & Payment",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Change in Laws after Base Date",
+        "Delay / increased Cost to Contractor",
+        "EOT / Cost entitlement subject to 20.2",
+        "Cost decrease / Employer reduction mechanism",
+        "Compliance interface"
+      ]
+    }
+  ],
+  "tag_index": {
+    "Claim": [
+      [
+        "1.9",
+        "Delayed Drawings or Instructions"
+      ],
+      [
+        "1.13",
+        "Compliance with Laws"
+      ],
+      [
+        "2.1",
+        "Right of Access to the Site"
+      ],
+      [
+        "4.6",
+        "Co-operation"
+      ],
+      [
+        "4.7.3",
+        "Error in Items of Reference"
+      ],
+      [
+        "4.12",
+        "Unforeseeable Physical Conditions"
+      ],
+      [
+        "4.15",
+        "Access Route"
+      ],
+      [
+        "4.23",
+        "Archaeological and Geological Findings"
+      ],
+      [
+        "13.3.2",
+        "Variation by Request for Proposal"
+      ],
+      [
+        "13.6",
+        "Adjustments for Changes in Laws"
+      ]
+    ],
+    "EOT": [
+      [
+        "1.9",
+        "Delayed Drawings or Instructions"
+      ],
+      [
+        "1.13",
+        "Compliance with Laws"
+      ],
+      [
+        "2.1",
+        "Right of Access to the Site"
+      ],
+      [
+        "4.6",
+        "Co-operation"
+      ],
+      [
+        "4.7.3",
+        "Error in Items of Reference"
+      ],
+      [
+        "4.12",
+        "Unforeseeable Physical Conditions"
+      ],
+      [
+        "4.15",
+        "Access Route"
+      ],
+      [
+        "4.23",
+        "Archaeological and Geological Findings"
+      ],
+      [
+        "13.3.1",
+        "Variation by Instruction"
+      ],
+      [
+        "13.6",
+        "Adjustments for Changes in Laws"
+      ]
+    ],
+    "Determination": [
+      [
+        "3.7",
+        "Agreement or Determination"
+      ],
+      [
+        "4.7.3",
+        "Error in Items of Reference"
+      ],
+      [
+        "13.3.1",
+        "Variation by Instruction"
+      ],
+      [
+        "13.5",
+        "Daywork"
+      ]
+    ],
+    "Indemnity": [
+      [
+        "1.13",
+        "Compliance with Laws"
+      ],
+      [
+        "4.16",
+        "Transport of Goods"
+      ],
+      [
+        "5.2.2",
+        "Objection to Nomination"
+      ]
+    ],
+    "Condition Precedent": [
+      [
+        "5.1",
+        "Subcontractors"
+      ],
+      [
+        "13.1",
+        "Right to Vary"
+      ]
+    ],
+    "Deemed Approval": [
+      [
+        "5.1",
+        "Subcontractors"
+      ]
+    ],
+    "Deduction": [
+      [
+        "5.2.4",
+        "Evidence of Payments"
+      ]
+    ],
+    "Withholding": [
+      [
+        "5.2.4",
+        "Evidence of Payments"
+      ]
+    ],
+    "Back-to-back": [
+      [
+        "5.2.2",
+        "Objection to Nomination"
+      ]
+    ],
+    "Breach / Default": [
+      [
+        "5.1",
+        "Subcontractors"
+      ],
+      [
+        "5.2.2",
+        "Objection to Nomination"
+      ],
+      [
+        "11.2",
+        "Cost of Remedying Defects"
+      ],
+      [
+        "13.1",
+        "Right to Vary"
+      ]
+    ],
+    "Remedy": [
+      [
+        "7.5",
+        "Defects and Rejection"
+      ],
+      [
+        "7.6",
+        "Remedial Work"
+      ],
+      [
+        "11.2",
+        "Cost of Remedying Defects"
+      ]
+    ]
+  },
+  "tag_reason_templates": {
+    "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+    "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+    "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7.",
+    "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix.",
+    "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
+    "Deemed Approval": "Approved only for the express deemed-consent effect identified in the Scope matrix.",
+    "Deduction": "Approved only for the express deduction from the next IPC identified in the Scope matrix.",
+    "Withholding": "Approved only for the express right to withhold or refuse payment identified in the Scope matrix.",
+    "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix.",
+    "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix.",
+    "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
+  },
+  "clause_mappings": [
+    {
+      "id": "scope_1_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "1.5",
+      "clause_title": "Priority of Documents",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Employer Enabling Obligations > Employer design documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_8",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "1.8",
+      "clause_title": "Care and Supply of Documents",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Ancillary Management Obligations > Documents",
+        "Scope & Works > Employer Enabling Obligations > Employer design documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_9",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "1.9",
+      "clause_title": "Delayed Drawings or Instructions",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Employer Enabling Obligations > Employer design documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_10",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "1.10",
+      "clause_title": "Employer's Use of Contractor's Documents",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_11",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "1.11",
+      "clause_title": "Contractor’s Use of Employer’s Documents",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Employer Enabling Obligations > Employer design documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "4.1",
+      "clause_title": "Contractor's General Obligations",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Main Performance Obligations > Procurement",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Employer Enabling Obligations > Employer design documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Employer design basis / Contractor design portions",
+      "performance_node_id": "employer_design_basis",
+      "clause_no": "4.4",
+      "clause_title": "Contractor’s Documents",
+      "primary_path": "Scope & Works > Main Performance Obligations > Employer design basis / Contractor design portions",
+      "secondary_paths": [
+        "Contract Mechanics > Document hierarchy",
+        "Contract Mechanics > Engineer review / no-objection",
+        "Time & Completion > EOT, only for 1.9 if express wording is verified",
+        "Claims, Determination & Disputes > Contractor claim, only for 1.9 if express wording is verified",
+        "Scope & Works > Ancillary Management Obligations > Documents"
+      ],
+      "elements": [
+        "Employer-provided Specifications / Drawings define the Works",
+        "Contractor design only to the extent specified",
+        "Contractor’s Documents submission / review / no-objection",
+        "Delayed drawings or instructions may affect performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_1_44",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "1.1.44",
+      "clause_title": "1.1.44 [Title to be verified]",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_16",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "4.16",
+      "clause_title": "Transport of Goods",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Ancillary Management Obligations > Goods",
+        "Scope & Works > Ancillary Management Obligations > Permits and approvals"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [
+        "Indemnity"
+      ],
+      "tag_reasons": {
+        "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_17",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "4.17",
+      "clause_title": "Contractor’s Equipment",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.1",
+      "clause_title": "Manner of Execution",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.2",
+      "clause_title": "Samples",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.3",
+      "clause_title": "Inspection",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.4",
+      "clause_title": "Testing by the Contractor",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.5",
+      "clause_title": "Defects and Rejection",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [
+        "Remedy"
+      ],
+      "tag_reasons": {
+        "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.6",
+      "clause_title": "Remedial Work",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Execution of Works",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [
+        "Remedy"
+      ],
+      "tag_reasons": {
+        "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_7",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.7",
+      "clause_title": "Ownership of Plant and Materials",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_7_8",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Procurement",
+      "performance_node_id": "procurement",
+      "clause_no": "7.8",
+      "clause_title": "Royalties",
+      "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
+      "secondary_paths": [
+        "Price & Payment > valuation / payment, only if payment issue arises",
+        "Risk & Protection > import / transport / third-party claims",
+        "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+        "Scope & Works > Ancillary Management Obligations > Goods"
+      ],
+      "elements": [
+        "Goods as physical and logistical inputs",
+        "Packing, loading, transport, unloading, storage and protection",
+        "Customs clearance / permits / fees / import handling",
+        "Contractor’s Equipment dedicated to Works once on Site",
+        "Plant, Materials and workmanship compliance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Execution of Works",
+      "performance_node_id": "execution_of_works",
+      "clause_no": "4.6",
+      "clause_title": "Co-operation",
+      "primary_path": "Scope & Works > Main Performance Obligations > Execution of Works",
+      "secondary_paths": [
+        "Time & Completion > programme / completion",
+        "Quality / Defects",
+        "Claims, only where specific entitlement clause applies",
+        "Scope & Works > Employer Enabling Obligations > Employer personnel and other contractors"
+      ],
+      "elements": [
+        "Execute and complete the Works",
+        "Remedy defects",
+        "Co-operate with Employer’s Personnel and other contractors",
+        "Setting out and reference items",
+        "Inspection and testing",
+        "Defects, rejection and remedial work"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_7",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Execution of Works",
+      "performance_node_id": "execution_of_works",
+      "clause_no": "4.7",
+      "clause_title": "Setting Out",
+      "primary_path": "Scope & Works > Main Performance Obligations > Execution of Works",
+      "secondary_paths": [
+        "Time & Completion > programme / completion",
+        "Quality / Defects",
+        "Claims, only where specific entitlement clause applies",
+        "Scope & Works > Employer Enabling Obligations > Site data and reference items"
+      ],
+      "elements": [
+        "Execute and complete the Works",
+        "Remedy defects",
+        "Co-operate with Employer’s Personnel and other contractors",
+        "Setting out and reference items",
+        "Inspection and testing",
+        "Defects, rejection and remedial work"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_9",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Compliance of completed Works",
+      "performance_node_id": "completed_works_compliance",
+      "clause_no": "4.9",
+      "clause_title": "4.9 [Title to be verified]",
+      "primary_path": "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+      "secondary_paths": [
+        "Tests on Completion",
+        "Taking Over",
+        "Defects",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Quality management / compliance verification",
+        "Inspection and testing",
+        "Defects and rejection",
+        "Remedial work",
+        "Defect remedy after taking-over"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_10",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Compliance of completed Works",
+      "performance_node_id": "completed_works_compliance",
+      "clause_no": "10",
+      "clause_title": "10 [Title to be verified]",
+      "primary_path": "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+      "secondary_paths": [
+        "Tests on Completion",
+        "Taking Over",
+        "Defects",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Quality management / compliance verification",
+        "Inspection and testing",
+        "Defects and rejection",
+        "Remedial work",
+        "Defect remedy after taking-over"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_11",
+      "main_system": "Scope & Works",
+      "practice_category": "Main Performance Obligations",
+      "performance_node": "Compliance of completed Works",
+      "performance_node_id": "completed_works_compliance",
+      "clause_no": "11",
+      "clause_title": "11 [Title to be verified]",
+      "primary_path": "Scope & Works > Main Performance Obligations > Compliance of completed Works",
+      "secondary_paths": [
+        "Tests on Completion",
+        "Taking Over",
+        "Defects",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Quality management / compliance verification",
+        "Inspection and testing",
+        "Defects and rejection",
+        "Remedial work",
+        "Defect remedy after taking-over"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "4.3",
+      "clause_title": "Contractor's Representative",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.1",
+      "clause_title": "Engagement of Staff and Labour",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.2",
+      "clause_title": "Rates of Wages and Conditions of Labour",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.3",
+      "clause_title": "Recruitment of Persons",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.4",
+      "clause_title": "Labour Laws",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.5",
+      "clause_title": "Working Hours",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.6",
+      "clause_title": "Facilities for Staff and Labour",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_7",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.7",
+      "clause_title": "Health and Safety of Personnel",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_8",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.8",
+      "clause_title": "Contractor's Superintendence",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_9",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.9",
+      "clause_title": "Contractor's Personnel",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_10",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.10",
+      "clause_title": "Contractor's Records",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress",
+        "Scope & Works > Ancillary Management Obligations > Documents"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_11",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.11",
+      "clause_title": "Disorderly Conduct",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_6_12",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Personnel",
+      "performance_node_id": "personnel",
+      "clause_no": "6.12",
+      "clause_title": "Key Personnel",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Personnel",
+      "secondary_paths": [
+        "QHSE",
+        "Labour law compliance",
+        "Time & Completion if labour shortage affects progress"
+      ],
+      "elements": [
+        "Contractor’s Representative",
+        "Staff and labour management",
+        "Personnel records",
+        "Labour compliance",
+        "Health and safety interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_20",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Documents",
+      "performance_node_id": "documents",
+      "clause_no": "4.20",
+      "clause_title": "Progress Reports",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Documents",
+      "secondary_paths": [
+        "Claims evidence",
+        "Payment support",
+        "Taking Over / O&M"
+      ],
+      "elements": [
+        "Care and supply of documents",
+        "Contractor’s Documents",
+        "Monthly progress reports",
+        "Records",
+        "As-built / O&M documents where applicable"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_8",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.8",
+      "clause_title": "Health and Safety Obligations",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_13",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.13",
+      "clause_title": "Rights of Way and Facilities",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_14",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.14",
+      "clause_title": "Avoidance of Interference",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_15",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.15",
+      "clause_title": "Access Route",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists",
+        "Scope & Works > Ancillary Management Obligations > Permits and approvals"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_18",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.18",
+      "clause_title": "Protection of the Environment",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_19",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.19",
+      "clause_title": "Temporary Utilities",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists",
+        "Scope & Works > Employer Enabling Obligations > Employer-supplied materials and equipment"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_21",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.21",
+      "clause_title": "Security of the Site",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_22",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.22",
+      "clause_title": "Contractor’s Operations on Site",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_23",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Site including QHSE",
+      "performance_node_id": "site_qhse",
+      "clause_no": "4.23",
+      "clause_title": "Archaeological and Geological Findings",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Site including QHSE",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Time & Completion only where express EOT entitlement exists",
+        "Claims only where express Contractor claim exists"
+      ],
+      "elements": [
+        "Health and safety obligations",
+        "Access routes",
+        "Avoidance of interference",
+        "Environmental protection",
+        "Temporary utilities",
+        "Site security",
+        "Contractor’s site operations",
+        "Archaeological and geological findings"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_13",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Permits and approvals",
+      "performance_node_id": "permits_approvals",
+      "clause_no": "1.13",
+      "clause_title": "Compliance with Laws",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Permits and approvals",
+      "secondary_paths": [
+        "Employer Enabling Obligations > Employer permits",
+        "Claims if express entitlement",
+        "Risk & Protection",
+        "Scope & Works > Employer Enabling Obligations > Employer permits",
+        "Scope & Works > Scope Variables and Variations > Change in Laws"
+      ],
+      "elements": [
+        "Employer-side permits",
+        "Contractor-side permits",
+        "Employer reasonable assistance",
+        "Goods import / transport permits",
+        "Failure / delay in permits where expressly addressed"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT",
+        "Indemnity"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+        "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Permits and approvals",
+      "performance_node_id": "permits_approvals",
+      "clause_no": "2.2",
+      "clause_title": "Assistance",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Permits and approvals",
+      "secondary_paths": [
+        "Employer Enabling Obligations > Employer permits",
+        "Claims if express entitlement",
+        "Risk & Protection",
+        "Scope & Works > Employer Enabling Obligations > Employer assistance"
+      ],
+      "elements": [
+        "Employer-side permits",
+        "Contractor-side permits",
+        "Employer reasonable assistance",
+        "Goods import / transport permits",
+        "Failure / delay in permits where expressly addressed"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_5_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Subcontracting",
+      "performance_node_id": "subcontracting",
+      "clause_no": "5.1",
+      "clause_title": "Subcontractors",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Subcontracting",
+      "secondary_paths": [
+        "Payment",
+        "Risk",
+        "Back-to-back obligations",
+        "Default / Remedies"
+      ],
+      "elements": [
+        "Subcontracting percentage / prohibited parts",
+        "Engineer prior consent to proposed Subcontractor",
+        "Deemed consent if Engineer gives no objection within 14 days",
+        "28-day notice before Subcontractor starts work",
+        "Contractor responsibility for acts/defaults of Subcontractors",
+        "Reasonable objection to nominated Subcontractor",
+        "Employer indemnity to overcome objection",
+        "Back-to-back obligations / liabilities",
+        "Evidence of payment to nominated Subcontractor",
+        "Employer direct payment and deduction in next IPC"
+      ],
+      "legal_effect_tags": [
+        "Condition Precedent",
+        "Deemed Approval",
+        "Breach / Default"
+      ],
+      "tag_reasons": {
+        "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
+        "Deemed Approval": "Approved only for the express deemed-consent effect identified in the Scope matrix.",
+        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_5_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Ancillary Management Obligations",
+      "performance_node": "Subcontracting",
+      "performance_node_id": "subcontracting",
+      "clause_no": "5.2",
+      "clause_title": "5.2 [Title to be verified]",
+      "primary_path": "Scope & Works > Ancillary Management Obligations > Subcontracting",
+      "secondary_paths": [
+        "Payment",
+        "Risk",
+        "Back-to-back obligations",
+        "Default / Remedies",
+        "Scope & Works > Scope Variables and Variations > Provisional Sum"
+      ],
+      "elements": [
+        "Subcontracting percentage / prohibited parts",
+        "Engineer prior consent to proposed Subcontractor",
+        "Deemed consent if Engineer gives no objection within 14 days",
+        "28-day notice before Subcontractor starts work",
+        "Contractor responsibility for acts/defaults of Subcontractors",
+        "Reasonable objection to nominated Subcontractor",
+        "Employer indemnity to overcome objection",
+        "Back-to-back obligations / liabilities",
+        "Evidence of payment to nominated Subcontractor",
+        "Employer direct payment and deduction in next IPC"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Site access and possession",
+      "performance_node_id": "site_access_possession",
+      "clause_no": "2.1",
+      "clause_title": "Right of Access to the Site",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site access and possession",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Claims, Determination & Disputes > Contractor claim for EOT / Cost"
+      ],
+      "elements": [
+        "Employer obligation to give access and possession",
+        "Timing of access / possession",
+        "Delayed access consequence",
+        "Contractor error / delay carve-out"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Employer-supplied materials and equipment",
+      "performance_node_id": "employer_materials_equipment",
+      "clause_no": "2.6",
+      "clause_title": "Employer-Supplied Materials and Employer's Equipment",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer-supplied materials and equipment",
+      "secondary_paths": [
+        "Procurement",
+        "Site utilities",
+        "Price & Payment for utilities"
+      ],
+      "elements": [
+        "Employer-supplied materials",
+        "Employer’s equipment",
+        "Contractor use / management",
+        "Temporary utilities"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Employer personnel and other contractors",
+      "performance_node_id": "employer_personnel_contractors",
+      "clause_no": "2.3",
+      "clause_title": "Employer's Personnel and Other Contractors",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Employer personnel and other contractors",
+      "secondary_paths": [
+        "Site including QHSE",
+        "Claims if 4.6 entitlement applies",
+        "Time & Completion if express EOT entitlement applies"
+      ],
+      "elements": [
+        "Employer Personnel cooperation",
+        "Other contractors cooperation",
+        "Contractor co-operation obligations",
+        "Unforeseeable co-operation instruction causing delay / Cost"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Site data and reference items",
+      "performance_node_id": "site_data_reference",
+      "clause_no": "2.5",
+      "clause_title": "Site Data and Items of Reference",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site data and reference items",
+      "secondary_paths": [
+        "Risk allocation",
+        "Claims",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Employer-provided site data / reference items",
+        "Contractor verification obligation",
+        "Contractor notice of error",
+        "Engineer agreement / determination of error and consequences",
+        "Unforeseeable physical conditions"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_7_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Site data and reference items",
+      "performance_node_id": "site_data_reference",
+      "clause_no": "4.7.3",
+      "clause_title": "Error in Items of Reference",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site data and reference items",
+      "secondary_paths": [
+        "Risk allocation",
+        "Claims",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Employer-provided site data / reference items",
+        "Contractor verification obligation",
+        "Contractor notice of error",
+        "Engineer agreement / determination of error and consequences",
+        "Unforeseeable physical conditions"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT",
+        "Determination"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+        "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_10",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Site data and reference items",
+      "performance_node_id": "site_data_reference",
+      "clause_no": "4.10",
+      "clause_title": "Use of Site Data",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site data and reference items",
+      "secondary_paths": [
+        "Risk allocation",
+        "Claims",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Employer-provided site data / reference items",
+        "Contractor verification obligation",
+        "Contractor notice of error",
+        "Engineer agreement / determination of error and consequences",
+        "Unforeseeable physical conditions"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_4_12",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Site data and reference items",
+      "performance_node_id": "site_data_reference",
+      "clause_no": "4.12",
+      "clause_title": "Unforeseeable Physical Conditions",
+      "primary_path": "Scope & Works > Employer Enabling Obligations > Site data and reference items",
+      "secondary_paths": [
+        "Risk allocation",
+        "Claims",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Employer-provided site data / reference items",
+        "Contractor verification obligation",
+        "Contractor notice of error",
+        "Engineer agreement / determination of error and consequences",
+        "Unforeseeable physical conditions"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.1",
+      "clause_title": "The Engineer",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.2",
+      "clause_title": "Engineer's Duties and Authority",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.3",
+      "clause_title": "The Engineer's Representative",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.4",
+      "clause_title": "Delegation by the Engineer",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.5",
+      "clause_title": "Engineer's Instructions",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface",
+        "Scope & Works > Scope Variables and Variations > Variation recognition dispute",
+        "Scope & Works > Scope Variables and Variations > Variation instruction"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.6",
+      "clause_title": "Replacement of the Engineer",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_7",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.7",
+      "clause_title": "Agreement or Determination",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [
+        "Determination"
+      ],
+      "tag_reasons": {
+        "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_3_8",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Engineer administration interface",
+      "performance_node_id": "engineer_admin_interface",
+      "clause_no": "3.8",
+      "clause_title": "Meetings",
+      "primary_path": "Contract Mechanics > Engineer administration",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Engineer administration interface"
+      ],
+      "elements": [
+        "Engineer instructions",
+        "Engineer review / no-objection",
+        "Agreement or determination",
+        "Meetings / administration"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_2_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Employer Enabling Obligations",
+      "performance_node": "Employer financial arrangements",
+      "performance_node_id": "employer_financial_arrangements",
+      "clause_no": "2.4",
+      "clause_title": "Employer's Financial Arrangements",
+      "primary_path": "Price & Payment > Employer financial arrangements",
+      "secondary_paths": [
+        "Scope & Works > Employer Enabling Obligations > Employer financial arrangements"
+      ],
+      "elements": [
+        "Employer financing arrangements",
+        "Evidence of ability to pay",
+        "Financial enablement of performance"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation scope",
+      "performance_node_id": "variation_scope",
+      "clause_no": "1.1",
+      "clause_title": "Definitions",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation scope",
+      "secondary_paths": [
+        "Price & Payment > Valuation",
+        "Time & Completion > sequence / timing"
+      ],
+      "elements": [
+        "Quantity changes",
+        "Quality / characteristics changes",
+        "Levels / positions / dimensions",
+        "Omissions",
+        "Additional work / Plant / Materials / services",
+        "Sequence / timing changes"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation scope",
+      "performance_node_id": "variation_scope",
+      "clause_no": "13.1",
+      "clause_title": "Right to Vary",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation scope",
+      "secondary_paths": [
+        "Price & Payment > Valuation",
+        "Time & Completion > sequence / timing",
+        "Scope & Works > Scope Variables and Variations > Variation recognition dispute",
+        "Scope & Works > Scope Variables and Variations > Refusal to execute variation"
+      ],
+      "elements": [
+        "Quantity changes",
+        "Quality / characteristics changes",
+        "Levels / positions / dimensions",
+        "Omissions",
+        "Additional work / Plant / Materials / services",
+        "Sequence / timing changes"
+      ],
+      "legal_effect_tags": [
+        "Condition Precedent",
+        "Breach / Default"
+      ],
+      "tag_reasons": {
+        "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
+        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_12_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation scope",
+      "performance_node_id": "variation_scope",
+      "clause_no": "12.4",
+      "clause_title": "Omissions",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation scope",
+      "secondary_paths": [
+        "Price & Payment > Valuation",
+        "Time & Completion > sequence / timing"
+      ],
+      "elements": [
+        "Quantity changes",
+        "Quality / characteristics changes",
+        "Levels / positions / dimensions",
+        "Omissions",
+        "Additional work / Plant / Materials / services",
+        "Sequence / timing changes"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation recognition dispute",
+      "performance_node_id": "variation_recognition",
+      "clause_no": "13.3",
+      "clause_title": "Variation Procedure",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation recognition dispute",
+      "secondary_paths": [
+        "Claims, Determination & Disputes",
+        "Price & Payment"
+      ],
+      "elements": [
+        "Whether there is an Engineer instruction",
+        "Whether the instruction changes the Works",
+        "Whether it is already Contractor’s original scope",
+        "Whether it is a compensable Variation"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_3_1",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation recognition dispute",
+      "performance_node_id": "variation_recognition",
+      "clause_no": "13.3.1",
+      "clause_title": "Variation by Instruction",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation recognition dispute",
+      "secondary_paths": [
+        "Claims, Determination & Disputes",
+        "Price & Payment",
+        "Scope & Works > Scope Variables and Variations > Variation instruction",
+        "Scope & Works > Scope Variables and Variations > Variation EOT / Contract Price consequence"
+      ],
+      "elements": [
+        "Whether there is an Engineer instruction",
+        "Whether the instruction changes the Works",
+        "Whether it is already Contractor’s original scope",
+        "Whether it is a compensable Variation"
+      ],
+      "legal_effect_tags": [
+        "EOT",
+        "Determination"
+      ],
+      "tag_reasons": {
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+        "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation proposal",
+      "performance_node_id": "variation_proposal",
+      "clause_no": "13.2",
+      "clause_title": "Value Engineering",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation proposal",
+      "secondary_paths": [
+        "Price & Payment",
+        "Claims if proposal cost entitlement arises"
+      ],
+      "elements": [
+        "Engineer request for proposal",
+        "Contractor proposal",
+        "Contractor reasons for non-compliance",
+        "Cost incurred in preparing proposal",
+        "Engineer consent / non-consent"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_3_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation proposal",
+      "performance_node_id": "variation_proposal",
+      "clause_no": "13.3.2",
+      "clause_title": "Variation by Request for Proposal",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation proposal",
+      "secondary_paths": [
+        "Price & Payment",
+        "Claims if proposal cost entitlement arises"
+      ],
+      "elements": [
+        "Engineer request for proposal",
+        "Contractor proposal",
+        "Contractor reasons for non-compliance",
+        "Cost incurred in preparing proposal",
+        "Engineer consent / non-consent"
+      ],
+      "legal_effect_tags": [
+        "Claim"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_12_3",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation EOT / Contract Price consequence",
+      "performance_node_id": "variation_consequence",
+      "clause_no": "12.3",
+      "clause_title": "Valuation of the Works",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation EOT / Contract Price consequence",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Price & Payment > Valuation / payment"
+      ],
+      "elements": [
+        "EOT consequence",
+        "Contract Price adjustment",
+        "Engineer agreement / determination",
+        "Payment implementation"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_14",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Variation EOT / Contract Price consequence",
+      "performance_node_id": "variation_consequence",
+      "clause_no": "14",
+      "clause_title": "14 [Title to be verified]",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Variation EOT / Contract Price consequence",
+      "secondary_paths": [
+        "Time & Completion > EOT",
+        "Price & Payment > Valuation / payment"
+      ],
+      "elements": [
+        "EOT consequence",
+        "Contract Price adjustment",
+        "Engineer agreement / determination",
+        "Payment implementation"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_5",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Daywork",
+      "performance_node_id": "daywork",
+      "clause_no": "13.5",
+      "clause_title": "Daywork",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Daywork",
+      "secondary_paths": [
+        "Price & Payment > measurement / valuation"
+      ],
+      "elements": [
+        "Daywork instruction / valuation mechanism",
+        "Contractor daily statements",
+        "Engineer review",
+        "Engineer disagreement and 3.7 determination"
+      ],
+      "legal_effect_tags": [
+        "Determination"
+      ],
+      "tag_reasons": {
+        "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_1_1_67",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Provisional Sum",
+      "performance_node_id": "provisional_sum",
+      "clause_no": "1.1.67",
+      "clause_title": "1.1.67 [Title to be verified]",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Provisional Sum",
+      "secondary_paths": [
+        "Price & Payment",
+        "Subcontracting"
+      ],
+      "elements": [
+        "Employer-specified provisional amount",
+        "Work / Plant / Materials / services",
+        "Engineer instruction",
+        "Contract Price adjustment",
+        "Nominated subcontractor interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Provisional Sum",
+      "performance_node_id": "provisional_sum",
+      "clause_no": "13.4",
+      "clause_title": "Provisional Sums",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Provisional Sum",
+      "secondary_paths": [
+        "Price & Payment",
+        "Subcontracting"
+      ],
+      "elements": [
+        "Employer-specified provisional amount",
+        "Work / Plant / Materials / services",
+        "Engineer instruction",
+        "Contract Price adjustment",
+        "Nominated subcontractor interface"
+      ],
+      "legal_effect_tags": [],
+      "tag_reasons": {},
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_13_6",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope Variables and Variations",
+      "performance_node": "Change in Laws",
+      "performance_node_id": "change_in_laws",
+      "clause_no": "13.6",
+      "clause_title": "Adjustments for Changes in Laws",
+      "primary_path": "Scope & Works > Scope Variables and Variations > Change in Laws",
+      "secondary_paths": [
+        "Risk & Protection",
+        "Claims",
+        "Price & Payment",
+        "Time & Completion"
+      ],
+      "elements": [
+        "Change in Laws after Base Date",
+        "Delay / increased Cost to Contractor",
+        "EOT / Cost entitlement subject to 20.2",
+        "Cost decrease / Employer reduction mechanism",
+        "Compliance interface"
+      ],
+      "legal_effect_tags": [
+        "Claim",
+        "EOT"
+      ],
+      "tag_reasons": {
+        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
+        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_5_2_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope cross-link",
+      "performance_node": "Scope cross-link",
+      "performance_node_id": null,
+      "clause_no": "5.2.2",
+      "clause_title": "Objection to Nomination",
+      "primary_path": "Scope & Works > Approved tag mapping",
+      "secondary_paths": [],
+      "elements": [],
+      "legal_effect_tags": [
+        "Indemnity",
+        "Back-to-back",
+        "Breach / Default"
+      ],
+      "tag_reasons": {
+        "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix.",
+        "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix.",
+        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_5_2_4",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope cross-link",
+      "performance_node": "Scope cross-link",
+      "performance_node_id": null,
+      "clause_no": "5.2.4",
+      "clause_title": "Evidence of Payments",
+      "primary_path": "Scope & Works > Approved tag mapping",
+      "secondary_paths": [],
+      "elements": [],
+      "legal_effect_tags": [
+        "Deduction",
+        "Withholding"
+      ],
+      "tag_reasons": {
+        "Deduction": "Approved only for the express deduction from the next IPC identified in the Scope matrix.",
+        "Withholding": "Approved only for the express right to withhold or refuse payment identified in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    },
+    {
+      "id": "scope_11_2",
+      "main_system": "Scope & Works",
+      "practice_category": "Scope cross-link",
+      "performance_node": "Scope cross-link",
+      "performance_node_id": null,
+      "clause_no": "11.2",
+      "clause_title": "Cost of Remedying Defects",
+      "primary_path": "Scope & Works > Approved tag mapping",
+      "secondary_paths": [],
+      "elements": [],
+      "legal_effect_tags": [
+        "Breach / Default",
+        "Remedy"
+      ],
+      "tag_reasons": {
+        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix.",
+        "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
+      },
+      "source_status": "source_text_loaded",
+      "qc_status": "needs_pdf_verification",
+      "lawyer_review_status": "needs_lawyer_review"
+    }
+  ]
+}

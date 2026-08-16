@@ -400,4 +400,40 @@ Expected future systems include:
 8. Keep Deduction, Withholding and Set-off separate.
 9. Keep EOT as an independent tag.
 10. Do not move to a new main system until the approved system has its final matrix and methodology memo.
+11. Every clickable clause anchor must identify exactly one concrete clause or sub-clause; never render a range or combined reference as one anchor.
 ```
+
+---
+
+## 13. Project-Wide Clause Anchor Normalisation Rule
+
+This rule applies to every Main Contract System, every practice category, every performance node, the Clause Spine, the Tag View, and all future dashboard modules.
+
+Each clickable clause chip, button, link or source anchor must resolve to exactly one concrete FIDIC clause or sub-clause number.
+
+Correct:
+
+```text
+3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8
+```
+
+Incorrect as a clickable anchor:
+
+```text
+3.1–3.8
+3.1 / 3.2
+```
+
+Combined references and ranges may remain in narrative summaries, legal analysis and source quotations where they accurately describe a group of provisions. They must not be used as clickable anchor values.
+
+Before rendering or building mappings, every anchor-bearing dataset must:
+
+```text
+1. split slash-separated combined references;
+2. expand same-parent sequential ranges into individual clause numbers;
+3. reject any value that is not one concrete numeric clause number;
+4. de-duplicate the resulting individual anchors; and
+5. preserve the mapping from each individual anchor to its source record.
+```
+
+This normalisation rule is a project-level data-boundary requirement, not a Scope & Works-only display treatment.

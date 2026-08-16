@@ -4,3 +4,10 @@ data/source/FIDIC_Red_2017/*.docx
 data/source/FIDIC_Red_2017/*.pdf
 data/source/FIDIC_Red_2017/*.xls
 data/source/FIDIC_Red_2017/*.xlsx
+
+# Local processed FIDIC full text (repository privacy not confirmed)
+data/processed/fidic_2017_red_clauses.json
+
+# Python runtime artefacts
+__pycache__/
+*.py[cod]

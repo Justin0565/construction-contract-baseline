@@ -3,82 +3,197 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A structural baseline model for FIDIC 2017 and 1999 Red Book contracts.">
-  <title>Construction Contract Baseline</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Construction contract intelligence dashboard with functional, clause-order and legal-effect interfaces.">
+  <title>Construction Contract Intelligence Dashboard</title>
+  <link rel="stylesheet" href="styles.css?v=20260816-crossview-1">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Construction Contract Baseline home">
-      <span class="brand-mark">CB</span>
-      <span><strong>Contract Baseline</strong><small>FIDIC Red Book structural model</small></span>
-    </a>
-    <div class="edition-pill"><span></span> Prototype · Sample data</div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">FUNCTIONAL CONTRACT MODEL</p>
-        <h1>See the contract as a system,<br>not a stack of clauses.</h1>
-        <p class="hero-copy">Explore how the 2017 Red Book structure maps to the 1999 market baseline—by module, issue, legal element and effect.</p>
-      </div>
-      <div class="hero-stats" aria-label="Dataset summary">
-        <div><strong id="moduleCount">7</strong><span>Modules</span></div>
-        <div><strong id="elementCount">14</strong><span>Elements</span></div>
-        <div><strong>2</strong><span>Editions</span></div>
-      </div>
-    </section>
-
-    <section class="workspace">
-      <div class="toolbar">
-        <label class="search-wrap">
-          <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search issues, elements, tags or clause references…" autocomplete="off">
-        </label>
-        <label>Module<select id="moduleFilter"><option value="all">All modules</option></select></label>
-        <label>Legal effect<select id="tagFilter"><option value="all">All tags</option></select></label>
-        <label>FIDIC source<select id="sourceFilter"><option value="both">Both editions</option><option value="2017">2017 Red</option><option value="1999">1999 Red</option></select></label>
-        <button id="clearFilters" class="text-button" type="button">Clear</button>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-lockup" aria-label="Construction Contract Intelligence Dashboard">
+        <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div>
+          <p class="system-label">Contract knowledge architecture</p>
+          <h1>Construction Contract Intelligence Dashboard</h1>
+          <p class="app-subtitle">FIDIC 2017 Red Pilot <span aria-hidden="true">/</span> Interface System</p>
+        </div>
       </div>
 
-      <div id="statusMessage" class="status" role="status" hidden></div>
+      <nav class="view-selector" role="tablist" aria-label="Dashboard views">
+        <button
+          id="viewFunctional"
+          class="view-option option-functional is-selected"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="functionalView"
+          data-view-target="functionalView"
+        >Functional Skeleton</button>
+        <button
+          id="viewClause"
+          class="view-option option-clause"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="clauseSpineView"
+          data-view-target="clauseSpineView"
+        >Clause Spine</button>
+        <button
+          id="viewTag"
+          class="view-option option-tag"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tagView"
+          data-view-target="tagView"
+        >Tag View</button>
+      </nav>
+    </header>
 
-      <section aria-labelledby="modulesTitle">
-        <div class="section-heading">
-          <div><p class="eyebrow">THE CONTRACT MAP</p><h2 id="modulesTitle">Seven functional modules</h2></div>
-          <div class="section-actions">
-            <p>Select a module to open its issues, elements and edition mapping.</p>
-            <button id="resetAllModules" class="reset-button" type="button">Reset / All modules</button>
+    <main class="app-content">
+      <section
+        id="functionalView"
+        class="app-view functional-view is-active"
+        role="tabpanel"
+        aria-labelledby="viewFunctional"
+      >
+        <div class="view-toolbar">
+          <div>
+            <p class="system-label">Level 1 <span>/</span> Main Contract Systems</p>
+            <h2>Functional Skeleton</h2>
+          </div>
+          <p class="interaction-hint">Select one or more modules to reveal their Level 2 practice categories.</p>
+          <div class="selection-tools">
+            <span id="selectionCount" aria-live="polite">0 modules open</span>
+            <button id="openScopeWorkspace" type="button">Open Scope &amp; Works v1</button>
+            <button id="clearSelection" type="button" disabled>Collapse all</button>
           </div>
         </div>
-        <div id="moduleGrid" class="module-grid"></div>
-      </section>
 
-      <section id="explorer" class="explorer" aria-labelledby="explorerTitle" tabindex="-1">
-        <aside class="issue-panel">
-          <button id="backToModules" class="back-button" type="button">← Reset / All modules</button>
-          <p class="eyebrow">SELECTED MODULE</p>
-          <h2 id="explorerTitle"></h2>
-          <p id="moduleDescription" class="muted"></p>
-          <div id="logicLegend" class="logic-legend"></div>
-          <h3>Sub-issues</h3>
-          <div id="issueList" class="issue-list"></div>
-        </aside>
-
-        <div class="element-panel">
-          <div class="panel-heading"><div><p class="eyebrow">ELEMENT REGISTER</p><h2 id="issueTitle">Select a sub-issue</h2></div><span id="resultCount" class="count-badge"></span></div>
-          <div id="elementList" class="element-list"></div>
+        <div id="architectureViewport" class="architecture-viewport">
+          <div class="technical-grid" aria-hidden="true"></div>
+          <div id="architecture" class="architecture" aria-label="Seven connected main contract systems"></div>
+          <p id="emptyHint" class="empty-hint"><span aria-hidden="true">+</span> Click any ring segment to expand its practice categories</p>
         </div>
 
-        <article id="detailPanel" class="detail-panel" aria-live="polite">
-          <div class="empty-state"><span>§</span><h3>Select an element</h3><p>Clause mapping and crosswalk notes will appear here.</p></div>
-        </article>
+        <section id="scopeWorkspace" class="scope-workspace" aria-labelledby="scopeWorkspaceTitle" hidden>
+          <header class="scope-workspace-header">
+            <div>
+              <p class="system-label scope-label">Approved content layer / Scope v1</p>
+              <h2 id="scopeWorkspaceTitle">Scope &amp; Works <span lang="zh-Hans">空间 / 工程范围与工作内容</span></h2>
+            </div>
+            <div class="scope-status-strip">
+              <span>source_text_loaded</span><span>needs_pdf_verification</span><span>needs_lawyer_review</span>
+            </div>
+          </header>
+          <div class="scope-workspace-grid">
+            <nav id="scopeCategories" class="scope-category-nav" aria-label="Scope practice categories"></nav>
+            <section id="scopeNodes" class="scope-node-panel" aria-live="polite"></section>
+            <aside id="scopeDetail" class="scope-detail-panel" aria-live="polite"></aside>
+          </div>
+        </section>
       </section>
-    </section>
-  </main>
 
-  <footer><span>Construction Contract Baseline</span><span>Structural research prototype · Not legal advice</span></footer>
-  <script src="app.js" defer></script>
+      <section
+        id="clauseSpineView"
+        class="app-view clause-view"
+        role="tabpanel"
+        aria-labelledby="viewClause"
+        hidden
+      >
+        <div class="view-toolbar clause-toolbar">
+          <div>
+            <p class="system-label red-label">Source order <span>/</span> Clauses 1–21</p>
+            <h2>Clause Spine</h2>
+          </div>
+          <p class="interaction-hint">Browse all imported FIDIC Red Book 2017 clauses, wording and PDF comparison status in source order.</p>
+          <span id="clauseDirectoryCount" class="directory-count">21 main clauses · loading sub-clauses</span>
+        </div>
+
+        <div class="clause-workspace">
+          <section class="clause-list-panel" aria-labelledby="clause-directory-title">
+            <header class="clause-list-heading">
+              <div>
+                <span>Original sequence</span>
+                <h3 id="clause-directory-title">Clause Directory Spine</h3>
+              </div>
+              <small>21 main clauses</small>
+            </header>
+            <div id="clauseSpine" class="clause-spine" aria-label="FIDIC Red Book 2017 clauses 1 to 21"></div>
+          </section>
+
+          <aside class="clause-identity" aria-label="FIDIC Red Book 2017 clause identity and imported sub-clause detail">
+            <div class="identity-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="identity-kicker">Source-layer directory</p>
+            <h2>FIDIC Red Book 2017</h2>
+            <p class="identity-subtitle">Clause Spine View</p>
+            <div class="identity-rule" aria-hidden="true"><span></span></div>
+            <div id="clauseDetail" class="clause-detail" aria-live="polite">
+              <span class="detail-state">Ready</span>
+              <h3>Loading imported clauses</h3>
+              <p>The local Word source layer and PDF comparison status will appear here.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        id="tagView"
+        class="app-view tag-view"
+        role="tabpanel"
+        aria-labelledby="viewTag"
+        hidden
+      >
+        <div class="tag-dashboard">
+          <header class="tag-hero">
+            <div class="tag-hero-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div>
+              <p class="system-label purple-label">Legal-effect index <span>/</span> FIDIC Red Book 2017</p>
+              <h2>Legal Effect Tag Control Panel</h2>
+              <p class="tag-chinese-title" lang="zh-Hans">法律效果标签控制台</p>
+            </div>
+            <p class="tag-intro">Select a legal-effect tag to see where that effect appears across the FIDIC Red Book 2017 structure.</p>
+          </header>
+
+          <section class="tag-bank" aria-labelledby="tag-bank-title">
+            <div class="tag-section-heading">
+              <div>
+                <span class="tag-stage-number">01</span>
+                <div>
+                  <p>Effect selection</p>
+                  <h3 id="tag-bank-title">Choose a legal-effect tag</h3>
+                </div>
+              </div>
+              <span class="tag-layer-badge">Horizontal index layer</span>
+            </div>
+            <div id="tagGroups" class="tag-groups" aria-label="Legal-effect tag groups"></div>
+          </section>
+
+          <section id="tagResultsPanel" class="tag-results-panel" aria-labelledby="tag-results-title">
+            <div class="tag-section-heading tag-results-heading">
+              <div>
+                <span class="tag-stage-number">02</span>
+                <div>
+                  <p>Clause mapping</p>
+                  <h3 id="tag-results-title">Related Clauses</h3>
+                </div>
+              </div>
+              <span id="tagResultCount" class="tag-result-count">Awaiting tag selection</span>
+            </div>
+            <div id="tagResults" class="tag-results" aria-live="polite">
+              <div class="tag-empty-state">
+                <span aria-hidden="true">+</span>
+                <p>Select a tag to display related FIDIC clauses.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="tagClauseDetail" class="tag-clause-detail" aria-labelledby="tag-detail-title" hidden></section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js?v=20260816-anchor-rule-1" defer></script>
 </body>
 </html>
