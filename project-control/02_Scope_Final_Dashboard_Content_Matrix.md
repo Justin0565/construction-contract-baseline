@@ -2,17 +2,15 @@
 
 ## Purpose
 
-This file will record the final approved Scope & Works dashboard content after review rounds are complete.
-
-It should be used as the content matrix for coding and as the template for later systems.
+This file records the approved structural control matrix for Scope & Works, the first completed model category. It governs Scope content maintenance and provides the matrix pattern for later systems without replacing the current approved mapping data.
 
 ---
 
 ## Status
 
 ```text
-Current status: Template only
-To be completed after Scope & Works dashboard content is approved
+Current status: Approved Scope structural control matrix
+Mapping content status: Existing approved Scope mappings remain authoritative unless separately instructed
 ```
 
 ---
@@ -39,6 +37,32 @@ Chinese: 工程范围与工作内容
 ---
 
 ## Content Matrix Template
+
+The governing hierarchy for every completed row is:
+
+```text
+Level 1: Main Contract System
+Level 2: Practice Category
+Level 3: Performance Node
+Level 4: FIDIC Clause / Sub-Clause
+Below clause level: Clause Elements / Legal Effect Tags / Full Clause Text / Verification Status
+```
+
+Each clause should have one primary functional path where possible. Secondary paths require a genuine cross-functional role. Clause ranges must be split into individual clickable anchors; range labels may remain only in narrative summaries. This control matrix does not itself add, remove or reinterpret existing Scope mappings.
+
+### Clause Element Extraction Methodology v1.2
+
+Every final matrix entry must use one of these three core element types:
+
+```text
+1. Responsibility / Obligation Allocation / 责任 / 义务配置
+2. Process Control / 过程控制
+3. Legal Effect / Outcome Control / 法律效果 / 结果控制
+```
+
+The `Clause Element` field must identify the smallest functional mechanism capable of review, comparison, tagging or checklist conversion. The final matrix must also record the element's core mechanism and any qualifier / limitation needed to preserve `subject to`, `unless`, exclusions, carve-outs, entitlement exclusions or similar risk-allocation wording.
+
+Do not use Subject Matter, Timing, Procedure, Consequence, Evidence / Record, Exception / Carve-out or general Risk Allocation as standalone element types. Timing, procedure, evidence and records are part of Process Control. Use Legal Effect / Outcome Control instead of Consequence. Tags apply to elements, not to the clause as a whole by default.
 
 | Practice Category | Performance Node | Clause Element | FIDIC Clause Ref | Clause Title | Tags | Tag Reason | Verification Status |
 |---|---|---|---|---|---|---|---|
@@ -74,7 +98,7 @@ Chinese: 工程范围与工作内容
 
 ## Notes
 
-This matrix should be completed only after review rounds are finished.
+This matrix is the approved structural template. Populating or changing clause-level legal content requires a separate mapping instruction and must follow the governing project-control methodology.
 
 Each final row should contain:
 
@@ -82,10 +106,14 @@ Each final row should contain:
 - Practice Category
 - Performance Node
 - Clause Element
+- Approved Element Type (v1.2)
+- Core Mechanism
+- Qualifier / Limitation, where applicable
 - FIDIC clause reference
 - Clause title
 - Legal effect tags
 - Tag reason
 - Group path
 - Verification status
+- Checklist question(s)
 ```
