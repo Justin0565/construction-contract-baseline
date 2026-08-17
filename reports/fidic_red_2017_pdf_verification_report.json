@@ -1,0 +1,3602 @@
+{
+  "report_version": "1.0",
+  "verified_at": "2026-08-16T08:57:45.427584+00:00",
+  "verified_by": "codex_pdf_verification",
+  "pdf_source_file": "data/source/FIDIC_Red_2017/FIDIC_Red_2017.pdf",
+  "clause_source_file": "data/processed/fidic_2017_red_clauses.json",
+  "pdf_page_count": 112,
+  "main_clause_records_checked": 21,
+  "total_records_checked": 215,
+  "imported_text_digest_before": "e98dd354f7b57284d47d6404b36ee35397c4a4f98a3bf933ae037b2da61639db",
+  "imported_text_digest_after": "e98dd354f7b57284d47d6404b36ee35397c4a4f98a3bf933ae037b2da61639db",
+  "imported_text_unchanged": true,
+  "counts": {
+    "needs_manual_pdf_review": 188,
+    "pdf_verified": 27
+  },
+  "inventory_controls": {
+    "sequence_1_to_21": true,
+    "clause_5_subcontracting": true,
+    "clause_12_measurement_and_valuation": true
+  },
+  "high_priority_requested": [
+    "1.9",
+    "1.13",
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.4",
+    "2.5",
+    "2.6",
+    "3.5",
+    "3.7",
+    "4.1",
+    "4.6",
+    "4.7",
+    "4.12",
+    "4.15",
+    "4.16",
+    "4.23",
+    "5.1",
+    "5.2",
+    "7.5",
+    "7.6",
+    "8.5",
+    "8.8",
+    "11.2",
+    "13.1",
+    "13.3.1",
+    "13.3.2",
+    "13.4",
+    "13.5",
+    "13.6",
+    "14.6",
+    "15.2",
+    "16.2",
+    "17.4",
+    "17.5",
+    "20.2",
+    "21.4"
+  ],
+  "high_priority_loaded": [
+    "1.9",
+    "1.13",
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.4",
+    "2.5",
+    "2.6",
+    "3.5",
+    "3.7",
+    "4.1",
+    "4.6",
+    "4.7",
+    "4.12",
+    "4.15",
+    "4.16",
+    "4.23",
+    "5.1",
+    "7.5",
+    "7.6",
+    "8.5",
+    "8.8",
+    "11.2",
+    "13.1",
+    "13.4",
+    "13.5",
+    "13.6",
+    "14.6",
+    "15.2",
+    "16.2",
+    "17.4",
+    "17.5",
+    "20.2",
+    "21.4"
+  ],
+  "high_priority_not_loaded": [
+    "5.2",
+    "13.3.1",
+    "13.3.2"
+  ],
+  "main_clause_inventory": [
+    {
+      "clause_no": "1",
+      "clause_title": "GENERAL PROVISIONS",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "2",
+      "clause_title": "THE EMPLOYER",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "3",
+      "clause_title": "THE ENGINEER",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "4",
+      "clause_title": "THE CONTRACTOR",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "5",
+      "clause_title": "SUBCONTRACTING",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "6",
+      "clause_title": "STAFF AND LABOUR",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "7",
+      "clause_title": "PLANT, MATERIALS AND WORKMANSHIP ",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "8",
+      "clause_title": "COMMENCEMENT, DELAYS AND SUSPENSION",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "9",
+      "clause_title": "TESTS ON COMPLETION",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "10",
+      "clause_title": "EMPLOYER’S TAKING OVER",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "11",
+      "clause_title": "DEFECTS AFTER TAKING OVER",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "12",
+      "clause_title": "MEASUREMENT AND VALUATION",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "13",
+      "clause_title": "VARIATIONS AND ADJUSTMENTS",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "14",
+      "clause_title": "CONTRACT PRICE AND PAYMENT",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "15",
+      "clause_title": "TERMINATION BY EMPLOYER",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "16",
+      "clause_title": "SUSPENSION AND TERMINATION BY CONTRACTOR",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "17",
+      "clause_title": "CARE OF THE WORKS AND INDEMNITIES",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "18",
+      "clause_title": "EXCEPTIONAL EVENTS",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "19",
+      "clause_title": "INSURANCE ",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "20",
+      "clause_title": "EMPLOYER’S AND CONTRACTOR’S CLAIMS",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    },
+    {
+      "clause_no": "21",
+      "clause_title": "DISPUTES AND ARBITRATION",
+      "pdf_page_reference": "PDF contents pp. 1-6",
+      "pdf_verification_status": "pdf_verified",
+      "qc_note": "Parent clause number, title and order confirmed against the visually reviewed PDF contents pages."
+    }
+  ],
+  "items": [
+    {
+      "clause_no": "1.1",
+      "clause_title": "Definitions",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 7",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7
+      ]
+    },
+    {
+      "clause_no": "1.2",
+      "clause_title": "Interpretation",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": []
+    },
+    {
+      "clause_no": "1.3",
+      "clause_title": "Notices and Other Communications",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        11,
+        14,
+        31,
+        32,
+        36
+      ]
+    },
+    {
+      "clause_no": "1.4",
+      "clause_title": "Law and Language",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        15,
+        22,
+        23,
+        31,
+        32,
+        47,
+        48,
+        108,
+        111
+      ]
+    },
+    {
+      "clause_no": "1.5",
+      "clause_title": "Priority of Documents",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 15",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        15
+      ]
+    },
+    {
+      "clause_no": "1.6",
+      "clause_title": "Contract Agreement",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        16,
+        91
+      ]
+    },
+    {
+      "clause_no": "1.7",
+      "clause_title": "Assignment",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        16,
+        87,
+        91
+      ]
+    },
+    {
+      "clause_no": "1.8",
+      "clause_title": "Care and Supply of Documents",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        16,
+        33
+      ]
+    },
+    {
+      "clause_no": "1.9",
+      "clause_title": "Delayed Drawings or Instructions",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 17",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        17
+      ]
+    },
+    {
+      "clause_no": "1.10",
+      "clause_title": "Employer's Use of Contractor's Documents",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 17",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        17
+      ]
+    },
+    {
+      "clause_no": "1.11",
+      "clause_title": "Contractor’s Use of Employer’s Documents",
+      "parent_clause_no": "1",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 18",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        18
+      ]
+    },
+    {
+      "clause_no": "1.12",
+      "clause_title": "Confidentiality",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 18",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        18
+      ]
+    },
+    {
+      "clause_no": "1.13",
+      "clause_title": "Compliance with Laws",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        18,
+        21,
+        32,
+        74
+      ]
+    },
+    {
+      "clause_no": "1.14",
+      "clause_title": "Joint and Several Liability",
+      "parent_clause_no": "1",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 19",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        19
+      ]
+    },
+    {
+      "clause_no": "1.15",
+      "clause_title": "Limitation of Liability",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 19",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        19
+      ]
+    },
+    {
+      "clause_no": "1.16",
+      "clause_title": "Contract Termination",
+      "parent_clause_no": "1",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 20",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        20
+      ]
+    },
+    {
+      "clause_no": "2.1",
+      "clause_title": "Right of Access to the Site",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 20",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        20
+      ]
+    },
+    {
+      "clause_no": "2.2",
+      "clause_title": "Assistance",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        19,
+        20
+      ]
+    },
+    {
+      "clause_no": "2.3",
+      "clause_title": "Employer's Personnel and Other Contractors",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 21",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        21
+      ]
+    },
+    {
+      "clause_no": "2.4",
+      "clause_title": "Employer's Financial Arrangements",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        21,
+        90,
+        91
+      ]
+    },
+    {
+      "clause_no": "2.5",
+      "clause_title": "Site Data and Items of Reference",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        22,
+        34,
+        37,
+        54
+      ]
+    },
+    {
+      "clause_no": "2.6",
+      "clause_title": "Employer-Supplied Materials and Employer's Equipment",
+      "parent_clause_no": "2",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        9,
+        20,
+        22
+      ]
+    },
+    {
+      "clause_no": "3.1",
+      "clause_title": "The Engineer",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        22,
+        23
+      ]
+    },
+    {
+      "clause_no": "3.2",
+      "clause_title": "Engineer's Duties and Authority",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 22",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        22
+      ]
+    },
+    {
+      "clause_no": "3.3",
+      "clause_title": "The Engineer's Representative",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 23",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        23
+      ]
+    },
+    {
+      "clause_no": "3.4",
+      "clause_title": "Delegation by the Engineer",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        23,
+        24
+      ]
+    },
+    {
+      "clause_no": "3.5",
+      "clause_title": "Engineer's Instructions",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        24,
+        31,
+        32,
+        71
+      ]
+    },
+    {
+      "clause_no": "3.6",
+      "clause_title": "Replacement of the Engineer",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        10,
+        24
+      ]
+    },
+    {
+      "clause_no": "3.7",
+      "clause_title": "Agreement or Determination",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        11,
+        23,
+        25,
+        30,
+        35,
+        55,
+        61,
+        63,
+        68,
+        69,
+        71,
+        73,
+        77,
+        78,
+        80,
+        81,
+        84,
+        87,
+        88,
+        90,
+        91,
+        98,
+        102,
+        104,
+        105,
+        108
+      ]
+    },
+    {
+      "clause_no": "3.8",
+      "clause_title": "Meetings",
+      "parent_clause_no": "3",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 27",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        27
+      ]
+    },
+    {
+      "clause_no": "4.1",
+      "clause_title": "Contractor's General Obligations",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        28,
+        32,
+        71,
+        88,
+        95,
+        100,
+        101
+      ]
+    },
+    {
+      "clause_no": "4.2",
+      "clause_title": "Performance Security",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        11,
+        29,
+        87
+      ]
+    },
+    {
+      "clause_no": "4.2.1",
+      "clause_title": "Contractor's Obligations",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        29,
+        76,
+        80
+      ]
+    },
+    {
+      "clause_no": "4.2.2",
+      "clause_title": "Claims under the Performance Security",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 30",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        30
+      ]
+    },
+    {
+      "clause_no": "4.2.3",
+      "clause_title": "Return of the Performance Security",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 30",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        30
+      ]
+    },
+    {
+      "clause_no": "4.3",
+      "clause_title": "Contractor's Representative",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        8,
+        31,
+        47,
+        80
+      ]
+    },
+    {
+      "clause_no": "4.4",
+      "clause_title": "Contractor’s Documents",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        8,
+        32
+      ]
+    },
+    {
+      "clause_no": "4.5",
+      "clause_title": "Training",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        29,
+        33,
+        60,
+        62
+      ]
+    },
+    {
+      "clause_no": "4.6",
+      "clause_title": "Co-operation",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        21,
+        34,
+        89
+      ]
+    },
+    {
+      "clause_no": "4.7",
+      "clause_title": "Setting Out",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 34",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        34
+      ]
+    },
+    {
+      "clause_no": "4.7.1",
+      "clause_title": "Accuracy",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 34",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        34
+      ]
+    },
+    {
+      "clause_no": "4.7.2",
+      "clause_title": "Errors",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        34,
+        35
+      ]
+    },
+    {
+      "clause_no": "4.7.3",
+      "clause_title": "Agreement or Determination of Rectification Measures, Delay and/or Cost",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 34",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        34
+      ]
+    },
+    {
+      "clause_no": "4.8",
+      "clause_title": "Health and Safety Obligations",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        21,
+        35,
+        46,
+        70
+      ]
+    },
+    {
+      "clause_no": "4.9.1",
+      "clause_title": "Quality Management System",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        36
+      ]
+    },
+    {
+      "clause_no": "4.9.2",
+      "clause_title": "Compliance Verification System",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        37,
+        79
+      ]
+    },
+    {
+      "clause_no": "4.9.3",
+      "clause_title": "General provision",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 37",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        37
+      ]
+    },
+    {
+      "clause_no": "4.10",
+      "clause_title": "Use of Site Data",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        37,
+        38
+      ]
+    },
+    {
+      "clause_no": "4.11",
+      "clause_title": "Sufficiency of the Accepted Contract Amount",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 38",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        38
+      ]
+    },
+    {
+      "clause_no": "4.12",
+      "clause_title": "Unforeseeable Physical Conditions",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 38",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        38
+      ]
+    },
+    {
+      "clause_no": "4.12.1",
+      "clause_title": "Contractor’s Notice",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 38",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        38
+      ]
+    },
+    {
+      "clause_no": "4.12.2",
+      "clause_title": "Engineer’s inspection and  investigation",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 38",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        38
+      ]
+    },
+    {
+      "clause_no": "4.12.3",
+      "clause_title": "Engineer’s instructions",
+      "parent_clause_no": "4",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 39",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        39
+      ]
+    },
+    {
+      "clause_no": "4.12.4",
+      "clause_title": "Delay and/or Cost",
+      "parent_clause_no": "4",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 39",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        39
+      ]
+    },
+    {
+      "clause_no": "4.12.5",
+      "clause_title": "Agreement or Determination of Delay and/or Cost",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 39",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        39
+      ]
+    },
+    {
+      "clause_no": "4.13",
+      "clause_title": "Rights of Way and Facilities",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": []
+    },
+    {
+      "clause_no": "4.14",
+      "clause_title": "Avoidance of Interference",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 39",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        39
+      ]
+    },
+    {
+      "clause_no": "4.15",
+      "clause_title": "Access Route",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 40",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        40
+      ]
+    },
+    {
+      "clause_no": "4.16",
+      "clause_title": "Transport of Goods",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        40,
+        41
+      ]
+    },
+    {
+      "clause_no": "4.17",
+      "clause_title": "Contractor’s Equipment",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        40,
+        43
+      ]
+    },
+    {
+      "clause_no": "4.18",
+      "clause_title": "Protection of the Environment",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        21,
+        41,
+        70
+      ]
+    },
+    {
+      "clause_no": "4.19",
+      "clause_title": "Temporary Utilities",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        20,
+        41,
+        78
+      ]
+    },
+    {
+      "clause_no": "4.20",
+      "clause_title": "Progress Reports",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        36,
+        41,
+        47,
+        77
+      ]
+    },
+    {
+      "clause_no": "4.21",
+      "clause_title": "Security of the Site",
+      "parent_clause_no": "4",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 42",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        42
+      ]
+    },
+    {
+      "clause_no": "4.22",
+      "clause_title": "Contractor’s Operations on Site",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 42",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        42
+      ]
+    },
+    {
+      "clause_no": "4.23",
+      "clause_title": "Archaeological and Geological Findings",
+      "parent_clause_no": "4",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 43",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        43
+      ]
+    },
+    {
+      "clause_no": "5.1",
+      "clause_title": "Subcontractors",
+      "parent_clause_no": "5",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        43,
+        87
+      ]
+    },
+    {
+      "clause_no": "5.2.1",
+      "clause_title": "Definition of “nominated Subcontractor”",
+      "parent_clause_no": "5",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 44",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        44
+      ]
+    },
+    {
+      "clause_no": "5.2.2",
+      "clause_title": "Objection to Nomination",
+      "parent_clause_no": "5",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 44",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        44
+      ]
+    },
+    {
+      "clause_no": "5.2.3",
+      "clause_title": "Payments to nominated Subcontractors",
+      "parent_clause_no": "5",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 44",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        44
+      ]
+    },
+    {
+      "clause_no": "5.2.4",
+      "clause_title": "Evidence of Payments",
+      "parent_clause_no": "5",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        44,
+        45
+      ]
+    },
+    {
+      "clause_no": "6.1",
+      "clause_title": "Engagement of Staff and Labour",
+      "parent_clause_no": "6",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 45",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        45
+      ]
+    },
+    {
+      "clause_no": "6.2",
+      "clause_title": "Rates of Wages and Conditions of Labour",
+      "parent_clause_no": "6",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 45",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        45
+      ]
+    },
+    {
+      "clause_no": "6.3",
+      "clause_title": "Recruitment of Persons",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        45,
+        47
+      ]
+    },
+    {
+      "clause_no": "6.4",
+      "clause_title": "Labour Laws",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 45",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        45
+      ]
+    },
+    {
+      "clause_no": "6.5",
+      "clause_title": "Working Hours",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 46",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        46
+      ]
+    },
+    {
+      "clause_no": "6.6",
+      "clause_title": "Facilities for Staff and Labour",
+      "parent_clause_no": "6",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 46",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        46
+      ]
+    },
+    {
+      "clause_no": "6.7",
+      "clause_title": "Health and Safety of Personnel",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        35,
+        46
+      ]
+    },
+    {
+      "clause_no": "6.8",
+      "clause_title": "Contractor's Superintendence",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 46",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        46
+      ]
+    },
+    {
+      "clause_no": "6.9",
+      "clause_title": "Contractor's Personnel",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 47",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        47
+      ]
+    },
+    {
+      "clause_no": "6.10",
+      "clause_title": "Contractor's Records",
+      "parent_clause_no": "6",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 47",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        16,
+        42,
+        47,
+        73
+      ]
+    },
+    {
+      "clause_no": "6.11",
+      "clause_title": "Disorderly Conduct",
+      "parent_clause_no": "6",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 47",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": []
+    },
+    {
+      "clause_no": "6.12",
+      "clause_title": "Key Personnel",
+      "parent_clause_no": "6",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        47,
+        48
+      ]
+    },
+    {
+      "clause_no": "7.1",
+      "clause_title": "Manner of Execution",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 48",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        48
+      ]
+    },
+    {
+      "clause_no": "7.2",
+      "clause_title": "Samples",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 48",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        48
+      ]
+    },
+    {
+      "clause_no": "7.3",
+      "clause_title": "Inspection",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 49",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        49
+      ]
+    },
+    {
+      "clause_no": "7.4",
+      "clause_title": "Testing by the Contractor",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        49,
+        51,
+        57,
+        64,
+        79
+      ]
+    },
+    {
+      "clause_no": "7.5",
+      "clause_title": "Defects and Rejection",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        37,
+        50,
+        53,
+        59,
+        62,
+        87,
+        93
+      ]
+    },
+    {
+      "clause_no": "7.6",
+      "clause_title": "Remedial Work",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        50,
+        51,
+        53,
+        87
+      ]
+    },
+    {
+      "clause_no": "7.7",
+      "clause_title": "Ownership of Plant and Materials",
+      "parent_clause_no": "7",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 51",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        51
+      ]
+    },
+    {
+      "clause_no": "7.8",
+      "clause_title": "Royalties",
+      "parent_clause_no": "7",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 52",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        52
+      ]
+    },
+    {
+      "clause_no": "8.1",
+      "clause_title": "Commencement of Works",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        52,
+        91
+      ]
+    },
+    {
+      "clause_no": "8.2",
+      "clause_title": "Time for Completion",
+      "parent_clause_no": "8",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 52",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        13,
+        52,
+        56,
+        87
+      ]
+    },
+    {
+      "clause_no": "8.3",
+      "clause_title": "Programme",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        20,
+        52,
+        55,
+        71
+      ]
+    },
+    {
+      "clause_no": "8.4",
+      "clause_title": "Advance Warning",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 54",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        54
+      ]
+    },
+    {
+      "clause_no": "8.5",
+      "clause_title": "Extension of Time for Completion",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        10,
+        13,
+        54,
+        55,
+        104
+      ]
+    },
+    {
+      "clause_no": "8.6",
+      "clause_title": "Delays Caused by Authorities",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 55",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        55
+      ]
+    },
+    {
+      "clause_no": "8.7",
+      "clause_title": "Rate of Progress",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 55",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        55
+      ]
+    },
+    {
+      "clause_no": "8.8",
+      "clause_title": "Delay Damages",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        9,
+        19,
+        56
+      ]
+    },
+    {
+      "clause_no": "8.9",
+      "clause_title": "Employer's Suspension",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        56,
+        57,
+        63
+      ]
+    },
+    {
+      "clause_no": "8.10",
+      "clause_title": "Consequences of Employer's Suspension",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 56",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        56
+      ]
+    },
+    {
+      "clause_no": "8.11",
+      "clause_title": "Payment for Plant and Materials after Employer's Suspension",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        52,
+        56
+      ]
+    },
+    {
+      "clause_no": "8.12",
+      "clause_title": "Prolonged Suspension",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        56,
+        57,
+        91
+      ]
+    },
+    {
+      "clause_no": "8.13",
+      "clause_title": "Resumption of Work",
+      "parent_clause_no": "8",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        56,
+        57
+      ]
+    },
+    {
+      "clause_no": "9.1",
+      "clause_title": "Contractor's Obligations",
+      "parent_clause_no": "9",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        57,
+        58,
+        61
+      ]
+    },
+    {
+      "clause_no": "9.2",
+      "clause_title": "Delayed Tests",
+      "parent_clause_no": "9",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 58",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        58
+      ]
+    },
+    {
+      "clause_no": "9.3",
+      "clause_title": "Retesting",
+      "parent_clause_no": "9",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 59",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        59
+      ]
+    },
+    {
+      "clause_no": "9.4",
+      "clause_title": "Failure to Pass Tests on Completion",
+      "parent_clause_no": "9",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 59",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        59
+      ]
+    },
+    {
+      "clause_no": "10.1",
+      "clause_title": "Taking Over the Works and Sections",
+      "parent_clause_no": "10",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        8,
+        33,
+        52,
+        54,
+        59,
+        89
+      ]
+    },
+    {
+      "clause_no": "10.2",
+      "clause_title": "Taking Over Parts",
+      "parent_clause_no": "10",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        11,
+        59,
+        60
+      ]
+    },
+    {
+      "clause_no": "10.3",
+      "clause_title": "Interference with Tests on Completion",
+      "parent_clause_no": "10",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        58,
+        59,
+        61
+      ]
+    },
+    {
+      "clause_no": "10.4",
+      "clause_title": "Surfaces Requiring Reinstatement",
+      "parent_clause_no": "10",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 62",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        62
+      ]
+    },
+    {
+      "clause_no": "11.1",
+      "clause_title": "Completion of Outstanding Work and Remedying Defects",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        62
+      ]
+    },
+    {
+      "clause_no": "11.2",
+      "clause_title": "Cost of Remedying Defects",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        62,
+        63,
+        65,
+        66
+      ]
+    },
+    {
+      "clause_no": "11.3",
+      "clause_title": "Extension of Defects Notification Period",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        9,
+        63,
+        104
+      ]
+    },
+    {
+      "clause_no": "11.4",
+      "clause_title": "Failure to Remedy Defects",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        51,
+        59,
+        63,
+        70
+      ]
+    },
+    {
+      "clause_no": "11.5",
+      "clause_title": "Remedying of Defective Work off Site",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 30",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        30
+      ]
+    },
+    {
+      "clause_no": "11.6",
+      "clause_title": "Further Tests after Remedying Defects",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 65",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        65
+      ]
+    },
+    {
+      "clause_no": "11.7",
+      "clause_title": "Right of Access after Taking Over",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 65",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        65
+      ]
+    },
+    {
+      "clause_no": "11.8",
+      "clause_title": "Contractor to Search",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 65",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        65
+      ]
+    },
+    {
+      "clause_no": "11.9",
+      "clause_title": "Performance Certificate",
+      "parent_clause_no": "11",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 66",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        11,
+        66
+      ]
+    },
+    {
+      "clause_no": "11.10",
+      "clause_title": "Unfulfilled Obligations",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 66",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        66
+      ]
+    },
+    {
+      "clause_no": "11.11",
+      "clause_title": "Clearance of Site",
+      "parent_clause_no": "11",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        29,
+        31,
+        66,
+        89
+      ]
+    },
+    {
+      "clause_no": "12.1",
+      "clause_title": "Works to be Measured",
+      "parent_clause_no": "12",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        67,
+        68
+      ]
+    },
+    {
+      "clause_no": "12.2",
+      "clause_title": "Method of Measurement",
+      "parent_clause_no": "12",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 68",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        68
+      ]
+    },
+    {
+      "clause_no": "12.3",
+      "clause_title": "Valuation of the Works",
+      "parent_clause_no": "12",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": []
+    },
+    {
+      "clause_no": "12.4",
+      "clause_title": "Omissions",
+      "parent_clause_no": "12",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 69",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        69
+      ]
+    },
+    {
+      "clause_no": "13.1",
+      "clause_title": "Right to Vary",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        69,
+        71,
+        72
+      ]
+    },
+    {
+      "clause_no": "13.2",
+      "clause_title": "Value Engineering",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        70,
+        85
+      ]
+    },
+    {
+      "clause_no": "13.3",
+      "clause_title": "Variation Procedure",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        69,
+        71,
+        85
+      ]
+    },
+    {
+      "clause_no": "13.4",
+      "clause_title": "Provisional Sums",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        12,
+        44,
+        72,
+        77,
+        85
+      ]
+    },
+    {
+      "clause_no": "13.5",
+      "clause_title": "Daywork",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        9,
+        73
+      ]
+    },
+    {
+      "clause_no": "13.6",
+      "clause_title": "Adjustments for Changes in Laws",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        74,
+        75,
+        77,
+        85
+      ]
+    },
+    {
+      "clause_no": "13.7",
+      "clause_title": "Adjustments for Changes in Cost",
+      "parent_clause_no": "13",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        74,
+        77
+      ]
+    },
+    {
+      "clause_no": "14.1",
+      "clause_title": "The Contract Price",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        75
+      ]
+    },
+    {
+      "clause_no": "14.2",
+      "clause_title": "Advance Payment",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        75,
+        77
+      ]
+    },
+    {
+      "clause_no": "14.2.1",
+      "clause_title": "Advance Payment Guarantee",
+      "parent_clause_no": "14",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 76",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        76,
+        79
+      ]
+    },
+    {
+      "clause_no": "14.2.2",
+      "clause_title": "Advance Payment Certificate",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        7,
+        76
+      ]
+    },
+    {
+      "clause_no": "14.2.3",
+      "clause_title": "Repayment of Advance Payment",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 76",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        76
+      ]
+    },
+    {
+      "clause_no": "14.3",
+      "clause_title": "Application for Interim Payment",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        77,
+        78,
+        80,
+        82,
+        83,
+        85
+      ]
+    },
+    {
+      "clause_no": "14.4",
+      "clause_title": "Schedule of Payments",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 78",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        78
+      ]
+    },
+    {
+      "clause_no": "14.5",
+      "clause_title": "Plant and Materials intended for the Works",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        52,
+        77,
+        78
+      ]
+    },
+    {
+      "clause_no": "14.6",
+      "clause_title": "Issue of IPC",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        10,
+        80,
+        81,
+        82,
+        83,
+        85,
+        90,
+        98
+      ]
+    },
+    {
+      "clause_no": "14.6.1",
+      "clause_title": "The IPC",
+      "parent_clause_no": "14",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 80",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        45,
+        80,
+        108
+      ]
+    },
+    {
+      "clause_no": "14.6.2",
+      "clause_title": "Withholding (amounts in) an IPC",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 80",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        80
+      ]
+    },
+    {
+      "clause_no": "14.6.3",
+      "clause_title": "Correction or modification",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 81",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        81
+      ]
+    },
+    {
+      "clause_no": "14.7",
+      "clause_title": "Payment",
+      "parent_clause_no": "14",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 81",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        21,
+        81,
+        90,
+        91
+      ]
+    },
+    {
+      "clause_no": "14.8",
+      "clause_title": "Delayed Payment",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        81,
+        91
+      ]
+    },
+    {
+      "clause_no": "14.9",
+      "clause_title": "Release of Retention Money",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        78,
+        82
+      ]
+    },
+    {
+      "clause_no": "14.10",
+      "clause_title": "Statement at Completion",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        82,
+        83,
+        85
+      ]
+    },
+    {
+      "clause_no": "14.11",
+      "clause_title": "Final Statement",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        12,
+        83
+      ]
+    },
+    {
+      "clause_no": "14.11.1",
+      "clause_title": "Draft Final Statement",
+      "parent_clause_no": "14",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 83",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        83,
+        84
+      ]
+    },
+    {
+      "clause_no": "14.11.2",
+      "clause_title": "Agreed Final Statement",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        10,
+        83,
+        85
+      ]
+    },
+    {
+      "clause_no": "14.12",
+      "clause_title": "Discharge",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        84,
+        107
+      ]
+    },
+    {
+      "clause_no": "14.13",
+      "clause_title": "Issue of FPC",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        10,
+        30,
+        81,
+        84,
+        88,
+        90
+      ]
+    },
+    {
+      "clause_no": "14.14",
+      "clause_title": "Cessation of Employer’s Liability",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 85",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        85
+      ]
+    },
+    {
+      "clause_no": "14.15",
+      "clause_title": "Currencies of Payment",
+      "parent_clause_no": "14",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 85",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        85
+      ]
+    },
+    {
+      "clause_no": "15.1",
+      "clause_title": "Notice to Correct",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        23,
+        30,
+        86
+      ]
+    },
+    {
+      "clause_no": "15.2",
+      "clause_title": "Termination for Contractor's Default",
+      "parent_clause_no": "15",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 86",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        18,
+        30,
+        56,
+        86,
+        88,
+        89
+      ]
+    },
+    {
+      "clause_no": "15.2.1",
+      "clause_title": "Notice",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        86,
+        87
+      ]
+    },
+    {
+      "clause_no": "15.2.2",
+      "clause_title": "Termination",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        87,
+        88
+      ]
+    },
+    {
+      "clause_no": "15.2.3",
+      "clause_title": "After termination",
+      "parent_clause_no": "15",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 88",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        88
+      ]
+    },
+    {
+      "clause_no": "15.2.4",
+      "clause_title": "Completion of the Works",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 88",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        88
+      ]
+    },
+    {
+      "clause_no": "15.3",
+      "clause_title": "Valuation after Termination for Contractor's Default",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        88,
+        89
+      ]
+    },
+    {
+      "clause_no": "15.4",
+      "clause_title": "Payment after Termination for Contractor's Default",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        30,
+        89
+      ]
+    },
+    {
+      "clause_no": "15.5",
+      "clause_title": "Termination for Employer's Convenience",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        17,
+        31,
+        89,
+        90,
+        92
+      ]
+    },
+    {
+      "clause_no": "15.6",
+      "clause_title": "Valuation after Termination for Employer's Convenience",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        89,
+        90
+      ]
+    },
+    {
+      "clause_no": "15.7",
+      "clause_title": "Payment after Termination for Employer's Convenience",
+      "parent_clause_no": "15",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        19,
+        30,
+        90
+      ]
+    },
+    {
+      "clause_no": "16.1",
+      "clause_title": "Suspension by Contractor",
+      "parent_clause_no": "16",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        63,
+        90,
+        91
+      ]
+    },
+    {
+      "clause_no": "16.2",
+      "clause_title": "Termination by Contractor",
+      "parent_clause_no": "16",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 91",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        17,
+        31,
+        57,
+        91,
+        92
+      ]
+    },
+    {
+      "clause_no": "16.2.1",
+      "clause_title": "Notice",
+      "parent_clause_no": "16",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        91,
+        92
+      ]
+    },
+    {
+      "clause_no": "16.2.2",
+      "clause_title": "Termination",
+      "parent_clause_no": "16",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 92",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        92
+      ]
+    },
+    {
+      "clause_no": "16.3",
+      "clause_title": "Contractor's Obligations After Termination",
+      "parent_clause_no": "16",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        89,
+        92,
+        97
+      ]
+    },
+    {
+      "clause_no": "16.4",
+      "clause_title": "Payment after Termination by Contractor",
+      "parent_clause_no": "16",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        19,
+        30,
+        92
+      ]
+    },
+    {
+      "clause_no": "17.1",
+      "clause_title": "Responsibility for Care of the Works",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        93,
+        96
+      ]
+    },
+    {
+      "clause_no": "17.2",
+      "clause_title": "Liability for Care of the Works",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        93,
+        95,
+        96
+      ]
+    },
+    {
+      "clause_no": "17.3",
+      "clause_title": "Intellectual and Industrial Property Rights",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        19,
+        20,
+        94,
+        96
+      ]
+    },
+    {
+      "clause_no": "17.4",
+      "clause_title": "Indemnities by Contractor",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        19,
+        20,
+        95,
+        96
+      ]
+    },
+    {
+      "clause_no": "17.5",
+      "clause_title": "Indemnities by Employer",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        20,
+        95,
+        96
+      ]
+    },
+    {
+      "clause_no": "17.6",
+      "clause_title": "Shared Indemnities",
+      "parent_clause_no": "17",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 96",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        96
+      ]
+    },
+    {
+      "clause_no": "18.1",
+      "clause_title": "Exceptional Events",
+      "parent_clause_no": "18",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        10,
+        94,
+        96,
+        97
+      ]
+    },
+    {
+      "clause_no": "18.2",
+      "clause_title": "Notice of an Exceptional Event",
+      "parent_clause_no": "18",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        96,
+        97
+      ]
+    },
+    {
+      "clause_no": "18.3",
+      "clause_title": "Duty to Minimise Delay",
+      "parent_clause_no": "18",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 97",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        97
+      ]
+    },
+    {
+      "clause_no": "18.4",
+      "clause_title": "Consequences of an Exceptional Event",
+      "parent_clause_no": "18",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 97",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        51,
+        94,
+        97
+      ]
+    },
+    {
+      "clause_no": "18.5",
+      "clause_title": "Optional Termination",
+      "parent_clause_no": "18",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        17,
+        30,
+        31,
+        90,
+        92,
+        98
+      ]
+    },
+    {
+      "clause_no": "18.6",
+      "clause_title": "Release from Performance under the Law",
+      "parent_clause_no": "18",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        30,
+        31
+      ]
+    },
+    {
+      "clause_no": "19.1",
+      "clause_title": "General Requirements",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 98",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        98
+      ]
+    },
+    {
+      "clause_no": "19.2",
+      "clause_title": "Insurance to be provided by the Contractor",
+      "parent_clause_no": "19",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 99",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        99
+      ]
+    },
+    {
+      "clause_no": "19.2.1",
+      "clause_title": "The Works",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 99",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        99
+      ]
+    },
+    {
+      "clause_no": "19.2.2",
+      "clause_title": "Goods",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 100",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        100
+      ]
+    },
+    {
+      "clause_no": "19.2.3",
+      "clause_title": "Liability for breach of professional duty",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 100",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        100
+      ]
+    },
+    {
+      "clause_no": "19.2.4",
+      "clause_title": "Injury to persons and damage to property",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 101",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        101
+      ]
+    },
+    {
+      "clause_no": "19.2.5",
+      "clause_title": "Injury to employees",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 101",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        101
+      ]
+    },
+    {
+      "clause_no": "19.2.6",
+      "clause_title": "Other insurances required by Laws and by local practice",
+      "parent_clause_no": "19",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 101",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        101
+      ]
+    },
+    {
+      "clause_no": "20.1",
+      "clause_title": "Claims",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        26,
+        102
+      ]
+    },
+    {
+      "clause_no": "20.2",
+      "clause_title": "Claims For Payment and/or EOT",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        17,
+        19,
+        20,
+        34,
+        35,
+        39,
+        40,
+        43,
+        50,
+        51,
+        54,
+        55,
+        56,
+        59,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        72,
+        74,
+        82,
+        83,
+        85,
+        89,
+        91,
+        92,
+        94,
+        97,
+        102
+      ]
+    },
+    {
+      "clause_no": "20.2.1",
+      "clause_title": "Notice of Claim",
+      "parent_clause_no": "20",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 102",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        42,
+        102,
+        103,
+        105
+      ]
+    },
+    {
+      "clause_no": "20.2.2",
+      "clause_title": "Engineer’s initial response",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        103,
+        104
+      ]
+    },
+    {
+      "clause_no": "20.2.3",
+      "clause_title": "Contemporary records",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        16,
+        103
+      ]
+    },
+    {
+      "clause_no": "20.2.4",
+      "clause_title": "Fully detailed Claim",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        26,
+        39,
+        103,
+        104,
+        105
+      ]
+    },
+    {
+      "clause_no": "20.2.5",
+      "clause_title": "Agreement or determination of the Claim",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        39,
+        54,
+        103,
+        104,
+        106
+      ]
+    },
+    {
+      "clause_no": "20.2.6",
+      "clause_title": "Claims of continuing effect",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        26,
+        104,
+        105
+      ]
+    },
+    {
+      "clause_no": "20.2.7",
+      "clause_title": "General requirements",
+      "parent_clause_no": "20",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 106",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        106
+      ]
+    },
+    {
+      "clause_no": "21.1",
+      "clause_title": "Constitution of the DAAB",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        8,
+        106,
+        111
+      ]
+    },
+    {
+      "clause_no": "21.2",
+      "clause_title": "Failure to Appoint DAAB Member(s)",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        8,
+        111
+      ]
+    },
+    {
+      "clause_no": "21.3",
+      "clause_title": "Avoidance of Disputes",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 108",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        108
+      ]
+    },
+    {
+      "clause_no": "21.4",
+      "clause_title": "Obtaining DAAB's Decision",
+      "parent_clause_no": "21",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 108",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": true,
+      "heading_page_candidates": [
+        11,
+        26,
+        27,
+        83,
+        87,
+        90,
+        91,
+        106,
+        108,
+        110,
+        111,
+        112
+      ]
+    },
+    {
+      "clause_no": "21.4.1",
+      "clause_title": "Reference of a Dispute to the DAAB",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        26,
+        108
+      ]
+    },
+    {
+      "clause_no": "21.4.2",
+      "clause_title": "The Parties’ obligations after the reference",
+      "parent_clause_no": "21",
+      "verification_status": "pdf_verified",
+      "text_match_status": "exact_or_near_exact_match",
+      "pdf_page_reference": "PDF p. 109",
+      "issue_type": null,
+      "qc_note": "Complete unique match after conservative layout normalisation; imported Word wording retained unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        109
+      ]
+    },
+    {
+      "clause_no": "21.4.3",
+      "clause_title": "The  DAAB’s decision",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        109,
+        110
+      ]
+    },
+    {
+      "clause_no": "21.4.4",
+      "clause_title": "Dissatisfaction with DAAB’s decision",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": "PDF p. 110",
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        110
+      ]
+    },
+    {
+      "clause_no": "21.5",
+      "clause_title": "Amicable Settlement",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        110,
+        111,
+        112
+      ]
+    },
+    {
+      "clause_no": "21.6",
+      "clause_title": "Arbitration",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        27,
+        83,
+        84,
+        109,
+        110,
+        111,
+        112
+      ]
+    },
+    {
+      "clause_no": "21.7",
+      "clause_title": "Failure to Comply with DAAB's Decision",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        27,
+        110,
+        111
+      ]
+    },
+    {
+      "clause_no": "21.8",
+      "clause_title": "No DAAB In Place",
+      "parent_clause_no": "21",
+      "verification_status": "needs_manual_pdf_review",
+      "text_match_status": "unable_to_compare_reliably",
+      "pdf_page_reference": null,
+      "issue_type": "automated_full_text_match_not_established",
+      "qc_note": "A complete reliable machine match was not established; discrepancy is reported only and imported Word wording remains unchanged.",
+      "high_priority": false,
+      "heading_page_candidates": [
+        110,
+        111
+      ]
+    }
+  ]
+}

@@ -19,11 +19,11 @@
     "quality_control"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "enum": ["1.0", "1.1"] },
     "book": { "const": "FIDIC Red Book 2017" },
     "edition": { "const": "2017" },
     "source_file": { "type": "string", "minLength": 1 },
-    "source_text_origin": { "const": "Word manual copy" },
+    "source_text_origin": { "enum": ["Word manual copy", "Corrected Word working copy"] },
     "source_status": { "const": "source_text_loaded" },
     "verification_status": { "const": "needs_pdf_verification" },
     "generated_at_utc": { "type": "string", "format": "date-time" },
@@ -42,6 +42,8 @@
       "items": { "$ref": "#/$defs/subClause" }
     },
     "quality_control": { "type": "object" }
+    ,
+    "pdf_verification": { "type": "object" }
   },
   "additionalProperties": false,
   "$defs": {
@@ -81,7 +83,9 @@
         "source_text_origin": {
           "enum": [
             "Word manual copy",
-            "PDF reference text matched to Word manual copy"
+            "Corrected Word working copy",
+            "PDF reference text matched to Word manual copy",
+            "PDF reference text matched to corrected Word working copy"
           ]
         },
         "source_status": { "const": "source_text_loaded" },
@@ -93,6 +97,43 @@
         "functional_mappings": { "type": "array", "maxItems": 0 },
         "tags": { "type": "array", "maxItems": 0 },
         "clause_elements": { "type": "array", "maxItems": 0 },
+        "pdf_source_file": { "type": "string", "minLength": 1 },
+        "pdf_page_reference": { "type": ["string", "null"] },
+        "pdf_verification_status": {
+          "enum": [
+            "pdf_verified",
+            "text_matches_with_minor_formatting_differences",
+            "title_mismatch",
+            "clause_number_mismatch",
+            "text_discrepancy_found",
+            "imported_text_missing",
+            "pdf_text_unavailable",
+            "pdf_ocr_unreliable_needs_manual_review",
+            "needs_manual_pdf_review"
+          ]
+        },
+        "text_match_status": {
+          "enum": [
+            "exact_or_near_exact_match",
+            "minor_formatting_difference_only",
+            "substantive_difference_possible",
+            "missing_text",
+            "unable_to_compare_reliably"
+          ]
+        },
+        "qc_status": {
+          "enum": [
+            "pdf_verified",
+            "needs_pdf_verification",
+            "needs_manual_pdf_review",
+            "text_discrepancy_found",
+            "source_text_not_loaded",
+            "pdf_ocr_unreliable_needs_manual_review"
+          ]
+        },
+        "qc_note": { "type": "string" },
+        "verified_at": { "type": "string", "format": "date-time" },
+        "verified_by": { "const": "codex_pdf_verification" },
         "pdf_verification": {
           "type": "object",
           "required": ["reference_file", "method", "verified_at_utc", "page_hits"],
