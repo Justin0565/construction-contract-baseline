@@ -1,0 +1,119 @@
+{
+  "report": "Scope & Works UI/Data Audit",
+  "audit_date": "2026-08-17",
+  "scope": "Scope & Works only",
+  "methodology": {
+    "scope": "Scope-Based Dashboard Standard v1.0",
+    "elements": "Clause Element Extraction Methodology v1.2",
+    "tags": "Tag Team Manual v1.0"
+  },
+  "files_audited": [
+    "project-control/00_PROJECT_RULES.md",
+    "project-control/01_Dashboard_Classification_Methodology_Memo.md",
+    "project-control/02_Scope_Final_Dashboard_Content_Matrix.md",
+    "project-control/07_ELEMENT_METHODOLOGY_MANUAL.md",
+    "project-control/08_TAG_DICTIONARY_AND_TAGGING_RULES.md",
+    "project-control/09_SCOPE_BASED_DASHBOARD_STANDARD.md",
+    "index.html",
+    "styles.css",
+    "app.js",
+    "data/scope_works_v1.json",
+    "data/clause_elements.json",
+    "data/tag_clause_index.json",
+    "data/processed/fidic_2017_red_clauses.json"
+  ],
+  "files_modified": [
+    "index.html",
+    "app.js",
+    "data/scope_works_v1.json",
+    "data/clause_elements.json",
+    "data/tag_clause_index.json",
+    "reports/scope_ui_data_audit_report.md",
+    "reports/scope_ui_data_audit_report.json",
+    "reports/scope_ui_data_audit_summary.md"
+  ],
+  "scope_structure": {
+    "category_count": 4,
+    "categories": [
+      {"name": "Main Performance Obligations", "chinese_name": "主要义务", "performance_nodes": 4},
+      {"name": "Ancillary Management Obligations", "chinese_name": "附带义务，即管理", "performance_nodes": 6},
+      {"name": "Employer Enabling Obligations", "chinese_name": "业主 / 对方使能义务", "performance_nodes": 9},
+      {"name": "Scope Variables and Variations", "chinese_name": "变量，即变更", "performance_nodes": 9}
+    ],
+    "performance_nodes_checked": 28,
+    "node_clause_anchors_checked": 129,
+    "unique_scope_anchors_checked": 82
+  },
+  "clause_anchor_audit": {
+    "range_anchors_found": 0,
+    "range_anchors_split": 0,
+    "invalid_combined_anchors_remaining": 0,
+    "clause_numbers_repeated_across_nodes": 28,
+    "duplicate_final_clause_mappings": 0
+  },
+  "clause_link_audit": {
+    "exact_source_links": 76,
+    "source_record_aliases": 6,
+    "unresolved_links_after_fix": 0,
+    "broken_or_non_exact_links_fixed": 6,
+    "aliases": [
+      {"requested": "1.1.44", "resolved_source_record": "1.1"},
+      {"requested": "1.1.67", "resolved_source_record": "1.1"},
+      {"requested": "13.3.1", "resolved_source_record": "13.3"},
+      {"requested": "13.3.2", "resolved_source_record": "13.3"},
+      {"requested": "4.9", "resolved_source_record": "4.9.1"},
+      {"requested": "5.2", "resolved_source_record": "5.2.1"}
+    ]
+  },
+  "clause_labels": {
+    "5": {"expected": "Subcontracting", "actual": "Subcontracting", "result": "pass"},
+    "12": {"expected": "Measurement and Valuation", "actual": "Measurement and Valuation", "result": "pass"}
+  },
+  "tag_audit": {
+    "deprecated_applications_found": {"Claim": 10, "EOT": 10, "Breach / Default": 4},
+    "migrated": {"Claim for Cost": 10, "Claim for EOT": 9, "Contractor Breach / Default": 1},
+    "removed_without_inference": [
+      {"clause": "13.3.1", "tag": "EOT", "reason": "ordinary Variation adjustment; Determination retained"},
+      {"clause": "5.1", "tag": "Breach / Default", "reason": "party-specific approved definition not objectively satisfied by active mapping"},
+      {"clause": "5.2.2", "tag": "Breach / Default", "reason": "party-specific approved definition not objectively satisfied by active mapping"},
+      {"clause": "13.1", "tag": "Breach / Default", "reason": "party-specific approved definition not objectively satisfied by active mapping"}
+    ],
+    "deprecated_active_tags_remaining": 0,
+    "auxiliary_element_tag_identifier_migrations": 11,
+    "auxiliary_13_3_1_eot_rows_removed": 1
+  },
+  "element_audit": {
+    "deprecated_element_type_values_found": 0,
+    "deprecated_element_type_values_replaced": 0,
+    "governing_methodology_recorded": "Clause Element Extraction Methodology v1.2",
+    "element_type_assignment_status": "needs_lawyer_review"
+  },
+  "mapping_audit": {
+    "clause_mappings": 82,
+    "duplicate_clause_mappings": 0,
+    "non_scope_primary_paths_retained_as_explicit_scope_cross_links": 9,
+    "primary_secondary_fields_present": true
+  },
+  "cross_view_consistency": {
+    "issues_found": 4,
+    "issues_fixed": 4,
+    "browser_console_errors": 0,
+    "functional_to_spine": "pass",
+    "tag_to_spine": "pass",
+    "variation_13_3_1": "Determination only; source record 13.3 displayed with resolution notice"
+  },
+  "needs_lawyer_review": {
+    "scope_clause_mappings": 82,
+    "notes": [
+      "Clause-level element-type allocation was not invented.",
+      "Unsupported party-specific Breach/Default candidates remain untagged.",
+      "Existing cross-functional mapping judgments were preserved."
+    ]
+  },
+  "fidic_source_text_altered": false,
+  "source_integrity": {
+    "processed_source_sha256": "D8777743EBCD4D833A7FF5B0F9DA91F81F93820F3FF1D5E48E1B4AA0173368EC",
+    "corrected_word_sha256": "6F3105D20DFD072AF1A938B9A78D98F4F5E4ED00B794CE41167112352E75DC19",
+    "pdf_sha256": "A44BD894956F7CC61EAB49B51D6382AF53CDC691DA4F2AB20C59AA2C6B2B915E"
+  }
+}

@@ -117,7 +117,7 @@ const tagGroupsData = [
   {
     title: "Entitlement & Procedure",
     chineseTitle: "权利主张与程序门槛",
-    tags: ["Claim", "Condition Precedent", "Counterclaim / Countercharge", "EOT", "Time Bar", "Waiver / Discharge"]
+    tags: ["Claim for EOT", "Claim for Cost", "Condition Precedent", "Counterclaim / Countercharge", "Time Bar", "Waiver / Non-Waiver / Discharge"]
   },
   {
     title: "Determination & Deemed Effects",
@@ -127,127 +127,29 @@ const tagGroupsData = [
   {
     title: "Remedies, Risk & Payment Controls",
     chineseTitle: "救济、风险与付款控制",
-    tags: ["Back-to-back", "Breach / Default", "Deduction", "Indemnity", "Remedy", "Set-off", "Termination Trigger", "Withholding"]
+    tags: ["Back-to-back", "Contractor Breach / Default", "Employer Breach / Default", "Deduction", "Indemnity", "Remedy", "Set-off", "Termination Trigger", "Withholding"]
   }
 ];
 
 const tagClauseMappings = {
   "Back-to-back": [],
-  "Breach / Default": [
-    ["4.1", "Contractor's General Obligations"],
-    ["8.8", "Delay Damages"],
-    ["11.4", "Failure to Remedy Defects"],
-    ["15.2", "Termination for Contractor's Default"]
-  ],
-  Claim: [
-    ["1.9", "Delayed Drawings or Instructions"],
-    ["1.13", "Compliance with Laws"],
-    ["2.1", "Right of Access to the Site"],
-    ["4.12", "Unforeseeable Physical Conditions"],
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  "Condition Precedent": [
-    ["4.2", "Performance Security"],
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["21.4", "Obtaining DAAB's Decision"]
-  ],
-  "Counterclaim / Countercharge": [
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  Deduction: [
-    ["8.8", "Delay Damages"],
-    ["11.4", "Failure to Remedy Defects"],
-    ["14.6", "Issue of IPC"],
-    ["14.15", "Currencies of Payment"]
-  ],
-  "Deemed Approval": [
-    ["3.7", "Agreement or Determination"],
-    ["13.3.1", "Variation by Instruction"]
-  ],
-  "Deemed Rejection": [
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["21.4", "Obtaining DAAB's Decision"]
-  ],
-  Determination: [
-    ["3.7", "Agreement or Determination"],
-    ["13.3.1", "Variation by Instruction"],
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  EOT: [
-    ["2.1", "Right of Access to the Site"],
-    ["8.5", "Extension of Time for Completion"],
-    ["8.6", "Delays Caused by Authorities"],
-    ["13.3.1", "Variation by Instruction"],
-    ["13.6", "Adjustments for Changes in Laws"]
-  ],
-  Indemnity: [
-    ["1.13", "Compliance with Laws"],
-    ["17.4", "Indemnities by the Contractor"],
-    ["17.5", "Indemnities by the Employer"]
-  ],
-  Remedy: [
-    ["7.5", "Defects and Rejection"],
-    ["7.6", "Remedial Work"],
-    ["11.1", "Completion of Outstanding Work and Remedying Defects"],
-    ["11.4", "Failure to Remedy Defects"]
-  ],
-  "Set-off": [
-    ["2.2", "Assistance"],
-    ["8.8", "Delay Damages"],
-    ["14.6", "Issue of IPC"]
-  ],
-  "Termination Trigger": [
-    ["15.2", "Termination for Contractor's Default"],
-    ["15.5", "Termination for Employer's Convenience"],
-    ["16.2", "Termination by Contractor"]
-  ],
-  "Time Bar": [
-    ["20.2", "Claims For Payment and/or EOT"]
-  ],
-  "Waiver / Discharge": [
-    ["20.2", "Claims For Payment and/or EOT"],
-    ["14.12", "Discharge"]
-  ],
-  Withholding: [
-    ["14.6", "Issue of IPC"],
-    ["14.9", "Payment of Retention Money"],
-    ["15.4", "Payment after Termination for Contractor's Default"]
-  ]
-};
-
-const sampleTagDetails = {
-  "EOT::2.1": {
-    reason: "The clause provides that delayed access or possession may entitle the Contractor to EOT, subject to the claims procedure.",
-    path: "Scope & Works > Employer Enabling Obligations > Site access and possession",
-    elements: [
-      "Employer obligation to give access and possession",
-      "Timing of access",
-      "Non-exclusive access",
-      "Delayed access consequence",
-      "Contractor delay or error carve-out"
-    ]
-  },
-  "EOT::13.3.1": {
-    reason: "The Contractor's proposal may include adjustment to the Time for Completion where the instructed Variation affects time.",
-    path: "Scope & Works > Scope Variables and Variations > Variation instruction",
-    elements: [
-      "Engineer instruction",
-      "Contractor obligation to execute Variation",
-      "Contractor proposal",
-      "Time impact",
-      "Engineer agreement or determination"
-    ]
-  },
-  "Determination::3.7": {
-    reason: "This is the core Engineer agreement or determination mechanism.",
-    path: "Contract Mechanics > Contract Administration > Agreement or Determination",
-    elements: [
-      "Engineer consultation",
-      "Agreement process",
-      "Determination process",
-      "Notice of determination"
-    ]
-  }
+  "Claim for EOT": [],
+  "Claim for Cost": [],
+  "Contractor Breach / Default": [],
+  "Employer Breach / Default": [],
+  Determination: [],
+  "Condition Precedent": [],
+  "Time Bar": [],
+  "Deemed Approval": [],
+  "Deemed Rejection": [],
+  Deduction: [],
+  Withholding: [],
+  "Set-off": [],
+  Indemnity: [],
+  Remedy: [],
+  "Termination Trigger": [],
+  "Waiver / Non-Waiver / Discharge": [],
+  "Counterclaim / Countercharge": []
 };
 
 const RING_CENTER = { x: 610, y: 280 };
@@ -350,6 +252,32 @@ function enforceProjectClauseAnchorRule(data) {
   return data;
 }
 
+function validateScopeDataShape(data) {
+  if (!data || typeof data !== "object") throw new Error("Scope v1 root must be an object");
+  if (!Array.isArray(data.practice_categories)) throw new Error("Scope v1 practice_categories must be an array");
+  if (!Array.isArray(data.performance_nodes)) throw new Error("Scope v1 performance_nodes must be an array");
+  if (!data.tag_index || typeof data.tag_index !== "object" || Array.isArray(data.tag_index)) {
+    throw new Error("Scope v1 tag_index must be an object");
+  }
+  data.performance_nodes.forEach((node) => {
+    if (!node.id || !node.practice_category_id || !node.primary_path) {
+      throw new Error("Scope v1 performance node is missing id, practice_category_id or primary_path");
+    }
+    if (!Array.isArray(node.primary_clauses)) throw new Error(`performance_nodes.${node.id}.primary_clauses must be an array`);
+    if (!Array.isArray(node.secondary_paths)) throw new Error(`performance_nodes.${node.id}.secondary_paths must be an array`);
+    if (!Array.isArray(node.elements)) throw new Error(`performance_nodes.${node.id}.elements must be an array`);
+  });
+  Object.entries(data.tag_index).forEach(([tag, clauses]) => {
+    if (!Array.isArray(clauses)) throw new Error(`tag_index.${tag} must be an array`);
+    clauses.forEach((tuple, index) => {
+      if (!Array.isArray(tuple) || tuple.length !== 2 || !tuple[0] || !tuple[1]) {
+        throw new Error(`tag_index.${tag}[${index}] must be [clause_no, clause_title]`);
+      }
+    });
+  });
+  return data;
+}
+
 async function loadClauseSourceLayer() {
   try {
     const response = await fetch("data/processed/fidic_2017_red_clauses.json", { cache: "no-store" });
@@ -375,7 +303,7 @@ async function loadScopeData() {
   try {
     const response = await fetch("data/scope_works_v1.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    scopeData = enforceProjectClauseAnchorRule(await response.json());
+    scopeData = enforceProjectClauseAnchorRule(validateScopeDataShape(await response.json()));
     scopeData.clause_mappings = buildScopeClauseMappings(scopeData);
     Object.keys(tagClauseMappings).forEach((tag) => { tagClauseMappings[tag] = []; });
     Object.entries(scopeData.tag_index).forEach(([tag, clauses]) => {
@@ -387,7 +315,7 @@ async function loadScopeData() {
   } catch (error) {
     scopeWorkspace.hidden = false;
     scopeNodes.innerHTML = `<div class="scope-empty">Scope v1 data could not be loaded.</div>`;
-    console.error("Could not load Scope & Works v1", error);
+    console.error("Failed to load Scope v1 data:", error);
   }
 }
 
@@ -617,7 +545,7 @@ function renderScopeNodes() {
         <div class="scope-clause-chips">${node.primary_clauses.map(([number, title]) => `
           <button type="button" data-scope-clause="${escapeHtml(number)}" title="${escapeHtml(title)}">${escapeHtml(number)}</button>
         `).join("")}</div>
-        <div class="scope-node-status"><span>needs_pdf_verification</span><span>needs_lawyer_review</span></div>
+        <div class="scope-node-status"><span>source_text_loaded</span><span>needs_lawyer_review</span></div>
       </article>`).join("")}</div>`;
   scopeNodes.querySelectorAll("[data-scope-node]").forEach((button) => {
     button.addEventListener("click", () => showScopeNode(button.dataset.scopeNode));
@@ -643,7 +571,7 @@ function showScopeNode(nodeId) {
     <section><span>Secondary paths / cross-links</span><ul>${node.secondary_paths.map((path) => `<li>${escapeHtml(path)}</li>`).join("")}</ul></section>
     <section><span>Clause anchors</span><div class="scope-clause-chips">${node.primary_clauses.map(([number, title]) => `<button type="button" data-detail-clause="${escapeHtml(number)}">${escapeHtml(number)} ${escapeHtml(title)}</button>`).join("")}</div></section>
     <section><span>Approved legal-effect tags</span><div class="scope-tag-row">${tags.length ? tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join("") : "<em>No approved tag by default.</em>"}</div></section>
-    <footer><b>${escapeHtml(category.name)}</b><span>source_text_loaded</span><span>needs_pdf_verification</span><span>needs_lawyer_review</span></footer>`;
+    <footer><b>${escapeHtml(category.name)}</b><span>source_text_loaded</span><span>needs_lawyer_review</span></footer>`;
   scopeDetail.querySelectorAll("[data-detail-clause]").forEach((button) => button.addEventListener("click", () => openClauseInSpine(button.dataset.detailClause, "Functional Skeleton")));
 }
 
@@ -673,14 +601,23 @@ function openClauseInSpine(clauseNo, origin = "Dashboard") {
 }
 
 function clauseSpineViewTarget(clauseNo) {
-  return clauseDetail.querySelector(`[data-subclause-number="${CSS.escape(clauseNo)}"]`);
+  const sourceClause = findSourceClause(clauseNo);
+  return sourceClause
+    ? clauseDetail.querySelector(`[data-subclause-number="${CSS.escape(sourceClause.clause_no)}"]`)
+    : null;
 }
 
 function renderCrossViewStatus(clauseNo, textLoaded) {
+  const sourceClause = findSourceClause(clauseNo);
+  const verification = getPdfVerificationDisplay(sourceClause, textLoaded);
+  const resolvedNote = sourceClause && sourceClause.clause_no !== String(clauseNo)
+    ? `Requested ${escapeHtml(clauseNo)} is displayed within source record ${escapeHtml(sourceClause.clause_no)}.`
+    : "";
   return `<div class="crossview-status-card">
     <strong>Opened from ${escapeHtml(clauseNavigationOrigin || "Dashboard")}</strong>
     <span>${textLoaded ? "Text loaded from source layer." : "Full clause text not loaded in source layer."}</span>
-    <div><b>${textLoaded ? "source_text_loaded" : "source_text_not_loaded"}</b><b>needs_pdf_verification</b><b>needs_lawyer_review</b></div>
+    ${resolvedNote ? `<span>${resolvedNote}</span>` : ""}
+    <div><b>${textLoaded ? "source_text_loaded" : "source_text_not_loaded"}</b>${verification ? `<b>${escapeHtml(verification.label)}</b>` : ""}<b>needs_lawyer_review</b></div>
   </div>`;
 }
 
@@ -714,6 +651,8 @@ function showScopeClause(clauseNo) {
 }
 
 function renderScopeMappingDetail(mapping, label) {
+  const visibleStatuses = [mapping.source_status, mapping.qc_status, mapping.lawyer_review_status]
+    .filter((status) => status && status !== "needs_pdf_verification");
   return `<div class="scope-detail-kicker">${escapeHtml(label)}</div>
     <h3>${escapeHtml(mapping.clause_no)} ${escapeHtml(mapping.clause_title)}</h3>
     <section><span>Practice category / performance node</span><p>${escapeHtml(mapping.practice_category || "Scope & Works")}<br><strong>${escapeHtml(mapping.performance_node || "Approved Scope mapping")}</strong></p></section>
@@ -721,7 +660,34 @@ function renderScopeMappingDetail(mapping, label) {
     <section><span>Secondary paths / cross-links</span><ul>${mapping.secondary_paths.map((path) => `<li>${escapeHtml(path)}</li>`).join("") || "<li>None approved.</li>"}</ul></section>
     <section><span>Relevant elements</span><ul>${mapping.elements.map((element) => `<li>${escapeHtml(element)}</li>`).join("")}</ul></section>
     <section><span>Approved legal-effect tags</span><div class="scope-tag-row">${mapping.legal_effect_tags.length ? mapping.legal_effect_tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join("") : "<em>No approved tag by default.</em>"}</div>${Object.entries(mapping.tag_reasons).map(([tag, reason]) => `<p class="scope-tag-reason"><strong>${escapeHtml(tag)}:</strong> ${escapeHtml(reason)}</p>`).join("")}</section>
-    <footer><span>${escapeHtml(mapping.source_status)}</span><span>${escapeHtml(mapping.qc_status)}</span><span>${escapeHtml(mapping.lawyer_review_status)}</span></footer>`;
+    <footer>${visibleStatuses.map((status) => `<span>${escapeHtml(status)}</span>`).join("")}</footer>`;
+}
+
+function findSourceClause(clauseNo) {
+  if (!fidicSourceLayer) return null;
+  const requested = String(clauseNo);
+  const exact = fidicSourceLayer.clauses.find((item) => item.clause_no === requested);
+  if (exact) return exact;
+  const parts = requested.split(".");
+  while (parts.length > 1) {
+    parts.pop();
+    const parentNo = parts.join(".");
+    const parent = fidicSourceLayer.clauses.find((item) => item.clause_no === parentNo);
+    if (parent) return parent;
+  }
+  return fidicSourceLayer.clauses.find((item) => item.clause_no.startsWith(`${requested}.`)) || null;
+}
+
+function getPdfVerificationDisplay(clause, textLoaded = Boolean(clause?.full_text)) {
+  if (!textLoaded) return null;
+  const status = clause?.pdf_verification_status || clause?.verification_status;
+  if (status === "pdf_verified" || status === "pdf_text_matched") {
+    return { key: "verified", label: "PDF verified" };
+  }
+  if (status === "text_discrepancy_found") {
+    return { key: "discrepancy", label: "Text discrepancy found" };
+  }
+  return { key: "pending", label: "Manual PDF review pending" };
 }
 
 function updateArchitecture() {
@@ -797,19 +763,19 @@ function selectClause(number) {
   const visibleClauses = normalizedQuery
     ? childClauses.filter((item) => `${item.clause_no} ${item.clause_title} ${item.full_text}`.toLowerCase().includes(normalizedQuery))
     : childClauses;
-  const matchedCount = childClauses.filter((item) => item.verification_status === "pdf_text_matched").length;
+  const matchedCount = childClauses.filter((item) => getPdfVerificationDisplay(item)?.key === "verified").length;
   const scopeMappedCount = childClauses.filter((item) => findScopeNodesForClause(item.clause_no).length).length;
 
   clauseDetail.classList.remove("is-populated");
   clauseDetail.innerHTML = `
     <div class="clause-detail-header">
       <span class="detail-state">Clause ${String(clause.number).padStart(2, "0")}</span>
-      <span class="clause-source-state">${scopeMappedCount} Scope mapped · ${matchedCount} PDF matched</span>
+      <span class="clause-source-state">${scopeMappedCount} Scope mapped · ${matchedCount} PDF verified</span>
     </div>
     ${clauseNavigationOrigin ? `<div class="clause-origin-indicator">Opened from ${escapeHtml(clauseNavigationOrigin)}</div>` : ""}
     <p class="detail-eyebrow">Imported source-layer directory</p>
     <h3>${escapeHtml(clause.title)}</h3>
-    <p class="detail-note">${childClauses.length} imported sub-clauses · Word manual copy compared with the local PDF reference.</p>
+    <p class="detail-note">${childClauses.length} imported sub-clauses · Corrected Word source layer with separate PDF verification status.</p>
     <label class="clause-search">
       <span>Search within Clause ${escapeHtml(number)}</span>
       <input id="clauseSearchInput" type="search" value="${escapeHtml(clauseSearchQuery)}" placeholder="Number, title or wording…" autocomplete="off">
@@ -832,10 +798,11 @@ function selectClause(number) {
 }
 
 function renderSubClause(clause) {
-  const isMatched = clause.verification_status === "pdf_text_matched";
+  const verification = getPdfVerificationDisplay(clause);
+  const isMatched = verification?.key === "verified";
   const scopeNodesForClause = findScopeNodesForClause(clause.clause_no);
   const scopeMapping = getScopeMapping(clause.clause_no);
-  const statusText = isMatched ? "PDF text matched" : "Needs PDF verification";
+  const statusText = verification?.label || "Source status unavailable";
   const paragraphs = Array.isArray(clause.paragraphs) ? clause.paragraphs.length : 0;
   const references = Array.isArray(clause.literal_cross_references)
     ? clause.literal_cross_references
@@ -944,26 +911,38 @@ function renderTagResults() {
 
   tagResults.innerHTML = `
     <p class="tag-related-label">Related Clauses</p>
+    <div class="tag-review-columns" aria-hidden="true"><span>Clause</span><span>Clause Spine source text / Tag wording</span><span>Source link</span></div>
     <div class="tag-clause-list">
-      ${clauses.map(([number, title]) => `
-        <div class="tag-clause-result-row">
+      ${clauses.map(([number, title]) => {
+        const sourceClause = findSourceClause(number);
+        const taggedText = renderTaggedClauseText(sourceClause, selectedTag);
+        return `
+        <article class="tag-clause-result-row" data-tag-clause-row="${escapeHtml(number)}">
           <button
             class="tag-clause-result"
             type="button"
-            data-clause-number="${number}"
+            data-clause-number="${escapeHtml(number)}"
             aria-pressed="false"
           >
             <span class="tag-result-clause-no">${number}</span>
             <span class="tag-result-copy">
-              <strong>${title}</strong>
-              <small>FIDIC Red Book 2017 · Scope &amp; Works</small>
+              <strong>${escapeHtml(sourceClause?.clause_title || title)}</strong>
+              <small>FIDIC Red Book 2017</small>
             </span>
-            <span class="mapping-status">needs_pdf_verification</span>
-            <span class="tag-result-arrow" aria-hidden="true">›</span>
+            <span class="mapping-status">Scope mapped</span>
           </button>
-          <button class="tag-spine-link" type="button" data-open-spine="${number}">View in Clause Spine</button>
-        </div>
-      `).join("")}
+          <div class="tag-clause-source-text">
+            <div class="tag-anchor-state ${taggedText.anchored ? "is-anchored" : "is-unanchored"}">
+              ${taggedText.anchored ? "Dictionary wording anchor highlighted" : "Tag wording not yet anchored"}
+            </div>
+            ${taggedText.html}
+          </div>
+          <div class="tag-clause-source-link">
+            <button class="tag-spine-link" type="button" data-open-spine="${escapeHtml(number)}">View in Clause Spine <span aria-hidden="true">↗</span></button>
+            <small>Corrected Word source layer</small>
+          </div>
+        </article>`;
+      }).join("")}
     </div>
   `;
 
@@ -973,6 +952,41 @@ function renderTagResults() {
   tagResults.querySelectorAll("[data-open-spine]").forEach((button) => {
     button.addEventListener("click", () => openClauseInSpine(button.dataset.openSpine, "Tag View"));
   });
+}
+
+function renderTaggedClauseText(sourceClause, tag) {
+  if (!sourceClause?.full_text) {
+    return { anchored: false, html: '<p class="tag-source-missing">Full clause text is not loaded in the Clause Spine source layer.</p>' };
+  }
+  const dictionaryTerms = {
+    "Claim for EOT": ["EOT", "extension of time", "extension of the Time for Completion", "extended time for completion"],
+    "Claim for Cost": ["Cost Plus Profit", "additional payment", "additional costs", "loss and expense", "Cost"],
+    "Contractor Breach / Default": ["failure by the Contractor", "Contractor’s failure", "Contractor's failure", "default of the Contractor"],
+    "Employer Breach / Default": ["failure by the Employer", "Employer’s failure", "Employer's failure", "default of the Employer"],
+    "Waiver / Non-Waiver / Discharge": ["waiver", "non-waiver", "discharge", "release", "final settlement"]
+  };
+  const terms = dictionaryTerms[tag] || String(tag).split(/\s*\/\s*/).map((term) => term.trim()).filter(Boolean);
+  const matcher = new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gi");
+  let matchCount = 0;
+  const paragraphs = Array.isArray(sourceClause.paragraphs) && sourceClause.paragraphs.length
+    ? sourceClause.paragraphs.map((paragraph) => paragraph.text || "")
+    : sourceClause.full_text.split(/\n\s*\n/);
+  const html = paragraphs.map((paragraph) => {
+    const parts = String(paragraph).split(matcher);
+    const rendered = parts.map((part, index) => {
+      if (index % 2 === 1) {
+        matchCount += 1;
+        return `<mark class="tag-wording-highlight">${escapeHtml(part)}</mark>`;
+      }
+      return escapeHtml(part);
+    }).join("");
+    return `<p>${rendered}</p>`;
+  }).join("");
+  return { anchored: matchCount > 0, html };
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function selectTagClause(clauseNumber) {
@@ -992,7 +1006,9 @@ function selectTagClause(clauseNumber) {
 
 function renderTagClauseDetail([number, title]) {
   const mapping = getScopeMapping(number);
-  const reason = mapping?.tag_reasons?.[selectedTag] || scopeData?.tag_reason_templates?.[selectedTag] || "needs_pdf_verification";
+  const reason = mapping?.tag_reasons?.[selectedTag] || scopeData?.tag_reason_templates?.[selectedTag] || "No additional mapping rationale recorded.";
+  const sourceClause = findSourceClause(number);
+  const verification = getPdfVerificationDisplay(sourceClause);
 
   tagClauseDetail.innerHTML = `
     <div class="tag-section-heading tag-detail-heading">
@@ -1032,7 +1048,7 @@ function renderTagClauseDetail([number, title]) {
       <span>Verification status</span>
       <div>
         <b>source_text_loaded</b>
-        <b>needs_pdf_verification</b>
+        ${verification ? `<b>${escapeHtml(verification.label)}</b>` : ""}
         <b>needs_lawyer_review</b>
       </div>
     </footer>

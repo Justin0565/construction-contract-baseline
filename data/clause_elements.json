@@ -1,82 +1,1087 @@
 [
-  {"id":"design_document_priority","performance_node_id":"employer_design_basis","name":"Priority of Employer design documents","chinese_name":"业主设计文件优先顺序","description":"Identifies the contractual priority used to resolve inconsistency among documents defining the Works.","source_clause_refs":["fidic_2017_red_1_5"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 主要义务 > E设计","verification_status":"needs_lawyer_review"},
-  {"id":"procurement_conformity","performance_node_id":"procurement","name":"Procurement conformity","chinese_name":"采购符合性","description":"Requires procured Plant and Materials to satisfy the Contract's specified execution and quality baseline.","source_clause_refs":["fidic_2017_red_7_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 主要义务 > P采购","verification_status":"needs_lawyer_review"},
-  {"id":"execute_and_complete_works","performance_node_id":"execution_of_works","name":"Execute and complete the Works","chinese_name":"实施并完成工程","description":"States the Contractor's central obligation to execute, complete and remedy the Works in accordance with the Contract.","source_clause_refs":["fidic_2017_red_4_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 主要义务 > C施工","verification_status":"needs_lawyer_review"},
-
-  {"id":"engagement_and_control_of_personnel","performance_node_id":"personnel","name":"Engagement and control of personnel","chinese_name":"人员聘用与管理","description":"Allocates responsibility for engaging, supervising and controlling the personnel required for performance.","source_clause_refs":["fidic_2017_red_6_1","fidic_2017_red_6_8","fidic_2017_red_6_12"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 人员","verification_status":"needs_lawyer_review"},
-  {"id":"document_care_supply_and_preparation","performance_node_id":"documents","name":"Document care, supply and preparation","chinese_name":"文件保管、提供与编制","description":"Combines document custody and supply with preparation and review of Contractor's Documents.","source_clause_refs":["fidic_2017_red_1_8","fidic_2017_red_4_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 文件","verification_status":"needs_lawyer_review"},
-  {"id":"goods_inspection_testing_and_title","performance_node_id":"goods","name":"Goods inspection, testing and title","chinese_name":"货物检验、试验与所有权","description":"Organises inspection, testing, rejection and ownership controls for Plant and Materials.","source_clause_refs":["fidic_2017_red_7_3","fidic_2017_red_7_4","fidic_2017_red_7_7"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 货物","verification_status":"needs_lawyer_review"},
-  {"id":"site_health_and_safety","performance_node_id":"site_qhse","name":"Site health and safety","chinese_name":"现场健康与安全","description":"Defines the Contractor's health and safety management obligations for the Site and personnel.","source_clause_refs":["fidic_2017_red_4_8","fidic_2017_red_6_7"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 现场，包括 QHSE","verification_status":"needs_lawyer_review"},
-  {"id":"quality_management_system","performance_node_id":"site_qhse","name":"Quality management and compliance verification","chinese_name":"质量管理与合规验证","description":"Requires quality-management and compliance-verification systems supporting execution of the Works.","source_clause_refs":["fidic_2017_red_4_9"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 现场，包括 QHSE","verification_status":"needs_lawyer_review"},
-  {"id":"environmental_protection","performance_node_id":"site_qhse","name":"Environmental protection","chinese_name":"环境保护","description":"Controls environmental impacts arising from construction operations.","source_clause_refs":["fidic_2017_red_4_18"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 现场，包括 QHSE","verification_status":"needs_lawyer_review"},
-  {"id":"site_security_and_operations","performance_node_id":"site_qhse","name":"Site security and operations","chinese_name":"场地安保与作业管理","description":"Allocates Site security and limits the Contractor's operations to authorised areas and purposes.","source_clause_refs":["fidic_2017_red_4_21","fidic_2017_red_4_22"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 现场，包括 QHSE","verification_status":"needs_lawyer_review"},
-
-  {"id":"employer_permits","performance_node_id":"permits_and_approvals","name":"Employer permits","chinese_name":"业主证照","description":"Identifies permits, licences or approvals allocated to the Employer.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_permits","performance_node_id":"permits_and_approvals","name":"Contractor permits","chinese_name":"承包商证照","description":"Identifies permits, licences and approvals the Contractor must obtain to perform the Contract.","source_clause_refs":["fidic_2017_red_1_13"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_assistance_for_employer_permits","performance_node_id":"permits_and_approvals","name":"Contractor assistance for Employer permits","chinese_name":"承包商协助业主证照","description":"Records Contractor support needed for permits allocated to the Employer.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_compliance_with_employer_permits","performance_node_id":"permits_and_approvals","name":"Contractor compliance with Employer permits","chinese_name":"承包商遵守业主证照","description":"Requires performance to comply with relevant permits supplied or obtained by the Employer.","source_clause_refs":["fidic_2017_red_1_13","fidic_2017_red_2_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"employer_delay_or_failure_consequence","performance_node_id":"permits_and_approvals","name":"Employer delay or failure consequence","chinese_name":"业主迟延或未履行后果","description":"Records time and monetary entitlement where Employer-side permit assistance or compliance failure delays performance.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":["claim","eot","determination"],"tag_reason":{"claim":"Sub-Clause 2.2 contains an express entitlement route for qualifying Employer failure, subject to the claims machinery; source wording requires lawyer verification.","eot":"The entitlement expressly supports time relief where completion is delayed; source wording requires lawyer verification.","determination":"The resulting entitlement is administered through agreement or determination under Sub-Clause 3.7; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_failure_consequence","performance_node_id":"permits_and_approvals","name":"Contractor failure consequence","chinese_name":"承包商未履行后果","description":"Records the legal consequence of failure to obtain or comply with permits allocated to the Contractor.","source_clause_refs":["fidic_2017_red_1_13"],"legal_effect_tag_ids":["breach_default"],"tag_reason":{"breach_default":"The element is limited to express failure to comply with the legal-compliance obligation; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"indemnity_for_permit_failures","performance_node_id":"permits_and_approvals","name":"Indemnity for permit failures","chinese_name":"证照未履行赔偿保证","description":"Separates express indemnity allocation for failure to comply with legally allocated responsibilities.","source_clause_refs":["fidic_2017_red_1_13"],"legal_effect_tag_ids":["indemnity"],"tag_reason":{"indemnity":"Applied only to the express indemnity wording within the legal-compliance provision; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-  {"id":"eot_and_cost_plus_profit_for_employer_permit_delay","performance_node_id":"permits_and_approvals","name":"EOT and Cost Plus Profit for Employer permit delay","chinese_name":"业主证照迟延的工期与费用加利润","description":"Models the express time and monetary entitlement arising from qualifying Employer permit delay.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":["claim","eot","determination"],"tag_reason":{"claim":"The provision expressly routes qualifying time and monetary entitlement through the claims process; source wording requires lawyer verification.","eot":"Applied to the express extension-of-time limb of the entitlement; source wording requires lawyer verification.","determination":"The resulting EOT and amount are subject to agreement or determination; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 证照","verification_status":"needs_lawyer_review"},
-
-  {"id":"main_contractor_responsibility_for_subcontractors","performance_node_id":"subcontracting","name":"Main Contractor responsibility for subcontractors","chinese_name":"总承包商对分包商负责","description":"Preserves Contractor responsibility for subcontracted performance.","source_clause_refs":["fidic_2017_red_5_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"subcontractor_consent","performance_node_id":"subcontracting","name":"Subcontractor consent","chinese_name":"分包商同意要求","description":"Identifies categories of subcontracting requiring prior consent.","source_clause_refs":["fidic_2017_red_5_1"],"legal_effect_tag_ids":["condition_precedent"],"tag_reason":{"condition_precedent":"Applied only where prior consent is expressly required before subcontracting; source wording and exceptions require lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"deemed_consent","performance_node_id":"subcontracting","name":"Deemed consent","chinese_name":"视为同意","description":"Separates any express category for which consent is deemed already given.","source_clause_refs":["fidic_2017_red_5_1"],"legal_effect_tag_ids":["deemed_approval"],"tag_reason":{"deemed_approval":"Applied only to express deemed-consent wording; the precise scope requires verification against licensed source text."},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"notice_before_subcontractor_commencement","performance_node_id":"subcontracting","name":"Notice before subcontractor commencement","chinese_name":"分包进场前通知","description":"Records advance notice requirements before subcontracted work begins.","source_clause_refs":["fidic_2017_red_5_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"restriction_on_subcontracting","performance_node_id":"subcontracting","name":"Restriction on subcontracting","chinese_name":"分包限制","description":"Identifies restrictions on subcontracting the whole or defined parts of the Works.","source_clause_refs":["fidic_2017_red_5_1"],"legal_effect_tag_ids":["breach_default"],"tag_reason":{"breach_default":"Applied only to an express failure to comply with a subcontracting restriction; consequence requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"nominated_subcontractor_definition","performance_node_id":"subcontracting","name":"Nominated Subcontractor definition","chinese_name":"指定分包商定义","description":"Identifies when a subcontractor is treated as nominated under the Contract.","source_clause_refs":["fidic_2017_red_5_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"reasonable_objection_to_nomination","performance_node_id":"subcontracting","name":"Reasonable objection to nomination","chinese_name":"对指定分包的合理异议","description":"Records the Contractor's grounds and process for objection to a nominated subcontractor.","source_clause_refs":["fidic_2017_red_5_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"back_to_back_obligations","performance_node_id":"subcontracting","name":"Back-to-back obligations","chinese_name":"背靠背义务","description":"Maps obligations required to flow into the nominated subcontract.","source_clause_refs":["fidic_2017_red_5_2"],"legal_effect_tag_ids":["back_to_back"],"tag_reason":{"back_to_back":"Applied only to express flow-down requirements for the nominated subcontract; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"direct_payment_to_nominated_subcontractor","performance_node_id":"subcontracting","name":"Direct payment to Nominated Subcontractor","chinese_name":"向指定分包商直接付款","description":"Separates any direct-payment mechanism following failure to provide evidence of payment.","source_clause_refs":["fidic_2017_red_5_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-  {"id":"deduction_after_direct_payment","performance_node_id":"subcontracting","name":"Deduction after direct payment","chinese_name":"直接付款后的扣减","description":"Records any express deduction from sums otherwise due after direct payment to a nominated subcontractor.","source_clause_refs":["fidic_2017_red_5_2"],"legal_effect_tag_ids":["deduction"],"tag_reason":{"deduction":"Applied only to an express deduction from an amount otherwise due following direct payment; source wording requires lawyer verification."},"group_path":"Scope & Works > 附带义务，即管理 > 分包","verification_status":"needs_lawyer_review"},
-
-  {"id":"employer_obligation_to_give_access","performance_node_id":"site_access_and_possession","name":"Employer obligation to give access","chinese_name":"业主提供场地义务","description":"Defines the Employer's obligation to give the Contractor access to and possession of the Site.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-  {"id":"timing_of_access","performance_node_id":"site_access_and_possession","name":"Timing of access","chinese_name":"场地提供时间","description":"Connects the timing of access with Contract Data and programme requirements.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-  {"id":"non_exclusive_access","performance_node_id":"site_access_and_possession","name":"Non-exclusive access","chinese_name":"非独占进入权","description":"Records that access or possession may not be exclusive to the Contractor.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-  {"id":"withholding_access_until_performance_security","performance_node_id":"site_access_and_possession","name":"Access conditional on Performance Security","chinese_name":"场地提供以履约保函为条件","description":"Separates the express right to withhold access until the required Performance Security is received.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":["condition_precedent"],"tag_reason":{"condition_precedent":"Receipt of the required Performance Security is expressly linked to the access obligation; source wording requires lawyer verification."},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-  {"id":"delayed_access_consequence","performance_node_id":"site_access_and_possession","name":"Delayed access consequence","chinese_name":"迟延提供场地的后果","description":"Models the express EOT and monetary entitlement for qualifying Employer delay in access or possession.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":["claim","eot","determination"],"tag_reason":{"claim":"Sub-Clause 2.1 expressly provides a claim route for qualifying access delay, subject to Sub-Clause 20.2; source wording requires lawyer verification.","eot":"The clause expressly supports EOT where delayed access delays completion; source wording requires lawyer verification.","determination":"The resulting EOT and monetary entitlement proceed through Sub-Clause 3.7; source wording requires lawyer verification."},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_delay_or_error_carve_out","performance_node_id":"site_access_and_possession","name":"Contractor delay or error carve-out","chinese_name":"承包商迟延或错误排除","description":"Separates the limitation on entitlement to the extent access delay is caused by Contractor delay or error.","source_clause_refs":["fidic_2017_red_2_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供场地","verification_status":"needs_lawyer_review"},
-
-  {"id":"employer_materials_equipment_provision","performance_node_id":"employer_supplied_materials_and_equipment","name":"Provision of Employer materials and equipment","chinese_name":"业主材料与设备提供","description":"Defines provision, operation and allocation of responsibility for Employer-supplied materials and equipment.","source_clause_refs":["fidic_2017_red_2_6"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供设备或材料","verification_status":"needs_lawyer_review"},
-  {"id":"engineer_authority_instruction_and_determination","performance_node_id":"engineer_appointment_and_role","name":"Engineer authority, instruction and determination","chinese_name":"工程师权限、指示与决定","description":"Combines appointment, authority, delegation, instruction and agreement-or-determination functions.","source_clause_refs":["fidic_2017_red_3_1","fidic_2017_red_3_2","fidic_2017_red_3_4","fidic_2017_red_3_5","fidic_2017_red_3_7"],"legal_effect_tag_ids":["determination"],"tag_reason":{"determination":"Applied only to the express agreement-or-determination function in Sub-Clause 3.7."},"group_path":"Scope & Works > 业主 / 对方使能义务 > 聘用监理","verification_status":"needs_lawyer_review"},
-  {"id":"employer_side_coordination","performance_node_id":"employer_personnel_and_other_contractors","name":"Employer-side coordination","chinese_name":"业主方协调管理","description":"Requires Employer personnel and other contractors to cooperate and comply with relevant project controls.","source_clause_refs":["fidic_2017_red_2_3","fidic_2017_red_4_6"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 管理本方人员及其他承包商","verification_status":"needs_lawyer_review"},
-  {"id":"employer_obtained_permissions","performance_node_id":"employer_permits","name":"Employer-obtained permissions","chinese_name":"业主取得的证照","description":"Identifies permissions the Employer must obtain and make available for performance.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供证照","verification_status":"needs_lawyer_review"},
-  {"id":"assistance_with_contractor_applications","performance_node_id":"employer_assistance","name":"Assistance with Contractor applications","chinese_name":"协助承包商申请证照","description":"Defines Employer assistance with defined applications by the Contractor.","source_clause_refs":["fidic_2017_red_2_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供协助","verification_status":"needs_lawyer_review"},
-  {"id":"site_data_and_reference_provision","performance_node_id":"site_data_and_reference_items","name":"Site data and reference provision","chinese_name":"现场数据及基准提供","description":"Separates Employer provision and Contractor use of Site data and reference items.","source_clause_refs":["fidic_2017_red_2_5","fidic_2017_red_4_7","fidic_2017_red_4_10"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供现场数据","verification_status":"needs_lawyer_review"},
-  {"id":"supply_and_use_of_employer_design_documents","performance_node_id":"employer_design_documents","name":"Supply and use of Employer design documents","chinese_name":"业主设计文件的提供与使用","description":"Combines supply, priority, custody and permitted use of Employer Specifications and Drawings.","source_clause_refs":["fidic_2017_red_1_5","fidic_2017_red_1_8","fidic_2017_red_1_11"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供设计 / Specifications / Drawings","verification_status":"needs_lawyer_review"},
-  {"id":"evidence_of_financial_arrangements","performance_node_id":"employer_financial_arrangements","name":"Evidence of financial arrangements","chinese_name":"资金安排证明","description":"Defines evidence and notice concerning financial arrangements for paying the Contract Price.","source_clause_refs":["fidic_2017_red_2_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 业主 / 对方使能义务 > 提供资金安排","verification_status":"needs_lawyer_review"},
-
-  {"id":"scope_of_variation_power","performance_node_id":"variation_scope","name":"Scope of the variation power","chinese_name":"变更权范围","description":"Identifies the categories of change falling within the Engineer's contractual power to vary.","source_clause_refs":["fidic_2017_red_13_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > 范围","verification_status":"needs_lawyer_review"},
-  {"id":"variation_status_agreement_or_determination","performance_node_id":"variation_recognition_dispute","name":"Variation status agreement or determination","chinese_name":"变更认定的协议或决定","description":"Routes disagreement over Variation status or consequence through the Engineer's agreement-or-determination function.","source_clause_refs":["fidic_2017_red_3_7","fidic_2017_red_13_3"],"legal_effect_tag_ids":["determination"],"tag_reason":{"determination":"Applied because the element expressly concerns the Sub-Clause 3.7 agreement-or-determination process."},"group_path":"Scope & Works > 变量，即变更 > VO认定争议","verification_status":"needs_lawyer_review"},
-
-  {"id":"engineer_instruction_required","performance_node_id":"variation_instruction","name":"Engineer instruction required","chinese_name":"须由工程师发出指示","description":"Identifies the Engineer's formal instruction as the initiating act for a Variation by Instruction.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_bound_to_execute_variation","performance_node_id":"variation_instruction","name":"Contractor bound to execute Variation","chinese_name":"承包商受约束实施变更","description":"Records the Contractor's obligation to proceed with an instructed Variation, subject to express exceptions.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_notice_of_inability_or_hse_concern","performance_node_id":"variation_instruction","name":"Notice of inability or HSE concern","chinese_name":"无法实施或HSE问题通知","description":"Separates prompt notice of inability, non-availability or adverse health-and-safety impact.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_submission_within_28_days","performance_node_id":"variation_instruction","name":"Contractor submission within 28 days","chinese_name":"承包商28日内提交","description":"Records the contractual submission period following a Variation instruction.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"programme_and_eot_impact","performance_node_id":"variation_instruction","name":"Programme and EOT impact","chinese_name":"进度计划与工期影响","description":"Requires the Variation submission to address programme consequences and any proposed EOT adjustment.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":["eot"],"tag_reason":{"eot":"Applied only to the express EOT component of the Variation submission and adjustment; source wording requires lawyer verification."},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"valuation_and_contract_price_adjustment","performance_node_id":"variation_instruction","name":"Valuation and Contract Price adjustment","chinese_name":"计价与合同价格调整","description":"Connects the instructed Variation to valuation and adjustment of the Contract Price.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"engineer_agreement_or_determination","performance_node_id":"variation_instruction","name":"Engineer agreement or determination","chinese_name":"工程师协议或决定","description":"Routes Variation valuation and time consequences through agreement or determination where required.","source_clause_refs":["fidic_2017_red_3_7","fidic_2017_red_13_3_1"],"legal_effect_tag_ids":["determination"],"tag_reason":{"determination":"Applied to the express Sub-Clause 3.7 process used for unresolved Variation consequences."},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-  {"id":"no_20_2_claim_requirement_for_ordinary_variation","performance_node_id":"variation_instruction","name":"No Sub-Clause 20.2 Claim for ordinary Variation adjustment","chinese_name":"一般变更调整无需20.2索赔","description":"Records the express separation between ordinary Variation adjustment and the Sub-Clause 20.2 claims route. This element is intentionally not tagged Claim.","source_clause_refs":["fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Instruction","verification_status":"needs_lawyer_review"},
-
-  {"id":"request_for_proposal_process","performance_node_id":"variation_proposal","name":"Request for Proposal process","chinese_name":"变更建议请求程序","description":"Structures the Engineer's request, the Contractor's response and the decision whether to instruct the proposed Variation.","source_clause_refs":["fidic_2017_red_13_3_2"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Proposal","verification_status":"needs_lawyer_review"},
-  {"id":"variation_time_and_price_adjustment","performance_node_id":"variation_eot_and_cost","name":"Variation time and price adjustment","chinese_name":"变更的工期与价格调整","description":"Integrates the Variation's programme, EOT and Contract Price consequences without automatically treating the adjustment as a Claim.","source_clause_refs":["fidic_2017_red_13_3"],"legal_effect_tag_ids":["eot","determination"],"tag_reason":{"eot":"Applied only where the Variation procedure expressly supports an EOT adjustment; source wording requires lawyer verification.","determination":"Applied where unresolved time or valuation consequences proceed under Sub-Clause 3.7."},"group_path":"Scope & Works > 变量，即变更 > EOT + Cost","verification_status":"needs_lawyer_review"},
-  {"id":"limited_notice_based_refusal","performance_node_id":"refusal_to_execute_variation","name":"Limited notice-based refusal","chinese_name":"基于通知的有限拒绝","description":"Identifies the limited, express notice grounds on which the Contractor may state inability or objection to an instructed Variation.","source_clause_refs":["fidic_2017_red_13_1","fidic_2017_red_13_3_1"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > 拒绝履行","verification_status":"needs_lawyer_review"},
-
-  {"id":"daywork_schedule_condition","performance_node_id":"daywork","name":"Daywork Schedule condition","chinese_name":"计日工清单条件","description":"Makes daywork valuation dependent on an applicable Daywork Schedule in the Contract.","source_clause_refs":["fidic_2017_red_13_5"],"legal_effect_tag_ids":["condition_precedent"],"tag_reason":{"condition_precedent":"Applied only to the express requirement for an applicable Daywork Schedule before the mechanism operates; source wording requires lawyer verification."},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-  {"id":"minor_or_incidental_work","performance_node_id":"daywork","name":"Minor or incidental work","chinese_name":"零星或附带工作","description":"Identifies the type of Variation work suitable for daywork valuation.","source_clause_refs":["fidic_2017_red_13_5"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-  {"id":"quotations_for_goods","performance_node_id":"daywork","name":"Quotations for Goods","chinese_name":"货物报价","description":"Requires quotations for Goods before procurement where the daywork procedure calls for them.","source_clause_refs":["fidic_2017_red_13_5"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-  {"id":"daily_records","performance_node_id":"daywork","name":"Daily records","chinese_name":"每日记录","description":"Requires contemporaneous records of labour, Plant and Materials used for daywork.","source_clause_refs":["fidic_2017_red_13_5"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-  {"id":"engineer_sign_off_or_determination","performance_node_id":"daywork","name":"Engineer sign-off or determination","chinese_name":"工程师签认或决定","description":"Records review of daywork records and determination where recorded quantities or values are not agreed.","source_clause_refs":["fidic_2017_red_3_7","fidic_2017_red_13_5"],"legal_effect_tag_ids":["determination"],"tag_reason":{"determination":"Applied only where unresolved daywork records or valuation proceed under Sub-Clause 3.7; source wording requires lawyer verification."},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-  {"id":"substantiation_by_invoices_vouchers_accounts","performance_node_id":"daywork","name":"Substantiation by invoices, vouchers and accounts","chinese_name":"以发票、凭证和账目证明","description":"Requires documentary substantiation of daywork costs.","source_clause_refs":["fidic_2017_red_13_5"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Daywork","verification_status":"needs_lawyer_review"},
-
-  {"id":"use_only_by_engineer_instruction","performance_node_id":"provisional_sum","name":"Use only by Engineer instruction","chinese_name":"仅按工程师指示使用","description":"Restricts use of a Provisional Sum to work or supply instructed by the Engineer.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":["condition_precedent"],"tag_reason":{"condition_precedent":"Engineer instruction is the express prerequisite to use of the Provisional Sum; source wording requires lawyer verification."},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_executed_work_as_variation","performance_node_id":"provisional_sum","name":"Contractor-executed work as Variation","chinese_name":"承包商实施工作作为变更","description":"Treats work executed by the Contractor under a Provisional Sum through the Variation mechanism.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"nominated_subcontractor_or_supplier_purchase","performance_node_id":"provisional_sum","name":"Nominated subcontractor or supplier purchase","chinese_name":"指定分包商或供应商采购","description":"Separates instructed purchase or subcontracting under a Provisional Sum.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"overhead_and_profit","performance_node_id":"provisional_sum","name":"Overhead and profit","chinese_name":"管理费与利润","description":"Records addition of the applicable overhead and profit percentage to Provisional Sum expenditure.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"quotation_comparison","performance_node_id":"provisional_sum","name":"Quotation comparison","chinese_name":"报价比较","description":"Requires comparison of quotations for proposed Provisional Sum procurement.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"engineer_instruction_to_accept_quote","performance_node_id":"provisional_sum","name":"Engineer instruction to accept quotation","chinese_name":"工程师指示接受报价","description":"Records the Engineer's instruction selecting or accepting a quotation.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":[],"tag_reason":{},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-  {"id":"contractor_discretion_if_no_response","performance_node_id":"provisional_sum","name":"Contractor discretion if no response","chinese_name":"未答复时承包商酌情处理","description":"Separates any express positive consequence of Engineer non-response within the stated period.","source_clause_refs":["fidic_2017_red_13_4"],"legal_effect_tag_ids":["deemed_approval"],"tag_reason":{"deemed_approval":"Applied only if licensed source text confirms that non-response permits the Contractor to proceed; this requires lawyer verification before approval."},"group_path":"Scope & Works > 变量，即变更 > Provisional Sum","verification_status":"needs_lawyer_review"},
-
-  {"id":"change_in_laws_time_and_price_relief","performance_node_id":"change_in_laws","name":"Change in Laws time and price relief","chinese_name":"法律变化的工期与价格救济","description":"Models the express EOT and monetary adjustment route for a qualifying Change in Laws.","source_clause_refs":["fidic_2017_red_13_6"],"legal_effect_tag_ids":["claim","eot","determination"],"tag_reason":{"claim":"The provision expressly supports a qualifying time or monetary entitlement through the claims machinery; source wording requires lawyer verification.","eot":"Applied to the express EOT limb where completion is delayed; source wording requires lawyer verification.","determination":"The resulting EOT and amount are subject to agreement or determination; source wording requires lawyer verification."},"group_path":"Scope & Works > 变量，即变更 > Change in Laws","verification_status":"needs_lawyer_review"}
+  {
+    "id": "design_document_priority",
+    "performance_node_id": "employer_design_basis",
+    "name": "Priority of Employer design documents",
+    "chinese_name": "业主设计文件优先顺序",
+    "description": "Identifies the contractual priority used to resolve inconsistency among documents defining the Works.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_5"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 主要义务 > E设计",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "procurement_conformity",
+    "performance_node_id": "procurement",
+    "name": "Procurement conformity",
+    "chinese_name": "采购符合性",
+    "description": "Requires procured Plant and Materials to satisfy the Contract's specified execution and quality baseline.",
+    "source_clause_refs": [
+      "fidic_2017_red_7_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 主要义务 > P采购",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "execute_and_complete_works",
+    "performance_node_id": "execution_of_works",
+    "name": "Execute and complete the Works",
+    "chinese_name": "实施并完成工程",
+    "description": "States the Contractor's central obligation to execute, complete and remedy the Works in accordance with the Contract.",
+    "source_clause_refs": [
+      "fidic_2017_red_4_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 主要义务 > C施工",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engagement_and_control_of_personnel",
+    "performance_node_id": "personnel",
+    "name": "Engagement and control of personnel",
+    "chinese_name": "人员聘用与管理",
+    "description": "Allocates responsibility for engaging, supervising and controlling the personnel required for performance.",
+    "source_clause_refs": [
+      "fidic_2017_red_6_1",
+      "fidic_2017_red_6_8",
+      "fidic_2017_red_6_12"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 人员",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "document_care_supply_and_preparation",
+    "performance_node_id": "documents",
+    "name": "Document care, supply and preparation",
+    "chinese_name": "文件保管、提供与编制",
+    "description": "Combines document custody and supply with preparation and review of Contractor's Documents.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_8",
+      "fidic_2017_red_4_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 文件",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "goods_inspection_testing_and_title",
+    "performance_node_id": "goods",
+    "name": "Goods inspection, testing and title",
+    "chinese_name": "货物检验、试验与所有权",
+    "description": "Organises inspection, testing, rejection and ownership controls for Plant and Materials.",
+    "source_clause_refs": [
+      "fidic_2017_red_7_3",
+      "fidic_2017_red_7_4",
+      "fidic_2017_red_7_7"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 货物",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "site_health_and_safety",
+    "performance_node_id": "site_qhse",
+    "name": "Site health and safety",
+    "chinese_name": "现场健康与安全",
+    "description": "Defines the Contractor's health and safety management obligations for the Site and personnel.",
+    "source_clause_refs": [
+      "fidic_2017_red_4_8",
+      "fidic_2017_red_6_7"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 现场，包括 QHSE",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "quality_management_system",
+    "performance_node_id": "site_qhse",
+    "name": "Quality management and compliance verification",
+    "chinese_name": "质量管理与合规验证",
+    "description": "Requires quality-management and compliance-verification systems supporting execution of the Works.",
+    "source_clause_refs": [
+      "fidic_2017_red_4_9"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 现场，包括 QHSE",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "environmental_protection",
+    "performance_node_id": "site_qhse",
+    "name": "Environmental protection",
+    "chinese_name": "环境保护",
+    "description": "Controls environmental impacts arising from construction operations.",
+    "source_clause_refs": [
+      "fidic_2017_red_4_18"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 现场，包括 QHSE",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "site_security_and_operations",
+    "performance_node_id": "site_qhse",
+    "name": "Site security and operations",
+    "chinese_name": "场地安保与作业管理",
+    "description": "Allocates Site security and limits the Contractor's operations to authorised areas and purposes.",
+    "source_clause_refs": [
+      "fidic_2017_red_4_21",
+      "fidic_2017_red_4_22"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 现场，包括 QHSE",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_permits",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Employer permits",
+    "chinese_name": "业主证照",
+    "description": "Identifies permits, licences or approvals allocated to the Employer.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_permits",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Contractor permits",
+    "chinese_name": "承包商证照",
+    "description": "Identifies permits, licences and approvals the Contractor must obtain to perform the Contract.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_13"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_assistance_for_employer_permits",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Contractor assistance for Employer permits",
+    "chinese_name": "承包商协助业主证照",
+    "description": "Records Contractor support needed for permits allocated to the Employer.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_compliance_with_employer_permits",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Contractor compliance with Employer permits",
+    "chinese_name": "承包商遵守业主证照",
+    "description": "Requires performance to comply with relevant permits supplied or obtained by the Employer.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_13",
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_delay_or_failure_consequence",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Employer delay or failure consequence",
+    "chinese_name": "业主迟延或未履行后果",
+    "description": "Records time and monetary entitlement where Employer-side permit assistance or compliance failure delays performance.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [
+      "claim_for_cost",
+      "claim_for_eot",
+      "determination"
+    ],
+    "tag_reason": {
+      "claim_for_cost": "Sub-Clause 2.2 contains an express entitlement route for qualifying Employer failure, subject to the claims machinery; source wording requires lawyer verification.",
+      "claim_for_eot": "The entitlement expressly supports time relief where completion is delayed; source wording requires lawyer verification.",
+      "determination": "The resulting entitlement is administered through agreement or determination under Sub-Clause 3.7; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_failure_consequence",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Contractor failure consequence",
+    "chinese_name": "承包商未履行后果",
+    "description": "Records the legal consequence of failure to obtain or comply with permits allocated to the Contractor.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_13"
+    ],
+    "legal_effect_tag_ids": [
+      "contractor_breach_default"
+    ],
+    "tag_reason": {
+      "contractor_breach_default": "The element is limited to express failure to comply with the legal-compliance obligation; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "indemnity_for_permit_failures",
+    "performance_node_id": "permits_and_approvals",
+    "name": "Indemnity for permit failures",
+    "chinese_name": "证照未履行赔偿保证",
+    "description": "Separates express indemnity allocation for failure to comply with legally allocated responsibilities.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_13"
+    ],
+    "legal_effect_tag_ids": [
+      "indemnity"
+    ],
+    "tag_reason": {
+      "indemnity": "Applied only to the express indemnity wording within the legal-compliance provision; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "eot_and_cost_plus_profit_for_employer_permit_delay",
+    "performance_node_id": "permits_and_approvals",
+    "name": "EOT and Cost Plus Profit for Employer permit delay",
+    "chinese_name": "业主证照迟延的工期与费用加利润",
+    "description": "Models the express time and monetary entitlement arising from qualifying Employer permit delay.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [
+      "claim_for_cost",
+      "claim_for_eot",
+      "determination"
+    ],
+    "tag_reason": {
+      "claim_for_cost": "The provision expressly routes qualifying time and monetary entitlement through the claims process; source wording requires lawyer verification.",
+      "claim_for_eot": "Applied to the express extension-of-time limb of the entitlement; source wording requires lawyer verification.",
+      "determination": "The resulting EOT and amount are subject to agreement or determination; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "main_contractor_responsibility_for_subcontractors",
+    "performance_node_id": "subcontracting",
+    "name": "Main Contractor responsibility for subcontractors",
+    "chinese_name": "总承包商对分包商负责",
+    "description": "Preserves Contractor responsibility for subcontracted performance.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "subcontractor_consent",
+    "performance_node_id": "subcontracting",
+    "name": "Subcontractor consent",
+    "chinese_name": "分包商同意要求",
+    "description": "Identifies categories of subcontracting requiring prior consent.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_1"
+    ],
+    "legal_effect_tag_ids": [
+      "condition_precedent"
+    ],
+    "tag_reason": {
+      "condition_precedent": "Applied only where prior consent is expressly required before subcontracting; source wording and exceptions require lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "deemed_consent",
+    "performance_node_id": "subcontracting",
+    "name": "Deemed consent",
+    "chinese_name": "视为同意",
+    "description": "Separates any express category for which consent is deemed already given.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_1"
+    ],
+    "legal_effect_tag_ids": [
+      "deemed_approval"
+    ],
+    "tag_reason": {
+      "deemed_approval": "Applied only to express deemed-consent wording; the precise scope requires verification against licensed source text."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "notice_before_subcontractor_commencement",
+    "performance_node_id": "subcontracting",
+    "name": "Notice before subcontractor commencement",
+    "chinese_name": "分包进场前通知",
+    "description": "Records advance notice requirements before subcontracted work begins.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "restriction_on_subcontracting",
+    "performance_node_id": "subcontracting",
+    "name": "Restriction on subcontracting",
+    "chinese_name": "分包限制",
+    "description": "Identifies restrictions on subcontracting the whole or defined parts of the Works.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_1"
+    ],
+    "legal_effect_tag_ids": [
+      "contractor_breach_default"
+    ],
+    "tag_reason": {
+      "contractor_breach_default": "Applied only to an express failure to comply with a subcontracting restriction; consequence requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "nominated_subcontractor_definition",
+    "performance_node_id": "subcontracting",
+    "name": "Nominated Subcontractor definition",
+    "chinese_name": "指定分包商定义",
+    "description": "Identifies when a subcontractor is treated as nominated under the Contract.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "reasonable_objection_to_nomination",
+    "performance_node_id": "subcontracting",
+    "name": "Reasonable objection to nomination",
+    "chinese_name": "对指定分包的合理异议",
+    "description": "Records the Contractor's grounds and process for objection to a nominated subcontractor.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "back_to_back_obligations",
+    "performance_node_id": "subcontracting",
+    "name": "Back-to-back obligations",
+    "chinese_name": "背靠背义务",
+    "description": "Maps obligations required to flow into the nominated subcontract.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_2"
+    ],
+    "legal_effect_tag_ids": [
+      "back_to_back"
+    ],
+    "tag_reason": {
+      "back_to_back": "Applied only to express flow-down requirements for the nominated subcontract; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "direct_payment_to_nominated_subcontractor",
+    "performance_node_id": "subcontracting",
+    "name": "Direct payment to Nominated Subcontractor",
+    "chinese_name": "向指定分包商直接付款",
+    "description": "Separates any direct-payment mechanism following failure to provide evidence of payment.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "deduction_after_direct_payment",
+    "performance_node_id": "subcontracting",
+    "name": "Deduction after direct payment",
+    "chinese_name": "直接付款后的扣减",
+    "description": "Records any express deduction from sums otherwise due after direct payment to a nominated subcontractor.",
+    "source_clause_refs": [
+      "fidic_2017_red_5_2"
+    ],
+    "legal_effect_tag_ids": [
+      "deduction"
+    ],
+    "tag_reason": {
+      "deduction": "Applied only to an express deduction from an amount otherwise due following direct payment; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 附带义务，即管理 > 分包",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_obligation_to_give_access",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Employer obligation to give access",
+    "chinese_name": "业主提供场地义务",
+    "description": "Defines the Employer's obligation to give the Contractor access to and possession of the Site.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "timing_of_access",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Timing of access",
+    "chinese_name": "场地提供时间",
+    "description": "Connects the timing of access with Contract Data and programme requirements.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "non_exclusive_access",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Non-exclusive access",
+    "chinese_name": "非独占进入权",
+    "description": "Records that access or possession may not be exclusive to the Contractor.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "withholding_access_until_performance_security",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Access conditional on Performance Security",
+    "chinese_name": "场地提供以履约保函为条件",
+    "description": "Separates the express right to withhold access until the required Performance Security is received.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [
+      "condition_precedent"
+    ],
+    "tag_reason": {
+      "condition_precedent": "Receipt of the required Performance Security is expressly linked to the access obligation; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "delayed_access_consequence",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Delayed access consequence",
+    "chinese_name": "迟延提供场地的后果",
+    "description": "Models the express EOT and monetary entitlement for qualifying Employer delay in access or possession.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [
+      "claim_for_cost",
+      "claim_for_eot",
+      "determination"
+    ],
+    "tag_reason": {
+      "claim_for_cost": "Sub-Clause 2.1 expressly provides a claim route for qualifying access delay, subject to Sub-Clause 20.2; source wording requires lawyer verification.",
+      "claim_for_eot": "The clause expressly supports EOT where delayed access delays completion; source wording requires lawyer verification.",
+      "determination": "The resulting EOT and monetary entitlement proceed through Sub-Clause 3.7; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_delay_or_error_carve_out",
+    "performance_node_id": "site_access_and_possession",
+    "name": "Contractor delay or error carve-out",
+    "chinese_name": "承包商迟延或错误排除",
+    "description": "Separates the limitation on entitlement to the extent access delay is caused by Contractor delay or error.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供场地",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_materials_equipment_provision",
+    "performance_node_id": "employer_supplied_materials_and_equipment",
+    "name": "Provision of Employer materials and equipment",
+    "chinese_name": "业主材料与设备提供",
+    "description": "Defines provision, operation and allocation of responsibility for Employer-supplied materials and equipment.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_6"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供设备或材料",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engineer_authority_instruction_and_determination",
+    "performance_node_id": "engineer_appointment_and_role",
+    "name": "Engineer authority, instruction and determination",
+    "chinese_name": "工程师权限、指示与决定",
+    "description": "Combines appointment, authority, delegation, instruction and agreement-or-determination functions.",
+    "source_clause_refs": [
+      "fidic_2017_red_3_1",
+      "fidic_2017_red_3_2",
+      "fidic_2017_red_3_4",
+      "fidic_2017_red_3_5",
+      "fidic_2017_red_3_7"
+    ],
+    "legal_effect_tag_ids": [
+      "determination"
+    ],
+    "tag_reason": {
+      "determination": "Applied only to the express agreement-or-determination function in Sub-Clause 3.7."
+    },
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 聘用监理",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_side_coordination",
+    "performance_node_id": "employer_personnel_and_other_contractors",
+    "name": "Employer-side coordination",
+    "chinese_name": "业主方协调管理",
+    "description": "Requires Employer personnel and other contractors to cooperate and comply with relevant project controls.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_3",
+      "fidic_2017_red_4_6"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 管理本方人员及其他承包商",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "employer_obtained_permissions",
+    "performance_node_id": "employer_permits",
+    "name": "Employer-obtained permissions",
+    "chinese_name": "业主取得的证照",
+    "description": "Identifies permissions the Employer must obtain and make available for performance.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供证照",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "assistance_with_contractor_applications",
+    "performance_node_id": "employer_assistance",
+    "name": "Assistance with Contractor applications",
+    "chinese_name": "协助承包商申请证照",
+    "description": "Defines Employer assistance with defined applications by the Contractor.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供协助",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "site_data_and_reference_provision",
+    "performance_node_id": "site_data_and_reference_items",
+    "name": "Site data and reference provision",
+    "chinese_name": "现场数据及基准提供",
+    "description": "Separates Employer provision and Contractor use of Site data and reference items.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_5",
+      "fidic_2017_red_4_7",
+      "fidic_2017_red_4_10"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供现场数据",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "supply_and_use_of_employer_design_documents",
+    "performance_node_id": "employer_design_documents",
+    "name": "Supply and use of Employer design documents",
+    "chinese_name": "业主设计文件的提供与使用",
+    "description": "Combines supply, priority, custody and permitted use of Employer Specifications and Drawings.",
+    "source_clause_refs": [
+      "fidic_2017_red_1_5",
+      "fidic_2017_red_1_8",
+      "fidic_2017_red_1_11"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供设计 / Specifications / Drawings",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "evidence_of_financial_arrangements",
+    "performance_node_id": "employer_financial_arrangements",
+    "name": "Evidence of financial arrangements",
+    "chinese_name": "资金安排证明",
+    "description": "Defines evidence and notice concerning financial arrangements for paying the Contract Price.",
+    "source_clause_refs": [
+      "fidic_2017_red_2_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 业主 / 对方使能义务 > 提供资金安排",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "scope_of_variation_power",
+    "performance_node_id": "variation_scope",
+    "name": "Scope of the variation power",
+    "chinese_name": "变更权范围",
+    "description": "Identifies the categories of change falling within the Engineer's contractual power to vary.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > 范围",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "variation_status_agreement_or_determination",
+    "performance_node_id": "variation_recognition_dispute",
+    "name": "Variation status agreement or determination",
+    "chinese_name": "变更认定的协议或决定",
+    "description": "Routes disagreement over Variation status or consequence through the Engineer's agreement-or-determination function.",
+    "source_clause_refs": [
+      "fidic_2017_red_3_7",
+      "fidic_2017_red_13_3"
+    ],
+    "legal_effect_tag_ids": [
+      "determination"
+    ],
+    "tag_reason": {
+      "determination": "Applied because the element expressly concerns the Sub-Clause 3.7 agreement-or-determination process."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > VO认定争议",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engineer_instruction_required",
+    "performance_node_id": "variation_instruction",
+    "name": "Engineer instruction required",
+    "chinese_name": "须由工程师发出指示",
+    "description": "Identifies the Engineer's formal instruction as the initiating act for a Variation by Instruction.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_bound_to_execute_variation",
+    "performance_node_id": "variation_instruction",
+    "name": "Contractor bound to execute Variation",
+    "chinese_name": "承包商受约束实施变更",
+    "description": "Records the Contractor's obligation to proceed with an instructed Variation, subject to express exceptions.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_notice_of_inability_or_hse_concern",
+    "performance_node_id": "variation_instruction",
+    "name": "Notice of inability or HSE concern",
+    "chinese_name": "无法实施或HSE问题通知",
+    "description": "Separates prompt notice of inability, non-availability or adverse health-and-safety impact.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_submission_within_28_days",
+    "performance_node_id": "variation_instruction",
+    "name": "Contractor submission within 28 days",
+    "chinese_name": "承包商28日内提交",
+    "description": "Records the contractual submission period following a Variation instruction.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "programme_and_eot_impact",
+    "performance_node_id": "variation_instruction",
+    "name": "Programme and EOT impact",
+    "chinese_name": "进度计划与工期影响",
+    "description": "Requires the Variation submission to address programme consequences and any proposed EOT adjustment.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "valuation_and_contract_price_adjustment",
+    "performance_node_id": "variation_instruction",
+    "name": "Valuation and Contract Price adjustment",
+    "chinese_name": "计价与合同价格调整",
+    "description": "Connects the instructed Variation to valuation and adjustment of the Contract Price.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engineer_agreement_or_determination",
+    "performance_node_id": "variation_instruction",
+    "name": "Engineer agreement or determination",
+    "chinese_name": "工程师协议或决定",
+    "description": "Routes Variation valuation and time consequences through agreement or determination where required.",
+    "source_clause_refs": [
+      "fidic_2017_red_3_7",
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [
+      "determination"
+    ],
+    "tag_reason": {
+      "determination": "Applied to the express Sub-Clause 3.7 process used for unresolved Variation consequences."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "no_20_2_claim_requirement_for_ordinary_variation",
+    "performance_node_id": "variation_instruction",
+    "name": "No Sub-Clause 20.2 Claim for ordinary Variation adjustment",
+    "chinese_name": "一般变更调整无需20.2索赔",
+    "description": "Records the express separation between ordinary Variation adjustment and the Sub-Clause 20.2 claims route. This element is intentionally not tagged Claim.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Instruction",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "request_for_proposal_process",
+    "performance_node_id": "variation_proposal",
+    "name": "Request for Proposal process",
+    "chinese_name": "变更建议请求程序",
+    "description": "Structures the Engineer's request, the Contractor's response and the decision whether to instruct the proposed Variation.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3_2"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Proposal",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "variation_time_and_price_adjustment",
+    "performance_node_id": "variation_eot_and_cost",
+    "name": "Variation time and price adjustment",
+    "chinese_name": "变更的工期与价格调整",
+    "description": "Integrates the Variation's programme, EOT and Contract Price consequences without automatically treating the adjustment as a Claim.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_3"
+    ],
+    "legal_effect_tag_ids": [
+      "claim_for_eot",
+      "determination"
+    ],
+    "tag_reason": {
+      "claim_for_eot": "Applied only where the Variation procedure expressly supports an EOT adjustment; source wording requires lawyer verification.",
+      "determination": "Applied where unresolved time or valuation consequences proceed under Sub-Clause 3.7."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > EOT + Cost",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "limited_notice_based_refusal",
+    "performance_node_id": "refusal_to_execute_variation",
+    "name": "Limited notice-based refusal",
+    "chinese_name": "基于通知的有限拒绝",
+    "description": "Identifies the limited, express notice grounds on which the Contractor may state inability or objection to an instructed Variation.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_1",
+      "fidic_2017_red_13_3_1"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > 拒绝履行",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "daywork_schedule_condition",
+    "performance_node_id": "daywork",
+    "name": "Daywork Schedule condition",
+    "chinese_name": "计日工清单条件",
+    "description": "Makes daywork valuation dependent on an applicable Daywork Schedule in the Contract.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [
+      "condition_precedent"
+    ],
+    "tag_reason": {
+      "condition_precedent": "Applied only to the express requirement for an applicable Daywork Schedule before the mechanism operates; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "minor_or_incidental_work",
+    "performance_node_id": "daywork",
+    "name": "Minor or incidental work",
+    "chinese_name": "零星或附带工作",
+    "description": "Identifies the type of Variation work suitable for daywork valuation.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "quotations_for_goods",
+    "performance_node_id": "daywork",
+    "name": "Quotations for Goods",
+    "chinese_name": "货物报价",
+    "description": "Requires quotations for Goods before procurement where the daywork procedure calls for them.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "daily_records",
+    "performance_node_id": "daywork",
+    "name": "Daily records",
+    "chinese_name": "每日记录",
+    "description": "Requires contemporaneous records of labour, Plant and Materials used for daywork.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engineer_sign_off_or_determination",
+    "performance_node_id": "daywork",
+    "name": "Engineer sign-off or determination",
+    "chinese_name": "工程师签认或决定",
+    "description": "Records review of daywork records and determination where recorded quantities or values are not agreed.",
+    "source_clause_refs": [
+      "fidic_2017_red_3_7",
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [
+      "determination"
+    ],
+    "tag_reason": {
+      "determination": "Applied only where unresolved daywork records or valuation proceed under Sub-Clause 3.7; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "substantiation_by_invoices_vouchers_accounts",
+    "performance_node_id": "daywork",
+    "name": "Substantiation by invoices, vouchers and accounts",
+    "chinese_name": "以发票、凭证和账目证明",
+    "description": "Requires documentary substantiation of daywork costs.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_5"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Daywork",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "use_only_by_engineer_instruction",
+    "performance_node_id": "provisional_sum",
+    "name": "Use only by Engineer instruction",
+    "chinese_name": "仅按工程师指示使用",
+    "description": "Restricts use of a Provisional Sum to work or supply instructed by the Engineer.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [
+      "condition_precedent"
+    ],
+    "tag_reason": {
+      "condition_precedent": "Engineer instruction is the express prerequisite to use of the Provisional Sum; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_executed_work_as_variation",
+    "performance_node_id": "provisional_sum",
+    "name": "Contractor-executed work as Variation",
+    "chinese_name": "承包商实施工作作为变更",
+    "description": "Treats work executed by the Contractor under a Provisional Sum through the Variation mechanism.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "nominated_subcontractor_or_supplier_purchase",
+    "performance_node_id": "provisional_sum",
+    "name": "Nominated subcontractor or supplier purchase",
+    "chinese_name": "指定分包商或供应商采购",
+    "description": "Separates instructed purchase or subcontracting under a Provisional Sum.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "overhead_and_profit",
+    "performance_node_id": "provisional_sum",
+    "name": "Overhead and profit",
+    "chinese_name": "管理费与利润",
+    "description": "Records addition of the applicable overhead and profit percentage to Provisional Sum expenditure.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "quotation_comparison",
+    "performance_node_id": "provisional_sum",
+    "name": "Quotation comparison",
+    "chinese_name": "报价比较",
+    "description": "Requires comparison of quotations for proposed Provisional Sum procurement.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "engineer_instruction_to_accept_quote",
+    "performance_node_id": "provisional_sum",
+    "name": "Engineer instruction to accept quotation",
+    "chinese_name": "工程师指示接受报价",
+    "description": "Records the Engineer's instruction selecting or accepting a quotation.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [],
+    "tag_reason": {},
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "contractor_discretion_if_no_response",
+    "performance_node_id": "provisional_sum",
+    "name": "Contractor discretion if no response",
+    "chinese_name": "未答复时承包商酌情处理",
+    "description": "Separates any express positive consequence of Engineer non-response within the stated period.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_4"
+    ],
+    "legal_effect_tag_ids": [
+      "deemed_approval"
+    ],
+    "tag_reason": {
+      "deemed_approval": "Applied only if licensed source text confirms that non-response permits the Contractor to proceed; this requires lawyer verification before approval."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Provisional Sum",
+    "verification_status": "needs_lawyer_review"
+  },
+  {
+    "id": "change_in_laws_time_and_price_relief",
+    "performance_node_id": "change_in_laws",
+    "name": "Change in Laws time and price relief",
+    "chinese_name": "法律变化的工期与价格救济",
+    "description": "Models the express EOT and monetary adjustment route for a qualifying Change in Laws.",
+    "source_clause_refs": [
+      "fidic_2017_red_13_6"
+    ],
+    "legal_effect_tag_ids": [
+      "claim_for_cost",
+      "claim_for_eot",
+      "determination"
+    ],
+    "tag_reason": {
+      "claim_for_cost": "The provision expressly supports a qualifying time or monetary entitlement through the claims machinery; source wording requires lawyer verification.",
+      "claim_for_eot": "Applied to the express EOT limb where completion is delayed; source wording requires lawyer verification.",
+      "determination": "The resulting EOT and amount are subject to agreement or determination; source wording requires lawyer verification."
+    },
+    "group_path": "Scope & Works > 变量，即变更 > Change in Laws",
+    "verification_status": "needs_lawyer_review"
+  }
 ]

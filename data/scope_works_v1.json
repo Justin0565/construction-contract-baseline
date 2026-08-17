@@ -1,8 +1,8 @@
 {
   "main_system": "Scope & Works",
   "chinese_name": "空间 / 工程范围与工作内容",
-  "version": "v1",
-  "status": "approved_content_logic_needs_pdf_verification",
+  "version": "v1.1",
+  "status": "approved_scope_methodology_aligned_needs_lawyer_review",
   "source_status": "source_text_loaded",
   "qc_status": "needs_pdf_verification",
   "lawyer_review_status": "needs_lawyer_review",
@@ -1190,7 +1190,45 @@
     }
   ],
   "tag_index": {
-    "Claim": [
+    "Claim for EOT": [
+      [
+        "1.9",
+        "Delayed Drawings or Instructions"
+      ],
+      [
+        "1.13",
+        "Compliance with Laws"
+      ],
+      [
+        "2.1",
+        "Right of Access to the Site"
+      ],
+      [
+        "4.6",
+        "Co-operation"
+      ],
+      [
+        "4.7.3",
+        "Error in Items of Reference"
+      ],
+      [
+        "4.12",
+        "Unforeseeable Physical Conditions"
+      ],
+      [
+        "4.15",
+        "Access Route"
+      ],
+      [
+        "4.23",
+        "Archaeological and Geological Findings"
+      ],
+      [
+        "13.6",
+        "Adjustments for Changes in Laws"
+      ]
+    ],
+    "Claim for Cost": [
       [
         "1.9",
         "Delayed Drawings or Instructions"
@@ -1232,48 +1270,13 @@
         "Adjustments for Changes in Laws"
       ]
     ],
-    "EOT": [
+    "Contractor Breach / Default": [
       [
-        "1.9",
-        "Delayed Drawings or Instructions"
-      ],
-      [
-        "1.13",
-        "Compliance with Laws"
-      ],
-      [
-        "2.1",
-        "Right of Access to the Site"
-      ],
-      [
-        "4.6",
-        "Co-operation"
-      ],
-      [
-        "4.7.3",
-        "Error in Items of Reference"
-      ],
-      [
-        "4.12",
-        "Unforeseeable Physical Conditions"
-      ],
-      [
-        "4.15",
-        "Access Route"
-      ],
-      [
-        "4.23",
-        "Archaeological and Geological Findings"
-      ],
-      [
-        "13.3.1",
-        "Variation by Instruction"
-      ],
-      [
-        "13.6",
-        "Adjustments for Changes in Laws"
+        "11.2",
+        "Cost of Remedying Defects"
       ]
     ],
+    "Employer Breach / Default": [],
     "Determination": [
       [
         "3.7",
@@ -1292,20 +1295,6 @@
         "Daywork"
       ]
     ],
-    "Indemnity": [
-      [
-        "1.13",
-        "Compliance with Laws"
-      ],
-      [
-        "4.16",
-        "Transport of Goods"
-      ],
-      [
-        "5.2.2",
-        "Objection to Nomination"
-      ]
-    ],
     "Condition Precedent": [
       [
         "5.1",
@@ -1316,12 +1305,14 @@
         "Right to Vary"
       ]
     ],
+    "Time Bar": [],
     "Deemed Approval": [
       [
         "5.1",
         "Subcontractors"
       ]
     ],
+    "Deemed Rejection": [],
     "Deduction": [
       [
         "5.2.4",
@@ -1334,28 +1325,19 @@
         "Evidence of Payments"
       ]
     ],
-    "Back-to-back": [
+    "Set-off": [],
+    "Indemnity": [
       [
-        "5.2.2",
-        "Objection to Nomination"
-      ]
-    ],
-    "Breach / Default": [
+        "1.13",
+        "Compliance with Laws"
+      ],
       [
-        "5.1",
-        "Subcontractors"
+        "4.16",
+        "Transport of Goods"
       ],
       [
         "5.2.2",
         "Objection to Nomination"
-      ],
-      [
-        "11.2",
-        "Cost of Remedying Defects"
-      ],
-      [
-        "13.1",
-        "Right to Vary"
       ]
     ],
     "Remedy": [
@@ -1371,20 +1353,30 @@
         "11.2",
         "Cost of Remedying Defects"
       ]
-    ]
+    ],
+    "Termination Trigger": [],
+    "Back-to-back": [
+      [
+        "5.2.2",
+        "Objection to Nomination"
+      ]
+    ],
+    "Waiver / Non-Waiver / Discharge": [],
+    "Counterclaim / Countercharge": []
   },
   "tag_reason_templates": {
-    "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-    "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+    "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains.",
+    "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+    "Contractor Breach / Default": "Approved only for express Contractor failure / default / non-performance wording identified in the existing Scope mapping.",
+    "Employer Breach / Default": "Approved only for express Employer failure / default / non-performance wording identified in the existing Scope mapping.",
     "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7.",
-    "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix.",
     "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
     "Deemed Approval": "Approved only for the express deemed-consent effect identified in the Scope matrix.",
     "Deduction": "Approved only for the express deduction from the next IPC identified in the Scope matrix.",
     "Withholding": "Approved only for the express right to withhold or refuse payment identified in the Scope matrix.",
-    "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix.",
-    "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix.",
-    "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
+    "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix.",
+    "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix.",
+    "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix."
   },
   "clause_mappings": [
     {
@@ -1467,12 +1459,12 @@
         "Delayed drawings or instructions may affect performance"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -1939,12 +1931,12 @@
         "Defects, rejection and remedial work"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -2558,12 +2550,12 @@
         "Archaeological and geological findings"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -2715,12 +2707,12 @@
         "Archaeological and geological findings"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -2750,13 +2742,13 @@
         "Failure / delay in permits where expressly addressed"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT",
+        "Claim for Cost",
+        "Claim for EOT",
         "Indemnity"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains.",
         "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix."
       },
       "source_status": "source_text_loaded",
@@ -2820,13 +2812,11 @@
       ],
       "legal_effect_tags": [
         "Condition Precedent",
-        "Deemed Approval",
-        "Breach / Default"
+        "Deemed Approval"
       ],
       "tag_reasons": {
         "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
-        "Deemed Approval": "Approved only for the express deemed-consent effect identified in the Scope matrix.",
-        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+        "Deemed Approval": "Approved only for the express deemed-consent effect identified in the Scope matrix."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -2886,12 +2876,12 @@
         "Contractor error / delay carve-out"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -2998,13 +2988,13 @@
         "Unforeseeable physical conditions"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT",
+        "Claim for Cost",
+        "Claim for EOT",
         "Determination"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains.",
         "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
       },
       "source_status": "source_text_loaded",
@@ -3060,12 +3050,12 @@
         "Unforeseeable physical conditions"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -3343,12 +3333,10 @@
         "Sequence / timing changes"
       ],
       "legal_effect_tags": [
-        "Condition Precedent",
-        "Breach / Default"
+        "Condition Precedent"
       ],
       "tag_reasons": {
-        "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix.",
-        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+        "Condition Precedent": "Approved only for the express consent or prompt Notice gate identified in the Scope matrix."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -3428,11 +3416,9 @@
         "Whether it is a compensable Variation"
       ],
       "legal_effect_tags": [
-        "EOT",
         "Determination"
       ],
       "tag_reasons": {
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix.",
         "Determination": "Approved where the Scope matrix expressly engages agreement or determination under Sub-Clause 3.7."
       },
       "source_status": "source_text_loaded",
@@ -3486,10 +3472,10 @@
         "Engineer consent / non-consent"
       ],
       "legal_effect_tags": [
-        "Claim"
+        "Claim for Cost"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -3648,12 +3634,12 @@
         "Compliance interface"
       ],
       "legal_effect_tags": [
-        "Claim",
-        "EOT"
+        "Claim for Cost",
+        "Claim for EOT"
       ],
       "tag_reasons": {
-        "Claim": "Approved only for the express Contractor claim for EOT and/or Cost / Cost Plus Profit identified in the Scope matrix.",
-        "EOT": "Approved only for the express EOT / extension of Time for Completion element identified in the Scope matrix."
+        "Claim for Cost": "Approved only where the existing Scope mapping identifies an express Contractor claim for Cost / Cost Plus Profit / additional payment; needs_lawyer_review remains.",
+        "Claim for EOT": "Approved only where the existing Scope mapping identifies an express Contractor claim for EOT / extension of Time for Completion; needs_lawyer_review remains."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -3672,13 +3658,11 @@
       "elements": [],
       "legal_effect_tags": [
         "Indemnity",
-        "Back-to-back",
-        "Breach / Default"
+        "Back-to-back"
       ],
       "tag_reasons": {
         "Indemnity": "Approved only for the express indemnity element identified in the Scope matrix.",
-        "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix.",
-        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix."
+        "Back-to-back": "Approved only for the corresponding obligations / liabilities identified in the Scope matrix."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
@@ -3719,16 +3703,20 @@
       "secondary_paths": [],
       "elements": [],
       "legal_effect_tags": [
-        "Breach / Default",
+        "Contractor Breach / Default",
         "Remedy"
       ],
       "tag_reasons": {
-        "Breach / Default": "Approved only for the express failure / default / non-execution element identified in the Scope matrix.",
+        "Contractor Breach / Default": "Approved only for express Contractor failure / default / non-performance wording identified in the existing Scope mapping.",
         "Remedy": "Approved only where rejection or remedying defects is expressly addressed in the Scope matrix."
       },
       "source_status": "source_text_loaded",
       "qc_status": "needs_pdf_verification",
       "lawyer_review_status": "needs_lawyer_review"
     }
-  ]
+  ],
+  "mapping_methodology_version": "Scope-Based Dashboard Standard v1.0",
+  "element_methodology_version": "Clause Element Extraction Methodology v1.2",
+  "element_type_assignment_status": "needs_lawyer_review",
+  "tag_methodology_version": "Tag Team Manual v1.0"
 }
