@@ -1,0 +1,16 @@
+{
+  "schema_version": "pc-amendment-input-1.0",
+  "document_type": "pc_structured_amendment_input",
+  "source_document": {
+    "source_document_id": "demo_invalid_pdf_source_001",
+    "file_name": "DEMO_unprocessed_source.pdf",
+    "file_type": "pdf",
+    "file_size": 42,
+    "extraction_status": "Text Extracted",
+    "preprocessing_status": "Not Assessed",
+    "extracted_text": "This fabricated extraction claim must be rejected.",
+    "extraction_method": "Unsupported claim"
+  },
+  "amendments": [],
+  "notes": "Intentionally invalid regression fixture. The static prototype must reject this file without changing current state."
+}

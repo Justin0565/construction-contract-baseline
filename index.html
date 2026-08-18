@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Construction contract intelligence dashboard with functional, clause-order and legal-effect interfaces.">
   <title>Construction Contract Intelligence Dashboard</title>
-  <link rel="stylesheet" href="styles.css?v=20260817-tag-three-column-2">
+  <link rel="stylesheet" href="styles.css?v=20260818-pc-task3-acceptance-final10">
 </head>
 <body>
   <div class="app-shell">
@@ -19,7 +19,13 @@
         </div>
       </div>
 
-      <nav class="view-selector" role="tablist" aria-label="Dashboard views">
+      <div class="header-navigation">
+      <nav class="workspace-selector" role="tablist" aria-label="Contract workspace">
+        <button id="workspaceBaseline" class="workspace-option is-selected" type="button" role="tab" aria-selected="true" aria-controls="baselineWorkspace" data-workspace-target="baselineWorkspace">FIDIC 2017 Baseline</button>
+        <button id="workspaceParticular" class="workspace-option" type="button" role="tab" aria-selected="false" aria-controls="pcWorkspace" data-workspace-target="pcWorkspace">Particular Conditions Review</button>
+      </nav>
+
+      <nav id="baselineViewSelector" class="view-selector" role="tablist" aria-label="FIDIC baseline views">
         <button
           id="viewFunctional"
           class="view-option option-functional is-selected"
@@ -48,9 +54,23 @@
           data-view-target="tagView"
         >Tag View</button>
       </nav>
+
+      <nav id="pcViewSelector" class="view-selector pc-view-selector" role="tablist" aria-label="Particular Conditions Review views" hidden>
+        <button class="view-option option-pc is-selected" type="button" role="tab" aria-selected="true" aria-controls="pcOverviewView" data-pc-view-target="pcOverviewView">Overview</button>
+        <button class="view-option option-pc" type="button" role="tab" aria-selected="false" aria-controls="pcSourceIntakeView" data-pc-view-target="pcSourceIntakeView">Source Intake</button>
+        <button class="view-option option-pc" type="button" role="tab" aria-selected="false" aria-controls="pcAmendmentRegisterView" data-pc-view-target="pcAmendmentRegisterView">Amendment Register</button>
+        <button class="view-option option-pc" type="button" role="tab" aria-selected="false" aria-controls="pcClauseAlignmentView" data-pc-view-target="pcClauseAlignmentView">Clause Alignment</button>
+        <button class="view-option option-pc" type="button" role="tab" aria-selected="false" aria-controls="pcConsolidationWorkbenchView" data-pc-view-target="pcConsolidationWorkbenchView">Consolidation Workbench</button>
+        <button class="view-option option-pc" type="button" disabled title="Effective Contract view — not yet implemented">Effective Clause Spine · Later</button>
+        <button class="view-option option-pc" type="button" disabled title="Effective Contract view — not yet implemented">Effective Functional Skeleton · Later</button>
+        <button class="view-option option-pc" type="button" disabled title="Effective Contract view — not yet implemented">Effective Tag View · Later</button>
+        <button class="view-option option-pc" type="button" disabled title="Planned for a later phase">Verification</button>
+      </nav>
+      </div>
     </header>
 
     <main class="app-content">
+      <div id="baselineWorkspace" class="top-workspace">
       <section
         id="functionalView"
         class="app-view functional-view is-active"
@@ -191,9 +211,265 @@
           <section id="tagClauseDetail" class="tag-clause-detail" aria-labelledby="tag-detail-title" hidden></section>
         </div>
       </section>
+      </div>
+
+      <section id="pcWorkspace" class="top-workspace pc-workspace" aria-label="Particular Conditions Review" hidden>
+        <div class="workspace-context-banner">
+          <div>
+            <p class="system-label pc-label">Project-specific workspace / amendment overlay</p>
+            <h2>Particular Conditions Review</h2>
+          </div>
+          <div class="workspace-context-actions">
+            <span class="layer-badge">Separate from immutable FIDIC baseline</span>
+            <button id="openBaselineClauseSpine" type="button">Open FIDIC Baseline Clause Spine</button>
+          </div>
+        </div>
+
+        <div id="pcBaselineWarning" class="pc-baseline-warning" role="status">
+          <b>Preview / Unverified Baseline</b>
+          <span>The FIDIC clause source is not fully PDF-verified. Task 3 permits controlled preview and clause-specific consolidation only; no Effective Clause can be marked Verified or published.</span>
+        </div>
+
+        <section id="pcOverviewView" class="pc-view is-active" role="tabpanel">
+          <div class="pc-hero">
+            <div>
+              <p class="system-label pc-label">Task 3 / controlled clause-specific review</p>
+              <h2>Project Review Overview</h2>
+              <p>Create a review project, register local source material, and capture amendment instructions without modifying the immutable FIDIC baseline.</p>
+            </div>
+            <div class="pc-summary-status"><span>Workspace status</span><strong id="pcOverallStatus">Not started</strong></div>
+          </div>
+
+          <div class="pc-overview-grid">
+            <article class="pc-card pc-project-card">
+              <div class="pc-card-heading"><span>01</span><div><p>Project identity</p><h3 id="pcOverviewProjectName">No project registered</h3></div></div>
+              <dl class="pc-key-values">
+                <div><dt>Contract reference</dt><dd id="pcOverviewReference">—</dd></div>
+                <div><dt>Benchmark</dt><dd>FIDIC Red Book 2017</dd></div>
+                <div><dt>Project ID</dt><dd id="pcOverviewProjectId">Not created</dd></div>
+                <div><dt>Source documents</dt><dd id="pcOverviewSource">0 registered</dd></div>
+                <div><dt>Amendments</dt><dd id="pcOverviewAmendments">0 recorded</dd></div>
+                <div><dt>Baseline verification</dt><dd id="pcOverviewVerification">Not Verified</dd></div>
+              </dl>
+              <button id="goToSourceIntake" class="pc-primary-action" type="button">Open Source Intake</button>
+            </article>
+
+            <article class="pc-card pc-layer-card">
+              <div class="pc-card-heading"><span>02</span><div><p>Data separation</p><h3>Three-layer contract model</h3></div></div>
+              <ol class="layer-stack">
+                <li><b>FIDIC Baseline</b><span>Read-only benchmark · currently not fully PDF-verified</span></li>
+                <li><b>Amendment Overlay</b><span>PC instructions, machine alignment and retained human decisions</span></li>
+                <li><b>Effective Clauses</b><span>Separate preview records · never written into the baseline JSON</span></li>
+              </ol>
+            </article>
+
+            <article class="pc-card pc-action-card">
+              <div class="pc-card-heading"><span>03</span><div><p>Project data</p><h3>Portable browser-session record</h3></div></div>
+              <div class="placeholder-actions">
+                <button id="pcExportProject" type="button">Export review project JSON <small>Preserves the current browser-session state</small></button>
+                <label class="pc-import-action" for="pcImportProject">Re-import review project JSON <small>Validates before replacing current state</small><input id="pcImportProject" type="file" accept=".json,application/json"></label>
+                <button id="pcResetProject" type="button" class="danger-action">Reset current review <small>Confirmation required</small></button>
+              </div>
+              <p class="pc-storage-warning">Browser memory is not permanent legal-document storage. Export JSON to preserve this review state.</p>
+              <div id="pcExportStatus" class="pc-intake-message" role="status" aria-live="polite">No export requested in this session.</div>
+              <a id="pcExportDownload" class="pc-download-link" href="#" download hidden>Download prepared review JSON</a>
+            </article>
+          </div>
+
+          <section class="pc-status-panel" aria-labelledby="pc-status-title">
+            <div class="pc-section-heading"><div><p>Transparent workflow</p><h3 id="pc-status-title">Processing status</h3></div><span>No automatic amendment application</span></div>
+            <ol id="pcStatusTimeline" class="status-timeline task-two-statuses">
+              <li data-pc-stage="source"><span>01</span><b>Source</b><em>Not started</em></li>
+              <li data-pc-stage="preprocessing"><span>02</span><b>Preprocessing</b><em>Not Assessed</em></li>
+              <li data-pc-stage="text"><span>03</span><b>Text extraction</b><em>Not started</em></li>
+              <li data-pc-stage="amendments"><span>04</span><b>Amendments</b><em>Amendments Not Yet Identified</em></li>
+              <li data-pc-stage="alignment"><span>05</span><b>Clause alignment</b><em>Clause Alignment Not Started</em></li>
+              <li data-pc-stage="verification"><span>06</span><b>Verification</b><em>Not Verified</em></li>
+            </ol>
+          </section>
+        </section>
+
+        <section id="pcSourceIntakeView" class="pc-view" role="tabpanel" hidden>
+          <div class="pc-hero compact">
+            <div><p class="system-label pc-label">Local prototype intake</p><h2>Source Intake</h2><p>Files remain in this browser session and are not transmitted externally. This prototype is not permanent legal-document storage.</p></div>
+            <span class="privacy-badge">Local processing only</span>
+          </div>
+
+          <form id="pcIntakeForm" class="pc-intake-grid" novalidate>
+            <section class="pc-card pc-form-card">
+              <div class="pc-card-heading"><span>01</span><div><p>Project setup</p><h3>Contract identity</h3></div></div>
+              <div class="form-grid">
+                <label><span>Project or contract name</span><input id="pcProjectName" name="projectName" type="text" autocomplete="off"></label>
+                <label><span>Contract reference</span><input id="pcContractReference" name="contractReference" type="text" autocomplete="off"></label>
+                <label><span>FIDIC form</span><select id="pcFidicForm" name="fidicForm"><option>Red Book</option></select></label>
+                <label><span>FIDIC edition</span><select id="pcFidicEdition" name="fidicEdition"><option>2017</option></select></label>
+                <label class="form-wide"><span>Source baseline</span><select id="pcSourceBaseline" name="sourceBaseline"><option>FIDIC Red Book 2017</option></select></label>
+                <label class="form-wide"><span>Optional notes</span><textarea id="pcNotes" name="notes" rows="4"></textarea></label>
+              </div>
+              <div class="pc-form-actions"><button id="pcCreateProject" class="pc-primary-action" type="button">Create review project</button><span id="pcProjectFormMessage" role="status" aria-live="polite">A project must be created before registering a source.</span></div>
+            </section>
+
+            <section class="pc-card pc-upload-card">
+              <div class="pc-card-heading"><span>02</span><div><p>Particular Conditions source</p><h3>Select a local file</h3></div></div>
+              <label id="pcDropZone" class="pc-drop-zone" for="pcSourceFile">
+                <strong>Drop a file here or choose a file</strong>
+                <span>Accepted: TXT, structured JSON, DOCX, PDF</span>
+                <input id="pcSourceFile" name="sourceFile" type="file" accept=".txt,.json,.docx,.pdf">
+              </label>
+              <div class="privacy-notice"><b>Privacy and storage notice</b><p>The selected file is processed locally in browser memory. It is not sent to an external AI service, selecting it does not copy it into this project directory, and browser memory is not permanent legal-document storage.</p></div>
+              <dl class="pc-file-status">
+                <div><dt>Source file</dt><dd id="pcFileName">Not selected</dd></div>
+                <div><dt>File type</dt><dd id="pcFileType">—</dd></div>
+                <div><dt>Selected at</dt><dd id="pcUploadDate">—</dd></div>
+                <div><dt>File size</dt><dd id="pcFileSize">—</dd></div>
+                <div><dt>Extraction status</dt><dd id="pcExtractionStatus">Not Extracted</dd></div>
+                <div><dt>Preprocessing</dt><dd id="pcPreprocessingStatus">Not Assessed</dd></div>
+                <div><dt>Processing status</dt><dd id="pcProcessingStatus">Not started</dd></div>
+                <div><dt>Verification status</dt><dd id="pcVerificationStatus">Not Verified</dd></div>
+              </dl>
+              <div id="pcIntakeMessage" class="pc-intake-message" role="status" aria-live="polite">No source document has been selected.</div>
+              <button id="pcLoadDemoFixture" class="pc-demo-action" type="button">Load DEMO review-project fixture</button>
+              <section id="pcJsonValidation" class="pc-validation-summary" hidden></section>
+              <section id="pcTextPreview" class="pc-text-preview" hidden><div><b>Exact extracted-text preview</b><span id="pcTextPreviewCount"></span></div><pre id="pcTextPreviewContent"></pre><small>Preview is limited; exported JSON preserves the complete TXT text exactly.</small></section>
+              <div class="pc-form-actions split-actions">
+                <button id="pcClearSource" type="button">Clear selected source</button>
+                <button id="pcContinueRegister" class="pc-primary-action" type="button" disabled>Continue to Amendment Register</button>
+              </div>
+            </section>
+          </form>
+        </section>
+
+        <section id="pcAmendmentRegisterView" class="pc-view" role="tabpanel" hidden>
+          <div class="pc-hero compact">
+            <div><p class="system-label pc-label">Source instruction register</p><h2>Amendment Register</h2><p>Record exact Particular Conditions instructions and user-supplied targets. Machine alignment is shown separately and never rewrites the PC wording.</p></div>
+            <button id="pcAddAmendment" class="pc-primary-action compact-action" type="button">Add amendment entry</button>
+          </div>
+
+          <section class="pc-card pc-register-card">
+            <div class="pc-section-heading"><div><p>Register filters</p><h3>Structured amendment instructions</h3></div><span id="pcRegisterCount">0 entries</span></div>
+            <div class="pc-register-filters">
+              <label><span>Category</span><select data-amendment-filter="amendment_category"><option value="">All</option></select></label>
+              <label><span>Operation</span><select data-amendment-filter="amendment_operation"><option value="">All</option></select></label>
+              <label><span>Alignment</span><select data-amendment-filter="alignment_status"><option value="">All</option><option>Not Assessed</option></select></label>
+              <label><span>Application</span><select data-amendment-filter="application_status"><option value="">All</option><option>Not Assessed</option><option>Identified – Deferred</option></select></label>
+              <label><span>Verification</span><select data-amendment-filter="verification_status"><option value="">All</option><option>Not Verified</option></select></label>
+              <label><span>Human review</span><select data-amendment-filter="human_review_required"><option value="">All</option><option value="true">Required</option><option value="false">Not required</option></select></label>
+            </div>
+            <div class="pc-register-table-wrap">
+              <table class="pc-register-table">
+                <thead><tr><th>Amendment ID</th><th>PC Reference</th><th>PC Clause</th><th>Instruction</th><th>Category</th><th>Operation</th><th>Target GC Clause</th><th>Alignment Status</th><th>Application Status</th><th>Verification Status</th><th>Human Review</th><th>Actions</th></tr></thead>
+                <tbody id="pcAmendmentRows"></tbody>
+              </table>
+            </div>
+            <div id="pcRegisterEmpty" class="pc-register-empty"><b>No amendment entries recorded.</b><p>Create a manual entry or import a validated structured JSON file. Exact PC source wording must be preserved.</p></div>
+          </section>
+
+          <section id="pcAmendmentEditor" class="pc-card pc-amendment-editor" hidden>
+            <div class="pc-section-heading"><div><p>Manual data capture</p><h3 id="pcAmendmentEditorTitle">New amendment entry</h3></div><button id="pcCloseAmendmentEditor" type="button">Close</button></div>
+            <form id="pcAmendmentForm" novalidate>
+              <input id="pcEditingAmendmentId" type="hidden">
+              <div class="form-grid amendment-form-grid">
+                <label><span>Source document</span><select id="pcAmendmentSourceDocument" required></select></label>
+                <label><span>PC source reference *</span><input id="pcAmendmentSourceReference" type="text" required></label>
+                <label><span>PC clause number</span><input id="pcAmendmentClauseNumber" type="text"></label>
+                <label><span>PC clause heading</span><input id="pcAmendmentClauseHeading" type="text"></label>
+                <label><span>Parent clause</span><input id="pcAmendmentParentClause" type="text"></label>
+                <label><span>Sequence number</span><input id="pcAmendmentSequence" type="number" min="1" step="1"></label>
+                <label><span>Category *</span><select id="pcAmendmentCategory" required></select></label>
+                <label><span>Operation *</span><select id="pcAmendmentOperation" required></select></label>
+                <label><span>Target GC Sub-Clause number</span><input id="pcAmendmentTargetClause" type="text" placeholder="e.g. 4.2"></label>
+                <label><span>Target GC Sub-Clause heading</span><input id="pcAmendmentTargetHeading" type="text"></label>
+                <label><span>Amendment target basis *</span><select id="pcAmendmentTargetBasis"><option>Unclear</option><option>Original Baseline Text</option><option>Current Effective Text</option></select></label>
+                <label><span>Target location / insertion position</span><input id="pcAmendmentTargetLocation" type="text" placeholder="e.g. after the exact anchor; numerical position"></label>
+                <label class="form-wide"><span>Deferred dependency amendment IDs</span><input id="pcAmendmentDependencies" type="text" placeholder="Comma-separated IDs; leave blank when none"></label>
+                <label class="form-wide"><span>Exact PC instruction *</span><textarea id="pcAmendmentInstruction" rows="7" required></textarea><small>Preserved exactly as entered; no rewriting or automatic summary.</small></label>
+                <label class="form-wide"><span>Separate optional summary</span><textarea id="pcAmendmentSummary" rows="3"></textarea></label>
+                <label class="form-wide"><span>Exact target text or insertion anchor</span><textarea id="pcAmendmentTargetText" rows="3"></textarea><small>Literal matching only: zero or multiple occurrences fail safely.</small></label>
+                <label class="form-wide"><span>Replacement or added text</span><textarea id="pcAmendmentReplacementText" rows="4"></textarea><small>Preserved exactly. For an insertion or Add Paragraph, include every intended space or line break; the engine will not invent a separator.</small></label>
+                <label class="form-wide checkbox-label"><input id="pcAmendmentHumanReview" type="checkbox" checked><span>Human review required</span></label>
+                <label class="form-wide"><span>Notes</span><textarea id="pcAmendmentNotes" rows="3"></textarea></label>
+              </div>
+              <div id="pcAmendmentValidation" class="pc-intake-message" role="status" aria-live="polite">Required fields are marked with *.</div>
+              <div class="pc-form-actions"><button id="pcSaveAmendment" class="pc-primary-action" type="submit">Save amendment entry</button></div>
+            </form>
+          </section>
+        </section>
+
+        <section id="pcClauseAlignmentView" class="pc-view" role="tabpanel" hidden>
+          <div class="pc-hero compact">
+            <div><p class="system-label pc-label">Task 3 / validation gate</p><h2>Clause Alignment Review</h2><p>Machine evidence and conflicts remain separate from the human decision. Probable, conflicting, ambiguous and target-text-only matches cannot be applied without confirmation.</p></div>
+            <button id="pcRunAlignment" class="pc-primary-action compact-action" type="button">Evaluate all clause-specific entries</button>
+          </div>
+
+          <section class="pc-review-summary" aria-label="Clause alignment review summary">
+            <div><span>Total clause-specific</span><strong id="pcSummaryTotal">0</strong></div>
+            <div><span>Exact Match</span><strong id="pcSummaryExact">0</strong></div>
+            <div><span>Human Confirmed</span><strong id="pcSummaryConfirmed">0</strong></div>
+            <div><span>Ambiguous</span><strong id="pcSummaryAmbiguous">0</strong></div>
+            <div><span>Unmatched</span><strong id="pcSummaryUnmatched">0</strong></div>
+            <div><span>Eligible</span><strong id="pcSummaryEligible">0</strong></div>
+            <div><span>Applied</span><strong id="pcSummaryApplied">0</strong></div>
+            <div><span>Failed / unresolved</span><strong id="pcSummaryFailed">0</strong></div>
+            <div><span>Defined/global deferred</span><strong id="pcSummaryDeferred">0</strong></div>
+          </section>
+
+          <section class="pc-card pc-alignment-panel">
+            <div class="pc-section-heading">
+              <div><p>Human review queue</p><h3>Alignment evidence and decisions</h3></div>
+              <label class="pc-inline-filter"><span>Status</span><select id="pcAlignmentFilter"><option value="">All clause-specific statuses</option></select></label>
+            </div>
+            <div id="pcAlignmentMessage" class="pc-intake-message" role="status" aria-live="polite">Load a project and evaluate its clause-specific amendments.</div>
+            <div id="pcAlignmentQueue" class="pc-alignment-queue"></div>
+          </section>
+        </section>
+
+        <section id="pcConsolidationWorkbenchView" class="pc-view" role="tabpanel" hidden>
+          <div class="pc-hero compact">
+            <div><p class="system-label pc-label">Task 3 / non-destructive application</p><h2>Consolidation Workbench</h2><p>Apply only explicit, eligible clause-specific amendments. Every preview, application, failure and rollback is logged; baseline objects remain untouched.</p></div>
+            <span class="preview-mode-badge">Preview / Unverified Baseline</span>
+          </div>
+
+          <section class="pc-card pc-workbench-toolbar">
+            <label><span>Review amendment</span><select id="pcWorkbenchAmendment"></select></label>
+            <div class="pc-workbench-actions">
+              <button id="pcPreviewApplication" type="button">Preview Application</button>
+              <button id="pcApplyAmendment" class="pc-primary-action" type="button">Apply Amendment</button>
+              <button id="pcApplySelected" type="button">Apply Selected Eligible Amendments</button>
+            </div>
+            <div id="pcWorkbenchMessage" class="pc-intake-message" role="status" aria-live="polite">Select an amendment from the alignment queue.</div>
+          </section>
+
+          <div class="pc-workbench-grid">
+            <section class="pc-workbench-panel">
+              <header><span>01</span><div><p>Immutable layer</p><h3>FIDIC Baseline Clause</h3></div></header>
+              <div id="pcWorkbenchBaseline" class="pc-workbench-content"></div>
+            </section>
+            <section class="pc-workbench-panel pc-instruction-panel">
+              <header><span>02</span><div><p>Amendment overlay</p><h3>Exact PC Instruction</h3></div></header>
+              <div id="pcWorkbenchInstruction" class="pc-workbench-content"></div>
+            </section>
+            <section class="pc-workbench-panel pc-effective-panel">
+              <header><span>03</span><div><p>Separate project record</p><h3>Effective Clause Preview</h3></div></header>
+              <nav class="pc-workbench-tabs" aria-label="Effective Clause detail tabs">
+                <button class="is-selected" type="button" data-pc-workbench-tab="baseline">Baseline</button>
+                <button type="button" data-pc-workbench-tab="effective">Effective</button>
+                <button type="button" data-pc-workbench-tab="changes">Changes</button>
+                <button type="button" data-pc-workbench-tab="history">Version History</button>
+              </nav>
+              <div id="pcWorkbenchEffective" class="pc-workbench-content"></div>
+            </section>
+          </div>
+
+          <section class="pc-card pc-application-log-panel">
+            <div class="pc-section-heading"><div><p>Traceability</p><h3>Application Log</h3></div><span id="pcApplicationLogCount">0 attempts</span></div>
+            <div class="pc-register-table-wrap"><table class="pc-application-log-table"><thead><tr><th>Time</th><th>Amendment</th><th>Operation</th><th>Basis</th><th>Input → output</th><th>Occurrences</th><th>Result</th><th>Failure / rollback</th><th>Action</th></tr></thead><tbody id="pcApplicationLogRows"></tbody></table></div>
+          </section>
+        </section>
+      </section>
     </main>
   </div>
 
-  <script src="app.js?v=20260817-scope-load-regression-fix-1" defer></script>
+  <script src="pc_alignment_engine.js?v=20260818-pc-task3-acceptance-final10" defer></script>
+  <script src="app.js?v=20260818-pc-task3-acceptance-final10" defer></script>
 </body>
 </html>

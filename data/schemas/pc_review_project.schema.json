@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pc_review_project.schema.json",
+  "title": "Particular Conditions Review Project",
+  "type": "object",
+  "required": ["schema_version", "document_type", "export_timestamp", "project", "source_documents", "amendments", "processing_history"],
+  "properties": {
+    "schema_version": { "const": "pc-review-project-1.0" },
+    "document_type": { "const": "pc_review_project" },
+    "export_timestamp": { "type": ["string", "null"], "format": "date-time" },
+    "project": { "$ref": "#/$defs/project" },
+    "source_documents": { "type": "array", "items": { "$ref": "#/$defs/source_document" } },
+    "amendments": { "type": "array", "items": { "$ref": "#/$defs/amendment" } },
+    "processing_history": { "type": "array", "items": { "$ref": "#/$defs/history" } }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "nullable_string": { "type": ["string", "null"] },
+    "project": {
+      "type": "object",
+      "required": ["project_id", "project_name", "contract_reference", "fidic_form", "fidic_edition", "baseline_id", "baseline_verification_status", "created_at", "updated_at", "project_status", "source_document_ids", "amendment_ids", "notes"],
+      "properties": {
+        "project_id": { "type": "string", "minLength": 1 },
+        "project_name": { "type": "string", "minLength": 1 },
+        "contract_reference": { "$ref": "#/$defs/nullable_string" },
+        "fidic_form": { "const": "Red Book" },
+        "fidic_edition": { "const": "2017" },
+        "baseline_id": { "const": "fidic_red_2017" },
+        "baseline_verification_status": { "const": "Not Verified" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "project_status": { "type": "string" },
+        "source_document_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "amendment_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "notes": { "$ref": "#/$defs/nullable_string" }
+      },
+      "additionalProperties": true
+    },
+    "source_document": {
+      "type": "object",
+      "required": ["source_document_id", "project_id", "file_name", "file_type", "file_size", "selected_at", "document_role", "extraction_status", "preprocessing_status", "processing_status", "verification_status", "extracted_text", "extraction_method", "extraction_error", "source_hash", "notes"],
+      "properties": {
+        "source_document_id": { "type": "string", "minLength": 1 },
+        "project_id": { "type": "string", "minLength": 1 },
+        "file_name": { "type": "string", "minLength": 1 },
+        "file_type": { "enum": ["txt", "json", "docx", "pdf"] },
+        "file_size": { "type": "integer", "minimum": 0 },
+        "selected_at": { "type": "string", "format": "date-time" },
+        "document_role": { "const": "Particular Conditions" },
+        "extraction_status": { "enum": ["Not Extracted", "Text Extracted"] },
+        "preprocessing_status": { "enum": ["Not Assessed", "Requires Preprocessing"] },
+        "processing_status": { "enum": ["Source Loaded", "Requires Preprocessing", "Text Extracted", "Amendments Not Yet Identified", "Amendments Identified", "Failed Validation"] },
+        "verification_status": { "const": "Not Verified" },
+        "extracted_text": { "$ref": "#/$defs/nullable_string" },
+        "extraction_method": { "$ref": "#/$defs/nullable_string" },
+        "extraction_error": { "$ref": "#/$defs/nullable_string" },
+        "source_hash": { "anyOf": [{ "type": "null" }, { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }] },
+        "notes": { "$ref": "#/$defs/nullable_string" }
+      },
+      "additionalProperties": true
+    },
+    "amendment": {
+      "type": "object",
+      "required": ["amendment_id", "project_id", "pc_source_document_id", "pc_source_reference", "pc_instruction_text", "pc_instruction_summary", "pc_clause_number", "pc_clause_heading", "parent_clause", "target_gc_clause_id", "target_gc_clause_number", "target_gc_heading", "amendment_operation", "target_text", "replacement_or_added_text", "sequence_number", "amendment_category", "alignment_status", "application_status", "verification_status", "effective_clause_id", "effective_location", "affected_element_ids", "affected_tag_ids", "global_dependency_ids", "human_review_required", "source_confidence", "notes"],
+      "properties": {
+        "amendment_id": { "type": "string", "minLength": 1 },
+        "project_id": { "type": "string", "minLength": 1 },
+        "pc_source_document_id": { "type": "string", "minLength": 1 },
+        "pc_source_reference": { "$ref": "#/$defs/nullable_string" },
+        "pc_instruction_text": { "type": "string", "minLength": 1 },
+        "pc_instruction_summary": { "$ref": "#/$defs/nullable_string" },
+        "pc_clause_number": { "$ref": "#/$defs/nullable_string" },
+        "pc_clause_heading": { "$ref": "#/$defs/nullable_string" },
+        "parent_clause": { "$ref": "#/$defs/nullable_string" },
+        "target_gc_clause_id": { "type": "null" },
+        "target_gc_clause_number": { "type": "null" },
+        "target_gc_heading": { "type": "null" },
+        "amendment_operation": { "enum": ["Delete Exact Text", "Delete Paragraph", "Delete Entire Sub-Clause", "Replace Exact Text", "Replace Paragraph", "Replace Entire Sub-Clause", "Insert Before", "Insert After", "Add Paragraph", "Add New Sub-Clause", "Amend Clause Heading", "Complete Contract Data", "Renumber", "Amend Cross-reference", "Amend Defined Term", "Global Amendment", "Unclassified Instruction"] },
+        "target_text": { "$ref": "#/$defs/nullable_string" },
+        "replacement_or_added_text": { "$ref": "#/$defs/nullable_string" },
+        "sequence_number": { "type": ["integer", "null"], "minimum": 1 },
+        "amendment_category": { "enum": ["Clause-specific Amendment", "Contract Data", "Defined-term Amendment", "Global Amendment", "New Clause", "Unclassified Instruction"] },
+        "alignment_status": { "const": "Not Assessed" },
+        "application_status": { "enum": ["Not Assessed", "Identified – Deferred"] },
+        "verification_status": { "const": "Not Verified" },
+        "effective_clause_id": { "type": "null" },
+        "effective_location": { "type": "null" },
+        "affected_element_ids": { "type": "array", "maxItems": 0 },
+        "affected_tag_ids": { "type": "array", "maxItems": 0 },
+        "global_dependency_ids": { "type": "array", "maxItems": 0 },
+        "human_review_required": { "type": "boolean" },
+        "source_confidence": { "type": "null" },
+        "notes": { "$ref": "#/$defs/nullable_string" }
+      },
+      "additionalProperties": true
+    },
+    "history": {
+      "type": "object",
+      "required": ["event_id", "project_id", "source_document_id", "amendment_id", "timestamp", "previous_status", "new_status", "action", "actor", "notes"],
+      "properties": {
+        "event_id": { "type": "string", "minLength": 1 },
+        "project_id": { "type": "string", "minLength": 1 },
+        "source_document_id": { "$ref": "#/$defs/nullable_string" },
+        "amendment_id": { "$ref": "#/$defs/nullable_string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "previous_status": { "$ref": "#/$defs/nullable_string" },
+        "new_status": { "$ref": "#/$defs/nullable_string" },
+        "action": { "type": "string", "minLength": 1 },
+        "actor": { "type": "string", "minLength": 1 },
+        "notes": { "$ref": "#/$defs/nullable_string" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

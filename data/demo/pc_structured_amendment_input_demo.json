@@ -1,0 +1,47 @@
+{
+  "schema_version": "pc-amendment-input-1.0",
+  "document_type": "pc_structured_amendment_input",
+  "source_document": {
+    "source_document_id": "demo_structured_source_001",
+    "file_name": "DEMO_structured_particular_conditions.txt",
+    "file_type": "txt",
+    "file_size": 118,
+    "extracted_text": "DEMO synthetic source only. Replace the synthetic token blue with the synthetic token green.",
+    "extraction_method": "Pre-structured DEMO JSON",
+    "preprocessing_status": "Not Assessed",
+    "notes": "No FIDIC wording and no automatic extraction."
+  },
+  "amendments": [
+    {
+      "amendment_id": "demo_structured_amendment_001",
+      "project_id": "external_demo_project",
+      "pc_source_document_id": "demo_structured_source_001",
+      "pc_source_reference": "DEMO-STRUCTURED 1",
+      "pc_instruction_text": "Replace the synthetic token blue with the synthetic token green.",
+      "pc_instruction_summary": "Synthetic structured-input test.",
+      "pc_clause_number": "DEMO-1",
+      "pc_clause_heading": "Synthetic Token",
+      "parent_clause": null,
+      "target_gc_clause_id": null,
+      "target_gc_clause_number": null,
+      "target_gc_heading": null,
+      "amendment_operation": "Replace Exact Text",
+      "target_text": "blue",
+      "replacement_or_added_text": "green",
+      "sequence_number": 1,
+      "amendment_category": "Clause-specific Amendment",
+      "alignment_status": "Not Assessed",
+      "application_status": "Not Assessed",
+      "verification_status": "Not Verified",
+      "effective_clause_id": null,
+      "effective_location": null,
+      "affected_element_ids": [],
+      "affected_tag_ids": [],
+      "global_dependency_ids": [],
+      "human_review_required": true,
+      "source_confidence": null,
+      "notes": "DEMO only."
+    }
+  ],
+  "notes": "Valid structured-input regression fixture."
+}

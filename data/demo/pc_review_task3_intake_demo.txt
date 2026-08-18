@@ -1,0 +1,6 @@
+DEMO SOURCE ONLY — no FIDIC wording.
+
+DEMO-PC 1.1: Replace the synthetic token “blue” with “green”.
+DEMO-PC 2.1: Add a synthetic note after the exact anchor “demo anchor”.
+
+This file tests exact local TXT intake only. No automatic amendment extraction is performed.
