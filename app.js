@@ -715,7 +715,7 @@ function openClauseInSpine(clauseNo, origin = "Dashboard") {
   if (target) {
     target.open = true;
     target.classList.add("is-crossview-target");
-    target.querySelector(".subclause-body")?.insertAdjacentHTML("afterbegin", renderCrossViewStatus(normalizedClauseNo, true));
+    target.querySelector(".subclause-body")?.insertAdjacentHTML("afterbegin", renderCrossViewStatus(normalizedClauseNo));
     requestAnimationFrame(() => target.scrollIntoView({ behavior: "smooth", block: "center" }));
     return;
   }
@@ -730,17 +730,18 @@ function clauseSpineViewTarget(clauseNo) {
     : null;
 }
 
-function renderCrossViewStatus(clauseNo, textLoaded) {
+function renderCrossViewStatus(clauseNo) {
   const sourceClause = findSourceClause(clauseNo);
-  const verification = getPdfVerificationDisplay(sourceClause, textLoaded);
+  const sourceState = getSourceDisplayState(sourceClause);
+  const verification = getPdfVerificationDisplay(sourceClause);
   const resolvedNote = sourceClause && sourceClause.clause_no !== String(clauseNo)
     ? `Requested ${escapeHtml(clauseNo)} is displayed within source record ${escapeHtml(sourceClause.clause_no)}.`
     : "";
   return `<div class="crossview-status-card">
     <strong>Opened from ${escapeHtml(clauseNavigationOrigin || "Dashboard")}</strong>
-    <span>${textLoaded ? "Text loaded from source layer." : "Full clause text not loaded in source layer."}</span>
+    <span>${escapeHtml(sourceState.message)}</span>
     ${resolvedNote ? `<span>${resolvedNote}</span>` : ""}
-    <div><b>${textLoaded ? "source_text_loaded" : "source_text_not_loaded"}</b>${verification ? `<b>${escapeHtml(verification.label)}</b>` : ""}<b>needs_lawyer_review</b></div>
+    <div><b>${escapeHtml(sourceState.status)}</b>${verification ? `<b>${escapeHtml(verification.label)}</b>` : ""}<b>needs_lawyer_review</b></div>
   </div>`;
 }
 
@@ -751,7 +752,7 @@ function renderMissingClauseFallback(clauseNo, origin) {
   if (!register) return;
   register.insertAdjacentHTML("afterbegin", `<article class="missing-clause-card is-crossview-target">
     <span class="subclause-number">${escapeHtml(clauseNo)}</span><h4>${escapeHtml(title)}</h4>
-    ${renderCrossViewStatus(clauseNo, false)}
+    ${renderCrossViewStatus(clauseNo)}
     ${mapping ? renderScopeMappingDetail({ ...mapping, source_status: "source_text_not_loaded" }, "Approved Scope mapping") : ""}
   </article>`);
   requestAnimationFrame(() => register.querySelector(".missing-clause-card")?.scrollIntoView({ behavior: "smooth", block: "center" }));
@@ -801,8 +802,12 @@ function findSourceClause(clauseNo) {
   return fidicSourceLayer.clauses.find((item) => item.clause_no.startsWith(`${requested}.`)) || null;
 }
 
-function getPdfVerificationDisplay(clause, textLoaded = Boolean(clause?.full_text)) {
-  if (!textLoaded) return null;
+function getSourceDisplayState(clause) {
+  return SourceDisplay.resolveSourceDisplayState(clause);
+}
+
+function getPdfVerificationDisplay(clause) {
+  if (getSourceDisplayState(clause).key !== "loaded") return null;
   const status = clause?.pdf_verification_status || clause?.verification_status;
   if (status === "pdf_verified" || status === "pdf_text_matched") {
     return { key: "verified", label: "PDF verified" };
@@ -917,21 +922,55 @@ function selectClause(number) {
     nextInput?.focus();
     nextInput?.setSelectionRange(clauseSearchQuery.length, clauseSearchQuery.length);
   });
+  clauseDetail.querySelectorAll("[data-source-child]").forEach((button) => {
+    button.addEventListener("click", () => openClauseInSpine(button.dataset.sourceChild, "Container clause"));
+  });
   requestAnimationFrame(() => clauseDetail.classList.add("is-populated"));
 }
 
+function renderSourceRecordContent(clause, childLinkAttribute = "data-source-child") {
+  const sourceState = getSourceDisplayState(clause);
+  if (sourceState.key === "loaded") {
+    return `<div class="clause-full-text">${escapeHtml(clause.full_text)}</div>`;
+  }
+  if (sourceState.key === "container") {
+    const attribute = childLinkAttribute === "data-open-spine" ? "data-open-spine" : "data-source-child";
+    return `<div class="source-text-state is-container" role="group" aria-label="Container clause source state">
+      <strong>${escapeHtml(sourceState.message)}</strong>
+      <div class="source-child-links">
+        ${sourceState.childClauseNumbers.map((number) => {
+          const child = findSourceClause(number);
+          return `<button class="source-child-link" type="button" ${attribute}="${escapeHtml(number)}">
+            <span>${escapeHtml(number)}</span>${child?.clause_title ? `<small>${escapeHtml(child.clause_title)}</small>` : ""}
+          </button>`;
+        }).join("")}
+      </div>
+    </div>`;
+  }
+  return `<div class="source-text-state is-missing" role="status">
+    <strong>${escapeHtml(sourceState.status)}</strong>
+    <p>${escapeHtml(sourceState.message)}</p>
+  </div>`;
+}
+
 function renderSubClause(clause) {
+  const sourceState = getSourceDisplayState(clause);
   const verification = getPdfVerificationDisplay(clause);
   const isMatched = verification?.key === "verified";
   const scopeNodesForClause = findScopeNodesForClause(clause.clause_no);
   const scopeMapping = getScopeMapping(clause.clause_no);
-  const statusText = verification?.label || "Source status unavailable";
+  const statusText = sourceState.key === "loaded"
+    ? (verification?.label || sourceState.status)
+    : sourceState.message;
+  const stateClass = sourceState.key === "container"
+    ? "is-container"
+    : (sourceState.key === "missing" ? "is-missing" : (isMatched ? "is-matched" : "is-pending"));
   const paragraphs = Array.isArray(clause.paragraphs) ? clause.paragraphs.length : 0;
   const references = Array.isArray(clause.literal_cross_references)
     ? clause.literal_cross_references
     : [];
   return `
-    <details data-subclause-number="${escapeHtml(clause.clause_no)}" class="subclause-card ${isMatched ? "is-matched" : "is-pending"} ${scopeNodesForClause.length ? "has-scope-map" : ""}">
+    <details data-subclause-number="${escapeHtml(clause.clause_no)}" class="subclause-card ${stateClass} ${scopeNodesForClause.length ? "has-scope-map" : ""}">
       <summary>
         <span class="subclause-number">${escapeHtml(clause.clause_no)}</span>
         <span class="subclause-heading">${escapeHtml(clause.clause_title)}</span>
@@ -939,11 +978,11 @@ function renderSubClause(clause) {
       </summary>
       <div class="subclause-body">
         <div class="subclause-metadata">
-          <span>${paragraphs} paragraph${paragraphs === 1 ? "" : "s"}</span>
+          <span>${sourceState.key === "container" ? "Container clause" : `${paragraphs} paragraph${paragraphs === 1 ? "" : "s"}`}</span>
           <span>Source: ${escapeHtml(clause.source_text_origin)}</span>
           ${references.length ? `<span>References: ${references.map(escapeHtml).join(", ")}</span>` : ""}
         </div>
-        <div class="clause-full-text">${escapeHtml(clause.full_text)}</div>
+        ${renderSourceRecordContent(clause)}
         ${scopeNodesForClause.length ? `<div class="subclause-scope-map">
           <strong>Scope &amp; Works mapping</strong>
           ${renderScopeMappingDetail(scopeMapping || {
@@ -1042,6 +1081,16 @@ function renderTagResults() {
       ${clauses.map(([number, title]) => {
         const sourceClause = findSourceClause(number);
         const taggedText = renderTaggedClauseText(sourceClause, selectedTag);
+        const anchorStateLabel = taggedText.sourceState === "container"
+          ? "Container clause · see sub-clauses"
+          : (taggedText.sourceState === "missing"
+            ? "Source text not loaded"
+            : (taggedText.anchored ? "Dictionary wording anchor highlighted" : "Tag wording not yet anchored"));
+        const anchorStateClass = taggedText.sourceState === "container"
+          ? "is-container"
+          : (taggedText.sourceState === "missing"
+            ? "is-missing"
+            : (taggedText.anchored ? "is-anchored" : "is-unanchored"));
         return `
         <article class="tag-clause-result-row" data-tag-clause-row="${escapeHtml(number)}">
           <button
@@ -1058,8 +1107,8 @@ function renderTagResults() {
             <span class="mapping-status">Scope mapped</span>
           </button>
           <div class="tag-clause-source-text">
-            <div class="tag-anchor-state ${taggedText.anchored ? "is-anchored" : "is-unanchored"}">
-              ${taggedText.anchored ? "Dictionary wording anchor highlighted" : "Tag wording not yet anchored"}
+            <div class="tag-anchor-state ${anchorStateClass}">
+              ${anchorStateLabel}
             </div>
             ${taggedText.html}
           </div>
@@ -1081,8 +1130,13 @@ function renderTagResults() {
 }
 
 function renderTaggedClauseText(sourceClause, tag) {
-  if (!sourceClause?.full_text) {
-    return { anchored: false, html: '<p class="tag-source-missing">Full clause text is not loaded in the Clause Spine source layer.</p>' };
+  const sourceState = getSourceDisplayState(sourceClause);
+  if (sourceState.key !== "loaded") {
+    return {
+      anchored: false,
+      sourceState: sourceState.key,
+      html: renderSourceRecordContent(sourceClause, "data-open-spine")
+    };
   }
   const dictionaryTerms = {
     "Claim for EOT": ["EOT", "extension of time", "extension of the Time for Completion", "extended time for completion"],
@@ -1108,7 +1162,7 @@ function renderTaggedClauseText(sourceClause, tag) {
     }).join("");
     return `<p>${rendered}</p>`;
   }).join("");
-  return { anchored: matchCount > 0, html };
+  return { anchored: matchCount > 0, sourceState: sourceState.key, html };
 }
 
 function escapeRegExp(value) {
@@ -1134,6 +1188,7 @@ function renderTagClauseDetail([number, title]) {
   const mapping = getScopeMapping(number);
   const reason = mapping?.tag_reasons?.[selectedTag] || scopeData?.tag_reason_templates?.[selectedTag] || "No additional mapping rationale recorded.";
   const sourceClause = findSourceClause(number);
+  const sourceState = getSourceDisplayState(sourceClause);
   const verification = getPdfVerificationDisplay(sourceClause);
 
   tagClauseDetail.innerHTML = `
@@ -1173,7 +1228,8 @@ function renderTagClauseDetail([number, title]) {
     <footer class="tag-verification">
       <span>Verification status</span>
       <div>
-        <b>source_text_loaded</b>
+        <b>${escapeHtml(sourceState.status)}</b>
+        ${sourceState.key === "container" ? `<b>${escapeHtml(sourceState.message)}</b>` : ""}
         ${verification ? `<b>${escapeHtml(verification.label)}</b>` : ""}
         <b>needs_lawyer_review</b>
       </div>

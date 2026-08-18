@@ -1625,6 +1625,8 @@ h1 {
 
 .subclause-card.is-matched { border-left-color: #43a37a; }
 .subclause-card.is-pending { border-left-color: #bd8b3a; }
+.subclause-card.is-container { border-left-color: #4aaea2; }
+.subclause-card.is-missing { border-left-color: #ad5d61; }
 
 .subclause-card summary {
   min-height: 45px;
@@ -1664,6 +1666,8 @@ h1 {
 
 .is-matched .verification-badge { color: #65bd95; }
 .is-pending .verification-badge { color: #d0a252; }
+.is-container .verification-badge { color: #71c9bd; }
+.is-missing .verification-badge { color: #d18488; }
 
 .subclause-body { padding: 11px; }
 
@@ -1689,6 +1693,66 @@ h1 {
   line-height: 1.62;
   white-space: pre-wrap;
 }
+
+.source-text-state {
+  margin-top: 10px;
+  padding: 11px;
+  border: 1px solid #34424e;
+  border-radius: 4px;
+  background: rgba(22, 31, 39, 0.72);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.source-text-state strong {
+  color: #c9d4dc;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+}
+
+.source-text-state p {
+  margin: 5px 0 0;
+  color: #8e9aa4;
+  font-size: 8px;
+}
+
+.source-text-state.is-container {
+  border-color: #356c68;
+  background: rgba(34, 91, 84, 0.18);
+}
+
+.source-text-state.is-container > strong { color: #86d6ca; }
+.source-text-state.is-missing { border-color: #5d363a; }
+.source-text-state.is-missing > strong { color: #d18488; }
+
+.source-child-links {
+  margin-top: 9px;
+  display: grid;
+  gap: 6px;
+}
+
+.source-child-link {
+  min-width: 0;
+  padding: 7px 9px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: #b9dcd6;
+  text-align: left;
+  border: 1px solid #356c68;
+  border-radius: 3px;
+  background: rgba(25, 72, 67, 0.2);
+}
+
+.source-child-link:hover,
+.source-child-link:focus-visible {
+  color: #edfffc;
+  border-color: #65cabc;
+  outline: none;
+}
+
+.source-child-link span { font-size: 9px; font-weight: 850; }
+.source-child-link small { min-width: 0; color: #839f9b; font-size: 8px; }
 
 .clause-qc-note {
   margin-top: 10px;
@@ -2636,6 +2700,10 @@ h1 {
 
 .tag-anchor-state.is-anchored { color: #e2bc61; }
 .tag-anchor-state.is-unanchored { color: #85919c; }
+.tag-anchor-state.is-container { color: #71c9bd; }
+.tag-anchor-state.is-missing { color: #d18488; }
+
+.tag-clause-source-text .source-text-state { margin-top: 0; }
 
 .tag-wording-highlight {
   padding: 1px 3px;
