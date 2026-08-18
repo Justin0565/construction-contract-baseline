@@ -1,4 +1,6 @@
-[
+{
+  "_deprecated": "Deprecated — superseded by Clause Element Extraction Methodology v1.2",
+  "records": [
   {"elementId":"works-definition","clause":"1.1.84 / 1.1.85","heading":"Temporary Works / Works","summary":"Defined scope components establish the subject matter of performance."},
   {"elementId":"variation","clause":"13.1–13.3","heading":"Right to Vary / Variation Procedure","summary":"Engineer-led machinery changes the scope baseline."},
   {"elementId":"site-access","clause":"2.1","heading":"Right of Access to the Site","summary":"Employer provides access within the contractual timing framework."},
@@ -31,4 +33,5 @@
   {"elementId":"notices","clause":"1.3","heading":"Notices and Other Communications","summary":"Specifies communication form and delivery rules."},
   {"elementId":"notice-delivery","clause":"1.3","heading":"Notices and Other Communications","summary":"Identifies permitted delivery methods, addresses and effectiveness rules."},
   {"elementId":"assignment","clause":"1.7","heading":"Assignment","summary":"Restricts assignment subject to agreement and stated exceptions."}
-]
+  ]
+}

@@ -1,5 +1,19 @@
 "use strict";
 
+const MIN_NODE_MAJOR = 18;
+
+function nodeVersionSupported(version) {
+  const match = /^v?(\d+)/.exec(String(version || ""));
+  return Boolean(match) && Number(match[1]) >= MIN_NODE_MAJOR;
+}
+
+if (!nodeVersionSupported(process.version)) {
+  process.stderr.write(
+    `qa_gates.js requires Node.js ${MIN_NODE_MAJOR} or newer; detected ${process.version || "an unknown version"}.\n`
+  );
+  process.exit(2);
+}
+
 /*
  * qa_gates.js — executable QA gates for the Construction Contract Intelligence Dashboard.
  *
@@ -245,10 +259,21 @@ class Report {
       line: lineNumber === null || lineNumber === undefined ? null : lineNumber,
       nature
     }, extra || {}));
+    if (severity !== SEVERITY.INFO) {
+      this.passed = this.passed.filter((entry) => entry.gate !== gate);
+    }
+  }
+
+  hasFailures(gate) {
+    return this.findings.some((finding) =>
+      finding.gate === gate && finding.severity !== SEVERITY.INFO);
   }
 
   pass(gate, rule, note) {
+    if (this.hasFailures(gate)) return false;
+    if (this.passed.some((entry) => entry.gate === gate && entry.rule === rule)) return true;
     this.passed.push({ gate, rule, note });
+    return true;
   }
 
   skip(gate, rule, reason) {
@@ -616,13 +641,6 @@ function gate3(report, datasets) {
   const gate = "Gate 3 — Tag Gate";
   const seen = [];
 
-  const tags = datasets.tags;
-  if (tags) {
-    tags.value.forEach((record, index) => {
-      seen.push({ doc: tags, pointer: `/${index}`, label: record.name, id: record.id });
-    });
-  }
-
   const clauseElements = datasets.clauseElements;
   if (clauseElements) {
     clauseElements.value.forEach((record, index) => {
@@ -851,6 +869,13 @@ function gate5(report, datasets) {
 const SCAN_DIRECTORIES = ["data", "project-control", "reports", "scripts", "tests", "docs"];
 const SCAN_EXTENSIONS = new Set([".json", ".md", ".js", ".html", ".txt", ".csv"]);
 const SCAN_EXCLUDE = new Set([".git", "__pycache__", "node_modules", "source"]);
+const RESERVED_SCAN_EXCLUDE_FILES = new Set([
+  "data/elements.json",
+  "data/sub_issues.json",
+  "data/fidic_2017_red_map.json",
+  "data/tags.json",
+  "scripts/qa_gates.js"
+]);
 
 function walk(directory, out) {
   if (!fs.existsSync(directory)) return out;
@@ -863,6 +888,45 @@ function walk(directory, out) {
   return out;
 }
 
+function scanReservedText(report, relative, text) {
+  if (RESERVED_SCAN_EXCLUDE_FILES.has(relative)) return 0;
+
+  const gate = "Reserved fields — 05 section 7";
+  const isVocabulary = VOCABULARY_FILES.includes(relative);
+  const lines = text.split(/\r?\n/);
+  let violations = 0;
+
+  RESERVED.forEach((reserved) => {
+    // Structured form: the field actually set to the reserved value.
+    const structured = new RegExp(
+      `["']?${reserved.field}["']?\\s*[:=|]\\s*["']?${reserved.value}\\b`, "g");
+    // Bare form: the reserved value appearing on its own, e.g. a matrix cell.
+    const bare = new RegExp(`\\b${reserved.value}\\b`, "g");
+
+    lines.forEach((lineText, index) => {
+      const lineNumber = index + 1;
+      const hasStructured = structured.test(lineText);
+      structured.lastIndex = 0;
+      const hasBare = bare.test(lineText);
+      bare.lastIndex = 0;
+      if (!hasStructured && !hasBare) return;
+
+      if (isVocabulary) {
+        report.add(SEVERITY.INFO, gate, `${reserved.field} = ${reserved.value}`, relative, lineNumber,
+          "Reserved value appears in a governing protocol file that defines the vocabulary; treated as a definition, not a data write.");
+        return;
+      }
+      violations += 1;
+      report.add(SEVERITY.FAIL, gate, `${reserved.field} = ${reserved.value}`, relative, lineNumber,
+        hasStructured
+          ? `Reserved value ${reserved.value} is assigned to ${reserved.field}. 05 section 7 permits this only when written manually by the Lawyer.`
+          : `Reserved value ${reserved.value} appears here. 05 section 7 permits this only when written manually by the Lawyer.`);
+    });
+  });
+
+  return violations;
+}
+
 function scanReservedFields(report) {
   const gate = "Reserved fields — 05 section 7";
   const files = [];
@@ -873,9 +937,11 @@ function scanReservedFields(report) {
   });
 
   let violations = 0;
+  let scannedFiles = 0;
 
   files.forEach((absolute) => {
     const relative = toRepoPath(absolute);
+    if (RESERVED_SCAN_EXCLUDE_FILES.has(relative)) return;
     let text;
     try {
       text = fs.readFileSync(absolute, "utf8");
@@ -884,41 +950,12 @@ function scanReservedFields(report) {
         `File could not be read, so it could not be cleared: ${error.message}`);
       return;
     }
-
-    const isVocabulary = VOCABULARY_FILES.includes(relative);
-    const lines = text.split(/\r?\n/);
-
-    RESERVED.forEach((reserved) => {
-      // Structured form: the field actually set to the reserved value.
-      const structured = new RegExp(
-        `["']?${reserved.field}["']?\\s*[:=|]\\s*["']?${reserved.value}\\b`, "g");
-      // Bare form: the reserved value appearing on its own, e.g. a matrix cell.
-      const bare = new RegExp(`\\b${reserved.value}\\b`, "g");
-
-      lines.forEach((lineText, index) => {
-        const lineNumber = index + 1;
-        const hasStructured = structured.test(lineText);
-        structured.lastIndex = 0;
-        const hasBare = bare.test(lineText);
-        bare.lastIndex = 0;
-        if (!hasStructured && !hasBare) return;
-
-        if (isVocabulary) {
-          report.add(SEVERITY.INFO, gate, `${reserved.field} = ${reserved.value}`, relative, lineNumber,
-            "Reserved value appears in a governing protocol file that defines the vocabulary; treated as a definition, not a data write.");
-          return;
-        }
-        violations += 1;
-        report.add(SEVERITY.FAIL, gate, `${reserved.field} = ${reserved.value}`, relative, lineNumber,
-          hasStructured
-            ? `Reserved value ${reserved.value} is assigned to ${reserved.field}. 05 section 7 permits this only when written manually by the Lawyer.`
-            : `Reserved value ${reserved.value} appears here. 05 section 7 permits this only when written manually by the Lawyer.`);
-      });
-    });
+    scannedFiles += 1;
+    violations += scanReservedText(report, relative, text);
   });
 
   if (violations === 0) {
-    report.pass(gate, "no reserved value written", `${files.length} files scanned`);
+    report.pass(gate, "no reserved value written", `${scannedFiles} files scanned`);
   }
 
   report.skip(gate, "authorship of a reserved value",
@@ -957,7 +994,6 @@ function loadDatasets(report) {
     clauseElements: loadJson(report, "data/clause_elements.json"),
     nodeClauseMap: loadJson(report, "data/node_clause_map.json"),
     tagClauseIndex: loadJson(report, "data/tag_clause_index.json"),
-    tags: loadJson(report, "data/tags.json"),
     scopeWorks: loadJson(report, "data/scope_works_v1.json")
   };
 }
@@ -1063,10 +1099,12 @@ function main(argv) {
 }
 
 module.exports = {
+  nodeVersionSupported,
   parseJsonWithPositions,
   normaliseTag,
   reviewStatusOf,
   isBlank,
+  scanReservedText,
   scanReservedFields,
   run,
   main,

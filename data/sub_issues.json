@@ -1,4 +1,6 @@
-[
+{
+  "_deprecated": "Deprecated — superseded by Clause Element Extraction Methodology v1.2",
+  "records": [
   {"id":"scope-site","moduleId":"scope_and_works","name":"Site access and possession"},{"id":"scope-works","moduleId":"scope_and_works","name":"Works & obligations"},{"id":"scope-design","moduleId":"scope_and_works","name":"Design & interfaces"},
   {"id":"time-delay","moduleId":"time","name":"Extension of Time"},{"id":"time-baseline","moduleId":"time","name":"Time baseline"},{"id":"time-control","moduleId":"time","name":"Progress control"},
   {"id":"payment-process","moduleId":"payment_and_price","name":"Interim Payment"},{"id":"payment-price","moduleId":"payment_and_price","name":"Price baseline"},{"id":"payment-valuation","moduleId":"payment_and_price","name":"Valuation & adjustment"},
@@ -6,4 +8,5 @@
   {"id":"liability-default","moduleId":"liability_and_remedies","name":"Delay Damages & default"},{"id":"liability-loss","moduleId":"liability_and_remedies","name":"Loss & indemnity"},{"id":"liability-exit","moduleId":"liability_and_remedies","name":"Suspension & termination"},
   {"id":"claims-procedure","moduleId":"claims_and_disputes","name":"Claims procedure"},{"id":"claims-determination","moduleId":"claims_and_disputes","name":"Determination"},{"id":"claims-disputes","moduleId":"claims_and_disputes","name":"Dispute resolution"},
   {"id":"mechanics-notices","moduleId":"contract_mechanics","name":"Notices"},{"id":"mechanics-parties","moduleId":"contract_mechanics","name":"Roles & authority"},{"id":"mechanics-general","moduleId":"contract_mechanics","name":"General operation"}
-]
+  ]
+}

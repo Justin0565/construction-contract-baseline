@@ -1,4 +1,6 @@
-[
+{
+  "_deprecated": "Deprecated — superseded by Clause Element Extraction Methodology v1.2",
+  "records": [
   {"id":"works-definition","subIssueId":"scope-works","name":"Works baseline","classification":"Baseline","description":"Identifies the Permanent Works, Temporary Works and contractual deliverables forming the original scope.","tagIds":["breach-default","remedy"]},
   {"id":"variation","subIssueId":"scope-works","name":"Variation mechanism","classification":"Adjustment","description":"Provides the instructed route for changing the nature, quantity or sequence of the Works.","tagIds":["claim","determination"]},
   {"id":"site-access","subIssueId":"scope-site","name":"Site access and possession","classification":"Baseline","description":"Allocates the obligation to provide access and possession needed for performance.","tagIds":["breach-default","claim","remedy"]},
@@ -31,4 +33,5 @@
   {"id":"notices","subIssueId":"mechanics-notices","name":"Contractual notices","description":"Sets form, delivery and addressing requirements for communications with contractual effect.","tagIds":["condition-precedent","time-bar"]},
   {"id":"notice-delivery","subIssueId":"mechanics-notices","name":"Notice delivery and effectiveness","description":"Identifies the permitted delivery route, addressee and point at which a notice becomes effective.","tagIds":["condition-precedent","deemed-approval","deemed-rejection"]},
   {"id":"assignment","subIssueId":"mechanics-general","name":"Assignment","description":"Controls transfer of contractual rights, benefits or obligations to another party.","tagIds":["back-to-back","condition-precedent"]}
-]
+  ]
+}
