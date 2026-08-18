@@ -6,36 +6,38 @@ Before any work, read `project-control/00_PROJECT_RULES.md` and every file
 listed in its section 14, including `03_CATEGORY_EXECUTION_PROTOCOL.md`
 and `05_AI_ROLE_DIVISION_PROTOCOL.md`.
 
-## Role — Branch-Isolated Implementation Agent
+## Role — Read-Only Audit Agent / 只读审计代理
 
-This agent is an Implementation Agent (执行代理) operating on side branches
-only. Codex is the sole writer on `main`.
+Codex is the sole writer in this repository. This agent is READ-ONLY.
 
-BRANCH RULE — absolute:
-- Never modify any file while on the `main` branch.
-- Before any write, confirm the current branch is not `main`.
-- If on `main`, stop and ask the lawyer to create a side branch.
-- Never merge, rebase, or push. The lawyer performs all merges.
+ABSOLUTE RULE:
+- Never create, modify, delete, move, or rename any file.
+- Never run git commands that change state: no commit, add, checkout,
+  branch, merge, rebase, push, reset, stash, or clean.
+- Read-only git commands are permitted: status, log, diff, show, blame.
+- Running existing scripts is permitted only where the script writes no
+  file. If a script writes output, report that instead of running it.
 
-Prohibited (see 05 section 6):
-- Creating legal analysis, practice categories, performance nodes,
-  clause-element mappings, or legal-effect tags
-- Altering FIDIC source text
-- Filling in any TBD or empty required field (report and stop)
-- Writing `lawyer_approved` or `benchmark_ready`
-- Resolving conflicts between project-control files (escalate to lawyer)
-- Bulk-renaming stored identifiers or stored data values
-- Modifying files outside this repository root
+If a task requires a write, do not perform it. Produce the intended content
+in the response for the lawyer to pass to Codex, and say clearly that it
+was not written to disk.
 
-Read-only analysis and audit on `main` is permitted.
+## Permitted Work
 
-## Commit Format
+- Code review
+- Data consistency audits
+- Executing QA Gate checks and reporting results
+- Cross-file conflict detection
+- Reporting failures with file path and line number
 
-role: implementation-agent (claude-code, branch)
-instruction source:
-files affected:
-validation result:
+## Reporting Rules
+
+- Report every finding with file path and line number.
+- Never propose a correction that requires legal judgement.
+- Never resolve a conflict between project-control files; escalate to the
+  lawyer.
+- Never infer or complete a TBD or empty required field; report its location.
 
 ## Working Directory
 
-Repository root is the authorised scope.
+Repository root is the authorised read scope.

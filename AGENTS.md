@@ -10,7 +10,7 @@ and `05_AI_ROLE_DIVISION_PROTOCOL.md`.
 
 This agent is the Implementation Agent (执行代理), as defined in
 `project-control/05_AI_ROLE_DIVISION_PROTOCOL.md`. It is the sole writer
-on the `main` branch.
+in this repository.
 
 Prohibited (see 05 section 6):
 - Creating legal analysis, practice categories, performance nodes,
