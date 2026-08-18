@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Construction contract intelligence dashboard with functional, clause-order and legal-effect interfaces.">
   <title>Construction Contract Intelligence Dashboard</title>
-  <link rel="stylesheet" href="styles.css?v=20260818-source-state-1">
+  <link rel="stylesheet" href="styles.css?v=20260818-main-categories-1">
 </head>
 <body>
   <div class="app-shell">
@@ -79,20 +79,20 @@
       >
         <div class="view-toolbar">
           <div>
-            <p class="system-label">Level 1 <span>/</span> Main Contract Systems</p>
+            <p class="system-label">Level 1 <span>/</span> Main Categories</p>
             <h2>Functional Skeleton</h2>
           </div>
-          <p class="interaction-hint">Select one or more modules to reveal their Level 2 practice categories.</p>
+          <p class="interaction-hint">Select one or more Main Categories to reveal their Level 2 practice categories.</p>
           <div class="selection-tools">
-            <span id="selectionCount" aria-live="polite">0 modules open</span>
-            <button id="openScopeWorkspace" type="button">Open Scope &amp; Works v1</button>
+            <span id="selectionCount" aria-live="polite">0 categories open</span>
+            <button id="openScopeWorkspace" type="button" disabled>Open <span data-main-category-role="scope">approved category</span> v1</button>
             <button id="clearSelection" type="button" disabled>Collapse all</button>
           </div>
         </div>
 
         <div id="architectureViewport" class="architecture-viewport">
           <div class="technical-grid" aria-hidden="true"></div>
-          <div id="architecture" class="architecture" aria-label="Seven connected main contract systems"></div>
+          <div id="architecture" class="architecture" aria-label="Seven approved Main Categories"></div>
           <p id="emptyHint" class="empty-hint"><span aria-hidden="true">+</span> Click any ring segment to expand its practice categories</p>
         </div>
 
@@ -100,14 +100,14 @@
           <header class="scope-workspace-header">
             <div>
               <p class="system-label scope-label">Approved content layer / Scope v1</p>
-              <h2 id="scopeWorkspaceTitle">Scope &amp; Works <span lang="zh-Hans">空间 / 工程范围与工作内容</span></h2>
+              <h2 id="scopeWorkspaceTitle"><b data-main-category-role="scope">Loading category…</b> <span data-main-category-role-zh="scope" lang="zh-Hans"></span></h2>
             </div>
             <div class="scope-status-strip">
               <span>source_text_loaded</span><span>needs_lawyer_review</span>
             </div>
           </header>
           <div class="scope-workspace-grid">
-            <nav id="scopeCategories" class="scope-category-nav" aria-label="Scope practice categories"></nav>
+            <nav id="scopeCategories" class="scope-category-nav" aria-label="Approved practice categories"></nav>
             <section id="scopeNodes" class="scope-node-panel" aria-live="polite"></section>
             <aside id="scopeDetail" class="scope-detail-panel" aria-live="polite"></aside>
           </div>
@@ -469,8 +469,9 @@
     </main>
   </div>
 
-  <script src="source_display.js?v=20260818-source-state-1" defer></script>
-  <script src="pc_alignment_engine.js?v=20260818-source-layer-split-1" defer></script>
-  <script src="app.js?v=20260818-source-state-1" defer></script>
+  <script src="main_categories.js?v=20260818-main-categories-1" defer></script>
+  <script src="source_display.js?v=20260818-main-categories-1" defer></script>
+  <script src="pc_alignment_engine.js?v=20260818-main-categories-1" defer></script>
+  <script src="app.js?v=20260818-main-categories-1" defer></script>
 </body>
 </html>

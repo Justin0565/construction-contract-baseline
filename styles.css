@@ -392,6 +392,34 @@ h1 {
   transition: transform 520ms cubic-bezier(.2, .8, .2, 1);
 }
 
+.architecture-load-state {
+  width: min(520px, calc(100% - 80px));
+  padding: 28px;
+  display: grid;
+  gap: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #aab8c3;
+  text-align: center;
+  border: 1px solid #2d414f;
+  border-radius: 6px;
+  background: rgba(10, 17, 24, 0.9);
+  transform: translate(-50%, -50%);
+}
+
+.architecture-load-state strong { color: #d9e3e9; font-size: 14px; }
+.architecture-load-state span { font-size: 10px; }
+.architecture-load-state.is-error { border-color: #6f3e45; }
+.architecture-load-state button {
+  justify-self: center;
+  padding: 7px 12px;
+  color: #8fd8cd;
+  border: 1px solid #356c68;
+  border-radius: 3px;
+  background: rgba(27, 77, 71, 0.24);
+}
+
 .architecture[data-open-count="4"],
 .architecture[data-open-count="5"] { --canvas-scale: 0.94; }
 .architecture[data-open-count="6"] { --canvas-scale: 0.88; }
@@ -401,7 +429,7 @@ h1 {
 .architecture.all-open .panel-heading { margin-bottom: 3px; padding-bottom: 4px; }
 .architecture.all-open .category-panel ol { gap: 2px; }
 .architecture.all-open .category-panel li { min-height: 15px; padding: 2px 5px; }
-.architecture.all-open [data-system-id="scope-works"] .category-panel { top: calc(var(--panel-y) - 2px); }
+.architecture.all-open [data-module-index="0"] .category-panel { top: calc(var(--panel-y) - 2px); }
 
 .ring-track {
   width: 550px;
@@ -533,9 +561,6 @@ h1 {
   line-height: 1.18;
   opacity: 0.9;
 }
-
-.ring-system[data-system-id="default-remedies-termination"] .segment-copy strong,
-.ring-system[data-system-id="claims-determination-disputes"] .segment-copy strong { font-size: 11px; }
 
 .central-core {
   width: 230px;
@@ -670,7 +695,7 @@ h1 {
 .empty-hint span { margin-right: 6px; color: var(--teal); font-size: 13px; }
 .empty-hint.is-hidden { opacity: 0; transform: translate(-50%, 6px); pointer-events: none; }
 
-/* Scope & Works approved content layer */
+/* Scope & Interface approved content layer */
 
 .scope-workspace {
   width: min(1500px, 100%);

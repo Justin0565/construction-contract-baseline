@@ -1,30 +1,7 @@
-const contractSystems = [
+const MAIN_CATEGORIES_PATH = "data/modules.json";
+const SYSTEM_PRESENTATION_SLOTS = [
   {
-    id: "contract-mechanics",
-    number: "01",
-    title: "Contract Mechanics",
-    chineseTitle: "合同机制",
-    color: "#7566d8",
-    colorDeep: "#5e4fc4",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 4, side: "right" },
-    categories: [
-      "Definitions & Interpretation",
-      "Notices & Communications",
-      "Contract Administration",
-      "Document Hierarchy"
-    ]
-  },
-  {
-    id: "scope-works",
-    number: "02",
-    title: "Scope & Works",
-    chineseTitle: "空间 / 工程范围与工作内容",
-    color: "#20b7a7",
-    colorDeep: "#10988d",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 116, side: "right" },
-    approved: true,
+    panel: { x: 940, y: 4, side: "right" }, approved: true,
     categories: [
       "Main Performance Obligations / 主要义务",
       "Ancillary Management Obligations / 附带义务，即管理",
@@ -33,61 +10,37 @@ const contractSystems = [
     ]
   },
   {
-    id: "time-completion",
-    number: "03",
-    title: "Time & Completion",
-    chineseTitle: "时间与完工",
-    color: "#3b8fe5",
-    colorDeep: "#2376cc",
-    textColor: "#ffffff",
-    panel: { x: 940, y: 228, side: "right" },
+    panel: { x: 940, y: 116, side: "right" },
     categories: ["Commencement", "Programme", "Progress Control", "EOT", "Completion"]
   },
   {
-    id: "price-payment",
-    number: "04",
-    title: "Price & Payment",
-    chineseTitle: "价格与付款",
-    color: "#f0b32f",
-    colorDeep: "#d59412",
-    textColor: "#3b2a07",
-    panel: { x: 940, y: 356, side: "right" },
+    panel: { x: 940, y: 228, side: "right" },
     categories: ["Price Basis", "Payment Process", "Certification", "Deductions and Final Account"]
   },
   {
-    id: "risk-protection",
-    number: "05",
-    title: "Risk & Protection",
-    chineseTitle: "风险与保障",
-    color: "#ec6a8b",
-    colorDeep: "#d95076",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 344, side: "left" },
+    panel: { x: 940, y: 356, side: "right" },
     categories: ["Risk Allocation", "Insurance", "Indemnities", "Securities"]
   },
   {
-    id: "default-remedies-termination",
-    number: "06",
-    title: "Default, Remedies & Termination",
-    chineseTitle: "违约、救济与终止",
-    color: "#ed7655",
-    colorDeep: "#d85c3a",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 184, side: "left" },
+    panel: { x: 10, y: 344, side: "left" },
     categories: ["Delay Consequences", "Defects Consequences", "Termination Rights", "Post-Termination Effects"]
   },
   {
-    id: "claims-determination-disputes",
-    number: "07",
-    title: "Claims, Determination & Disputes",
-    chineseTitle: "索赔、确定与争议",
-    color: "#79ad45",
-    colorDeep: "#60922f",
-    textColor: "#ffffff",
-    panel: { x: 10, y: 24, side: "left" },
+    panel: { x: 10, y: 184, side: "left" },
     categories: ["Claims Procedure", "Determination", "Dispute Escalation", "Arbitration"]
+  },
+  {
+    panel: { x: 10, y: 24, side: "left" },
+    categories: [
+      "Definitions & Interpretation",
+      "Notices & Communications",
+      "Contract Administration",
+      "Document Hierarchy"
+    ]
   }
 ];
+let contractSystems = [];
+let mainCategoryLoadError = null;
 
 const fidicClauses = [
   { number: 1, title: "General Provisions", color: "#8793a0" },
@@ -156,7 +109,6 @@ const RING_CENTER = { x: 610, y: 280 };
 const RING_RADIUS = 270;
 const PANEL_WIDTH = 270;
 const PANEL_LINK_Y = 43;
-const SEGMENT_STEP = 360 / contractSystems.length;
 
 const architecture = document.getElementById("architecture");
 const selectionCount = document.getElementById("selectionCount");
@@ -485,7 +437,7 @@ function buildScopeClauseMappings(data) {
           performance_node_id: node?.id || null,
           clause_no: clauseNo,
           clause_title: clauseTitle,
-          primary_path: node?.primary_path || "Scope & Works > Approved tag mapping",
+          primary_path: node?.primary_path || `${data.main_system || "Main Category"} > Approved tag mapping`,
           secondary_paths: node ? [...node.secondary_paths] : [],
           elements: node ? [...node.elements] : [],
           legal_effect_tags: [], tag_reasons: {},
@@ -534,7 +486,102 @@ function getScopeMapping(clauseNo) {
   return scopeData?.clause_mappings.find((item) => item.clause_no === clauseNo) || null;
 }
 
+function darkenHexColour(hex, factor = 0.78) {
+  const value = String(hex).replace("#", "");
+  const channels = [0, 2, 4].map((offset) => Math.max(0, Math.min(255, Math.round(parseInt(value.slice(offset, offset + 2), 16) * factor))));
+  return `#${channels.map((channel) => channel.toString(16).padStart(2, "0")).join("")}`;
+}
+
+function buildContractSystem(moduleRecord, index) {
+  const presentation = SYSTEM_PRESENTATION_SLOTS[index];
+  if (!presentation) throw new Error(`No presentation slot exists for Main Category ${index + 1}`);
+  return {
+    ...moduleRecord,
+    number: String(index + 1).padStart(2, "0"),
+    color: moduleRecord.accent,
+    colorDeep: darkenHexColour(moduleRecord.accent),
+    textColor: "#ffffff",
+    panel: { ...presentation.panel },
+    approved: presentation.approved === true,
+    categories: [...presentation.categories]
+  };
+}
+
+function mainCategoryDisplayText(value) {
+  if (!contractSystems.length) {
+    return mainCategoryLoadError ? "Main Category label unavailable" : "Loading Main Category label…";
+  }
+  return globalThis.MainCategories
+    ? globalThis.MainCategories.displayText(contractSystems, value)
+    : String(value ?? "");
+}
+
+function scopeMainCategory() {
+  return contractSystems[0] || null;
+}
+
+function applyMainCategoryLabels() {
+  const scopeCategory = scopeMainCategory();
+  const english = scopeCategory?.name || (mainCategoryLoadError ? "Category unavailable" : "Loading category…");
+  const chinese = scopeCategory?.nameZh || "";
+  document.querySelectorAll("[data-main-category-role='scope']").forEach((node) => {
+    node.textContent = english;
+  });
+  document.querySelectorAll("[data-main-category-role-zh='scope']").forEach((node) => {
+    node.textContent = chinese;
+  });
+  scopeCategories.setAttribute("aria-label", `${english} practice categories`);
+}
+
+function rerenderMainCategoryConsumers() {
+  if (!scopeData) return;
+  renderScopeWorkspace();
+  renderClauseSpine();
+  if (selectedClauseNumber) selectClause(selectedClauseNumber);
+  if (selectedTag) {
+    renderTagResults();
+    const selectedClause = (tagClauseMappings[selectedTag] || []).find(([number]) => number === selectedTagClause);
+    if (selectedClause) renderTagClauseDetail(selectedClause);
+  }
+}
+
+async function loadMainCategories() {
+  mainCategoryLoadError = null;
+  openScopeWorkspace.disabled = true;
+  renderArchitecture();
+  updateArchitecture();
+  try {
+    if (!globalThis.MainCategories) throw new Error("Main Category display module is unavailable");
+    const separator = MAIN_CATEGORIES_PATH.includes("?") ? "&" : "?";
+    const response = await fetch(`${MAIN_CATEGORIES_PATH}${separator}ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`.trim());
+    const nextModules = globalThis.MainCategories.validate(await response.json());
+    if (nextModules.length !== SYSTEM_PRESENTATION_SLOTS.length) throw new Error("Main Category data and presentation slots do not align");
+    const nextSystems = nextModules.map(buildContractSystem);
+    const validIds = new Set(nextSystems.map((system) => system.id));
+    [...selectedSystems].forEach((id) => { if (!validIds.has(id)) selectedSystems.delete(id); });
+    contractSystems = nextSystems;
+    openScopeWorkspace.disabled = false;
+  } catch (error) {
+    contractSystems = [];
+    mainCategoryLoadError = error;
+    console.error("Failed to load Main Category data:", error);
+  }
+  applyMainCategoryLabels();
+  renderArchitecture();
+  updateArchitecture();
+  rerenderMainCategoryConsumers();
+}
+
 function renderArchitecture() {
+  if (!contractSystems.length) {
+    architecture.innerHTML = `<div class="architecture-load-state ${mainCategoryLoadError ? "is-error" : "is-loading"}" role="status">
+      <strong>${mainCategoryLoadError ? "Main Category data could not be loaded." : "Loading approved Main Categories…"}</strong>
+      ${mainCategoryLoadError ? `<span>${escapeHtml(mainCategoryLoadError.message)}</span><button type="button" data-main-categories-retry>Retry category loading</button>` : ""}
+    </div>`;
+    architecture.querySelector("[data-main-categories-retry]")?.addEventListener("click", () => loadMainCategories());
+    return;
+  }
   architecture.innerHTML = `
     <div class="ring-track" aria-hidden="true"></div>
     ${contractSystems.map((system, index) => renderSystem(system, index)).join("")}
@@ -550,7 +597,7 @@ function renderArchitecture() {
 }
 
 function renderSystem(system, index) {
-  const rotation = SEGMENT_STEP * index;
+  const rotation = (360 / contractSystems.length) * index;
   const polarAngle = -90 + rotation;
   const connector = getConnector(system, polarAngle);
   const style = [
@@ -568,19 +615,19 @@ function renderSystem(system, index) {
   ].join(";");
 
   return `
-    <article class="ring-system panel-${system.panel.side}" data-system-id="${system.id}" style="${style}">
+    <article class="ring-system panel-${system.panel.side}" data-system-id="${system.id}" data-module-index="${index}" style="${style}">
       <button
         class="ring-segment"
         type="button"
         aria-expanded="false"
         aria-controls="categories-${system.id}"
-        aria-label="${system.number} ${system.title} ${system.chineseTitle}"
+        aria-label="${system.number} ${escapeHtml(system.name)} ${escapeHtml(system.nameZh)}"
       >
         <span class="segment-label">
           <span class="segment-number">${system.number}</span>
           <span class="segment-copy">
-            <strong>${system.title}</strong>
-            <span lang="zh-Hans">${system.chineseTitle}</span>
+            <strong>${escapeHtml(system.name)}</strong>
+            <span lang="zh-Hans">${escapeHtml(system.nameZh)}</span>
           </span>
         </span>
       </button>
@@ -588,7 +635,7 @@ function renderSystem(system, index) {
       <section
         id="categories-${system.id}"
         class="category-panel"
-        aria-label="${system.title} practice categories"
+        aria-label="${escapeHtml(system.name)} practice categories"
         aria-hidden="true"
       >
         <div class="panel-heading">
@@ -624,12 +671,13 @@ function getConnector(system, angle) {
 
 function toggleSystem(node) {
   const id = node.dataset.systemId;
+  const scopeCategoryId = scopeMainCategory()?.id;
   selectedSystems.has(id) ? selectedSystems.delete(id) : selectedSystems.add(id);
   updateArchitecture();
-  if (id === "scope-works" && selectedSystems.has(id) && scopeData) {
+  if (id === scopeCategoryId && selectedSystems.has(id) && scopeData) {
     scopeWorkspace.hidden = false;
     scopeWorkspace.scrollIntoView({ behavior: "smooth", block: "start" });
-  } else if (id === "scope-works" && !selectedSystems.has(id)) {
+  } else if (id === scopeCategoryId && !selectedSystems.has(id)) {
     scopeWorkspace.hidden = true;
   }
 }
@@ -690,8 +738,8 @@ function showScopeNode(nodeId) {
   scopeDetail.innerHTML = `
     <div class="scope-detail-kicker">Performance node</div><h3>${escapeHtml(node.name)}</h3><p class="scope-detail-cn" lang="zh-Hans">${escapeHtml(node.chinese_name)}</p>
     <section><span>Core logic</span><p>${escapeHtml(node.logic)}</p></section>
-    <section><span>Primary path</span><p class="scope-path">${escapeHtml(node.primary_path)}</p></section>
-    <section><span>Secondary paths / cross-links</span><ul>${node.secondary_paths.map((path) => `<li>${escapeHtml(path)}</li>`).join("")}</ul></section>
+    <section><span>Primary path</span><p class="scope-path">${escapeHtml(mainCategoryDisplayText(node.primary_path))}</p></section>
+    <section><span>Secondary paths / cross-links</span><ul>${node.secondary_paths.map((path) => `<li>${escapeHtml(mainCategoryDisplayText(path))}</li>`).join("")}</ul></section>
     <section><span>Clause anchors</span><div class="scope-clause-chips">${node.primary_clauses.map(([number, title]) => `<button type="button" data-detail-clause="${escapeHtml(number)}">${escapeHtml(number)} ${escapeHtml(title)}</button>`).join("")}</div></section>
     <section><span>Approved legal-effect tags</span><div class="scope-tag-row">${tags.length ? tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join("") : "<em>No approved tag by default.</em>"}</div></section>
     <footer><b>${escapeHtml(category.name)}</b><span>source_text_loaded</span><span>needs_lawyer_review</span></footer>`;
@@ -779,9 +827,9 @@ function renderScopeMappingDetail(mapping, label) {
     .filter((status) => status && status !== "needs_pdf_verification");
   return `<div class="scope-detail-kicker">${escapeHtml(label)}</div>
     <h3>${escapeHtml(mapping.clause_no)} ${escapeHtml(mapping.clause_title)}</h3>
-    <section><span>Practice category / performance node</span><p>${escapeHtml(mapping.practice_category || "Scope & Works")}<br><strong>${escapeHtml(mapping.performance_node || "Approved Scope mapping")}</strong></p></section>
-    <section><span>Primary path</span><p class="scope-path">${escapeHtml(mapping.primary_path)}</p></section>
-    <section><span>Secondary paths / cross-links</span><ul>${mapping.secondary_paths.map((path) => `<li>${escapeHtml(path)}</li>`).join("") || "<li>None approved.</li>"}</ul></section>
+    <section><span>Practice category / performance node</span><p>${escapeHtml(mapping.practice_category || scopeMainCategory()?.name || "Main Category")}<br><strong>${escapeHtml(mapping.performance_node || "Approved Scope mapping")}</strong></p></section>
+    <section><span>Primary path</span><p class="scope-path">${escapeHtml(mainCategoryDisplayText(mapping.primary_path))}</p></section>
+    <section><span>Secondary paths / cross-links</span><ul>${mapping.secondary_paths.map((path) => `<li>${escapeHtml(mainCategoryDisplayText(path))}</li>`).join("") || "<li>None approved.</li>"}</ul></section>
     <section><span>Relevant elements</span><ul>${mapping.elements.map((element) => `<li>${escapeHtml(element)}</li>`).join("")}</ul></section>
     <section><span>Approved legal-effect tags</span><div class="scope-tag-row">${mapping.legal_effect_tags.length ? mapping.legal_effect_tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join("") : "<em>No approved tag by default.</em>"}</div>${Object.entries(mapping.tag_reasons).map(([tag, reason]) => `<p class="scope-tag-reason"><strong>${escapeHtml(tag)}:</strong> ${escapeHtml(reason)}</p>`).join("")}</section>
     <footer>${visibleStatuses.map((status) => `<span>${escapeHtml(status)}</span>`).join("")}</footer>`;
@@ -819,6 +867,14 @@ function getPdfVerificationDisplay(clause) {
 }
 
 function updateArchitecture() {
+  if (!contractSystems.length) {
+    architecture.dataset.openCount = "0";
+    architecture.classList.remove("all-open");
+    emptyHint.classList.add("is-hidden");
+    clearSelection.disabled = true;
+    selectionCount.textContent = "0 categories open";
+    return;
+  }
   architecture.querySelectorAll(".ring-system").forEach((node) => {
     const isSelected = selectedSystems.has(node.dataset.systemId);
     node.classList.toggle("is-active", isSelected);
@@ -831,7 +887,7 @@ function updateArchitecture() {
   architecture.classList.toggle("all-open", count === contractSystems.length);
   emptyHint.classList.toggle("is-hidden", count > 0);
   clearSelection.disabled = count === 0;
-  selectionCount.textContent = `${count} ${count === 1 ? "module" : "modules"} open`;
+  selectionCount.textContent = `${count} ${count === 1 ? "category" : "categories"} open`;
 }
 
 function renderClauseSpine() {
@@ -984,7 +1040,7 @@ function renderSubClause(clause) {
         </div>
         ${renderSourceRecordContent(clause)}
         ${scopeNodesForClause.length ? `<div class="subclause-scope-map">
-          <strong>Scope &amp; Works mapping</strong>
+          <strong>${escapeHtml(scopeMainCategory()?.name || "Main Category")} mapping</strong>
           ${renderScopeMappingDetail(scopeMapping || {
             clause_no: clause.clause_no, clause_title: clause.clause_title,
             practice_category: scopeData.practice_categories.find((item) => item.id === scopeNodesForClause[0].practice_category_id)?.name,
@@ -1211,7 +1267,7 @@ function renderTagClauseDetail([number, title]) {
         </section>
         <section>
           <span class="tag-detail-label">Functional path</span>
-          <p class="functional-path">${escapeHtml(mapping?.primary_path || "Scope & Works > Approved tag mapping")}</p>
+          <p class="functional-path">${escapeHtml(mainCategoryDisplayText(mapping?.primary_path || `${scopeData?.main_system || "Main Category"} > Approved tag mapping`))}</p>
           <span class="tag-detail-label">Performance node</span>
           <p>${escapeHtml(mapping?.performance_node || "Scope cross-link")}</p>
         </section>
@@ -4466,7 +4522,9 @@ clearSelection.addEventListener("click", () => {
 });
 
 openScopeWorkspace.addEventListener("click", () => {
-  selectedSystems.add("scope-works");
+  const scopeCategoryId = scopeMainCategory()?.id;
+  if (!scopeCategoryId) return;
+  selectedSystems.add(scopeCategoryId);
   updateArchitecture();
   scopeWorkspace.hidden = false;
   scopeWorkspace.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -4479,8 +4537,10 @@ updateArchitecture();
 switchView("functionalView");
 switchWorkspace("baselineWorkspace");
 switchPcView("pcOverviewView");
-loadClauseSourceLayer();
-loadScopeData();
+const mainCategoriesJob = loadMainCategories();
+const clauseSourceJob = loadClauseSourceLayer();
+const scopeDataJob = loadScopeData();
+void Promise.allSettled([mainCategoriesJob, clauseSourceJob, scopeDataJob]);
 
 if (new URLSearchParams(window.location.search).has("task3_acceptance")) {
   const acceptanceBridge = document.createElement("section");
