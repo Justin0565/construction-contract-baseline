@@ -172,7 +172,13 @@
           "required": ["full_text", "paragraphs", "literal_cross_references"],
           "properties": {
             "level": { "const": "sub-clause" },
-            "full_text": { "type": "string", "minLength": 1 },
+            "is_container_clause": { "type": "boolean", "default": false },
+            "child_clause_numbers": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[0-9]+(?:\\.[0-9]+)*$" },
+              "uniqueItems": true
+            },
+            "full_text": { "type": "string" },
             "paragraphs": {
               "type": "array",
               "items": {
@@ -191,7 +197,25 @@
               "items": { "type": "string", "pattern": "^[0-9]+(?:\\.[0-9]+)*$" },
               "uniqueItems": true
             }
-          }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": ["is_container_clause"],
+                "properties": { "is_container_clause": { "const": true } }
+              },
+              "then": {
+                "required": ["child_clause_numbers"],
+                "properties": {
+                  "full_text": { "const": "" },
+                  "child_clause_numbers": { "minItems": 1 }
+                }
+              },
+              "else": {
+                "properties": { "full_text": { "minLength": 1 } }
+              }
+            }
+          ]
         }
       ]
     }
