@@ -20,6 +20,7 @@ Change log:
 
 | Date | Version | Changed by | Change summary | Reason | Affected sections |
 |---|---|---|---|---|---|
+| 2026-08-18 | v2.0 | Lawyer (instruction); Implementation Agent (execution) | Main Category identifiers in `data/modules.json` migrated to the section 2A canonical ids: `scope` to `scope_and_works`, `payment` to `payment_and_price`, `risk` to `risk_allocation`, `liability` to `liability_and_remedies`, `claims` to `claims_and_disputes`, `mechanics` to `contract_mechanics`; `time` unchanged. The `moduleId` foreign keys in `data/sub_issues.json` migrated to match. Stored `Scope & Works` data values and the `contractSystems` ids in `app.js` were not changed. | Section 2B rule 5 migration record. Express lawyer instruction to adopt one identifier convention and apply it consistently. | 2A, 2B (rule text unchanged; data files only) |
 | 2026-08-18 | v2.0 | Lawyer (approved) | Adopted the seven approved Main Categories. `Scope & Works` renamed `Scope & Interface / 工程范围与界面`. Eight-system replication list withdrawn. Legacy identifier rule added. `03` and `05` added to methodology precedence. | Top-level taxonomy aligned with the approved product functional model; `03_CATEGORY_EXECUTION_PROTOCOL.md` brought into force. | 2, 2A, 2B, 4, 5, 10, 11, 12, 14 |
 
 No silent changes are allowed. Any amendment to this file must add a row above.
