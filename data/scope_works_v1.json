@@ -93,8 +93,11 @@
       "logic": "Procurement is part of Contractor’s delivery obligation. Contractor must procure / provide Plant, Materials, Contractor’s Documents, Contractor’s Personnel, Goods, consumables and other things and services required to fulfil its obligations.",
       "primary_clauses": [
         [
-          "1.1.44",
-          "1.1.44 [Title to be verified]"
+          "1.1",
+          "Definitions",
+          {
+            "definition_ref": "1.1.44"
+          }
         ],
         [
           "4.1",
@@ -405,8 +408,11 @@
       "logic": "Goods include Contractor’s Equipment, Materials, Plant and Temporary Works. Goods are physical and logistical inputs for the Works.",
       "primary_clauses": [
         [
-          "1.1.44",
-          "1.1.44 [Title to be verified]"
+          "1.1",
+          "Definitions",
+          {
+            "definition_ref": "1.1.44"
+          }
         ],
         [
           "4.16",
@@ -1131,8 +1137,11 @@
       "logic": "Provisional Sums are specified by Employer for execution of part of the Works or supply of Plant, Materials or services. They are used only in accordance with Engineer’s instructions, and Contract Price is adjusted accordingly. They may also connect to nominated subcontractors.",
       "primary_clauses": [
         [
-          "1.1.67",
-          "1.1.67 [Title to be verified]"
+          "1.1",
+          "Definitions",
+          {
+            "definition_ref": "1.1.67"
+          }
         ],
         [
           "13.4",
@@ -1590,8 +1599,9 @@
       "practice_category": "Main Performance Obligations",
       "performance_node": "Procurement",
       "performance_node_id": "procurement",
-      "clause_no": "1.1.44",
-      "clause_title": "1.1.44 [Title to be verified]",
+      "clause_no": "1.1",
+      "clause_title": "Definitions",
+      "definition_ref": "1.1.44",
       "primary_path": "Scope & Works > Main Performance Obligations > Procurement",
       "secondary_paths": [
         "Price & Payment > valuation / payment, only if payment issue arises",
@@ -3565,8 +3575,9 @@
       "practice_category": "Scope Variables and Variations",
       "performance_node": "Provisional Sum",
       "performance_node_id": "provisional_sum",
-      "clause_no": "1.1.67",
-      "clause_title": "1.1.67 [Title to be verified]",
+      "clause_no": "1.1",
+      "clause_title": "Definitions",
+      "definition_ref": "1.1.67",
       "primary_path": "Scope & Works > Scope Variables and Variations > Provisional Sum",
       "secondary_paths": [
         "Price & Payment",

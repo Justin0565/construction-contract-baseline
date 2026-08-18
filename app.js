@@ -274,14 +274,26 @@ function expandClauseAnchor(reference) {
 
 function normalizeClauseAnchorTuples(tuples, context) {
   if (!Array.isArray(tuples)) throw new Error(`${context} must be an array`);
-  const normalized = tuples.flatMap(([reference, title]) => {
+  const normalized = tuples.flatMap(([reference, title, metadata]) => {
     const clauseNumbers = expandClauseAnchor(reference);
     if (!clauseNumbers.length || clauseNumbers.some((number) => !CONCRETE_CLAUSE_REFERENCE.test(number))) {
       throw new Error(`${context} contains an invalid clause anchor: ${reference}`);
     }
-    return clauseNumbers.map((number) => [number, title]);
+    const definitionRef = metadata?.definition_ref ? String(metadata.definition_ref).trim() : null;
+    if (definitionRef && (!CONCRETE_CLAUSE_REFERENCE.test(definitionRef)
+      || !clauseNumbers.every((number) => definitionRef.startsWith(`${number}.`)))) {
+      throw new Error(`${context} contains an invalid definition_ref: ${definitionRef}`);
+    }
+    return clauseNumbers.map((number) => definitionRef
+      ? [number, title, { definition_ref: definitionRef }]
+      : [number, title]);
   });
-  return normalized.filter(([number], index) => normalized.findIndex(([candidate]) => candidate === number) === index);
+  return normalized.filter(([number, , metadata], index) => {
+    const key = `${number}|${metadata?.definition_ref || ""}`;
+    return normalized.findIndex(([candidate, , candidateMetadata]) => (
+      `${candidate}|${candidateMetadata?.definition_ref || ""}` === key
+    )) === index;
+  });
 }
 
 function enforceProjectClauseAnchorRule(data) {
@@ -309,6 +321,14 @@ function validateScopeDataShape(data) {
       throw new Error("Scope v1 performance node is missing id, practice_category_id or primary_path");
     }
     if (!Array.isArray(node.primary_clauses)) throw new Error(`performance_nodes.${node.id}.primary_clauses must be an array`);
+    node.primary_clauses.forEach((tuple, index) => {
+      if (!Array.isArray(tuple) || tuple.length < 2 || tuple.length > 3 || !tuple[0] || !tuple[1]) {
+        throw new Error(`performance_nodes.${node.id}.primary_clauses[${index}] must be [clause_no, clause_title, optional metadata]`);
+      }
+      if (tuple.length === 3 && (!tuple[2] || typeof tuple[2] !== "object" || Array.isArray(tuple[2]) || !tuple[2].definition_ref)) {
+        throw new Error(`performance_nodes.${node.id}.primary_clauses[${index}] metadata must contain definition_ref`);
+      }
+    });
     if (!Array.isArray(node.secondary_paths)) throw new Error(`performance_nodes.${node.id}.secondary_paths must be an array`);
     if (!Array.isArray(node.elements)) throw new Error(`performance_nodes.${node.id}.elements must be an array`);
   });
@@ -324,7 +344,7 @@ function validateScopeDataShape(data) {
 }
 
 const FIDIC_SOURCE_LAYER_PATH = "data/processed/fidic_2017_red_clauses.json";
-const FIDIC_SOURCE_LAYER_FILE_SHA256 = "d8777743ebcd4d833a7ff5b0f9da91f81f93820f3ff1d5e48e1b4aa0173368ec";
+const FIDIC_SOURCE_LAYER_FILE_SHA256 = "7c90835b50988e4fd7429a8be952904adc2c0f40406b9f38e99e60868f8d3497";
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -421,18 +441,21 @@ async function loadScopeData() {
 function buildScopeClauseMappings(data) {
   const clauseIndex = new Map();
   data.performance_nodes.forEach((node) => {
-    node.primary_clauses.forEach(([clauseNo, clauseTitle]) => {
-      const existing = clauseIndex.get(clauseNo);
+    node.primary_clauses.forEach(([clauseNo, clauseTitle, metadata]) => {
+      const definitionRef = metadata?.definition_ref || null;
+      const mappingKey = `${clauseNo}|${definitionRef || ""}`;
+      const existing = clauseIndex.get(mappingKey);
       if (!existing) {
         const category = data.practice_categories.find((item) => item.id === node.practice_category_id);
-        clauseIndex.set(clauseNo, {
-          id: `scope_${clauseNo.replaceAll(".", "_")}`,
+        clauseIndex.set(mappingKey, {
+          id: `scope_${(definitionRef || clauseNo).replaceAll(".", "_")}`,
           main_system: data.main_system,
           practice_category: category?.name || node.practice_category_id,
           performance_node: node.name,
           performance_node_id: node.id,
           clause_no: clauseNo,
           clause_title: clauseTitle,
+          ...(definitionRef ? { definition_ref: definitionRef } : {}),
           primary_path: node.primary_path,
           secondary_paths: [...node.secondary_paths],
           elements: [...node.elements],
@@ -449,7 +472,8 @@ function buildScopeClauseMappings(data) {
   });
   Object.entries(data.tag_index).forEach(([tag, clauses]) => {
     clauses.forEach(([clauseNo, clauseTitle]) => {
-      let mapping = clauseIndex.get(clauseNo);
+      const mappingKey = `${clauseNo}|`;
+      let mapping = clauseIndex.get(mappingKey);
       if (!mapping) {
         const node = findScopeNodesForClause(clauseNo, data)[0];
         const category = data.practice_categories.find((item) => item.id === node?.practice_category_id);
@@ -468,7 +492,7 @@ function buildScopeClauseMappings(data) {
           source_status: data.source_status, qc_status: data.qc_status,
           lawyer_review_status: data.lawyer_review_status
         };
-        clauseIndex.set(clauseNo, mapping);
+        clauseIndex.set(mappingKey, mapping);
       }
       mapping.clause_title = clauseTitle;
       if (!mapping.legal_effect_tags.includes(tag)) mapping.legal_effect_tags.push(tag);

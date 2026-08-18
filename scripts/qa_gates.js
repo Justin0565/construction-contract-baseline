@@ -358,7 +358,9 @@ function isBlank(value) {
 
 function collectAnchors(datasets) {
   const anchors = [];
-  const push = (doc, pointer, raw, kind) => {
+  const push = (doc, pointer, raw, kind, fieldName = kind) => {
+    // Definition numbers are secondary metadata under Clause 1.1, not clause anchors.
+    if (fieldName === "definition_ref") return;
     if (isBlank(raw)) return;
     anchors.push({ file: doc.file, line: lineOf(doc, pointer), value: String(raw), kind });
   };
@@ -392,10 +394,14 @@ function collectAnchors(datasets) {
     (scope.value.performance_nodes || []).forEach((node, nodeIndex) => {
       (node.primary_clauses || []).forEach((pair, pairIndex) => {
         push(scope, `/performance_nodes/${nodeIndex}/primary_clauses/${pairIndex}/0`, pair && pair[0], "clause_no");
+        push(scope, `/performance_nodes/${nodeIndex}/primary_clauses/${pairIndex}/2/definition_ref`,
+          pair && pair[2]?.definition_ref, "clause_no", "definition_ref");
       });
     });
     (scope.value.clause_mappings || []).forEach((mapping, mappingIndex) => {
       push(scope, `/clause_mappings/${mappingIndex}/clause_no`, mapping.clause_no, "clause_no");
+      push(scope, `/clause_mappings/${mappingIndex}/definition_ref`, mapping.definition_ref,
+        "clause_no", "definition_ref");
     });
     Object.keys(scope.value.tag_index || {}).forEach((tag) => {
       (scope.value.tag_index[tag] || []).forEach((pair, pairIndex) => {
@@ -408,6 +414,22 @@ function collectAnchors(datasets) {
   return anchors;
 }
 
+function isValidSourceClauseRecord(record, availableNumbers) {
+  if (!record || typeof record.full_text !== "string") return false;
+  if (record.full_text.length > 0) return true;
+  const clauseNumber = String(record.clause_no || "");
+  const children = record.child_clause_numbers;
+  return record.is_container_clause === true
+    && record.full_text === ""
+    && CONCRETE_CLAUSE_NO.test(clauseNumber)
+    && Array.isArray(children)
+    && children.length > 0
+    && new Set(children).size === children.length
+    && children.every((number) => CONCRETE_CLAUSE_NO.test(String(number))
+      && String(number).startsWith(`${clauseNumber}.`)
+      && availableNumbers.has(String(number)));
+}
+
 function loadSourceLayer(report) {
   // Prefer the extracted layer; fall back to the tracked stub. Never assume.
   const processed = path.join(REPO_ROOT, "data/processed/fidic_2017_red_clauses.json");
@@ -416,8 +438,17 @@ function loadSourceLayer(report) {
     if (doc) {
       const numbers = new Set();
       const ids = new Set();
+      const clauseNumbers = new Set((doc.value.clauses || [])
+        .map((clause) => String(clause?.clause_no || ""))
+        .filter(Boolean));
       (doc.value.main_clauses || []).forEach((c) => { if (c.clause_no) numbers.add(String(c.clause_no)); });
-      (doc.value.clauses || []).forEach((c) => {
+      (doc.value.clauses || []).forEach((c, index) => {
+        if (!isValidSourceClauseRecord(c, clauseNumbers)) {
+          report.add(SEVERITY.FAIL, "Gate 1 — Source Gate", "1.2 source record has text or valid container",
+            doc.file, lineOf(doc, `/clauses/${index}/full_text`),
+            `Source record "${c?.clause_no || c?.id || index}" has no independent text and is not a valid container clause.`);
+          return;
+        }
         if (c.clause_no) numbers.add(String(c.clause_no));
         if (c.id) ids.add(String(c.id));
       });
@@ -1104,6 +1135,8 @@ module.exports = {
   normaliseTag,
   reviewStatusOf,
   isBlank,
+  collectAnchors,
+  isValidSourceClauseRecord,
   scanReservedText,
   scanReservedFields,
   run,

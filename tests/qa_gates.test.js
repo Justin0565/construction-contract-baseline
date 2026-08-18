@@ -7,6 +7,8 @@ const {
   nodeVersionSupported,
   parseJsonWithPositions,
   normaliseTag,
+  collectAnchors,
+  isValidSourceClauseRecord,
   scanReservedText,
   scanReservedFields,
   Report,
@@ -130,4 +132,46 @@ test("documented Node.js requirement accepts only version 18 or newer", () => {
   assert.equal(nodeVersionSupported("v18.0.0"), true);
   assert.equal(nodeVersionSupported("24.19.0"), true);
   assert.equal(nodeVersionSupported("unknown"), false);
+});
+
+test("definition_ref remains secondary metadata and is never collected as a clause anchor", () => {
+  const scopeWorks = {
+    file: "data/scope_works_v1.json",
+    positions: new Map(),
+    value: {
+      performance_nodes: [{
+        primary_clauses: [["1.1", "Definitions", { definition_ref: "1.1.44" }]]
+      }],
+      clause_mappings: [{ clause_no: "1.1", definition_ref: "1.1.67" }],
+      tag_index: {}
+    }
+  };
+
+  const anchors = collectAnchors({ scopeWorks });
+  assert.deepEqual(anchors.map((anchor) => anchor.value), ["1.1", "1.1"]);
+  assert.equal(anchors.some((anchor) => ["1.1.44", "1.1.67"].includes(anchor.value)), false);
+});
+
+test("source text gate accepts only explicit valid empty containers", () => {
+  const numbers = new Set(["4.4", "4.4.1", "4.4.2", "4.4.3", "5.2.1"]);
+  assert.equal(isValidSourceClauseRecord({ full_text: "operative text" }, numbers), true);
+  assert.equal(isValidSourceClauseRecord({ full_text: "" }, numbers), false);
+  assert.equal(isValidSourceClauseRecord({
+    clause_no: "4.4",
+    full_text: "",
+    is_container_clause: true,
+    child_clause_numbers: ["4.4.1", "4.4.2", "4.4.3"]
+  }, numbers), true);
+  assert.equal(isValidSourceClauseRecord({
+    clause_no: "4.4",
+    full_text: "",
+    is_container_clause: true,
+    child_clause_numbers: ["4.4.1", "4.4.9"]
+  }, numbers), false);
+  assert.equal(isValidSourceClauseRecord({
+    clause_no: "4.4",
+    full_text: "",
+    is_container_clause: true,
+    child_clause_numbers: ["5.2.1"]
+  }, numbers), false);
 });

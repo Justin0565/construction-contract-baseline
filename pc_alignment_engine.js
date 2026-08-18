@@ -34,7 +34,7 @@
   const EXACT_TARGET_OPERATIONS = ["Delete Exact Text", "Replace Exact Text", "Insert Before", "Insert After", "Add Paragraph"];
   const WHOLE_CLAUSE_OPERATIONS = ["Delete Entire Sub-Clause", "Replace Entire Sub-Clause"];
   const CONTROLLED_SOURCE_SHA256 = "6f3105d20dfd072af1a938b9a78d98f4f5e4ed00b794ce41167112352e75dc19";
-  const CONTROLLED_SOURCE_LAYER_SHA256 = "d8777743ebcd4d833a7ff5b0f9da91f81f93820f3ff1d5e48e1b4aa0173368ec";
+  const CONTROLLED_SOURCE_LAYER_SHA256 = "7c90835b50988e4fd7429a8be952904adc2c0f40406b9f38e99e60868f8d3497";
 
   function text(value) {
     return value === null || value === undefined ? "" : String(value);
@@ -75,18 +75,38 @@
 
   function baselineClauses(sourceLayer) {
     const clauses = Array.isArray(sourceLayer) ? sourceLayer : (Array.isArray(sourceLayer?.clauses) ? sourceLayer.clauses : []);
-    return clauses.filter((clause) => clause && typeof clause.full_text === "string" && clause.full_text.length > 0);
+    return clauses.filter((clause) => clause
+      && clause.is_container_clause !== true
+      && typeof clause.full_text === "string"
+      && clause.full_text.length > 0);
+  }
+
+  function isValidContainerClause(clause, rawNumbers) {
+    const number = text(clause?.clause_no).trim();
+    const children = clause?.child_clause_numbers;
+    return clause?.is_container_clause === true
+      && clause.full_text === ""
+      && Array.isArray(children)
+      && children.length > 0
+      && new Set(children).size === children.length
+      && children.every((child) => {
+        const childNumber = text(child).trim();
+        return childNumber.startsWith(`${number}.`) && rawNumbers.has(childNumber);
+      });
   }
 
   function buildBaselineIndex(sourceLayer) {
     const rawClauses = Array.isArray(sourceLayer) ? sourceLayer : (Array.isArray(sourceLayer?.clauses) ? sourceLayer.clauses : []);
+    const rawNumbers = new Set(rawClauses.map((clause) => text(clause?.clause_no).trim()).filter(Boolean));
     const clauses = baselineClauses(sourceLayer);
+    const containerClauses = rawClauses.filter((clause) => isValidContainerClause(clause, rawNumbers));
+    const indexableClauses = rawClauses.filter((clause) => clauses.includes(clause) || containerClauses.includes(clause));
     const byNumber = new Map();
     const byId = new Map();
     const byHeading = new Map();
     const duplicateNumbers = new Set();
     const duplicateIds = new Set();
-    clauses.forEach((clause) => {
+    indexableClauses.forEach((clause) => {
       const number = text(clause.clause_no).trim();
       const id = text(clause.id);
       if (byNumber.has(number)) duplicateNumbers.add(number);
@@ -107,14 +127,16 @@
       || !extractClauseNumber(clause.clause_no)
       || !text(clause.clause_title).trim()
       || typeof clause.full_text !== "string"
-      || clause.full_text.length === 0);
-    return { clauses, rawClauses, byNumber, byId, byHeading, mainClauseNumbers, duplicateNumbers, duplicateIds, invalidClauses };
+      || (clause.is_container_clause === true
+        ? !isValidContainerClause(clause, rawNumbers)
+        : clause.full_text.length === 0));
+    return { clauses, containerClauses, rawClauses, byNumber, byId, byHeading, mainClauseNumbers, duplicateNumbers, duplicateIds, invalidClauses };
   }
 
   function sourceLayerGate(sourceLayer, { allowDemo = false } = {}) {
     const index = buildBaselineIndex(sourceLayer);
     if (!index.clauses.length) return { ok: false, reason: "The baseline source layer is unavailable or contains no complete Sub-Clause text.", index };
-    if (index.invalidClauses.length || index.clauses.length !== index.rawClauses.length) {
+    if (index.invalidClauses.length || index.clauses.length + index.containerClauses.length !== index.rawClauses.length) {
       return { ok: false, reason: "The baseline source layer contains incomplete Sub-Clause records and cannot be used for alignment.", index };
     }
     if (index.duplicateNumbers.size || index.duplicateIds.size) return { ok: false, reason: "The baseline source layer contains duplicate clause IDs or numbers.", index };
@@ -125,7 +147,7 @@
     }
     const declaredCountsOk = Number(sourceLayer?.sub_clause_count) === index.rawClauses.length
       && Number(sourceLayer?.main_clause_count) === (Array.isArray(sourceLayer?.main_clauses) ? sourceLayer.main_clauses.length : -1);
-    const controlledDatasetCountsOk = Number(sourceLayer?.sub_clause_count) === 215
+    const controlledDatasetCountsOk = Number(sourceLayer?.sub_clause_count) === 227
       && Number(sourceLayer?.main_clause_count) === 21;
     const mainClauses = Array.isArray(sourceLayer?.main_clauses) ? sourceLayer.main_clauses : [];
     const mainNumbers = mainClauses.map((clause) => text(clause?.clause_no || clause?.parent_clause_no).trim());
@@ -451,6 +473,7 @@
       if (idClause && numberClause && idClause.id !== numberClause.id) reasons.push("Target clause ID and Sub-Clause number identify different baseline records.");
       const targetClause = numberClause || idClause;
       if (!targetClause) reasons.push("The exact baseline Sub-Clause record is unavailable.");
+      if (targetClause?.is_container_clause === true) reasons.push("A container clause has no independent baseline text and cannot be applied as an Effective Clause target.");
       const assertedParent = parentNumber(amendment?.parent_clause);
       const controlledParent = targetClause ? text(targetClause.parent_clause_no || parentNumber(targetClause.clause_no)) : null;
       if (!assertedParent) reasons.push("A parent clause is required.");

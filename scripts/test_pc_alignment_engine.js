@@ -153,6 +153,50 @@ check("partial or malformed production source layers fail closed", () => {
   assert.equal(Engine.sourceLayerGate(countMismatch).ok, false);
 });
 
+check("explicit empty container clauses pass the source gate but stay outside the alignment text index", () => {
+  const withContainer = JSON.parse(JSON.stringify(baseline));
+  withContainer.clauses.push({
+    id: "demo_clause_101_9",
+    parent_clause_no: "101",
+    clause_no: "101.9",
+    clause_title: "DEMO Container",
+    full_text: "",
+    is_container_clause: true,
+    child_clause_numbers: ["101.9.1"],
+    original_order: 11
+  }, {
+    id: "demo_clause_101_9_1",
+    parent_clause_no: "101",
+    clause_no: "101.9.1",
+    clause_title: "DEMO Container Child",
+    full_text: "Synthetic child text.",
+    original_order: 12
+  });
+  const gate = Engine.sourceLayerGate(withContainer, { allowDemo: true });
+  assert.equal(gate.ok, true);
+  assert.equal(gate.index.byNumber.get("101.9").is_container_clause, true);
+  assert.equal(gate.index.clauses.some((clause) => clause.clause_no === "101.9"), false);
+});
+
+check("empty ordinary clauses and malformed containers fail the source gate", () => {
+  const emptyOrdinary = JSON.parse(JSON.stringify(baseline));
+  emptyOrdinary.clauses[0].full_text = "";
+  assert.equal(Engine.sourceLayerGate(emptyOrdinary, { allowDemo: true }).ok, false);
+
+  const malformedContainer = JSON.parse(JSON.stringify(baseline));
+  malformedContainer.clauses.push({
+    id: "demo_clause_101_9",
+    parent_clause_no: "101",
+    clause_no: "101.9",
+    clause_title: "DEMO Container",
+    full_text: "",
+    is_container_clause: true,
+    child_clause_numbers: ["101.99"],
+    original_order: 11
+  });
+  assert.equal(Engine.sourceLayerGate(malformedContainer, { allowDemo: true }).ok, false);
+});
+
 check("new clause requires an existing parent", () => {
   const result = assess("demo_a008", { parent_clause: "999", target_gc_clause_number: "999.1" });
   assert.equal(result.machine_alignment_status, "New Clause");
