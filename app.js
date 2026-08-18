@@ -1217,6 +1217,29 @@ function pcNow() {
   return new Date(nextTimestamp).toISOString();
 }
 
+function pcSeedAuditClock(data) {
+  const timestampValues = [
+    data?.export_timestamp,
+    data?.project?.created_at,
+    data?.project?.updated_at,
+    ...(data?.source_documents || []).map((item) => item?.selected_at),
+    ...(data?.alignment_assessments || []).map((item) => item?.assessed_at),
+    ...(data?.alignment_decisions || []).map((item) => item?.decided_at),
+    ...(data?.effective_clauses || []).flatMap((item) => [
+      item?.created_at,
+      item?.updated_at,
+      ...(item?.version_history || []).map((version) => version?.created_at),
+      ...(item?.unresolved_issues || []).map((issue) => issue?.recorded_at)
+    ]),
+    ...(data?.application_log || []).flatMap((item) => [item?.attempted_at, item?.applied_at, item?.rolled_back_at]),
+    ...(data?.processing_history || []).map((item) => item?.timestamp)
+  ];
+  timestampValues.forEach((value) => {
+    const parsed = pcTimestampMillis(value);
+    if (parsed !== null) pcLastAuditTimestampMs = Math.max(pcLastAuditTimestampMs, parsed);
+  });
+}
+
 function createPcId(prefix) {
   const token = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`;
   return `${prefix}_${token}`;
@@ -1497,6 +1520,9 @@ function pcReplayAppliedSnapshots(record, appliedLogs) {
       targetExists: Boolean(record.baseline_clause_id || currentText)
     });
     if (!result.ok) return { ok: false, reason: `Applied log ${log.application_id} failed deterministic replay: ${result.failureReason}` };
+    if (log.target_occurrence_count !== result.occurrenceCount) {
+      return { ok: false, reason: `Applied log ${log.application_id} has an occurrence count inconsistent with deterministic replay.` };
+    }
     currentText = result.outputText;
     appliedIds.push(log.amendment_id);
     finalStatus = result.clauseStatus;
@@ -1722,7 +1748,7 @@ function pcValidateJsonPayload(data) {
         if (!Array.isArray(data[field])) throw new Error(`${field} must be an array in ${PC_REVIEW_SCHEMA_VERSION}.`);
       });
       const assessmentIds = data.alignment_assessments.map((item, index) => {
-        pcRequireOwnFields(item, ["alignment_assessment_id", "amendment_id", "assessed_at", "assessed_by", "baseline_id", "baseline_source_sha256", "baseline_source_layer_sha256", "machine_status", "proposed_target", "evidence", "conflicts", "blocking_dependency_ids", "reason", "supersedes_assessment_id"], `alignment_assessments[${index}]`);
+        pcRequireOwnFields(item, ["alignment_assessment_id", "amendment_id", "assessed_at", "assessed_by", "baseline_id", "baseline_source_sha256", "baseline_source_layer_sha256", "amendment_operation", "target_basis", "target_location", "replacement_or_added_text", "sequence_number", "machine_status", "underlying_match_status", "asserted_target", "proposed_target", "evidence", "conflicts", "blocking_dependency_ids", "blocking_issue", "reason", "supersedes_assessment_id"], `alignment_assessments[${index}]`);
         if (!item?.alignment_assessment_id || !amendmentIds.includes(item.amendment_id)) throw new Error(`alignment_assessments[${index}] has an invalid id or amendment reference.`);
         if (pcTimestampMillis(item.assessed_at) === null || !String(item.assessed_by ?? "").trim()) throw new Error(`alignment_assessments[${index}] has invalid assessment audit metadata.`);
         if (!["Exact Match", "Target Text Match", "Number Match / Heading Difference", "Heading Match / Number Difference", "Probable Match", "Ambiguous", "Unmatched", "New Clause", "Blocking Dependency", "Not Assessed"].includes(item.machine_status)) throw new Error(`alignment_assessments[${index}].machine_status is invalid.`);
@@ -1746,7 +1772,7 @@ function pcValidateJsonPayload(data) {
         derivedActiveAssessmentByAmendment.set(assessment.amendment_id, assessment.alignment_assessment_id);
       });
       const decisionIds = data.alignment_decisions.map((item, index) => {
-        pcRequireOwnFields(item, ["alignment_decision_id", "amendment_id", "alignment_assessment_id", "action", "previous_alignment_status", "new_alignment_status", "decided_at", "decided_by", "supersedes_decision_id", "processing_history_event_id"], `alignment_decisions[${index}]`);
+        pcRequireOwnFields(item, ["alignment_decision_id", "amendment_id", "alignment_assessment_id", "action", "previous_alignment_status", "new_alignment_status", "confirmed_target_clause_id", "confirmed_target_clause_number", "confirmed_target_heading", "decided_at", "decided_by", "supersedes_decision_id", "processing_history_event_id"], `alignment_decisions[${index}]`);
         if (!item?.alignment_decision_id || !amendmentIds.includes(item.amendment_id)) throw new Error(`alignment_decisions[${index}] has an invalid id or amendment reference.`);
         if (!assessmentIds.includes(item.alignment_assessment_id)) throw new Error(`alignment_decisions[${index}] does not reference an alignment assessment.`);
         if (!["Confirm Alignment", "Reject Alignment", "Mark Ambiguous", "Clear Manual Decision"].includes(item.action) || pcTimestampMillis(item.decided_at) === null || !String(item.decided_by ?? "").trim()) throw new Error(`alignment_decisions[${index}] has invalid decision audit metadata.`);
@@ -1774,6 +1800,19 @@ function pcValidateJsonPayload(data) {
           || assessment.blocking_issue)) {
           throw new Error(`alignment_decisions[${index}] cannot confirm an assessment with a blocking dependency.`);
         }
+        const proposedTarget = assessment.proposed_target || {};
+        if (decision.action === "Confirm Alignment") {
+          if ((decision.confirmed_target_clause_id ?? null) !== (proposedTarget.clause_id ?? null)
+            || (decision.confirmed_target_clause_number ?? null) !== (proposedTarget.clause_number ?? null)
+            || (decision.confirmed_target_heading ?? null) !== (proposedTarget.clause_heading ?? null)
+            || (!(decision.confirmed_target_clause_id ?? null) && !(decision.confirmed_target_clause_number ?? null))) {
+            throw new Error(`alignment_decisions[${index}] confirmed target does not exactly match its alignment assessment.`);
+          }
+        } else if (decision.confirmed_target_clause_id !== null
+          || decision.confirmed_target_clause_number !== null
+          || decision.confirmed_target_heading !== null) {
+          throw new Error(`alignment_decisions[${index}] cannot retain a confirmed target for ${decision.action}.`);
+        }
         const expectedPreviousStatus = priorDecision?.new_alignment_status || assessment.machine_status;
         const expectedNewStatus = {
           "Confirm Alignment": "Human Confirmed",
@@ -1797,10 +1836,14 @@ function pcValidateJsonPayload(data) {
         if (pcTimestampMillis(item.created_at) === null || pcTimestampMillis(item.updated_at) === null) throw new Error(`effective_clauses[${index}] has invalid created_at or updated_at metadata.`);
         if (item.effective_verification_status !== "Not Verified" || item.publication_eligible !== false) throw new Error(`effective_clauses[${index}] must remain Not Verified and publication-ineligible.`);
         if (!Array.isArray(item.version_history) || !item.version_history.length || !Array.isArray(item.structured_change_segments)) throw new Error(`effective_clauses[${index}] is missing version history or change segments.`);
-        if ([...(item.amendment_ids || []), ...(item.applied_amendment_ids || []), ...(item.failed_amendment_ids || [])].some((id) => !amendmentIds.includes(id))) throw new Error(`effective_clauses[${index}] references a missing amendment.`);
-        if (new Set(item.amendment_ids || []).size !== (item.amendment_ids || []).length) throw new Error(`effective_clauses[${index}].amendment_ids must be unique.`);
-        if (new Set(item.failed_amendment_ids || []).size !== (item.failed_amendment_ids || []).length) throw new Error(`effective_clauses[${index}].failed_amendment_ids must be unique.`);
-        if ((item.applied_amendment_ids || []).some((id) => (item.failed_amendment_ids || []).includes(id))) throw new Error(`effective_clauses[${index}] cannot mark the same amendment both applied and failed.`);
+        ["amendment_ids", "applied_amendment_ids", "failed_amendment_ids", "unresolved_issues"].forEach((field) => {
+          if (!Array.isArray(item[field])) throw new Error(`effective_clauses[${index}].${field} must be an array.`);
+        });
+        if ([...item.amendment_ids, ...item.applied_amendment_ids, ...item.failed_amendment_ids].some((id) => !amendmentIds.includes(id))) throw new Error(`effective_clauses[${index}] references a missing amendment.`);
+        if (new Set(item.amendment_ids).size !== item.amendment_ids.length) throw new Error(`effective_clauses[${index}].amendment_ids must be unique.`);
+        if (new Set(item.applied_amendment_ids).size !== item.applied_amendment_ids.length) throw new Error(`effective_clauses[${index}].applied_amendment_ids must be unique.`);
+        if (new Set(item.failed_amendment_ids).size !== item.failed_amendment_ids.length) throw new Error(`effective_clauses[${index}].failed_amendment_ids must be unique.`);
+        if (item.applied_amendment_ids.some((id) => item.failed_amendment_ids.includes(id))) throw new Error(`effective_clauses[${index}] cannot mark the same amendment both applied and failed.`);
         const versions = item.version_history;
         const versionIds = versions.map((version) => version?.version_id);
         if (versionIds.some((id) => !id) || new Set(versionIds).size !== versionIds.length) throw new Error(`effective_clauses[${index}] has duplicate or missing version IDs.`);
@@ -1834,6 +1877,12 @@ function pcValidateJsonPayload(data) {
         }
         if (item.current_version_id !== currentVersion.version_id || item.current_version_number !== currentVersion.version_number) {
           throw new Error(`effective_clauses[${index}] current version pointer must reference the last contiguous version.`);
+        }
+        if (item.created_at !== versions[0].created_at) {
+          throw new Error(`effective_clauses[${index}].created_at must equal its initial version created_at.`);
+        }
+        if (pcTimestampMillis(item.updated_at) < pcTimestampMillis(currentVersion.created_at)) {
+          throw new Error(`effective_clauses[${index}].updated_at cannot predate its current version.`);
         }
         if (currentVersion.text !== item.current_effective_text) throw new Error(`effective_clauses[${index}] current text does not match its current version.`);
         if (item.baseline_clause_id) {
@@ -1886,6 +1935,22 @@ function pcValidateJsonPayload(data) {
           Reject: ["Rejected"]
         };
         if (!allowedResultsByAttempt[item.attempt_type]?.includes(item.application_result)) throw new Error(`application_log[${index}] has an invalid attempt_type/application_result combination.`);
+        if (["Previewed", "Applied", "Rolled Back"].includes(item.application_result) && item.failure_reason !== null) {
+          throw new Error(`application_log[${index}] cannot report a failure reason for a successful result.`);
+        }
+        if (["Failed", "Rejected"].includes(item.application_result) && !String(item.failure_reason ?? "").trim()) {
+          throw new Error(`application_log[${index}] must record a failure/rejection reason.`);
+        }
+        if (["Failed", "Rejected"].includes(item.application_result)
+          && (item.output_version !== null || !Array.isArray(item.change_segments) || item.change_segments.length)) {
+          throw new Error(`application_log[${index}] failed/rejected attempt must not claim an output version or change segments.`);
+        }
+        if (item.application_result === "Rejected" && item.output_text !== null) {
+          throw new Error(`application_log[${index}] rejected alignment must not claim output text.`);
+        }
+        if (item.application_result === "Rolled Back" && item.target_occurrence_count !== 1) {
+          throw new Error(`application_log[${index}] successful rollback must retain the deterministic occurrence count.`);
+        }
         if (!PC_AMENDMENT_OPERATIONS.includes(item.operation) || !PC_AMENDMENT_CATEGORIES.includes(item.amendment_category) || !PC_TARGET_BASES.includes(item.target_basis)) {
           throw new Error(`application_log[${index}] has an uncontrolled operation, category or target basis.`);
         }
@@ -1909,6 +1974,7 @@ function pcValidateJsonPayload(data) {
         if (item.effective_clause_id !== null) {
           const effective = effectiveById.get(item.effective_clause_id);
           const versionIds = effective.version_history.map((version) => version.version_id);
+          if (attemptedAt < pcTimestampMillis(effective.created_at)) throw new Error(`application_log[${index}].attempted_at predates its Effective Clause creation.`);
           if (!versionIds.includes(item.input_version)) throw new Error(`application_log[${index}].input_version is outside its Effective Clause chain.`);
           if (["Applied", "Rolled Back"].includes(item.application_result) && !versionIds.includes(item.output_version)) throw new Error(`application_log[${index}].output_version is outside its Effective Clause chain.`);
           if ((item.target_clause_id ?? null) !== (effective.baseline_clause_id ?? null)
@@ -1928,6 +1994,183 @@ function pcValidateJsonPayload(data) {
       data.application_log.forEach((item, index) => {
         if (index && pcTimestampMillis(item.attempted_at) < pcTimestampMillis(data.application_log[index - 1].attempted_at)) {
           throw new Error(`application_log[${index}].attempted_at is earlier than the preceding audit record.`);
+        }
+      });
+      const pcStableAuditValue = (value) => {
+        if (Array.isArray(value)) return value.map(pcStableAuditValue);
+        if (!value || typeof value !== "object") return value;
+        return Object.keys(value).sort().reduce((result, key) => {
+          if (value[key] !== undefined) result[key] = pcStableAuditValue(value[key]);
+          return result;
+        }, {});
+      };
+      const pcAuditValuesEqual = (left, right) => JSON.stringify(pcStableAuditValue(left)) === JSON.stringify(pcStableAuditValue(right));
+      const pcEffectiveSnapshotsAt = (cutoffMillis, excludedApplicationId = null) => data.effective_clauses.flatMap((record) => {
+        const version = record.version_history
+          .filter((candidate) => pcTimestampMillis(candidate.created_at) <= cutoffMillis
+            && candidate.created_by_application_id !== excludedApplicationId)
+          .at(-1) || null;
+        if (!version || pcTimestampMillis(record.created_at) > cutoffMillis) return [];
+        return [{
+          ...record,
+          current_effective_text: version.text,
+          current_version_id: version.version_id,
+          current_version_number: version.version_number,
+          applied_amendment_ids: [...version.active_amendment_ids],
+          structured_change_segments: [...version.structured_change_segments]
+        }];
+      });
+      const pcApplicationStatusAt = (candidate, cutoffMillis) => {
+        const logs = data.application_log.filter((log) => log.amendment_id === candidate.amendment_id
+          && pcTimestampMillis(log.attempted_at) <= cutoffMillis);
+        const activeApplied = logs.filter((log) => log.application_result === "Applied"
+          && pcTimestampMillis(log.applied_at) <= cutoffMillis
+          && (log.rolled_back_at === null || pcTimestampMillis(log.rolled_back_at) > cutoffMillis)).at(-1) || null;
+        if (activeApplied) return "Applied";
+        const latest = logs.at(-1) || null;
+        if (["Previewed", "Failed", "Rejected", "Rolled Back"].includes(latest?.application_result)) return latest.application_result;
+        return ["Defined-term Amendment", "Global Amendment"].includes(candidate.amendment_category)
+          ? "Identified – Deferred"
+          : "Not Assessed";
+      };
+      const pcAmendmentSnapshotsAt = (cutoffMillis) => data.amendments.map((candidate) => ({
+        ...candidate,
+        application_status: pcApplicationStatusAt(candidate, cutoffMillis)
+      }));
+      const pcDecisionAt = (amendmentId, cutoffMillis) => {
+        let activeDecision = null;
+        data.alignment_decisions.forEach((decision) => {
+          if (decision.amendment_id !== amendmentId || pcTimestampMillis(decision.decided_at) > cutoffMillis) return;
+          activeDecision = decision.action === "Clear Manual Decision" ? null : decision;
+        });
+        return activeDecision;
+      };
+      const pcAssessmentOperands = (assessment, entry) => {
+        const asserted = assessment.asserted_target || {};
+        return {
+          ...entry,
+          parent_clause: asserted.parent_clause ?? null,
+          target_gc_clause_id: entry.target_gc_clause_id ?? null,
+          target_gc_clause_number: asserted.target_gc_clause_number ?? null,
+          target_gc_heading: asserted.target_gc_heading ?? null,
+          target_text: asserted.target_text ?? null,
+          amendment_operation: assessment.amendment_operation,
+          target_basis: assessment.target_basis,
+          target_location: assessment.target_location ?? null,
+          replacement_or_added_text: assessment.replacement_or_added_text ?? null,
+          sequence_number: assessment.sequence_number,
+          global_dependency_ids: [...entry.global_dependency_ids]
+        };
+      };
+      const pcComputeAssessmentAt = (assessment, entry, cutoffMillis = pcTimestampMillis(assessment.assessed_at), excludedApplicationId = null) => {
+        const operands = pcAssessmentOperands(assessment, entry);
+        const effectiveSnapshots = pcEffectiveSnapshotsAt(cutoffMillis, excludedApplicationId);
+        const amendmentSnapshots = pcAmendmentSnapshotsAt(cutoffMillis).map((candidate) => candidate.amendment_id === entry.amendment_id
+          ? { ...candidate, ...operands }
+          : candidate);
+        const result = PCAlignmentEngine.alignAmendment(operands, fidicSourceLayer, data.project, amendmentSnapshots, effectiveSnapshots);
+        const withoutDependencies = operands.global_dependency_ids.length
+          ? PCAlignmentEngine.alignAmendment({ ...operands, global_dependency_ids: [] }, fidicSourceLayer, data.project, amendmentSnapshots, effectiveSnapshots)
+          : result;
+        const proposedTarget = result.proposed_target_gc_clause_id ? result : withoutDependencies;
+        return {
+          operands,
+          result,
+          underlying: withoutDependencies,
+          proposedTarget,
+          expectedConflicts: [...new Set([...(withoutDependencies.conflicts || []), ...(result.conflicts || [])])],
+          expectedEvidence: {
+            fidic_form_match: data.project.fidic_form === "Red Book",
+            fidic_edition_match: data.project.fidic_edition === "2017",
+            operation_supported: PC_SUPPORTED_OPERATIONS.includes(operands.amendment_operation),
+            sequence_known: Number.isInteger(Number(operands.sequence_number)) && Number(operands.sequence_number) > 0,
+            target_basis: operands.target_basis || "Unclear",
+            ...withoutDependencies.match_evidence,
+            effective_status_evidence: result.match_evidence
+          },
+          effectiveSnapshots,
+          amendmentSnapshots
+        };
+      };
+      const pcValidateDeterministicAssessment = (assessment, entry, label) => {
+        if (!assessment || !entry) throw new Error(`${label} cannot be deterministically evaluated.`);
+        if (assessment.baseline_id !== data.project.baseline_id) throw new Error(`${label}.baseline_id differs from the controlled project baseline.`);
+        if (!Array.isArray(assessment.blocking_dependency_ids)
+          || !pcAuditValuesEqual(assessment.blocking_dependency_ids, entry.global_dependency_ids)) {
+          throw new Error(`${label}.blocking_dependency_ids differs from the immutable amendment dependency snapshot.`);
+        }
+        if (!assessment.asserted_target || typeof assessment.asserted_target !== "object" || Array.isArray(assessment.asserted_target)
+          || !assessment.proposed_target || typeof assessment.proposed_target !== "object" || Array.isArray(assessment.proposed_target)
+          || !assessment.evidence || typeof assessment.evidence !== "object" || Array.isArray(assessment.evidence)
+          || !Array.isArray(assessment.conflicts)) {
+          throw new Error(`${label} is missing deterministic alignment evidence.`);
+        }
+        const computed = pcComputeAssessmentAt(assessment, entry);
+        const proposedTarget = {
+          clause_id: computed.proposedTarget.proposed_target_gc_clause_id || null,
+          clause_number: computed.proposedTarget.proposed_target_gc_clause_number || null,
+          clause_heading: computed.proposedTarget.proposed_target_gc_heading || null
+        };
+        if (assessment.machine_status !== computed.result.machine_alignment_status
+          || assessment.underlying_match_status !== computed.underlying.machine_alignment_status
+          || assessment.reason !== computed.result.machine_alignment_reason
+          || (assessment.blocking_issue ?? null) !== (computed.result.blocking_issue ?? null)
+          || !pcAuditValuesEqual(assessment.proposed_target, proposedTarget)
+          || !pcAuditValuesEqual(assessment.conflicts, computed.expectedConflicts)
+          || !pcAuditValuesEqual(assessment.evidence, computed.expectedEvidence)) {
+          throw new Error(`${label} does not equal deterministic alignment against the controlled baseline and Effective Clause version at assessed_at.`);
+        }
+        return computed;
+      };
+      const pcPreviewSegmentsMatch = (actual, expected, applicationId, amendmentId, versionNumber) => Array.isArray(actual)
+        && actual.length === expected.length
+        && actual.every((segment, index) => segment.order === index
+          && segment.segment_type === expected[index].segment_type
+          && segment.text === expected[index].text
+          && (segment.original_text ?? null) === (expected[index].original_text ?? null)
+          && segment.source_application_id === applicationId
+          && segment.source_amendment_id === amendmentId
+          && segment.version_number === versionNumber);
+      const pcHistoricalSequenceGate = (entry, operands, cutoffMillis) => {
+        const canonicalId = operands.target_gc_clause_id || null;
+        const canonicalNumber = operands.target_gc_clause_number || null;
+        const candidateTargetAt = (candidate) => {
+          const historicalAssessment = data.alignment_assessments
+            .filter((assessment) => assessment.amendment_id === candidate.amendment_id
+              && pcTimestampMillis(assessment.assessed_at) <= cutoffMillis)
+            .at(-1) || null;
+          return {
+            clauseId: historicalAssessment?.proposed_target?.clause_id || candidate.target_gc_clause_id || null,
+            clauseNumber: historicalAssessment?.proposed_target?.clause_number || candidate.target_gc_clause_number || null
+          };
+        };
+        const isSameTarget = (candidate) => {
+          const historicalTarget = candidateTargetAt(candidate);
+          return canonicalId
+            ? historicalTarget.clauseId === canonicalId
+            : canonicalNumber && String(historicalTarget.clauseNumber || "") === String(canonicalNumber);
+        };
+        const earlierPending = data.amendments.some((candidate) => candidate.amendment_id !== entry.amendment_id
+          && Number.isInteger(Number(candidate.sequence_number))
+          && isSameTarget(candidate)
+          && Number(candidate.sequence_number) < Number(operands.sequence_number)
+          && ["Clause-specific Amendment", "New Clause"].includes(candidate.amendment_category)
+          && !["Applied", "Rolled Back"].includes(pcApplicationStatusAt(candidate, cutoffMillis))
+          && pcDecisionAt(candidate.amendment_id, cutoffMillis)?.action !== "Reject Alignment");
+        const laterActive = data.amendments.some((candidate) => candidate.amendment_id !== entry.amendment_id
+          && isSameTarget(candidate)
+          && Number(candidate.sequence_number) > Number(operands.sequence_number)
+          && pcApplicationStatusAt(candidate, cutoffMillis) === "Applied");
+        const sameSequence = data.amendments.some((candidate) => candidate.amendment_id !== entry.amendment_id
+          && isSameTarget(candidate)
+          && Number(candidate.sequence_number) === Number(operands.sequence_number));
+        return { ok: !earlierPending && !laterActive && !sameSequence, earlierPending, laterActive, sameSequence };
+      };
+      data.effective_clauses.forEach((record, index) => {
+        const committedApplications = data.application_log.filter((log) => log.effective_clause_id === record.effective_clause_id
+          && log.application_result === "Applied");
+        if (record.version_history.length === 1 || !committedApplications.length) {
+          throw new Error(`effective_clauses[${index}] is orphaned because it has no successful committed application beyond its initial version.`);
         }
       });
       const applicationIndexById = new Map(data.application_log.map((item, index) => [item.application_id, index]));
@@ -1991,6 +2234,9 @@ function pcValidateJsonPayload(data) {
             causalState.currentVersionId = item.output_version;
             causalState.currentVersionCreatedAt = pcTimestampMillis(item.applied_at);
           }
+        }
+        if (item.application_result === "Rejected") {
+          causalStateByEffective.forEach((causalState) => causalState.failedAmendmentIds.delete(item.amendment_id));
         }
         if (item.application_result === "Applied") causalActiveApplicationByAmendment.set(item.amendment_id, item.application_id);
         if (item.application_result === "Rolled Back") causalActiveApplicationByAmendment.delete(item.amendment_id);
@@ -2187,8 +2433,17 @@ function pcValidateJsonPayload(data) {
             || (activeAssessment.replacement_or_added_text ?? null) !== (entry.replacement_or_added_text ?? null)
             || Number(activeAssessment.sequence_number) !== Number(entry.sequence_number)
             || (activeAssessment.proposed_target?.clause_id ?? null) !== (entry.proposed_target_gc_clause_id ?? null)
-            || String(activeAssessment.proposed_target?.clause_number ?? "") !== String(entry.proposed_target_gc_clause_number ?? "")) {
+            || String(activeAssessment.proposed_target?.clause_number ?? "") !== String(entry.proposed_target_gc_clause_number ?? "")
+            || (activeAssessment.proposed_target?.clause_heading ?? null) !== (entry.proposed_target_gc_heading ?? null)) {
             throw new Error(`amendments[${index}] differs from its active immutable alignment assessment.`);
+          }
+          const deterministicActive = pcValidateDeterministicAssessment(activeAssessment, entry, `amendments[${index}] active alignment assessment`);
+          if ((entry.machine_alignment_reason ?? null) !== (deterministicActive.result.machine_alignment_reason ?? null)
+            || (entry.target_occurrence_count ?? null) !== (deterministicActive.result.target_occurrence_count ?? null)
+            || (entry.blocking_issue ?? null) !== (deterministicActive.result.blocking_issue ?? null)
+            || entry.alignment_evaluated_at !== activeAssessment.assessed_at
+            || !pcAuditValuesEqual(entry.alignment_conflicts || [], deterministicActive.expectedConflicts)) {
+            throw new Error(`amendments[${index}] derived alignment fields differ from its deterministic active assessment.`);
           }
         }
         const activeDecision = entry.active_alignment_decision_id ? decisionsById.get(entry.active_alignment_decision_id) : null;
@@ -2220,15 +2475,155 @@ function pcValidateJsonPayload(data) {
             && (assessment.proposed_target?.clause_id ?? null) === (log.target_clause_id ?? null)
             && String(assessment.proposed_target?.clause_number ?? "") === String(log.target_clause_number ?? "");
         };
+        const assessmentAtAttemptByApplication = new Map();
         entryApplicationLogs.forEach((log) => {
           const assessmentAtAttempt = data.alignment_assessments
             .filter((assessment) => assessment.amendment_id === entry.amendment_id
               && pcTimestampMillis(assessment.assessed_at) <= pcTimestampMillis(log.attempted_at))
             .at(-1) || null;
           if (!assessmentAtAttempt || !assessmentSupportsLog(assessmentAtAttempt, log)) throw new Error(`amendments[${index}] application audit record ${log.application_id} is not supported by the assessment active at that attempt.`);
+          assessmentAtAttemptByApplication.set(log.application_id, assessmentAtAttempt);
+          if (["Applied", "Previewed"].includes(log.application_result)) {
+            pcValidateDeterministicAssessment(assessmentAtAttempt, entry, `application_log ${log.application_id} supporting alignment assessment`);
+            const attemptComputation = pcComputeAssessmentAt(assessmentAtAttempt, entry, pcTimestampMillis(log.attempted_at), log.application_id);
+            const attemptTarget = attemptComputation.result.proposed_target_gc_clause_id
+              ? attemptComputation.result
+              : attemptComputation.underlying;
+            if (assessmentAtAttempt.machine_status !== attemptComputation.result.machine_alignment_status
+              || (assessmentAtAttempt.blocking_issue ?? null) !== (attemptComputation.result.blocking_issue ?? null)
+              || (assessmentAtAttempt.proposed_target?.clause_id ?? null) !== (attemptTarget.proposed_target_gc_clause_id ?? null)
+              || (assessmentAtAttempt.proposed_target?.clause_number ?? null) !== (attemptTarget.proposed_target_gc_clause_number ?? null)
+              || (assessmentAtAttempt.proposed_target?.clause_heading ?? null) !== (attemptTarget.proposed_target_gc_heading ?? null)) {
+              throw new Error(`application_log ${log.application_id} used an alignment assessment that was stale at attempted_at.`);
+            }
+          }
         });
         const latestApplicationLog = entryApplicationLogs.at(-1) || null;
         const entryDecisions = data.alignment_decisions.filter((decision) => decision.amendment_id === entry.amendment_id);
+        const appliedIntervals = entryApplicationLogs
+          .filter((log) => log.application_result === "Applied")
+          .map((log) => ({
+            start: pcTimestampMillis(log.applied_at),
+            end: log.rolled_back_at === null ? Infinity : pcTimestampMillis(log.rolled_back_at)
+          }));
+        const fallsInsideActiveApplication = (timestamp) => appliedIntervals.some((interval) => timestamp >= interval.start && timestamp < interval.end);
+        data.alignment_assessments
+          .filter((assessment) => assessment.amendment_id === entry.amendment_id)
+          .forEach((assessment) => {
+            if (fallsInsideActiveApplication(pcTimestampMillis(assessment.assessed_at))) {
+              throw new Error(`amendments[${index}] contains an alignment assessment recorded while its application was active.`);
+            }
+          });
+        entryDecisions.forEach((decision) => {
+          if (fallsInsideActiveApplication(pcTimestampMillis(decision.decided_at))) {
+            throw new Error(`amendments[${index}] contains a manual alignment decision recorded while its application was active.`);
+          }
+        });
+        entryApplicationLogs.filter((log) => log.application_result === "Previewed").forEach((log) => {
+          const logTime = pcTimestampMillis(log.attempted_at);
+          const assessmentAtPreview = assessmentAtAttemptByApplication.get(log.application_id) || null;
+          const assessmentComputation = pcComputeAssessmentAt(assessmentAtPreview, entry, logTime, log.application_id);
+          const historicalSnapshots = pcEffectiveSnapshotsAt(logTime, log.application_id);
+          const targetSnapshots = historicalSnapshots.filter((record) => {
+            const idMatches = log.target_clause_id === null || record.baseline_clause_id === log.target_clause_id;
+            const numberMatches = log.target_clause_number === null || record.clause_number === String(log.target_clause_number);
+            return idMatches && numberMatches;
+          });
+          if (targetSnapshots.length > 1) throw new Error(`application_log ${log.application_id} had an ambiguous Effective Clause target at attempted_at.`);
+          let historicalRecord = targetSnapshots[0] || null;
+          if (log.effective_clause_id !== null) {
+            if (!historicalRecord || historicalRecord.effective_clause_id !== log.effective_clause_id) {
+              throw new Error(`application_log ${log.application_id} does not reference the Effective Clause version that existed at attempted_at.`);
+            }
+          } else if (historicalRecord) {
+            throw new Error(`application_log ${log.application_id} omits the Effective Clause that existed at attempted_at.`);
+          }
+          const isNewClause = log.amendment_category === "New Clause" || log.operation === "Add New Sub-Clause";
+          if (!historicalRecord) {
+            const controlledById = log.target_clause_id ? currentSourceGate.index.byId.get(log.target_clause_id) || null : null;
+            const controlledByNumber = log.target_clause_number ? currentSourceGate.index.byNumber.get(String(log.target_clause_number)) || null : null;
+            if (controlledById && controlledByNumber && controlledById.id !== controlledByNumber.id) {
+              throw new Error(`application_log ${log.application_id} identifies conflicting controlled baseline records.`);
+            }
+            const controlled = controlledByNumber || controlledById;
+            if (!isNewClause && !controlled) throw new Error(`application_log ${log.application_id} cannot reconstruct its preview input from the controlled baseline.`);
+            const initialVersionId = controlled
+              ? `baseline:${controlled.id}`
+              : `new:${String(log.target_clause_number)}:pending`;
+            historicalRecord = {
+              effective_clause_id: null,
+              baseline_clause_id: controlled?.id || null,
+              clause_number: String(log.target_clause_number ?? controlled?.clause_no ?? ""),
+              clause_heading: controlled?.clause_title || assessmentAtPreview.proposed_target?.clause_heading || null,
+              parent_clause_number: controlled?.parent_clause_no || PCAlignmentEngine.parentNumber(assessmentComputation.operands.parent_clause || log.target_clause_number),
+              baseline_text: controlled?.full_text ?? null,
+              current_effective_text: controlled?.full_text || "",
+              current_version_id: initialVersionId,
+              current_version_number: 0,
+              applied_amendment_ids: []
+            };
+          }
+          if (log.input_version !== historicalRecord.current_version_id) {
+            throw new Error(`application_log ${log.application_id}.input_version was not current at attempted_at.`);
+          }
+          const decisionAtPreview = pcDecisionAt(entry.amendment_id, logTime);
+          const confirmedAtPreview = decisionAtPreview?.action === "Confirm Alignment"
+            && decisionAtPreview.alignment_assessment_id === assessmentAtPreview.alignment_assessment_id;
+          const alignmentStatusAtPreview = decisionAtPreview
+            ? decisionAtPreview.new_alignment_status
+            : assessmentAtPreview.machine_status;
+          const controlledTarget = assessmentAtPreview.proposed_target?.clause_id
+            ? currentSourceGate.index.byId.get(assessmentAtPreview.proposed_target.clause_id) || null
+            : null;
+          const resolvedOperands = {
+            ...assessmentComputation.operands,
+            alignment_status: alignmentStatusAtPreview,
+            machine_alignment_status: assessmentAtPreview.machine_status,
+            blocking_issue: assessmentComputation.result.blocking_issue || null,
+            target_gc_clause_id: assessmentAtPreview.proposed_target?.clause_id || assessmentComputation.operands.target_gc_clause_id || null,
+            target_gc_clause_number: assessmentAtPreview.proposed_target?.clause_number || assessmentComputation.operands.target_gc_clause_number || null,
+            target_gc_heading: assessmentAtPreview.proposed_target?.clause_heading || assessmentComputation.operands.target_gc_heading || null,
+            parent_clause: confirmedAtPreview && assessmentComputation.operands.parent_clause && controlledTarget
+              ? controlledTarget.parent_clause_no
+              : assessmentComputation.operands.parent_clause
+          };
+          const amendmentSnapshots = assessmentComputation.amendmentSnapshots.map((candidate) => candidate.amendment_id === entry.amendment_id
+            ? { ...candidate, ...resolvedOperands }
+            : {
+              ...candidate,
+              target_gc_clause_id: candidate.proposed_target_gc_clause_id || candidate.target_gc_clause_id || null,
+              target_gc_clause_number: candidate.proposed_target_gc_clause_number || candidate.target_gc_clause_number || null,
+              target_gc_heading: candidate.proposed_target_gc_heading || candidate.target_gc_heading || null
+            });
+          const eligibility = PCAlignmentEngine.getEligibility(resolvedOperands, fidicSourceLayer, historicalRecord.effective_clause_id ? historicalRecord : null, amendmentSnapshots);
+          if (!eligibility.eligible
+            || (assessmentAtPreview.machine_status !== "Exact Match" && !confirmedAtPreview)
+            || assessmentComputation.result.machine_alignment_status === "Blocking Dependency"
+            || assessmentComputation.result.blocking_issue
+            || assessmentComputation.operands.global_dependency_ids.length) {
+            throw new Error(`application_log ${log.application_id} was not historically eligible for Preview: ${eligibility.reasons.join(" ") || "alignment confirmation or dependency gate failed."}`);
+          }
+          if (!pcHistoricalSequenceGate(entry, resolvedOperands, logTime).ok) {
+            throw new Error(`application_log ${log.application_id} violated the historical amendment sequence gate.`);
+          }
+          const operationResult = pcComputeOperation(resolvedOperands, historicalRecord);
+          const outputVersionNumber = historicalRecord.current_version_number + 1;
+          if (!operationResult.ok
+            || log.output_version !== `preview-${outputVersionNumber}`
+            || log.output_text !== operationResult.outputText
+            || log.target_occurrence_count !== operationResult.occurrenceCount
+            || log.failure_reason !== null
+            || !pcPreviewSegmentsMatch(log.change_segments, operationResult.segments, log.application_id, log.amendment_id, outputVersionNumber)) {
+            throw new Error(`application_log ${log.application_id} does not equal the deterministic, non-persistent preview result.`);
+          }
+          if (data.effective_clauses.some((record) => record.version_history.some((version) => version.version_id === log.output_version
+            || version.created_by_application_id === log.application_id))) {
+            throw new Error(`application_log ${log.application_id} illegally persisted its preview as an Effective Clause version.`);
+          }
+          if (log.applied_at !== null || log.rollback_available !== false || log.rolled_back_at !== null || log.reverses_application_id !== null) {
+            throw new Error(`application_log ${log.application_id} has committed or rollback metadata on a non-persistent preview.`);
+          }
+        });
         const rejectLogs = entryApplicationLogs.filter((log) => log.attempt_type === "Reject" && log.application_result === "Rejected");
         const latestRejectLog = rejectLogs.at(-1) || null;
         const rejectDecisions = entryDecisions.filter((decision) => decision.action === "Reject Alignment");
@@ -2255,6 +2650,16 @@ function pcValidateJsonPayload(data) {
           }
           if (assessmentAtApplication.machine_status !== "Exact Match" && decisionAtApplication?.action !== "Confirm Alignment") {
             throw new Error(`amendments[${index}] Applied audit record required a preceding Human Confirmed decision for its assessment.`);
+          }
+          const applicationOperands = pcAssessmentOperands(assessmentAtApplication, entry);
+          const resolvedApplicationOperands = {
+            ...applicationOperands,
+            target_gc_clause_id: assessmentAtApplication.proposed_target?.clause_id || applicationOperands.target_gc_clause_id || null,
+            target_gc_clause_number: assessmentAtApplication.proposed_target?.clause_number || applicationOperands.target_gc_clause_number || null,
+            target_gc_heading: assessmentAtApplication.proposed_target?.clause_heading || applicationOperands.target_gc_heading || null
+          };
+          if (!pcHistoricalSequenceGate(entry, resolvedApplicationOperands, logTime).ok) {
+            throw new Error(`amendments[${index}] Applied audit record violated the historical amendment sequence gate.`);
           }
         });
         if (rejectLogs.length !== rejectDecisions.length) throw new Error(`amendments[${index}] must pair every Reject Alignment decision with exactly one Rejected application log.`);
@@ -2481,6 +2886,7 @@ function pcConfirmJsonImport() {
     const hasCurrentState = Boolean(pcReviewData.project || pcReviewData.source_documents.length || pcReviewData.amendments.length);
     if (hasCurrentState && !window.confirm(`Replace the current browser-session review with “${data.project.project_name}”? Unsaved state will be lost.`)) return;
     pcReviewData = pcUpgradeReviewProject(data);
+    pcSeedAuditClock(pcReviewData);
     pcSelectedAmendmentIds.clear();
     pcApplicationPreviews.clear();
     pcWorkbenchAmendmentId = null;
@@ -3092,6 +3498,10 @@ function pcSetManualAlignment(amendmentId, action) {
   if (action === "Reject Alignment") {
     entry.application_status = "Rejected";
     pcAppendApplicationLog({ entry, record: null, attemptType: "Reject", applicationResult: "Rejected", failureReason: "Alignment rejected by human reviewer." });
+    pcReviewData.effective_clauses.forEach((record) => {
+      record.failed_amendment_ids = (record.failed_amendment_ids || []).filter((id) => id !== entry.amendment_id);
+      record.unresolved_issues = (record.unresolved_issues || []).filter((issue) => issue?.amendment_id !== entry.amendment_id);
+    });
   } else if (action === "Clear Manual Decision" && entry.application_status === "Rejected") {
     entry.application_status = pcBaseUnappliedApplicationStatus(entry);
   }
@@ -3149,6 +3559,7 @@ function pcReassessPendingClauseAmendments(record, changedAmendmentId) {
       pcEvaluateAmendmentAlignment(candidate, { recordHistory: false });
     }
   });
+  pcReviewData.effective_clauses.forEach(pcRefreshEffectiveClauseDerivedStatus);
 }
 
 function pcHasPendingClauseAmendments(record) {

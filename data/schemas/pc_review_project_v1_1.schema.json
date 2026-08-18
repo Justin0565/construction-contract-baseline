@@ -184,7 +184,7 @@
     },
     "alignment_assessment": {
       "type": "object",
-      "required": ["alignment_assessment_id", "amendment_id", "assessed_at", "assessed_by", "baseline_id", "baseline_source_sha256", "baseline_source_layer_sha256", "machine_status", "proposed_target", "evidence", "conflicts", "blocking_dependency_ids", "reason", "supersedes_assessment_id"],
+      "required": ["alignment_assessment_id", "amendment_id", "assessed_at", "assessed_by", "baseline_id", "baseline_source_sha256", "baseline_source_layer_sha256", "amendment_operation", "target_basis", "target_location", "replacement_or_added_text", "sequence_number", "machine_status", "underlying_match_status", "asserted_target", "proposed_target", "evidence", "conflicts", "blocking_dependency_ids", "blocking_issue", "reason", "supersedes_assessment_id"],
       "properties": {
         "alignment_assessment_id": { "type": "string", "minLength": 1 },
         "amendment_id": { "type": "string", "minLength": 1 },
@@ -193,11 +193,29 @@
         "baseline_id": { "const": "fidic_red_2017" },
         "baseline_source_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
         "baseline_source_layer_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "amendment_operation": { "enum": ["Delete Exact Text", "Delete Paragraph", "Delete Entire Sub-Clause", "Replace Exact Text", "Replace Paragraph", "Replace Entire Sub-Clause", "Insert Before", "Insert After", "Add Paragraph", "Add New Sub-Clause", "Amend Clause Heading", "Complete Contract Data", "Renumber", "Amend Cross-reference", "Amend Defined Term", "Global Amendment", "Unclassified Instruction"] },
+        "target_basis": { "enum": ["Original Baseline Text", "Current Effective Text", "Unclear"] },
+        "target_location": { "$ref": "#/$defs/nullable_string" },
+        "replacement_or_added_text": { "$ref": "#/$defs/nullable_string" },
+        "sequence_number": { "type": ["integer", "null"], "minimum": 1 },
         "machine_status": { "$ref": "#/$defs/machine_alignment_status" },
+        "underlying_match_status": { "$ref": "#/$defs/machine_alignment_status" },
+        "asserted_target": {
+          "type": "object",
+          "required": ["parent_clause", "target_gc_clause_number", "target_gc_heading", "target_text"],
+          "properties": {
+            "parent_clause": { "$ref": "#/$defs/nullable_string" },
+            "target_gc_clause_number": { "$ref": "#/$defs/nullable_string" },
+            "target_gc_heading": { "$ref": "#/$defs/nullable_string" },
+            "target_text": { "$ref": "#/$defs/nullable_string" }
+          },
+          "additionalProperties": true
+        },
         "proposed_target": { "type": "object" },
         "evidence": { "type": "object" },
         "conflicts": { "type": "array", "items": { "type": "string" } },
         "blocking_dependency_ids": { "type": "array", "items": { "type": "string" } },
+        "blocking_issue": { "$ref": "#/$defs/nullable_string" },
         "reason": { "type": "string" },
         "supersedes_assessment_id": { "$ref": "#/$defs/nullable_string" }
       },
@@ -205,7 +223,7 @@
     },
     "alignment_decision": {
       "type": "object",
-      "required": ["alignment_decision_id", "amendment_id", "alignment_assessment_id", "action", "previous_alignment_status", "new_alignment_status", "decided_at", "decided_by", "supersedes_decision_id", "processing_history_event_id"],
+      "required": ["alignment_decision_id", "amendment_id", "alignment_assessment_id", "action", "previous_alignment_status", "new_alignment_status", "confirmed_target_clause_id", "confirmed_target_clause_number", "confirmed_target_heading", "decided_at", "decided_by", "supersedes_decision_id", "processing_history_event_id"],
       "properties": {
         "alignment_decision_id": { "type": "string", "minLength": 1 },
         "amendment_id": { "type": "string", "minLength": 1 },
@@ -213,6 +231,9 @@
         "action": { "enum": ["Confirm Alignment", "Reject Alignment", "Mark Ambiguous", "Clear Manual Decision"] },
         "previous_alignment_status": { "$ref": "#/$defs/alignment_status" },
         "new_alignment_status": { "$ref": "#/$defs/alignment_status" },
+        "confirmed_target_clause_id": { "$ref": "#/$defs/nullable_string" },
+        "confirmed_target_clause_number": { "$ref": "#/$defs/nullable_string" },
+        "confirmed_target_heading": { "$ref": "#/$defs/nullable_string" },
         "decided_at": { "type": "string", "format": "date-time" },
         "decided_by": { "type": "string", "minLength": 1 },
         "supersedes_decision_id": { "$ref": "#/$defs/nullable_string" },
