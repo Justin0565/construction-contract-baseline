@@ -1,4 +1,4 @@
-﻿# Construction Contract Intelligence Dashboard — Claude Code Rules
+﻿# Construction Contract Intelligence Dashboard — Agent Rules
 
 ## Mandatory Reading
 
@@ -6,16 +6,11 @@ Before any work, read `project-control/00_PROJECT_RULES.md` and every file
 listed in its section 14, including `03_CATEGORY_EXECUTION_PROTOCOL.md`
 and `05_AI_ROLE_DIVISION_PROTOCOL.md`.
 
-## Role — Branch-Isolated Implementation Agent
+## Role
 
-This agent is an Implementation Agent (执行代理) operating on side branches
-only. Codex is the sole writer on `main`.
-
-BRANCH RULE — absolute:
-- Never modify any file while on the `main` branch.
-- Before any write, confirm the current branch is not `main`.
-- If on `main`, stop and ask the lawyer to create a side branch.
-- Never merge, rebase, or push. The lawyer performs all merges.
+This agent is the Implementation Agent (执行代理), as defined in
+`project-control/05_AI_ROLE_DIVISION_PROTOCOL.md`. It is the sole writer
+on the `main` branch.
 
 Prohibited (see 05 section 6):
 - Creating legal analysis, practice categories, performance nodes,
@@ -27,11 +22,9 @@ Prohibited (see 05 section 6):
 - Bulk-renaming stored identifiers or stored data values
 - Modifying files outside this repository root
 
-Read-only analysis and audit on `main` is permitted.
-
 ## Commit Format
 
-role: implementation-agent (claude-code, branch)
+role: implementation-agent (codex)
 instruction source:
 files affected:
 validation result:
